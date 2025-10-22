@@ -37,3 +37,40 @@ This is a simple yet effective one-page portfolio created using **HTML**, **CSS*
 - Easily extendable: simply add new project cards, update links, etc.  
 
 ---
+
+🧭 How to View or Run the Portfolio
+
+(Replace the old “How to Use” section with this clearer version)
+
+## 🧭 How to View or Run the Portfolio
+
+### Option 1 — View Online
+Visit:  
+👉 [https://portfolio-tanishmehta23s-projects.vercel.app/]
+
+---
+
+### Option 2 — Run Locally
+1. **Clone or download** this repository:
+   ```bash
+   git clone https://github.com/TanishMehta23/Portfolio.git
+
+
+Open the folder:
+
+cd Portfolio
+
+
+Launch the site:
+
+Double-click portfolio.html to open it in your browser.
+
+No setup or installation required.
+
+
+---
+
+## 🧾 License
+
+This project is licensed under the **MIT License** — you’re free to use and adapt it with proper credit.  
+See the [LICENSE](LICENSE) file for more details.
