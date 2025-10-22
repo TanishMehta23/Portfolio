@@ -1,0 +1,39 @@
+@keyframes bounce-down {
+  0%, 100% {
+    transform: translateY(-25%);
+    animation-timing-function: cubic-bezier(0.8, 0, 1, 1);
+  }
+  50% {
+    transform: translateY(0);
+    animation-timing-function: cubic-bezier(0, 0, 0.2, 1);
+  }
+}
+
+.animate-bounce-down {
+  animation: bounce-down 1.5s infinite;
+}
+.nav-link {
+      position: relative;
+      color: white;
+      transition: color 0.3s ease;
+    }
+
+    .nav-link::after {
+      content: '';
+      position: absolute;
+      left: 50%;
+      bottom: -4px;
+      transform: translateX(-50%);
+      width: 0;
+      height: 2px;
+      background: linear-gradient(to right, #22d3ee, #ec4899);
+      transition: width 0.3s ease;
+    }
+
+    .nav-link:hover {
+      color: #22d3ee;
+    }
+
+    .nav-link:hover::after {
+      width: 100%;
+    }
