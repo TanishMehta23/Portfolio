@@ -37,3 +37,21 @@
     .nav-link:hover::after {
       width: 100%;
     }
+
+.cursor {
+  display: inline-block;
+  width: 3px;
+  height: 1.2em;
+  background-color: #06b6d4;
+  margin-left: 3px;
+  animation: blink 0.6s infinite;
+}
+
+@keyframes blink {
+  0%, 50% {
+    opacity: 1;
+  }
+  51%, 100% {
+    opacity: 0;
+  }
+}

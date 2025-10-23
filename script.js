@@ -79,3 +79,34 @@ document.addEventListener("DOMContentLoaded", () => {
     });
   });
 });
+
+
+const mainText = "Hi, I'm Tanish Mehta 👋";
+const subText = "Front-End Developer & Java DSA Enthusiast";
+
+const mainElement = document.getElementById("main-text");
+const subElement = document.getElementById("sub-text");
+
+let i = 0;
+let j = 0;
+
+function typeMain() {
+  if (i < mainText.length) {
+    mainElement.innerHTML = mainText.slice(0, i + 1) + '<span class="cursor"></span>';
+    i++;
+    setTimeout(typeMain, 100);
+  } else {
+    mainElement.innerHTML = mainText + '<span class="cursor"></span>';
+    setTimeout(typeSub, 600);
+  }
+}
+
+function typeSub() {
+  if (j < subText.length) {
+    subElement.textContent += subText[j];
+    j++;
+    setTimeout(typeSub, 60);
+  }
+}
+
+window.onload = typeMain;

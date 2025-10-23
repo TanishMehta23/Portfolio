@@ -26,7 +26,8 @@
 
 
 <body class="bg-white text-gray-900 transition-colors duration-300 dark:bg-gray-900 dark:text-gray-100">
-  <nav class="fixed top-0 left-0 right-0 z-50 bg-gray-800/80 backdrop-blur-md border-b border-gray-200 dark:bg-gray-900/80 dark:border-gray-700">
+  <nav
+    class="fixed top-0 left-0 right-0 z-50 bg-gray-800/80 backdrop-blur-md border-b border-gray-200 dark:bg-gray-800/80 dark:border-gray-700">
     <div class="max-w-6xl mx-auto px-4 md:px-8">
       <div class="flex items-center justify-between h-16">
         <div class="flex items-center gap-3">
@@ -56,11 +57,16 @@
           <!-- Dark mode toggle -->
           <button id="theme-toggle" aria-label="Toggle dark mode"
             class="ml-2 p-2 rounded-md hover:bg-gray-100 dark:hover:bg-gray-800 transition-colors">
-            <svg id="theme-toggle-light-icon" class="w-6 h-6 hidden" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 3v2m0 14v2m9-9h-2M5 12H3m15.36-6.36l-1.42 1.42M7.05 16.95l-1.42 1.42m12.02 0l-1.42-1.42M7.05 7.05L5.63 5.63M12 7a5 5 0 100 10 5 5 0 000-10z"></path>
+            <svg id="theme-toggle-light-icon" class="w-6 h-6 hidden" fill="none" stroke="currentColor"
+              viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                d="M12 3v2m0 14v2m9-9h-2M5 12H3m15.36-6.36l-1.42 1.42M7.05 16.95l-1.42 1.42m12.02 0l-1.42-1.42M7.05 7.05L5.63 5.63M12 7a5 5 0 100 10 5 5 0 000-10z">
+              </path>
             </svg>
-            <svg id="theme-toggle-dark-icon" class="w-6 h-6 hidden" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 12.79A9 9 0 1111.21 3 7 7 0 0021 12.79z"></path>
+            <svg id="theme-toggle-dark-icon" class="w-6 h-6 hidden" fill="none" stroke="currentColor"
+              viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                d="M21 12.79A9 9 0 1111.21 3 7 7 0 0021 12.79z"></path>
             </svg>
           </button>
         </div>
@@ -78,30 +84,35 @@
   </nav>
 
   <main class="pt-16 w-full">
-  <section id="home" class="h-screen flex flex-col items-center bg-gray-50 dark:bg-gray-800">
-      <div class="flex justify-between">
+    <section id="home" class="h-screen flex flex-col items-center bg-gray-50 dark:bg-gray-900">
+      <div class="flex justify-between w-full">
         <div class="p-20 pt-32 w-[60%]">
-          <p class="text-5xl font-semibold">Hi, I'm <span class="font-bold text-blue-500 dark:text-cyan-400">Tanish Mehta</span> 👋</p>
-          <p class="text-3xl pt-6 pb-20 font-medium font-serif">Front-End Developer & Java DSA Enthusiast</p>
-          <p class="text-lg font-mono">I love building clean, responsive, and interactive web interfaces using HTML,
-            CSS,
-            JavaScript, and Tailwind
-            CSS.Currently exploring Data Structures & Algorithms in Java to strengthen my problem-solving skills.</p>
+          <div class="min-h-[160px]">
+            <p id="main-text" class="text-5xl font-semibold"></p>
+            <p id="sub-text" class="text-3xl pt-6 pb-6 font-medium font-serif text-gray-800 dark:text-gray-200"></p>
+          </div>
+
+          <p class="text-lg font-mono text-gray-700 dark:text-gray-300 mt-5">
+            I love building clean, responsive, and interactive web interfaces using HTML, CSS, JavaScript, and Tailwind
+            CSS. Currently exploring Data Structures & Algorithms in Java to strengthen my problem-solving skills.
+          </p>
         </div>
-        <!-- <div class="relative flex items-center justify-center w-[36rem] h-[36rem] mx-auto">
-        <div class="absolute w-[28rem] h-[28rem] rounded-full bg-cyan-100"></div>
-        <div class="absolute w-[22rem] h-[22rem] rounded-full bg-cyan-300"></div>
-        <div class="absolute w-[16rem] h-[16rem] rounded-full overflow-hidden border-4 border-white">
-          <img src="Resources/Tanish-removebg-preview.png" alt="Profile" class="w-full h-full object-cover">
-        </div>
-      </div> -->
-  <img src="Resources/Tanish.png" alt="" class="rounded-full w-96 h-96 m-16">
+        <img src="Resources/Tanish.png" alt="Tanish Mehta" class="rounded-full w-96 h-96 m-16 shadow-2xl">
       </div>
-      <div class="left-1/2 transform flex flex-col items-center ">
-        <a href="#skills"
-          class="justify-center items-center bg-blue-600 text-white p-4 rounded-2xl pl-8 pr-8 text-lg shadow-xl hover:bg-blue-500">
-          Know More
-        </a>
+
+      <div class="left-1/2 transform flex flex-col items-center gap-3">
+        <div class="flex gap-4">
+          <a href="#skills"
+            class="bg-blue-600 text-white p-4 rounded-2xl pl-8 pr-8 text-lg shadow-xl hover:bg-blue-500 transition">
+            Know More
+          </a>
+
+          <!-- Resume button -->
+          <a href="Resources/Tanish's Resume.pdf" target="_blank"
+            class="bg-gray-800 text-white p-4 rounded-2xl pl-8 pr-8 text-lg shadow-xl hover:bg-gray-700 transition">
+            Resume 📄
+          </a>
+        </div>
 
         <div class="animate-bounce-down text-blue-800 pt-1">
           <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -112,9 +123,123 @@
       </div>
     </section>
 
-  <section id="skills" class="bg-gray-100 dark:bg-gray-800 p-10 flex flex-col items-center">
-      <div class="text-5xl font-semibold font-serif text-transparent bg-clip-text bg-gradient-to-r from-indigo-400 via-indigo-500 to-indigo-700 p-10">SKILLS</div>
-  <div class="grid grid-cols-5 gap-16">
+    <section id="skills" class="bg-gray-100 dark:bg-gray-800 p-10 flex flex-col items-center">
+      <div
+        class="text-5xl font-semibold font-serif text-transparent bg-clip-text bg-gradient-to-r from-indigo-400 via-indigo-500 to-indigo-700 p-10">
+        SKILLS
+      </div>
+
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-12 w-full justify-items-center">
+
+        <!-- Programming Languages -->
+        <div class="flex flex-col items-center gap-6">
+          <h3 class="text-2xl font-bold mb-4">🧠 Programming Languages</h3>
+          <div class="grid grid-cols-2 gap-6">
+            <div
+              class="h-56 w-40 rounded-xl flex flex-col items-center p-5 shadow-lg transition-transform duration-500 hover:scale-105 hover:shadow-2xl bg-gradient-to-r from-stone-200 to-stone-300">
+              <img src="https://upload.wikimedia.org/wikipedia/commons/1/19/C_Logo.png" class="h-24 w-24 mb-3" alt="C">
+              <p class="text-stone-600 font-semibold font-mono text-3xl pt-5">C</p>
+            </div>
+            <div
+              class="h-56 w-40 rounded-xl flex flex-col items-center p-5 shadow-lg transition-transform duration-500 hover:scale-105 hover:shadow-2xl bg-gradient-to-r from-stone-200 to-stone-300">
+              <img
+                src="https://upload.wikimedia.org/wikipedia/commons/thumb/1/18/ISO_C%2B%2B_Logo.svg/1822px-ISO_C%2B%2B_Logo.svg.png"
+                class="h-24 w-24 mb-3" alt="C++">
+              <p class="text-stone-600 font-semibold font-mono text-3xl pt-5">C++</p>
+            </div>
+            <div
+              class="h-56 w-40 rounded-xl flex flex-col items-center p-5 shadow-lg transition-transform duration-500 hover:scale-105 hover:shadow-2xl bg-gradient-to-r from-stone-200 to-stone-300">
+              <img src="https://cdn-icons-png.flaticon.com/512/226/226777.png" class="h-24 w-24 mb-3" alt="Java">
+              <p class="text-stone-600 font-semibold font-mono text-3xl pt-5">Java</p>
+            </div>
+            <div
+              class="h-56 w-40 rounded-xl flex flex-col items-center p-5 shadow-lg transition-transform duration-500 hover:scale-105 hover:shadow-2xl bg-gradient-to-r from-stone-200 to-stone-300">
+              <img src="Resources/python Logo.png" class="h-24 w-24 mb-3" alt="Python">
+              <p class="text-stone-600 font-semibold font-mono text-3xl pt-5">Python</p>
+            </div>
+          </div>
+        </div>
+
+        <!-- Frontend Tools -->
+        <div class="flex flex-col items-center gap-6">
+          <h3 class="text-2xl font-bold mb-4">🎨 Frontend Tools</h3>
+          <div class="grid grid-cols-2 gap-6">
+            <div
+              class="h-56 w-40 rounded-xl flex flex-col items-center p-5 shadow-lg transition-transform duration-500 hover:scale-105 hover:shadow-2xl bg-gradient-to-r from-stone-200 to-stone-300">
+              <img
+                src="https://cdn.iconscout.com/icon/free/png-256/free-html-logo-icon-svg-download-png-3030115.png?f=webp&w=128"
+                class="h-24 w-24 mb-3" alt="HTML">
+              <p class="text-stone-600 font-semibold font-mono text-3xl pt-5">HTML</p>
+            </div>
+            <div
+              class="h-56 w-40 rounded-xl flex flex-col items-center p-5 shadow-lg transition-transform duration-500 hover:scale-105 hover:shadow-2xl bg-gradient-to-r from-stone-200 to-stone-300">
+              <img src="Resources/CSS Logo.png" class="h-24 w-24 mb-3" alt="CSS">
+              <p class="text-stone-600 font-semibold font-mono text-3xl pt-5">CSS</p>
+            </div>
+            <div
+              class="h-56 w-40 rounded-xl flex flex-col items-center p-5 shadow-lg transition-transform duration-500 hover:scale-105 hover:shadow-2xl bg-gradient-to-r from-stone-200 to-stone-300">
+              <img src="Resources/JS Logo.png" class="h-24 w-24 mb-3" alt="JavaScript">
+              <p class="text-stone-600 font-semibold font-mono text-2xl pt-5">JavaScript</p>
+            </div>
+            <div
+              class="h-56 w-40 rounded-xl flex flex-col items-center p-5 shadow-lg transition-transform duration-500 hover:scale-105 hover:shadow-2xl bg-gradient-to-r from-stone-200 to-stone-300">
+              <img
+                src="https://upload.wikimedia.org/wikipedia/commons/thumb/a/a7/React-icon.svg/2300px-React-icon.svg.png"
+                class="h-24 w-24 mb-3" alt="React">
+              <p class="text-stone-600 font-semibold font-mono text-2xl pt-5">React.js</p>
+            </div>
+            <div
+              class="h-56 w-40 rounded-xl flex flex-col items-center p-5 shadow-lg transition-transform duration-500 hover:scale-105 hover:shadow-2xl bg-gradient-to-r from-stone-200 to-stone-300">
+              <img
+                src="https://upload.wikimedia.org/wikipedia/commons/thumb/d/d5/Tailwind_CSS_Logo.svg/2560px-Tailwind_CSS_Logo.svg.png"
+                class="h-24 w-24 mb-3" alt="Tailwind CSS">
+              <p class="text-stone-600 font-semibold font-mono text-2xl pt-5">Tailwind</p>
+            </div>
+            <div
+              class="h-56 w-40 rounded-xl flex flex-col items-center p-5 shadow-lg transition-transform duration-500 hover:scale-105 hover:shadow-2xl bg-gradient-to-r from-stone-200 to-stone-300">
+              <img
+                src="https://upload.wikimedia.org/wikipedia/commons/thumb/b/b2/Bootstrap_logo.svg/2560px-Bootstrap_logo.svg.png"
+                class="h-24 w-24 mb-3" alt="Bootstrap">
+              <p class="text-stone-600 font-semibold font-mono text-2xl pt-5">Bootstrap</p>
+            </div>
+          </div>
+        </div>
+
+        <!-- Other Tools -->
+        <div class="flex flex-col items-center gap-6">
+          <h3 class="text-2xl font-bold mb-4">⚙️ Other Tools</h3>
+          <div class="grid grid-cols-2 gap-6">
+            <div
+              class="h-56 w-40 rounded-xl flex flex-col items-center p-5 shadow-lg transition-transform duration-500 hover:scale-105 hover:shadow-2xl bg-gradient-to-r from-stone-200 to-stone-300">
+              <img src="https://git-scm.com/images/logos/downloads/Git-Icon-1788C.png" class="h-24 w-24 mb-3" alt="Git">
+              <p class="text-stone-600 font-semibold font-mono text-3xl pt-5">Git</p>
+            </div>
+            <div
+              class="h-56 w-40 rounded-xl flex flex-col items-center p-5 shadow-lg transition-transform duration-500 hover:scale-105 hover:shadow-2xl bg-gradient-to-r from-stone-200 to-stone-300">
+              <img src="Resources/GitHub Logo.png" class="h-24 w-24 mb-3" alt="GitHub">
+              <p class="text-stone-600 font-semibold font-mono text-3xl pt-5">GitHub</p>
+            </div>
+            <div
+              class="h-56 w-40 rounded-xl flex flex-col items-center p-5 shadow-lg transition-transform duration-500 hover:scale-105 hover:shadow-2xl bg-gradient-to-r from-stone-200 to-stone-300">
+              <img src="Resources/MySQL Logo.png" class="h-24 w-24 mb-3" alt="MySQL">
+              <p class="text-stone-600 font-semibold font-mono text-3xl pt-5">MySQL</p>
+            </div>
+            <div
+              class="h-56 w-40 rounded-xl flex flex-col items-center p-5 shadow-lg transition-transform duration-500 hover:scale-105 hover:shadow-2xl bg-gradient-to-r from-stone-200 to-stone-300">
+              <img src="Resources/Canva Logo.png" class="h-24 w-24 mb-3" alt="Canva">
+              <p class="text-stone-600 font-semibold font-mono text-3xl pt-5">Canva</p>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- <section id="skills" class="bg-gray-100 dark:bg-gray-800 p-10 flex flex-col items-center">
+      <div
+        class="text-5xl font-semibold font-serif text-transparent bg-clip-text bg-gradient-to-r from-indigo-400 via-indigo-500 to-indigo-700 p-10">
+        SKILLS</div> -->
+    <!-- <div class="grid grid-cols-5 gap-16">
         <div
           class="h-56 w-40 rounded-xl flex flex-col items-center p-5 shadow-lg transform transition-all duration-500 bg-gradient-to-r from-stone-200 to-stone-300 animate-gradient-xy hover:scale-105 hover:shadow-2xl justify-between">
           <img
@@ -194,11 +319,18 @@
           <img src="Resources/Canva Logo.png" class="h-24 w-24" alt="">
           <p class="text-stone-600 font-semibold font-mono text-3xl mb-3">Canva</p>
         </div>
-      </div>
-    </section>
+      </div> -->
+    <!-- <div class="grid grid-cols-3">
+        <div>
 
-  <section id="projects" class="flex items-center flex-col bg-gray-50 dark:bg-gray-900">
-      <div class="text-5xl font-semibold font-serif text-transparent bg-clip-text bg-gradient-to-r from-pink-400 via-rose-500 to-fuchsia-600 p-10">Projects</div>
+        </div>
+      </div>
+    </section> -->
+
+    <section id="projects" class="flex items-center flex-col bg-gray-50 dark:bg-gray-900">
+      <div
+        class="text-5xl font-semibold font-serif text-transparent bg-clip-text bg-gradient-to-r from-pink-400 via-rose-500 to-fuchsia-600 p-10 pt-16">
+        Projects</div>
       <div class="grid grid-cols-1 w-full justify-items-center">
         <div
           class="w-[90%] bg-gradient-to-r from-slate-200 to-slate-300 dark:from-gray-700 dark:to-gray-800 rounded-2xl shadow-lg hover:shadow-2xl transform transition-all duration-500 hover:scale-[1.02] p-8 flex flex-col md:flex-row justify-between items-center gap-8 mt-10">
@@ -213,6 +345,13 @@
               <li>Reinforced skills in dynamic web application development, problem-solving, and efficient version
                 control.</li>
             </ul>
+            <div class="flex gap-4 flex-wrap">
+              <span class="px-3 py-1 bg-gray-800 text-white text-sm rounded-lg">HTML</span>
+              <span class="px-3 py-1 bg-cyan-700 text-white text-sm rounded-lg">CSS</span>
+              <span class="px-3 py-1 bg-yellow-500 text-white text-sm rounded-lg">JavaScript</span>
+              <span class="px-3 py-1 bg-green-500 text-white text-sm rounded-lg">Email.js</span>
+            </div>
+
 
             <div class="flex gap-4 pt-4">
               <a href="https://github.com/Chet07-R/Fitness-Planet" target="_blank"
@@ -248,7 +387,13 @@
               <li>Collaborated with a team to create an intuitive and scalable web platform, focusing on user-centric
                 design, responsive UI/UX, and seamless integration of productivity tools.</li>
             </ul>
-
+            <div class="flex gap-4 flex-wrap">
+              <span class="px-3 py-1 bg-gray-800 text-white text-sm rounded-lg">HTML</span>
+              <span class="px-3 py-1 bg-cyan-700 text-white text-sm rounded-lg">Tailwind CSS</span>
+              <span class="px-3 py-1 bg-yellow-500 text-white text-sm rounded-lg">JavaScript</span>
+              <span class="px-3 py-1 bg-red-500 text-white text-sm rounded-lg">React.js</span>
+              <span class="px-3 py-1 bg-green-500 text-white text-sm rounded-lg">Email.js</span>
+            </div>
             <div class="flex gap-4 pt-4">
               <a href="https://github.com/Chet07-R/FocusoraHQ" target="_blank"
                 class="px-5 py-2 rounded-xl bg-gray-800 text-white font-semibold shadow-md hover:bg-gray-700 transition-all duration-300">
@@ -262,18 +407,25 @@
           </div>
 
         </div>
+        <div class="flex justify-center mt-12 mb-12">
+          <a href="https://github.com/TanishMehta23?tab=repositories" target="_blank" rel="noopener noreferrer"
+            class="px-3 py-3 bg-blue-600 text-white font-semibold rounded-2xl shadow-lg hover:bg-blue-500 hover:shadow-2xl transition-all duration-300 text-lg">
+            View More Projects
+          </a>
+        </div>
 
 
       </div>
     </section>
 
-  <section id="platforms" class="min-h-screen flex flex-col items-center justify-center bg-gray-100 dark:bg-gray-800 py-16">
+    <section id="platforms"
+      class="min-h-screen flex flex-col items-center justify-center bg-gray-100 dark:bg-gray-800 py-16 mt-20">
       <h2
         class="text-5xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-cyan-400 to-pink-400  mb-12 font-serif">
         Find Me On
       </h2>
 
-      <div class="flex flex-wrap justify-center gap-10 grid grid-cols-5">
+      <div class="flex flex-wrap justify-center gap-10 grid grid-cols-4">
 
         <!-- GitHub -->
         <a href="https://github.com/TanishMehta23" target="_blank"
@@ -300,8 +452,7 @@
         <!-- HackerRank -->
         <a href="https://www.hackerrank.com/profile/tanish_mehta23" target="_blank"
           class="flex flex-col items-center bg-white p-6 rounded-2xl shadow-lg hover:shadow-2xl hover:scale-105 transform transition-all duration-300 w-44">
-          <img src="Resources/Hackerrank logo.png" alt="HackerRank"
-            class="h-16 w-16 mb-3">
+          <img src="Resources/Hackerrank logo.png" alt="HackerRank" class="h-16 w-16 mb-3">
           <p class="font-semibold text-gray-800 text-lg">HackerRank</p>
         </a>
 
@@ -315,21 +466,27 @@
         <!-- Instagram -->
         <a href="https://www.instagram.com/_.tanish._23/" target="_blank"
           class="flex flex-col items-center bg-white p-6 rounded-2xl shadow-lg hover:shadow-2xl hover:scale-105 transform transition-all duration-300 w-44">
-          <img src="https://static.xx.fbcdn.net/assets/?set=help_center_about_page_illustrations&name=desktop-instagram-gradient-logo&density=1" alt="GitHub" class="h-16 w-16 mb-3">
+          <img
+            src="https://static.xx.fbcdn.net/assets/?set=help_center_about_page_illustrations&name=desktop-instagram-gradient-logo&density=1"
+            alt="GitHub" class="h-16 w-16 mb-3">
           <p class="font-semibold text-gray-800 text-lg">Instagram</p>
         </a>
 
         <!-- X -->
         <a href="https://x.com/TanishMeht7562" target="_blank"
           class="flex flex-col items-center bg-white p-6 rounded-2xl shadow-lg hover:shadow-2xl hover:scale-105 transform transition-all duration-300 w-44">
-          <img src="https://assets.streamlinehq.com/image/private/w_300,h_300,ar_1/f_auto/v1/icons/logos/x-jvgvt5gje92oz29ez4fgd.png/x-0muuxjzgzvtlpaduv3p4k2s.png?_a=DATAg1AAZAA0" alt="GitHub" class="h-16 w-16 mb-3">
+          <img
+            src="https://assets.streamlinehq.com/image/private/w_300,h_300,ar_1/f_auto/v1/icons/logos/x-jvgvt5gje92oz29ez4fgd.png/x-0muuxjzgzvtlpaduv3p4k2s.png?_a=DATAg1AAZAA0"
+            alt="GitHub" class="h-16 w-16 mb-3">
           <p class="font-semibold text-gray-800 text-lg">X</p>
         </a>
 
         <!-- Quora -->
-         <a href="https://www.quora.com/profile/Tanish-Mehta-52" target="_blank"
+        <a href="https://www.quora.com/profile/Tanish-Mehta-52" target="_blank"
           class="flex flex-col items-center bg-white p-6 rounded-2xl shadow-lg hover:shadow-2xl hover:scale-105 transform transition-all duration-300 w-44">
-          <img src="https://images.squarespace-cdn.com/content/v1/639b5b5db16dac1afbf2ca5c/b779a491-4d99-486f-a16e-c7154670fcee/ScreenSymbol_Red_RGB_512_RC.png" alt="GitHub" class="h-16 w-16 mb-3">
+          <img
+            src="https://images.squarespace-cdn.com/content/v1/639b5b5db16dac1afbf2ca5c/b779a491-4d99-486f-a16e-c7154670fcee/ScreenSymbol_Red_RGB_512_RC.png"
+            alt="GitHub" class="h-16 w-16 mb-3">
           <p class="font-semibold text-gray-800 text-lg">Quora</p>
         </a>
       </div>
@@ -338,6 +495,21 @@
         Let’s connect and collaborate!
       </p>
     </section>
+
+    <section id="contact" class="bg-gray-50 dark:bg-gray-900 py-20 text-center px-4">
+      <h2
+        class="text-5xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-green-400 to-teal-500 mb-4 font-serif">
+        Contact Me
+      </h2>
+      <p class="text-lg text-gray-700 dark:text-gray-300 mb-6">
+        Have a project idea? Reach out via email!
+      </p>
+      <a href="mailto:tanishmehta23@gmail.com"
+        class="bg-blue-600 text-white px-6 py-3 rounded-xl font-semibold hover:bg-blue-500 transition-colors">
+        Send Email
+      </a>
+    </section>
+
 
   </main>
 
@@ -349,4 +521,3 @@
 </body>
 
 </html>
-
