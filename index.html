@@ -1,0 +1,768 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Tanish Mehta | Portfolio</title>
+
+    <!-- Google Font -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap"
+        rel="stylesheet">
+
+    <!-- Tailwind -->
+    <script src="https://cdn.tailwindcss.com"></script>
+
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.1/css/all.min.css">
+
+    <!-- CSS -->
+    <link rel="stylesheet" href="style.css">
+
+    <link href="https://unpkg.com/aos@2.3.4/dist/aos.css" rel="stylesheet">
+
+    <script src="https://unpkg.com/aos@2.3.4/dist/aos.js"></script>
+
+    <script>
+        AOS.init({
+            duration: 1000,
+            once: true,
+            offset: 100
+        });
+    </script>
+
+</head>
+
+<body class="bg-[#09090B] text-white font-[Inter]">
+
+    <!-- ================= NAVBAR ================= -->
+    <div id="progress-container">
+        <div id="progress-bar"></div>
+    </div>
+
+    <header
+        class="fixed top-0 left-0 w-full z-50 transition-all duration-300 backdrop-blur-xl bg-[#070B14]/70 border-b border-[#1E293B]">
+
+        <nav class="max-w-7xl mx-auto">
+
+            <div class="flex items-center justify-between h-20 px-6 lg:px-8">
+
+                <!-- Logo -->
+
+                <a href="#home" class="text-3xl font-extrabold tracking-tight group">
+
+                    <span class="text-white">
+                        Tanish Mehta
+                    </span>
+
+                </a>
+
+                <!-- Desktop Menu -->
+
+                <ul class="hidden md:flex items-center gap-10 text-[15px] font-medium">
+
+                    <li>
+                        <a href="#about" class="nav-link">
+                            About
+                        </a>
+                    </li>
+
+                    <li>
+                        <a href="#projects" class="nav-link">
+                            Projects
+                        </a>
+                    </li>
+
+                    <li>
+                        <a href="#skills" class="nav-link">
+                            Tech Stack
+                        </a>
+                    </li>
+
+                    <li>
+                        <a href="#achievements" class="nav-link">
+                            Achievements
+                        </a>
+                    </li>
+
+                    <li>
+                        <a href="#contact" class="nav-link">
+                            Contact
+                        </a>
+                    </li>
+
+                </ul>
+
+                <!-- Right Side -->
+
+                <div class="hidden md:flex items-center gap-4">
+
+                    <a href="assets/resume.pdf" target="_blank"
+                        class="px-6 py-3 rounded-full border border-[#24324D] bg-[#101827] text-white hover:bg-white hover:text-[#070B14] hover:border-white hover:shadow-xl transition-all duration-300">
+                        Resume
+                    </a>
+
+                </div>
+
+                <!-- Mobile -->
+
+                <button id="menu-btn" class="text-2xl md:hidden text-[#14B8A6]">
+
+                    <i class="fa-solid fa-bars"></i>
+
+                </button>
+
+            </div>
+
+        </nav>
+
+        <!-- Mobile Menu -->
+
+        <div id="mobile-menu" class="hidden md:hidden bg-[#101827] border-t border-[#24324D]">
+
+            <ul class="flex flex-col p-6 gap-6">
+
+                <li><a href="#about" class="mobile-link">About</a></li>
+
+                <li><a href="#projects" class="mobile-link">Projects</a></li>
+
+                <li><a href="#skills" class="mobile-link">Tech Stack</a></li>
+
+                <li><a href="#achievements" class="mobile-link">Achievements</a></li>
+
+                <li><a href="#contact" class="mobile-link">Contact</a></li>
+
+                <li>
+
+                    <a href="assets/resume.pdf"
+                        class="inline-block mt-2 px-5 py-3 rounded-full bg-[#14B8A6] text-black font-semibold">
+
+                        Resume
+
+                    </a>
+
+                </li>
+
+            </ul>
+
+        </div>
+
+    </header>
+
+    <!-- ================= HERO ================= -->
+
+    <<!--=================HERO=================-->
+
+        <section id="home" class="relative overflow-hidden pt-20 pb-24">
+
+            <!-- Background Glow -->
+
+            <div class="absolute -top-40 -left-40 w-96 h-96 bg-[#14B8A6]/20 rounded-full blur-[120px]"></div>
+
+            <div class="absolute bottom-0 right-0 w-[500px] h-[500px] bg-[#8B5CF6]/20 rounded-full blur-[150px]"></div>
+
+            <div class="max-w-[1450px] mx-auto px-10">
+
+                <div class="grid grid-cols-12 gap-8 items-start">
+
+                    <!-- LEFT -->
+
+                    <div class="col-span-5">
+
+
+                        <!-- Heading -->
+
+                        <h1 class="mt-8 text-5xl md:text-7xl font-black leading-tight">
+
+                            Hi,
+
+                            I'm
+
+                            <br>
+
+                            <span class="gradient-text">
+
+                                Tanish Mehta
+
+                            </span>
+
+                        </h1>
+
+                        <!-- Subtitle -->
+
+                        <h2 class="mt-8 text-2xl md:text-3xl font-semibold">
+
+                            MERN Stack Developer
+
+                            <span class="text-[#14B8A6]">
+
+                                •
+
+                            </span>
+
+                            AI Enthusiast
+
+                        </h2>
+
+                        <!-- Description -->
+
+                        <p class="mt-8 text-lg leading-8 text-[#94A3B8] max-w-xl">
+
+                            I build scalable web applications, AI-powered
+                            solutions, and modern user experiences using
+                            React, FastAPI, Node.js, Java and Generative AI.
+
+                        </p>
+
+                        <!-- Tech Pills -->
+
+                        <div class="flex flex-wrap gap-3 mt-10">
+
+                            <span class="skill-pill">
+
+                                React
+
+                            </span>
+
+                            <span class="skill-pill">
+
+                                FastAPI
+
+                            </span>
+
+                            <span class="skill-pill">
+
+                                Node.js
+
+                            </span>
+
+                            <span class="skill-pill">
+
+                                Java
+
+                            </span>
+
+                            <span class="skill-pill">
+
+                                Python
+
+                            </span>
+
+                        </div>
+
+                    </div>
+
+                    <!-- RIGHT SIDE -->
+
+                    <!-- ================= RIGHT SIDE ================= -->
+
+                    <div class="col-span-7">
+
+                        <div class="grid grid-cols-12 gap-5">
+
+                            <!-- ================= GitHub ================= -->
+
+                            <a href="https://github.com/TanishMehta23" target="_blank"
+                                class="bento-card social-card col-span-4 floating">
+
+                                <div class="flex justify-between items-center">
+
+                                    <i class="fab fa-github text-4xl text-[#14B8A6]"></i>
+
+                                    <i class="fa-solid fa-arrow-up-right-from-square arrow"></i>
+
+                                </div>
+
+                                <h3>GitHub</h3>
+
+                                <p>
+                                    Explore repositories and open-source work.
+                                </p>
+
+                            </a>
+
+                            <!-- ================= LinkedIn ================= -->
+
+                            <a href="https://www.linkedin.com/in/tanish-mehta-43bb102b8/" target="_blank"
+                                class="bento-card social-card col-span-4 floating delay1">
+
+                                <div class="flex justify-between items-center">
+
+                                    <i class="fab fa-linkedin text-4xl text-[#0A66C2]"></i>
+
+                                    <i class="fa-solid fa-arrow-up-right-from-square arrow"></i>
+
+                                </div>
+
+                                <h3>LinkedIn</h3>
+
+                                <p>
+                                    Connect and follow my professional journey.
+                                </p>
+
+                            </a>
+
+                            <!-- ================= LeetCode ================= -->
+
+                            <a href="https://leetcode.com/u/TanishMehta23/" target="_blank"
+                                class="bento-card social-card col-span-4 floating delay2 group">
+
+                                <div class="flex justify-between items-center">
+
+                                    <img src="https://cdn.simpleicons.org/leetcode/FFA116" class="w-10 h-10">
+
+                                    <i class="fa-solid fa-arrow-up-right-from-square arrow"></i>
+
+                                </div>
+
+                                <h3>LeetCode</h3>
+
+                                <p>
+                                    Solving DSA problems every day.
+                                </p>
+
+                            </a>
+
+
+                            <!-- ================= TERMINAL ================= -->
+
+                            <div class="terminal-card col-span-5 floating delay3">
+
+                                <div class="terminal-header">
+
+                                    <span class="terminal-dot red"></span>
+
+                                    <span class="terminal-dot yellow"></span>
+
+                                    <span class="terminal-dot green"></span>
+
+                                    <span class="terminal-title">
+
+                                        live-coding.sh
+
+                                    </span>
+
+                                </div>
+
+                                <div class="terminal-body">
+
+                                    <div id="terminal-content"></div>
+
+                                </div>
+
+                            </div>
+
+
+                            <!-- ================= CURRENT FOCUS ================= -->
+
+                            <div class="bento-card focus-card col-span-7 floating delay4">
+
+                                <div class="flex items-center gap-3">
+
+                                    <div
+                                        class="w-12 h-12 rounded-xl bg-[#0F172A] border border-[#24324D] flex items-center justify-center">
+
+                                        <i class="fa-solid fa-bullseye text-[#14B8A6] text-xl"></i>
+
+                                    </div>
+
+                                    <h3 class="!mt-0">
+
+                                        Current Focus
+
+                                    </h3>
+
+                                </div>
+
+                                <div class="mt-8 space-y-5">
+
+                                    <div class="flex items-center justify-between border-b border-[#24324D] pb-4">
+
+                                        <div class="flex items-center gap-3">
+                                            <span class="text-xl">⚡</span>
+                                            <span class="font-semibold text-white">Full Stack</span>
+                                        </div>
+
+                                        <span class="text-sm text-[#94A3B8]">Building Web Apps</span>
+
+                                    </div>
+
+                                    <div class="flex items-center justify-between border-b border-[#24324D] pb-4">
+
+                                        <div class="flex items-center gap-3">
+                                            <span class="text-xl">🤖</span>
+                                            <span class="font-semibold text-white">Artificial Intelligence</span>
+                                        </div>
+
+                                        <span class="text-sm text-[#94A3B8]">LLMs & Agents</span>
+
+                                    </div>
+
+                                    <div class="flex items-center justify-between border-b border-[#24324D] pb-4">
+
+                                        <div class="flex items-center gap-3">
+                                            <span class="text-xl">📚</span>
+                                            <span class="font-semibold text-white">System Design</span>
+                                        </div>
+
+                                        <span class="text-sm text-[#94A3B8]">Scalable Systems</span>
+
+                                    </div>
+
+                                    <div class="flex items-center justify-between">
+
+                                        <div class="flex items-center gap-3">
+                                            <span class="text-xl">💻</span>
+                                            <span class="font-semibold text-white">DSA</span>
+                                        </div>
+
+                                        <span class="text-sm text-[#94A3B8]">Daily Practice</span>
+
+                                    </div>
+
+                                </div>
+
+                            </div>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+        </section>
+
+        <!--================ ABOUT =================-->
+
+        <section id="about" class="py-20">
+
+            <div class="max-w-7xl mx-auto px-6 lg:px-8">
+
+                <!-- Section Heading -->
+
+                <div class="flex items-center gap-5 mb-16">
+
+                    <h2 class="uppercase tracking-[6px] text-zinc-400">
+                        About
+                    </h2>
+
+                    <div class="flex-1 h-px bg-[#24324D]"></div>
+
+                </div>
+
+                <!-- About Intro -->
+
+                <div class="grid lg:grid-cols-2 gap-16 items-center">
+
+                    <!-- Left -->
+
+                    <div>
+
+                        <p class="text-[#14B8A6] uppercase tracking-[4px] font-semibold mb-5">
+
+                            Who I Am
+
+                        </p>
+
+                        <h2 class="text-5xl font-black leading-tight">
+
+                            Building
+
+                            <span class="gradient-text">
+
+                                impactful software
+
+                            </span>
+
+                            through continuous learning.
+
+                        </h2>
+
+                    </div>
+
+                    <!-- Right -->
+
+                    <div>
+
+                        <p class="text-zinc-400 text-lg leading-9">
+
+                            I'm a Computer Science undergraduate passionate about
+                            MERN Stack Development, Artificial Intelligence and
+                            solving real-world problems through technology.
+
+                            I enjoy transforming ideas into products while constantly
+                            improving my skills through projects, competitive programming,
+                            hackathons and continuous learning.
+
+                        </p>
+
+                    </div>
+
+                </div>
+
+                <!-- Journey -->
+
+                <div class="mt-20">
+
+                    <div class="flex items-center gap-5 mb-14">
+
+                        <span class="text-[#14B8A6] font-semibold">
+
+                            Journey
+
+                        </span>
+
+                        <div class="flex-1 h-px bg-[#24324D]"></div>
+
+                    </div>
+
+                    <div class="timeline">
+
+                        <div class="timeline-line"></div>
+
+                        <!-- 2023 -->
+
+                        <div class="timeline-node">
+
+                            <div class="dot"></div>
+
+                            <span>2023</span>
+
+                            <div class="popup">
+
+                                <h3>Started Programming</h3>
+
+                                <p>☕ Learned Java</p>
+
+                                <p>💻 First Console Applications</p>
+
+                            </div>
+
+                        </div>
+
+                        <!-- 2024 -->
+
+                        <div class="timeline-node">
+
+                            <div class="dot"></div>
+
+                            <span>2024</span>
+
+                            <div class="popup">
+
+                                <h3>Web Development</h3>
+
+                                <p>⚛ React</p>
+
+                                <p>🌐 Node.js</p>
+
+                                <p>🎨 Tailwind CSS</p>
+
+                            </div>
+
+                        </div>
+
+                        <!-- 2025 -->
+
+                        <div class="timeline-node">
+
+                            <div class="dot"></div>
+
+                            <span>2025</span>
+
+                            <div class="popup">
+
+                                <h3>Projects</h3>
+
+                                <p>🚀 QuizoraAI</p>
+
+                                <p>🚀 FocusoraHQ</p>
+
+                                <p>🏆 300+ LeetCode</p>
+
+                            </div>
+
+                        </div>
+
+                        <!-- NOW -->
+
+                        <div class="timeline-node">
+
+                            <div class="dot pulse active"></div>
+
+                            <span>NOW</span>
+
+                            <div class="popup">
+
+                                <h3>Current Focus</h3>
+
+                                <p>🤖 AI</p>
+
+                                <p>☁ Cloud Computing</p>
+
+                                <p>📚 System Design</p>
+
+                                <p>💻 DSA</p>
+
+                                <p>🚀 FinPulse AI</p>
+
+                            </div>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+
+            </div>
+            <!--================ DEVELOPER DASHBOARD =================-->
+
+            <div class="dashboard-section">
+
+                <div class="flex items-center gap-5 mb-14">
+
+                    <span class="text-[#14B8A6] font-semibold">
+
+                        Dashboard
+
+                    </span>
+
+                    <div class="flex-1 h-px bg-[#24324D]"></div>
+
+                </div>
+
+                <div class="stats-grid">
+
+                    <div class="stat-card">
+                        <i class="fa-solid fa-folder-open"></i>
+                        <h3>5+</h3>
+                        <span>Projects</span>
+                    </div>
+
+                    <div class="stat-card">
+                        <i class="fa-solid fa-code"></i>
+                        <h3>320+</h3>
+                        <span>LeetCode</span>
+                    </div>
+
+                    <div class="stat-card">
+                        <i class="fa-solid fa-layer-group"></i>
+                        <h3>15+</h3>
+                        <span>Tech Stack</span>
+                    </div>
+
+                    <div class="stat-card">
+                        <i class="fa-solid fa-book-open"></i>
+                        <h3>AI</h3>
+                        <span>Learning</span>
+                    </div>
+                    <div class="stat-card">
+                        <i class="fa-solid fa-laptop"></i>
+                        <h3>2+</h3>
+                        <span>Years Coding</span>
+                    </div>
+                </div>
+
+
+            </div>
+            <div class="pipeline-wrapper">
+
+                <div class="flex items-center gap-5 mb-14">
+
+                    <span class="text-[#14B8A6] font-semibold">
+                        Pipeline
+                    </span>
+
+                    <div class="flex-1 h-px bg-[#24324D]"></div>
+
+                </div>
+
+                <div class="pipeline-card">
+
+                    <div class="pipeline">
+
+                        <div class="pipeline-step">
+
+                            <div class="step-icon">💡</div>
+
+                            <h3>Idea</h3>
+
+                            <p>Research & Planning</p>
+
+                        </div>
+
+                        <div class="pipeline-arrow">
+                            <i class="fa-solid fa-arrow-right"></i>
+                        </div>
+
+                        <div class="pipeline-step">
+
+                            <div class="step-icon">🎨</div>
+
+                            <h3>Design</h3>
+
+                            <p>UI / UX</p>
+
+                        </div>
+
+                        <div class="pipeline-arrow">
+                            <i class="fa-solid fa-arrow-right"></i>
+                        </div>
+
+                        <div class="pipeline-step">
+
+                            <div class="step-icon">💻</div>
+
+                            <h3>Develop</h3>
+
+                            <p>React • Node • Java</p>
+
+                        </div>
+
+                        <div class="pipeline-arrow">
+                            <i class="fa-solid fa-arrow-right"></i>
+                        </div>
+
+                        <div class="pipeline-step">
+
+                            <div class="step-icon">🧪</div>
+
+                            <h3>Test</h3>
+
+                            <p>Debug & Optimize</p>
+
+                        </div>
+
+                        <div class="pipeline-arrow">
+                            <i class="fa-solid fa-arrow-right"></i>
+                        </div>
+
+                        <div class="pipeline-step">
+
+                            <div class="step-icon">🚀</div>
+
+                            <h3>Deploy</h3>
+
+                            <p>GitHub • Vercel</p>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+
+
+        </section>
+
+        <script src="script.js"></script>
+
+</body>
+
+</html>
