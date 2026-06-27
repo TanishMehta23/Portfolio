@@ -165,4 +165,266 @@ observer.disconnect();
 
 });
 
-observer.observe(counter);
+const galaxy = document.getElementById("galaxy");
+const planets = [...document.querySelectorAll(".planet")];
+
+const W = galaxy.clientWidth;
+const H = galaxy.clientHeight;
+
+const objects = [];
+
+// Generate random position without overlapping
+function randomPosition(radius){
+
+    let x,y,valid=false;
+
+    while(!valid){
+
+        x = radius + Math.random()*(W-radius*2);
+        y = radius + Math.random()*(H-radius*2);
+
+        valid = true;
+
+        for(const p of objects){
+
+            const dx=x-p.x;
+            const dy=y-p.y;
+
+            if(Math.sqrt(dx*dx+dy*dy)<radius+p.r+25){
+
+                valid=false;
+                break;
+
+            }
+
+        }
+
+    }
+
+    return {x,y};
+
+}
+
+// Create objects
+planets.forEach(el=>{
+
+    let r = el.offsetWidth/2;
+
+    const pos = randomPosition(r);
+
+    objects.push({
+
+        el,
+
+        x:pos.x,
+
+        y:pos.y,
+
+        r,
+
+        vx:(Math.random()-.5)*0.4,
+
+        vy:(Math.random()-.5)*0.4
+
+    });
+
+});
+
+const mouse = {
+    x: -9999,
+    y: -9999
+};
+
+// Mouse position
+galaxy.addEventListener("mousemove", (e) => {
+    const rect = galaxy.getBoundingClientRect();
+
+    mouse.x = e.clientX - rect.left;
+    mouse.y = e.clientY - rect.top;
+});
+
+// Mouse leaves galaxy
+galaxy.addEventListener("mouseleave", () => {
+    mouse.x = -9999;
+    mouse.y = -9999;
+});
+
+function animate() {
+
+    // =============================
+    // MOVE PLANETS
+    // =============================
+
+    objects.forEach(p => {
+
+        // Mouse attraction
+        const dx = mouse.x - p.x;
+        const dy = mouse.y - p.y;
+
+        const dist = Math.sqrt(dx * dx + dy * dy);
+
+        if (dist < 180 && dist > 5) {
+
+            const force = (180 - dist) / 180;
+
+            p.vx += (dx / dist) * force * 0.04;
+            p.vy += (dy / dist) * force * 0.04;
+
+        }
+
+        // Slow down naturally
+        p.vx *= 0.985;
+        p.vy *= 0.985;
+
+        p.x += p.vx;
+        p.y += p.vy;
+
+        // Bounce from walls
+        if (p.x < p.r) {
+            p.x = p.r;
+            p.vx *= -1;
+        }
+
+        if (p.x > W - p.r) {
+            p.x = W - p.r;
+            p.vx *= -1;
+        }
+
+        if (p.y < p.r) {
+            p.y = p.r;
+            p.vy *= -1;
+        }
+
+        if (p.y > H - p.r) {
+            p.y = H - p.r;
+            p.vy *= -1;
+        }
+
+    });
+
+    // =============================
+    // COLLISION
+    // =============================
+
+    for (let i = 0; i < objects.length; i++) {
+
+        for (let j = i + 1; j < objects.length; j++) {
+
+            let a = objects[i];
+            let b = objects[j];
+
+            let dx = b.x - a.x;
+            let dy = b.y - a.y;
+
+            let dist = Math.sqrt(dx * dx + dy * dy);
+
+            let min = a.r + b.r + 8;
+
+            if (dist < min) {
+
+                let angle = Math.atan2(dy, dx);
+
+                let targetX = a.x + Math.cos(angle) * min;
+                let targetY = a.y + Math.sin(angle) * min;
+
+                let ax = (targetX - b.x) * 0.05;
+                let ay = (targetY - b.y) * 0.05;
+
+                a.vx -= ax;
+                a.vy -= ay;
+
+                b.vx += ax;
+                b.vy += ay;
+
+            }
+
+        }
+
+    }
+
+    // =============================
+    // DRAW
+    // =============================
+
+    objects.forEach(p => {
+
+        p.el.style.left = (p.x - p.r) + "px";
+        p.el.style.top = (p.y - p.r) + "px";
+
+    });
+
+    requestAnimationFrame(animate);
+
+}
+
+animate();
+
+const achievementCounters = document.querySelectorAll(".achievement-number");
+
+const achievementObserver = new IntersectionObserver((entries)=>{
+
+    entries.forEach(entry=>{
+
+        if(!entry.isIntersecting) return;
+
+        const counter = entry.target;
+
+        const target = parseInt(counter.innerText);
+
+        let count = 0;
+
+        const increment = target/60;
+
+        const timer = setInterval(()=>{
+
+            count += increment;
+
+            if(count>=target){
+
+                counter.innerText=target+"+";
+
+                clearInterval(timer);
+
+            }else{
+
+                counter.innerText=Math.floor(count)+"+";
+
+            }
+
+        },20);
+
+        achievementObserver.unobserve(counter);
+
+    });
+
+});
+
+achievementCounters.forEach(counter=>{
+
+    achievementObserver.observe(counter);
+
+});
+const cards=document.querySelectorAll(".achievement-card");
+
+const cardObserver=new IntersectionObserver(entries=>{
+
+entries.forEach(entry=>{
+
+if(entry.isIntersecting){
+
+entry.target.classList.add("show-card");
+
+}
+
+});
+
+},{
+threshold:.2
+});
+
+cards.forEach(card=>{
+
+cardObserver.observe(card);
+
+});
+
