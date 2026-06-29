@@ -3104,3 +3104,37 @@ flex-wrap:wrap;
 }
 
 }
+.cursor-ring{
+
+    position:fixed;
+
+    width:34px;
+    height:34px;
+
+    border:2px solid #14B8A6;
+
+    border-radius:50%;
+
+    pointer-events:none;
+
+    transform:translate(-50%,-50%);
+
+    z-index:99999;
+
+    transition:
+        width .25s,
+        height .25s,
+        border-color .25s,
+        background .25s;
+
+    backdrop-filter:blur(2px);
+
+}
+
+/* DO NOT hide the system cursor */
+
+body{
+
+    cursor:default;
+
+}

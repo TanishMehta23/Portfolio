@@ -428,3 +428,57 @@ cardObserver.observe(card);
 
 });
 
+const ring = document.querySelector(".cursor-ring");
+
+if(ring){
+
+    let mouseX = window.innerWidth/2;
+    let mouseY = window.innerHeight/2;
+
+    let ringX = mouseX;
+    let ringY = mouseY;
+
+    document.addEventListener("mousemove",(e)=>{
+
+        mouseX=e.clientX;
+        mouseY=e.clientY;
+
+    });
+
+    function animateCursor(){
+
+        ringX += (mouseX-ringX)*0.18;
+        ringY += (mouseY-ringY)*0.18;
+
+        ring.style.left = ringX+"px";
+        ring.style.top  = ringY+"px";
+
+        requestAnimationFrame(animateCursor);
+
+    }
+
+    animateCursor();
+
+    document.querySelectorAll(
+        "a,button,.project-card,.planet,.achievement-card,.profile-card"
+    ).forEach(item=>{
+
+        item.addEventListener("mouseenter",()=>{
+
+            ring.style.width="60px";
+            ring.style.height="60px";
+            ring.style.background="rgba(20,184,166,.08)";
+
+        });
+
+        item.addEventListener("mouseleave",()=>{
+
+            ring.style.width="34px";
+            ring.style.height="34px";
+            ring.style.background="transparent";
+
+        });
+
+    });
+
+}
