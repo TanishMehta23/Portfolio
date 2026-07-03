@@ -27,12 +27,15 @@
     <script src="https://unpkg.com/aos@2.3.4/dist/aos.js"></script>
 
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
+    
 
     <script>
-        AOS.init({
-            duration: 1000,
-            once: true,
-            offset: 100
+        window.addEventListener("DOMContentLoaded", () => {
+            AOS.init({
+                duration: 1000,
+                once: true,
+                offset: 100
+            });
         });
     </script>
 
@@ -155,8 +158,6 @@
 
     <!-- ================= HERO ================= -->
 
-    <<!--=================HERO=================-->
-
         <section id="home" class="relative overflow-hidden pt-20 pb-24">
 
             <!-- Background Glow -->
@@ -255,8 +256,6 @@
                         </div>
 
                     </div>
-
-                    <!-- RIGHT SIDE -->
 
                     <!-- ================= RIGHT SIDE ================= -->
 
@@ -1455,13 +1454,9 @@
             </div>
 
         </section>
-        <section id="github" class="py-16">
-
-            <div class="max-w-7xl mx-auto">
-
-                <!-- Heading -->
-
-                <div class="flex items-center gap-5 mb-16">
+        <!-- GitHub Activity Section -->
+         <div class="max-w-7xl mx-auto">
+            <div class="flex items-center gap-5 mb-16">
 
                     <h2 class="uppercase tracking-[6px] text-zinc-400">
                         GitHub Activity
@@ -1470,54 +1465,64 @@
                     <div class="flex-1 h-px bg-[#24324D]"></div>
 
                 </div>
-
-                <div class="github-card">
-
-                    <div class="github-top">
-
-                        <div class="github-user">
-                            <!-- 
-                            <img src="assets/images/profile.jpg" alt="Profile"> -->
-
-                            <div>
-
-                                <h2>@TanishMehta23</h2>
-
-                                <p>Building projects • Solving problems • Learning daily</p>
-
-                            </div>
-
+         </div>
+         
+        <section id="github" class="section-container max-w-[1000px] mx-auto">
+            <div class="bentocard p-6 md:p-8" data-aos="fade-up" data-aos-delay="100">
+                <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-6 mb-6">
+                    <div class="flex items-center gap-4">
+                        <img src="https://github.com/TanishMehta23.png" alt="Tanish Mehta Github Avatar"
+                            class="w-12 h-12 rounded-full border border-borderSpec">
+                        <div>
+                            <h3 class="text-lg font-display font-bold text-white">@TanishMehta23</h3>
+                            <p class="text-xs text-muted">Shipping consistently · building in public</p>
                         </div>
-
-                        <a href="https://github.com/TanishMehta23" target="_blank" class="github-link">
-
-                            View Profile
-
-                            <i class="fa-solid fa-arrow-up-right-from-square"></i>
-
+                    </div>
+                    <div>
+                        <a href="https://github.com/TanishMehta23" target="_blank"
+                            class="inline-flex items-center gap-1.5 px-4 py-2 rounded-xl bg-surface border border-borderSpec text-xs font-mono text-muted hover:text-textMain transition-colors">
+                            View full activity <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor"
+                                stroke-width="2" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" d="M14 5l7 7m0 0l-7 7m7-7H3" />
+                            </svg>
                         </a>
-
                     </div>
-
-                    <div class="github-count">
-
-                        <span>350+</span>
-
-                        Contributions in the last year
-
-                    </div>
-
-                    <div class="github-graph">
-
-                        <!-- Replace username -->
-                        <img src="https://ghchart.rshah.org/14B8A6/TanishMehta23" alt="GitHub Contributions Graph">
-
-                    </div>
-
                 </div>
 
-            </div>
+                <div class="mb-4">
+                    <span class="text-3xl font-display font-bold text-accent github-total-contributions">342</span>
+                    <span class="text-xs text-muted font-mono ml-2">contributions in the last year</span>
+                </div>
 
+                <!-- GitHub Heatmap Wrapper with labels -->
+                <div class="github-heatmap-wrapper">
+                    <div class="github-months" id="github-months-container"></div>
+                    <div class="flex gap-2 items-start">
+                        <div class="github-days">
+                            <span></span>
+                            <span>Mon</span>
+                            <span></span>
+                            <span>Wed</span>
+                            <span></span>
+                            <span>Fri</span>
+                            <span></span>
+                        </div>
+                        <div class="github-grid-container" id="github-contributions-grid">
+                            <!-- Javascript will dynamically inject tile nodes -->
+                        </div>
+                    </div>
+                </div>
+
+                <div class="flex items-center justify-end gap-2 mt-4 text-[10px] font-mono text-muted">
+                    <span>Less</span>
+                    <span class="w-2.5 h-2.5 rounded-sm bg-[#161b22]"></span>
+                    <span class="w-2.5 h-2.5 rounded-sm bg-[#0e4429]/40"></span>
+                    <span class="w-2.5 h-2.5 rounded-sm bg-[#006d3a]/60"></span>
+                    <span class="w-2.5 h-2.5 rounded-sm bg-[#39d353]/80"></span>
+                    <span class="w-2.5 h-2.5 rounded-sm bg-[#39d353]"></span>
+                    <span>More</span>
+                </div>
+            </div>
         </section>
         <section id="contact" class="py-16">
 

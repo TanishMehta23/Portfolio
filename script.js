@@ -168,8 +168,15 @@ observer.disconnect();
 const galaxy = document.getElementById("galaxy");
 const planets = [...document.querySelectorAll(".planet")];
 
-const W = galaxy.clientWidth;
-const H = galaxy.clientHeight;
+let W;
+let H;
+
+if(galaxy){
+
+    W = galaxy.clientWidth;
+    H = galaxy.clientHeight;
+
+}
 
 const objects = [];
 
@@ -249,7 +256,7 @@ galaxy.addEventListener("mouseleave", () => {
     mouse.y = -9999;
 });
 
-function animate() {
+function animateGalaxy() {
 
     // =============================
     // MOVE PLANETS
@@ -353,11 +360,11 @@ function animate() {
 
     });
 
-    requestAnimationFrame(animate);
+    requestAnimationFrame(animateGalaxy);
 
 }
 
-animate();
+animateGalaxy();
 
 const achievementCounters = document.querySelectorAll(".achievement-number");
 
@@ -480,5 +487,96 @@ if(ring){
         });
 
     });
+
+}
+
+/* ============================
+    GITHUB CONTRIBUTION GRID
+============================ */
+
+const grid = document.getElementById(
+    "github-contributions-grid"
+);
+
+const months = document.getElementById(
+    "github-months-container"
+);
+
+
+if(grid){
+
+
+    // 53 weeks * 7 days
+    const totalDays = 371;
+
+
+    for(let i=0;i<totalDays;i++){
+
+
+        const box=document.createElement("span");
+
+
+        box.classList.add("github-box");
+
+
+        // random contribution level
+        const level=Math.floor(
+            Math.random()*5
+        );
+
+
+        box.classList.add(
+            `level-${level}`
+        );
+
+
+        grid.appendChild(box);
+
+
+    }
+
+
+}
+
+
+
+/* Month Labels */
+
+if(months){
+
+
+const labels=[
+    "Jul",
+    "Aug",
+    "Sep",
+    "Oct",
+    "Nov",
+    "Dec",
+    "Jan",
+    "Feb",
+    "Mar",
+    "Apr",
+    "May",
+    "Jun"
+];
+
+
+labels.forEach(month=>{
+
+
+    const span=document.createElement("span");
+
+
+    span.textContent=month;
+
+
+    span.style.gridColumn="span 4";
+
+
+    months.appendChild(span);
+
+
+});
+
 
 }
