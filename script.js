@@ -71,12 +71,17 @@ async function runTerminal(){
 
         const typing=document.createElement("span");
 
+        const cursor=document.createElement("span");
+        cursor.className="cursor";
+
         prompt.appendChild(dollar);
         prompt.appendChild(typing);
+        prompt.appendChild(cursor);
 
         await typeText(typing,current.cmd,50);
 
         await sleep(250);
+        cursor.remove();
 
         const output=document.createElement("div");
         output.className="output";
@@ -129,40 +134,78 @@ window.addEventListener("scroll", () => {
 
 });
 
-const counter=document.querySelector(".counter");
-
-const observer=new IntersectionObserver(entries=>{
-
-entries.forEach(entry=>{
-
-if(entry.isIntersecting){
-
-let i=0;
-
-const target=320;
-
-const timer=setInterval(()=>{
-
-i+=5;
-
-counter.textContent=i+"+";
-
-if(i>=target){
-
-clearInterval(timer);
-
-counter.textContent="320+";
-
+function animateCountUp(element, targetValue) {
+    let count = 0;
+    const duration = 1000; // ms
+    const stepTime = 15;
+    const steps = duration / stepTime;
+    const increment = targetValue / steps;
+    const timer = setInterval(() => {
+        count += increment;
+        if (count >= targetValue) {
+            element.textContent = targetValue + "+";
+            clearInterval(timer);
+        } else {
+            element.textContent = Math.floor(count) + "+";
+        }
+    }, stepTime);
 }
 
-},20);
+// Fetch dynamic stats from GitHub and LeetCode APIs
+async function fetchDynamicStats() {
+    // 1. Fetch LeetCode
+    try {
+        const res = await fetch("https://alfa-leetcode-api.onrender.com/TanishMehta23/solved");
+        if (res.ok) {
+            const data = await res.json();
+            if (data && data.solvedProblem) {
+                const solvedCount = data.solvedProblem;
+                const leetcodeUIElements = document.querySelectorAll(".leetcode-count, .leetcode-achievement-count");
+                leetcodeUIElements.forEach(el => {
+                    el.textContent = solvedCount + "+";
+                });
+            }
+        }
+    } catch (err) {
+        console.error("Error fetching LeetCode stats:", err);
+    }
 
-observer.disconnect();
-
+    // 2. Fetch GitHub Repos
+    try {
+        const res = await fetch("https://api.github.com/users/TanishMehta23");
+        if (res.ok) {
+            const data = await res.json();
+            if (data && data.public_repos !== undefined) {
+                const repoCount = data.public_repos;
+                const projectsUI = document.querySelector(".projects-count");
+                if (projectsUI) {
+                    projectsUI.textContent = repoCount + "+";
+                }
+            }
+        }
+    } catch (err) {
+        console.error("Error fetching GitHub repos:", err);
+    }
 }
 
-});
+// Trigger stats fetching
+fetchDynamicStats();
 
+// Observer for dashboard stats counters
+const statsCounters = document.querySelectorAll(".projects-count, .leetcode-count");
+const statsObserver = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+        if (entry.isIntersecting) {
+            const counterEl = entry.target;
+            const target = parseInt(counterEl.textContent) || 0;
+            animateCountUp(counterEl, target);
+            statsObserver.unobserve(counterEl);
+        }
+    });
+}, { threshold: 0.1 });
+
+statsCounters.forEach(counterEl => {
+    statsObserver.observe(counterEl);
 });
 
 const galaxy = document.getElementById("galaxy");
@@ -171,12 +214,24 @@ const planets = [...document.querySelectorAll(".planet")];
 let W;
 let H;
 
-if(galaxy){
-
-    W = galaxy.clientWidth;
-    H = galaxy.clientHeight;
-
+function updateGalaxySize() {
+    if (galaxy) {
+        W = galaxy.clientWidth;
+        H = galaxy.clientHeight;
+    }
 }
+updateGalaxySize();
+
+window.addEventListener("resize", () => {
+    updateGalaxySize();
+    // Keep planets in bounds immediately on resize
+    objects.forEach(p => {
+        if (p.x < p.r) p.x = p.r;
+        if (p.x > W - p.r) p.x = W - p.r;
+        if (p.y < p.r) p.y = p.r;
+        if (p.y > H - p.r) p.y = H - p.r;
+    });
+});
 
 const objects = [];
 
@@ -184,8 +239,10 @@ const objects = [];
 function randomPosition(radius){
 
     let x,y,valid=false;
+    let attempts = 0;
 
-    while(!valid){
+    while(!valid && attempts < 150){
+        attempts++;
 
         x = radius + Math.random()*(W-radius*2);
         y = radius + Math.random()*(H-radius*2);
@@ -206,6 +263,12 @@ function randomPosition(radius){
 
         }
 
+    }
+
+    if (!valid) {
+        // Fallback positioning
+        x = radius + Math.random()*(W-radius*2);
+        y = radius + Math.random()*(H-radius*2);
     }
 
     return {x,y};
@@ -494,89 +557,202 @@ if(ring){
     GITHUB CONTRIBUTION GRID
 ============================ */
 
-const grid = document.getElementById(
-    "github-contributions-grid"
-);
+const grid = document.getElementById("github-contributions-grid");
+const months = document.getElementById("github-months-container");
 
-const months = document.getElementById(
-    "github-months-container"
-);
-
-
-if(grid){
-
-
-    // 53 weeks * 7 days
-    const totalDays = 371;
-
-
-    for(let i=0;i<totalDays;i++){
-
-
-        const box=document.createElement("span");
-
-
-        box.classList.add("github-box");
-
-
-        // random contribution level
-        const level=Math.floor(
-            Math.random()*5
-        );
-
-
-        box.classList.add(
-            `level-${level}`
-        );
-
-
-        grid.appendChild(box);
-
-
+// Render mock grid immediately
+function renderMockContributions() {
+    if (grid && grid.children.length === 0) {
+        const totalDays = 371;
+        for (let i = 0; i < totalDays; i++) {
+            const box = document.createElement("span");
+            box.classList.add("github-box");
+            const level = Math.floor(Math.random() * 5);
+            box.classList.add(`level-${level}`);
+            grid.appendChild(box);
+        }
     }
+}
+renderMockContributions();
 
-
+async function fetchGithubContributions() {
+    try {
+        const response = await fetch("https://github-contributions-api.deno.dev/TanishMehta23.json");
+        if (!response.ok) throw new Error("Failed to fetch contributions");
+        const data = await response.json();
+        
+        if (data && data.contributions) {
+            let totalContributions = 0;
+            const weeks = data.contributions;
+            
+            if (grid) {
+                grid.innerHTML = "";
+            }
+            
+            weeks.forEach(week => {
+                week.forEach(day => {
+                    totalContributions += day.contributionCount;
+                    
+                    if (grid) {
+                        const box = document.createElement("span");
+                        box.classList.add("github-box");
+                        
+                        let level = 0;
+                        if (day.contributionLevel === "FIRST_QUARTILE") level = 1;
+                        else if (day.contributionLevel === "SECOND_QUARTILE") level = 2;
+                        else if (day.contributionLevel === "THIRD_QUARTILE") level = 3;
+                        else if (day.contributionLevel === "FOURTH_QUARTILE") level = 4;
+                        
+                        box.classList.add(`level-${level}`);
+                        box.setAttribute("title", `${day.contributionCount} contributions on ${day.date}`);
+                        grid.appendChild(box);
+                    }
+                });
+            });
+            
+            const totalText = document.querySelector(".github-total-contributions");
+            if (totalText) {
+                totalText.textContent = totalContributions;
+            }
+        }
+    } catch (error) {
+        console.error("Error loading GitHub contributions:", error);
+    }
 }
 
-
+fetchGithubContributions();
 
 /* Month Labels */
+if(months && months.children.length === 0){
+    const labels=[
+        "Jul",
+        "Aug",
+        "Sep",
+        "Oct",
+        "Nov",
+        "Dec",
+        "Jan",
+        "Feb",
+        "Mar",
+        "Apr",
+        "May",
+        "Jun"
+    ];
 
-if(months){
+    labels.forEach(month=>{
+        const span=document.createElement("span");
+        span.textContent=month;
+        span.style.gridColumn="span 4";
+        months.appendChild(span);
+    });
+}
 
+/* ====================================================
+   INTERACTIVE TECH BRIDGE (Static cards <-> Galaxy)
+   ==================================================== */
+const techCards = document.querySelectorAll(".tech-card");
 
-const labels=[
-    "Jul",
-    "Aug",
-    "Sep",
-    "Oct",
-    "Nov",
-    "Dec",
-    "Jan",
-    "Feb",
-    "Mar",
-    "Apr",
-    "May",
-    "Jun"
-];
+// 1. Static cards hover highlights planets in galaxy
+techCards.forEach(card => {
+    const category = card.getAttribute("data-category");
+    if (!category) return;
 
+    card.addEventListener("mouseenter", () => {
+        planets.forEach(planet => {
+            if (planet.classList.contains(category)) {
+                planet.classList.add("highlighted");
+            }
+        });
+    });
 
-labels.forEach(month=>{
-
-
-    const span=document.createElement("span");
-
-
-    span.textContent=month;
-
-
-    span.style.gridColumn="span 4";
-
-
-    months.appendChild(span);
-
-
+    card.addEventListener("mouseleave", () => {
+        planets.forEach(planet => {
+            planet.classList.remove("highlighted");
+        });
+    });
 });
 
+// 2. Planets hover highlights static cards
+planets.forEach(planet => {
+    const categories = ["programming", "frontend", "backend", "ai", "database", "platform"];
+    let planetCategory = null;
+    for (const cat of categories) {
+        if (planet.classList.contains(cat)) {
+            planetCategory = cat;
+            break;
+        }
+    }
 
+    if (!planetCategory) return;
+
+    const matchingCard = document.querySelector(`.tech-card[data-category="${planetCategory}"]`);
+    if (!matchingCard) return;
+
+    planet.addEventListener("mouseenter", () => {
+        matchingCard.classList.add("highlighted-card");
+    });
+
+    planet.addEventListener("mouseleave", () => {
+        matchingCard.classList.remove("highlighted-card");
+    });
+});
+
+/* ====================================================
+   CONTACT FORM SUBMISSION (Web3Forms API)
+   ==================================================== */
+// Form submission logic removed (form replaced by direct mailto link)
+
+/* ====================================================
+   PROJECT FILTERING SYSTEM
+   ==================================================== */
+const filterButtons = document.querySelectorAll(".filter-btn");
+const projectCards = document.querySelectorAll(".project-card");
+
+if (filterButtons.length > 0 && projectCards.length > 0) {
+    filterButtons.forEach(button => {
+        button.addEventListener("click", () => {
+            // Remove active class from all buttons
+            filterButtons.forEach(btn => btn.classList.remove("active"));
+            // Add active class to clicked button
+            button.classList.add("active");
+
+            const filterValue = button.getAttribute("data-filter");
+
+            projectCards.forEach(card => {
+                const cardCategory = card.getAttribute("data-category");
+
+                if (filterValue === "all" || cardCategory === filterValue) {
+                    card.classList.remove("hide-card");
+                } else {
+                    card.classList.add("hide-card");
+                }
+            });
+        });
+    });
 }
+
+/* ====================================================
+   DYNAMIC GRADIENT HOVER GLOW FOR BENTO CARDS
+   ==================================================== */
+const bentoCards = document.querySelectorAll(".bento-card, .terminal-card, .focus-card");
+bentoCards.forEach(card => {
+    card.addEventListener("mousemove", (e) => {
+        const rect = card.getBoundingClientRect();
+        const x = e.clientX - rect.left;
+        const y = e.clientY - rect.top;
+        card.style.setProperty("--x", `${x}px`);
+        card.style.setProperty("--y", `${y}px`);
+    });
+});
+
+/* ====================================================
+   PRELOADER INITIALIZATION
+   ==================================================== */
+window.addEventListener("load", () => {
+    const preloader = document.getElementById("preloader");
+    if (preloader) {
+        setTimeout(() => {
+            preloader.classList.add("fade-out");
+        }, 700); // Fades out after 0.7 seconds
+    }
+});

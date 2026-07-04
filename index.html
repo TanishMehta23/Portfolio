@@ -27,7 +27,7 @@
     <script src="https://unpkg.com/aos@2.3.4/dist/aos.js"></script>
 
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
-    
+
 
     <script>
         window.addEventListener("DOMContentLoaded", () => {
@@ -42,6 +42,21 @@
 </head>
 
 <body class="bg-[#09090B] text-white font-[Inter]">
+    <!-- Preloader -->
+    <div id="preloader">
+        <div class="preloader-content">
+            <div class="preloader-logo">
+                <span class="code-bracket">&lt;</span>
+                <span class="code-text">TM</span>
+                <span class="code-bracket">&gt;</span>
+            </div>
+            <div class="preloader-bar-bg">
+                <div class="preloader-bar"></div>
+            </div>
+            <div class="preloader-status">System Initializing...</div>
+        </div>
+    </div>
+
     <div class="cursor-ring"></div>
 
     <!-- ================= NAVBAR ================= -->
@@ -56,8 +71,9 @@
 
             <div class="flex items-center justify-between h-20 px-6 lg:px-8">
 
-                <a href="#home" class="flex items-center text-3xl font-extrabold tracking-tight group">
-                    <img src="assets/icons/logo-transparent.png" alt="Logo" class="w-16 h-16 rounded-full">
+                <a href="#home" class="flex items-center text-2xl lg:text-3xl font-extrabold tracking-tight group">
+                    <img src="assets/icons/logo-transparent.png" alt="Logo"
+                        class="w-12 h-12 lg:w-16 lg:h-16 rounded-full">
                     <span class="text-white">
                         Tanish Mehta
                     </span>
@@ -66,7 +82,7 @@
 
                 <!-- Desktop Menu -->
 
-                <ul class="hidden md:flex items-center gap-10 text-[15px] font-medium">
+                <ul class="hidden md:flex items-center gap-4 lg:gap-10 text-sm lg:text-[15px] font-medium">
 
                     <li>
                         <a href="#about" class="nav-link">
@@ -105,7 +121,7 @@
                 <div class="hidden md:flex items-center gap-4">
 
                     <a href="assets/resume.pdf" target="_blank"
-                        class="px-6 py-3 rounded-full border border-[#24324D] bg-[#101827] text-white hover:bg-white hover:text-[#070B14] hover:border-white hover:shadow-xl transition-all duration-300">
+                        class="px-4 py-2.5 lg:px-6 lg:py-3 rounded-full border border-[#24324D] bg-[#101827] text-white hover:bg-white hover:text-[#070B14] hover:border-white hover:shadow-xl transition-all duration-300">
                         Resume
                     </a>
 
@@ -158,456 +174,270 @@
 
     <!-- ================= HERO ================= -->
 
-        <section id="home" class="relative overflow-hidden pt-20 pb-24">
+    <section id="home" class="relative overflow-hidden pt-32 pb-24">
 
-            <!-- Background Glow -->
+        <!-- Background Glow -->
 
-            <div class="absolute -top-40 -left-40 w-96 h-96 bg-[#14B8A6]/20 rounded-full blur-[120px]"></div>
+        <div class="absolute -top-40 -left-40 w-96 h-96 bg-[#14B8A6]/20 rounded-full blur-[120px]"></div>
 
-            <div class="absolute bottom-0 right-0 w-[500px] h-[500px] bg-[#8B5CF6]/20 rounded-full blur-[150px]"></div>
+        <div class="absolute bottom-0 right-0 w-[500px] h-[500px] bg-[#8B5CF6]/20 rounded-full blur-[150px]"></div>
 
-            <div class="max-w-[1450px] mx-auto px-10">
+        <div class="max-w-[1450px] mx-auto px-10">
 
-                <div class="grid grid-cols-12 gap-8 items-start">
+            <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 items-start">
 
-                    <!-- LEFT -->
+                <!-- LEFT -->
 
-                    <div class="col-span-5">
+                <div class="col-span-1 lg:col-span-5">
 
 
-                        <!-- Heading -->
+                    <!-- Heading -->
 
-                        <h1 class="mt-8 text-5xl md:text-7xl font-black leading-tight">
+                    <h1 class="mt-8 text-5xl md:text-7xl font-black leading-tight">
 
-                            Hi,
+                        Hi,
 
-                            I'm
+                        I'm
 
-                            <br>
+                        <br>
 
-                            <span class="gradient-text">
+                        <span class="gradient-text">
 
-                                Tanish Mehta
-
-                            </span>
-
-                        </h1>
-
-                        <!-- Subtitle -->
-
-                        <h2 class="mt-8 text-2xl md:text-3xl font-semibold">
-
-                            MERN Stack Developer
-
-                            <span class="text-[#14B8A6]">
-
-                                •
-
-                            </span>
-
-                            AI Enthusiast
-
-                        </h2>
-
-                        <!-- Description -->
-
-                        <p class="mt-8 text-lg leading-8 text-[#94A3B8] max-w-xl">
-
-                            I build scalable web applications, AI-powered
-                            solutions, and modern user experiences using
-                            React, FastAPI, Node.js, Java and Generative AI.
-
-                        </p>
-
-                        <!-- Tech Pills -->
-
-                        <div class="flex flex-wrap gap-3 mt-10">
-
-                            <span class="skill-pill">
-
-                                React
-
-                            </span>
-
-                            <span class="skill-pill">
-
-                                FastAPI
-
-                            </span>
-
-                            <span class="skill-pill">
-
-                                Node.js
-
-                            </span>
-
-                            <span class="skill-pill">
-
-                                Java
-
-                            </span>
-
-                            <span class="skill-pill">
-
-                                Python
-
-                            </span>
-
-                        </div>
-
-                    </div>
-
-                    <!-- ================= RIGHT SIDE ================= -->
-
-                    <div class="col-span-7">
-
-                        <div class="grid grid-cols-12 gap-5">
-
-                            <!-- ================= GitHub ================= -->
-
-                            <a href="https://github.com/TanishMehta23" target="_blank"
-                                class="bento-card social-card col-span-4 floating">
-
-                                <div class="flex justify-between items-center">
-
-                                    <i class="fab fa-github text-4xl text-[#14B8A6]"></i>
-
-                                    <i class="fa-solid fa-arrow-up-right-from-square arrow"></i>
-
-                                </div>
-
-                                <h3>GitHub</h3>
-
-                                <p>
-                                    Explore repositories and open-source work.
-                                </p>
-
-                            </a>
-
-                            <!-- ================= LinkedIn ================= -->
-
-                            <a href="https://www.linkedin.com/in/tanish-mehta-43bb102b8/" target="_blank"
-                                class="bento-card social-card col-span-4 floating delay1">
-
-                                <div class="flex justify-between items-center">
-
-                                    <i class="fab fa-linkedin text-4xl text-[#0A66C2]"></i>
-
-                                    <i class="fa-solid fa-arrow-up-right-from-square arrow"></i>
-
-                                </div>
-
-                                <h3>LinkedIn</h3>
-
-                                <p>
-                                    Connect and follow my professional journey.
-                                </p>
-
-                            </a>
-
-                            <!-- ================= LeetCode ================= -->
-
-                            <a href="https://leetcode.com/u/TanishMehta23/" target="_blank"
-                                class="bento-card social-card col-span-4 floating delay2 group">
-
-                                <div class="flex justify-between items-center">
-
-                                    <img src="https://cdn.simpleicons.org/leetcode/FFA116" class="w-10 h-10">
-
-                                    <i class="fa-solid fa-arrow-up-right-from-square arrow"></i>
-
-                                </div>
-
-                                <h3>LeetCode</h3>
-
-                                <p>
-                                    Solving DSA problems every day.
-                                </p>
-
-                            </a>
-
-
-                            <!-- ================= TERMINAL ================= -->
-
-                            <div class="terminal-card col-span-5 floating delay3">
-
-                                <div class="terminal-header">
-
-                                    <span class="terminal-dot red"></span>
-
-                                    <span class="terminal-dot yellow"></span>
-
-                                    <span class="terminal-dot green"></span>
-
-                                    <span class="terminal-title">
-
-                                        live-coding.sh
-
-                                    </span>
-
-                                </div>
-
-                                <div class="terminal-body">
-
-                                    <div id="terminal-content"></div>
-
-                                </div>
-
-                            </div>
-
-
-                            <!-- ================= CURRENT FOCUS ================= -->
-
-                            <div class="bento-card focus-card col-span-7 floating delay4">
-
-                                <div class="flex items-center gap-3">
-
-                                    <div
-                                        class="w-12 h-12 rounded-xl bg-[#0F172A] border border-[#24324D] flex items-center justify-center">
-
-                                        <i class="fa-solid fa-bullseye text-[#14B8A6] text-xl"></i>
-
-                                    </div>
-
-                                    <h3 class="!mt-0">
-
-                                        Current Focus
-
-                                    </h3>
-
-                                </div>
-
-                                <div class="mt-8 space-y-5">
-
-                                    <div class="flex items-center justify-between border-b border-[#24324D] pb-4">
-
-                                        <div class="flex items-center gap-3">
-                                            <span class="text-xl">⚡</span>
-                                            <span class="font-semibold text-white">Full Stack</span>
-                                        </div>
-
-                                        <span class="text-sm text-[#94A3B8]">Building Web Apps</span>
-
-                                    </div>
-
-                                    <div class="flex items-center justify-between border-b border-[#24324D] pb-4">
-
-                                        <div class="flex items-center gap-3">
-                                            <span class="text-xl">🤖</span>
-                                            <span class="font-semibold text-white">Artificial Intelligence</span>
-                                        </div>
-
-                                        <span class="text-sm text-[#94A3B8]">LLMs & Agents</span>
-
-                                    </div>
-
-                                    <div class="flex items-center justify-between border-b border-[#24324D] pb-4">
-
-                                        <div class="flex items-center gap-3">
-                                            <span class="text-xl">📚</span>
-                                            <span class="font-semibold text-white">System Design</span>
-                                        </div>
-
-                                        <span class="text-sm text-[#94A3B8]">Scalable Systems</span>
-
-                                    </div>
-
-                                    <div class="flex items-center justify-between">
-
-                                        <div class="flex items-center gap-3">
-                                            <span class="text-xl">💻</span>
-                                            <span class="font-semibold text-white">DSA</span>
-                                        </div>
-
-                                        <span class="text-sm text-[#94A3B8]">Daily Practice</span>
-
-                                    </div>
-
-                                </div>
-
-                            </div>
-
-                        </div>
-
-                    </div>
-
-                </div>
-
-        </section>
-
-        <!--================ ABOUT =================-->
-
-        <section id="about" class="py-6">
-
-            <div class="max-w-7xl mx-auto px-6 lg:px-8">
-
-                <!-- Section Heading -->
-
-                <div class="flex items-center gap-5 mb-16">
-
-                    <h2 class="uppercase tracking-[6px] text-zinc-400">
-                        About
-                    </h2>
-
-                    <div class="flex-1 h-px bg-[#24324D]"></div>
-
-                </div>
-
-                <!-- About Intro -->
-
-                <div class="grid lg:grid-cols-2 gap-16 items-center">
-
-                    <!-- Left -->
-
-                    <div>
-
-                        <p class="text-[#14B8A6] uppercase tracking-[4px] font-semibold mb-5">
-
-                            Who I Am
-
-                        </p>
-
-                        <h2 class="text-5xl font-black leading-tight">
-
-                            Building
-
-                            <span class="gradient-text">
-
-                                impactful software
-
-                            </span>
-
-                            through continuous learning.
-
-                        </h2>
-
-                    </div>
-
-                    <!-- Right -->
-
-                    <div>
-
-                        <p class="text-zinc-400 text-lg leading-9">
-
-                            I'm a Computer Science undergraduate passionate about
-                            MERN Stack Development, Artificial Intelligence and
-                            solving real-world problems through technology.
-
-                            I enjoy transforming ideas into products while constantly
-                            improving my skills through projects, competitive programming,
-                            hackathons and continuous learning.
-
-                        </p>
-
-                    </div>
-
-                </div>
-
-                <!-- Journey -->
-
-                <div class="mt-20">
-
-                    <div class="flex items-center gap-5 mb-14">
-
-                        <span class="text-[#14B8A6] font-semibold">
-
-                            Journey
+                            Tanish Mehta
 
                         </span>
 
-                        <div class="flex-1 h-px bg-[#24324D]"></div>
+                    </h1>
 
+                    <!-- Subtitle -->
+
+                    <h2 class="mt-8 text-2xl md:text-3xl font-semibold">
+
+                        MERN Stack Developer
+
+                        <span class="text-[#14B8A6]">
+
+                            •
+
+                        </span>
+
+                        AI Enthusiast
+
+                    </h2>
+
+                    <!-- Description -->
+
+                    <p class="mt-8 text-lg leading-8 text-[#94A3B8] max-w-xl">
+
+                        I build scalable web applications, AI-powered
+                        solutions, and modern user experiences using
+                        React, FastAPI, Node.js, Java and Generative AI.
+
+                    </p>
+
+                    <!-- Infinite Tech Scroller -->
+                    <div class="tech-marquee-container mt-10 overflow-hidden relative w-full border-y border-[#24324D]/30 py-4">
+                        <div class="tech-marquee-wrapper flex gap-8 whitespace-nowrap">
+                            <!-- Group 1 -->
+                            <div class="tech-marquee-items flex gap-8 shrink-0 animate-marquee">
+                                <span class="ticker-item">React</span>
+                                <span class="ticker-item">Next.js</span>
+                                <span class="ticker-item">Node.js</span>
+                                <span class="ticker-item">FastAPI</span>
+                                <span class="ticker-item">PostgreSQL</span>
+                                <span class="ticker-item">MongoDB</span>
+                                <span class="ticker-item">Java</span>
+                                <span class="ticker-item">JavaScript</span>
+                                <span class="ticker-item">TypeScript</span>
+                                <span class="ticker-item">Python</span>
+                                <span class="ticker-item">Gemini API</span>
+                                <span class="ticker-item">LangChain</span>
+                            </div>
+                            <!-- Group 2 (Duplicate for infinite loop) -->
+                            <div class="tech-marquee-items flex gap-8 shrink-0 animate-marquee" aria-hidden="true">
+                                <span class="ticker-item">React</span>
+                                <span class="ticker-item">Next.js</span>
+                                <span class="ticker-item">Node.js</span>
+                                <span class="ticker-item">FastAPI</span>
+                                <span class="ticker-item">PostgreSQL</span>
+                                <span class="ticker-item">MongoDB</span>
+                                <span class="ticker-item">Java</span>
+                                <span class="ticker-item">JavaScript</span>
+                                <span class="ticker-item">TypeScript</span>
+                                <span class="ticker-item">Python</span>
+                                <span class="ticker-item">Gemini API</span>
+                                <span class="ticker-item">LangChain</span>
+                            </div>
+                        </div>
                     </div>
 
-                    <div class="timeline">
+                </div>
 
-                        <div class="timeline-line"></div>
+                <!-- ================= RIGHT SIDE ================= -->
 
-                        <!-- 2023 -->
+                <div class="col-span-1 lg:col-span-7">
 
-                        <div class="timeline-node">
+                    <div class="grid grid-cols-1 md:grid-cols-12 gap-5">
 
-                            <div class="dot"></div>
+                        <!-- ================= GitHub ================= -->
 
-                            <span>2023</span>
+                        <a href="https://github.com/TanishMehta23" target="_blank"
+                            class="bento-card social-card col-span-12 md:col-span-4 floating">
 
-                            <div class="popup">
+                            <div class="flex justify-between items-center">
 
-                                <h3>Started Programming</h3>
+                                <i class="fab fa-github text-4xl text-[#14B8A6]"></i>
 
-                                <p>☕ Learned Java</p>
+                                <i class="fa-solid fa-arrow-up-right-from-square arrow"></i>
 
-                                <p>💻 First Console Applications</p>
+                            </div>
+
+                            <h3>GitHub</h3>
+
+                            <p>
+                                Explore repositories and open-source work.
+                            </p>
+
+                        </a>
+
+                        <!-- ================= LinkedIn ================= -->
+
+                        <a href="https://www.linkedin.com/in/tanish-mehta-43bb102b8/" target="_blank"
+                            class="bento-card social-card col-span-12 md:col-span-4 floating delay1">
+
+                            <div class="flex justify-between items-center">
+
+                                <i class="fab fa-linkedin text-4xl text-[#0A66C2]"></i>
+
+                                <i class="fa-solid fa-arrow-up-right-from-square arrow"></i>
+
+                            </div>
+
+                            <h3>LinkedIn</h3>
+
+                            <p>
+                                Connect and follow my professional journey.
+                            </p>
+
+                        </a>
+
+                        <!-- ================= LeetCode ================= -->
+
+                        <a href="https://leetcode.com/u/TanishMehta23/" target="_blank"
+                            class="bento-card social-card col-span-12 md:col-span-4 floating delay2 group">
+
+                            <div class="flex justify-between items-center">
+
+                                <img src="https://cdn.simpleicons.org/leetcode/FFA116" class="w-10 h-10">
+
+                                <i class="fa-solid fa-arrow-up-right-from-square arrow"></i>
+
+                            </div>
+
+                            <h3>LeetCode</h3>
+
+                            <p>
+                                Solving DSA problems every day.
+                            </p>
+
+                        </a>
+
+
+                        <!-- ================= TERMINAL ================= -->
+
+                        <div class="terminal-card col-span-12 md:col-span-5 floating delay3">
+
+                            <div class="terminal-header">
+
+                                <span class="terminal-dot red"></span>
+
+                                <span class="terminal-dot yellow"></span>
+
+                                <span class="terminal-dot green"></span>
+
+                                <span class="terminal-title">
+
+                                    live-coding.sh
+
+                                </span>
+
+                            </div>
+
+                            <div class="terminal-body">
+
+                                <div id="terminal-content"></div>
 
                             </div>
 
                         </div>
 
-                        <!-- 2024 -->
 
-                        <div class="timeline-node">
+                        <!-- ================= CURRENT FOCUS ================= -->
 
-                            <div class="dot"></div>
+                        <div class="bento-card focus-card col-span-12 md:col-span-7 floating delay4">
 
-                            <span>2024</span>
+                            <div class="flex items-center gap-3">
 
-                            <div class="popup">
+                                <div
+                                    class="w-12 h-12 rounded-xl bg-[#0F172A] border border-[#24324D] flex items-center justify-center">
 
-                                <h3>Web Development</h3>
+                                    <i class="fa-solid fa-bullseye text-[#14B8A6] text-xl"></i>
 
-                                <p>⚛ React</p>
+                                </div>
 
-                                <p>🌐 Node.js</p>
+                                <h3 class="!mt-0">
 
-                                <p>🎨 Tailwind CSS</p>
+                                    Current Focus
 
-                            </div>
-
-                        </div>
-
-                        <!-- 2025 -->
-
-                        <div class="timeline-node">
-
-                            <div class="dot"></div>
-
-                            <span>2025</span>
-
-                            <div class="popup">
-
-                                <h3>Projects</h3>
-
-                                <p>🚀 QuizoraAI</p>
-
-                                <p>🚀 FocusoraHQ</p>
-
-                                <p>🏆 300+ LeetCode</p>
+                                </h3>
 
                             </div>
 
-                        </div>
+                            <div class="mt-8 space-y-5">
 
-                        <!-- NOW -->
+                                <div class="flex items-center justify-between border-b border-[#24324D] pb-4">
 
-                        <div class="timeline-node">
+                                    <div class="flex items-center gap-3">
+                                        <span class="text-xl">⚡</span>
+                                        <span class="font-semibold text-white">Full Stack</span>
+                                    </div>
 
-                            <div class="dot pulse active"></div>
+                                    <span class="text-sm text-[#94A3B8]">Building Web Apps</span>
 
-                            <span>NOW</span>
+                                </div>
 
-                            <div class="popup">
+                                <div class="flex items-center justify-between border-b border-[#24324D] pb-4">
 
-                                <h3>Current Focus</h3>
+                                    <div class="flex items-center gap-3">
+                                        <span class="text-xl">🤖</span>
+                                        <span class="font-semibold text-white">Artificial Intelligence</span>
+                                    </div>
 
-                                <p>🤖 AI</p>
+                                    <span class="text-sm text-[#94A3B8]">LLMs & Agents</span>
 
-                                <p>☁ Cloud Computing</p>
+                                </div>
 
-                                <p>📚 System Design</p>
+                                <div class="flex items-center justify-between border-b border-[#24324D] pb-4">
 
-                                <p>💻 DSA</p>
+                                    <div class="flex items-center gap-3">
+                                        <span class="text-xl">📚</span>
+                                        <span class="font-semibold text-white">System Design</span>
+                                    </div>
 
-                                <p>🚀 FinPulse AI</p>
+                                    <span class="text-sm text-[#94A3B8]">Scalable Systems</span>
+
+                                </div>
+
+                                <div class="flex items-center justify-between">
+
+                                    <div class="flex items-center gap-3">
+                                        <span class="text-xl">💻</span>
+                                        <span class="font-semibold text-white">DSA</span>
+                                    </div>
+
+                                    <span class="text-sm text-[#94A3B8]">Daily Practice</span>
+
+                                </div>
 
                             </div>
 
@@ -617,17 +447,87 @@
 
                 </div>
 
+            </div>
+
+    </section>
+
+    <!--================ ABOUT =================-->
+
+    <section id="about" class="py-6">
+
+        <div class="max-w-7xl mx-auto px-6 lg:px-8">
+
+            <!-- Section Heading -->
+
+            <div class="flex items-center gap-5 mb-16">
+
+                <h2 class="uppercase tracking-[6px] text-zinc-400">
+                    About
+                </h2>
+
+                <div class="flex-1 h-px bg-[#24324D]"></div>
 
             </div>
-            <!--================ DEVELOPER DASHBOARD =================-->
 
-            <div class="dashboard-section">
+            <!-- About Intro -->
+
+            <div class="grid lg:grid-cols-2 gap-16 items-center">
+
+                <!-- Left -->
+
+                <div>
+
+                    <p class="text-[#14B8A6] uppercase tracking-[4px] font-semibold mb-5">
+
+                        Who I Am
+
+                    </p>
+
+                    <h2 class="text-5xl font-black leading-tight">
+
+                        Building
+
+                        <span class="gradient-text">
+
+                            impactful software
+
+                        </span>
+
+                        through continuous learning.
+
+                    </h2>
+
+                </div>
+
+                <!-- Right -->
+
+                <div>
+
+                    <p class="text-zinc-400 text-lg leading-9">
+
+                        I'm a Computer Science undergraduate passionate about
+                        MERN Stack Development, Artificial Intelligence and
+                        solving real-world problems through technology.
+
+                        I enjoy transforming ideas into products while constantly
+                        improving my skills through projects, competitive programming,
+                        hackathons and continuous learning.
+
+                    </p>
+
+                </div>
+
+            </div>
+
+            <!-- Journey -->
+
+            <div class="mt-20">
 
                 <div class="flex items-center gap-5 mb-14">
 
                     <span class="text-[#14B8A6] font-semibold">
 
-                        Dashboard
+                        Journey
 
                     </span>
 
@@ -635,119 +535,113 @@
 
                 </div>
 
-                <div class="stats-grid">
+                <div class="timeline">
 
-                    <div class="stat-card">
-                        <i class="fa-solid fa-folder-open"></i>
-                        <h3>5+</h3>
-                        <span>Projects</span>
+                    <div class="timeline-line"></div>
+
+                    <!-- 2023 -->
+
+                    <div class="timeline-node">
+
+                        <div class="dot"></div>
+
+                        <span>2023</span>
+
+                        <div class="popup">
+
+                            <h3>Started Programming</h3>
+
+                            <p>☕ Learned Java</p>
+
+                            <p>💻 First Console Applications</p>
+
+                        </div>
+
                     </div>
 
-                    <div class="stat-card">
-                        <i class="fa-solid fa-code"></i>
-                        <h3>320+</h3>
-                        <span>LeetCode</span>
+                    <!-- 2024 -->
+
+                    <div class="timeline-node">
+
+                        <div class="dot"></div>
+
+                        <span>2024</span>
+
+                        <div class="popup">
+
+                            <h3>Web Development</h3>
+
+                            <p>⚛ React</p>
+
+                            <p>🌐 Node.js</p>
+
+                            <p>🎨 Tailwind CSS</p>
+
+                        </div>
+
                     </div>
 
-                    <div class="stat-card">
-                        <i class="fa-solid fa-layer-group"></i>
-                        <h3>15+</h3>
-                        <span>Tech Stack</span>
+                    <!-- 2025 -->
+
+                    <div class="timeline-node">
+
+                        <div class="dot"></div>
+
+                        <span>2025</span>
+
+                        <div class="popup">
+
+                            <h3>Full-Stack Projects</h3>
+
+                            <p>🚀 QuizoraAI</p>
+
+                            <p>🚀 FocusoraHQ</p>
+
+                            <p>🏆 300+ LeetCode Solved</p>
+
+                        </div>
+
                     </div>
 
-                    <div class="stat-card">
-                        <i class="fa-solid fa-book-open"></i>
-                        <h3>AI</h3>
-                        <span>Learning</span>
+                    <!-- 2026 -->
+
+                    <div class="timeline-node">
+
+                        <div class="dot"></div>
+
+                        <span>2026</span>
+
+                        <div class="popup">
+
+                            <h3>Hackathons & Agents</h3>
+
+                            <p>🏆 DICE Event — 3rd Place</p>
+
+                            <p>🤖 Nexus AI Agent</p>
+
+                            <p>📈 Advanced AI Engineering</p>
+
+                        </div>
+
                     </div>
-                    <div class="stat-card">
-                        <i class="fa-solid fa-laptop"></i>
-                        <h3>2+</h3>
-                        <span>Years Coding</span>
-                    </div>
-                </div>
 
+                    <!-- NOW -->
 
-            </div>
-            <div class="pipeline-wrapper">
+                    <div class="timeline-node">
 
-                <div class="flex items-center gap-5 mb-14">
+                        <div class="dot pulse active"></div>
 
-                    <span class="text-[#14B8A6] font-semibold">
-                        Development Pipeline
-                    </span>
+                        <span>NOW</span>
 
-                    <div class="flex-1 h-px bg-[#24324D]"></div>
+                        <div class="popup">
 
-                </div>
+                            <h3>Current Focus</h3>
 
-                <div class="pipeline-card">
+                            <p>🚀 FinPulse AI Dashboard</p>
 
-                    <div class="pipeline">
+                            <p>📚 System Design Architecture</p>
 
-                        <div class="pipeline-step">
-
-                            <div class="step-icon">💡</div>
-
-                            <h3>Idea</h3>
-
-                            <p>Research & Planning</p>
-
-                        </div>
-
-                        <div class="pipeline-arrow">
-                            <i class="fa-solid fa-arrow-right"></i>
-                        </div>
-
-                        <div class="pipeline-step">
-
-                            <div class="step-icon">🎨</div>
-
-                            <h3>Design</h3>
-
-                            <p>UI / UX</p>
-
-                        </div>
-
-                        <div class="pipeline-arrow">
-                            <i class="fa-solid fa-arrow-right"></i>
-                        </div>
-
-                        <div class="pipeline-step">
-
-                            <div class="step-icon">💻</div>
-
-                            <h3>Develop</h3>
-
-                            <p>React • Node • Java</p>
-
-                        </div>
-
-                        <div class="pipeline-arrow">
-                            <i class="fa-solid fa-arrow-right"></i>
-                        </div>
-
-                        <div class="pipeline-step">
-
-                            <div class="step-icon">🧪</div>
-
-                            <h3>Test</h3>
-
-                            <p>Debug & Optimize</p>
-
-                        </div>
-
-                        <div class="pipeline-arrow">
-                            <i class="fa-solid fa-arrow-right"></i>
-                        </div>
-
-                        <div class="pipeline-step">
-
-                            <div class="step-icon">🚀</div>
-
-                            <h3>Deploy</h3>
-
-                            <p>GitHub • Vercel</p>
+                            <p>💻 LeetCode & Daily DSA</p>
 
                         </div>
 
@@ -756,932 +650,1143 @@
                 </div>
 
             </div>
-        </section>
-        <section id="projects" class="py-6">
+
+
+        </div>
+        <!--================ DEVELOPER DASHBOARD =================-->
+
+        <div class="dashboard-section">
+
+            <div class="flex items-center gap-5 mb-14">
+
+                <span class="text-[#14B8A6] font-semibold">
+
+                    Dashboard
+
+                </span>
+
+                <div class="flex-1 h-px bg-[#24324D]"></div>
+
+            </div>
+
+            <div class="stats-grid">
+
+                <div class="stat-card">
+                    <i class="fa-solid fa-folder-open"></i>
+                    <h3 class="projects-count">6+</h3>
+                    <span>Projects</span>
+                </div>
+
+                <div class="stat-card">
+                    <i class="fa-solid fa-code"></i>
+                    <h3 class="leetcode-count">320+</h3>
+                    <span>LeetCode</span>
+                </div>
+
+                <div class="stat-card">
+                    <i class="fa-solid fa-layer-group"></i>
+                    <h3>15+</h3>
+                    <span>Tech Stack</span>
+                </div>
+
+                <div class="stat-card">
+                    <i class="fa-solid fa-book-open"></i>
+                    <h3>AI</h3>
+                    <span>Learning</span>
+                </div>
+                <div class="stat-card">
+                    <i class="fa-solid fa-laptop"></i>
+                    <h3>2+</h3>
+                    <span>Years Coding</span>
+                </div>
+            </div>
+
+
+        </div>
+        <div class="pipeline-wrapper">
+
+            <div class="flex items-center gap-5 mb-14">
+
+                <span class="text-[#14B8A6] font-semibold">
+                    Development Pipeline
+                </span>
+
+                <div class="flex-1 h-px bg-[#24324D]"></div>
+
+            </div>
+
+            <div class="pipeline-card">
+
+                <div class="pipeline">
+
+                    <div class="pipeline-step">
+
+                        <div class="step-icon">💡</div>
+
+                        <h3>Idea</h3>
+
+                        <p>Research & Planning</p>
+
+                    </div>
+
+                    <div class="pipeline-arrow">
+                        <i class="fa-solid fa-arrow-right"></i>
+                    </div>
+
+                    <div class="pipeline-step">
+
+                        <div class="step-icon">🎨</div>
+
+                        <h3>Design</h3>
+
+                        <p>UI / UX</p>
+
+                    </div>
+
+                    <div class="pipeline-arrow">
+                        <i class="fa-solid fa-arrow-right"></i>
+                    </div>
+
+                    <div class="pipeline-step">
+
+                        <div class="step-icon">💻</div>
+
+                        <h3>Develop</h3>
+
+                        <p>React • Node • Java</p>
+
+                    </div>
+
+                    <div class="pipeline-arrow">
+                        <i class="fa-solid fa-arrow-right"></i>
+                    </div>
+
+                    <div class="pipeline-step">
+
+                        <div class="step-icon">🧪</div>
+
+                        <h3>Test</h3>
+
+                        <p>Debug & Optimize</p>
+
+                    </div>
+
+                    <div class="pipeline-arrow">
+                        <i class="fa-solid fa-arrow-right"></i>
+                    </div>
+
+                    <div class="pipeline-step">
+
+                        <div class="step-icon">🚀</div>
+
+                        <h3>Deploy</h3>
+
+                        <p>GitHub • Vercel</p>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </div>
+    </section>
+    <section id="projects" class="py-6">
+
+        <!-- Heading -->
+
+        <div class="max-w-7xl mx-auto px-6">
+
+            <div class="flex items-center gap-5 mb-16">
+
+                <h2 class="uppercase tracking-[6px] text-zinc-400">
+                    Projects
+                </h2>
+
+                <div class="flex-1 h-px bg-[#24324D]"></div>
+
+            </div>
+
+            <h1 class="text-5xl font-bold mb-3">
+                Things I've Built
+            </h1>
+
+            <p class="text-[#94A3B8] text-lg mb-16 max-w-3xl">
+                A collection of projects combining Full Stack Development,
+                Artificial Intelligence and modern software engineering.
+            </p>
+
+            <!-- Project Filter Buttons -->
+            <div class="flex flex-wrap justify-center md:justify-start gap-3 mb-12" id="project-filters">
+                <button class="filter-btn active" data-filter="all">All Projects</button>
+                <button class="filter-btn" data-filter="fullstack">Full-Stack</button>
+                <button class="filter-btn" data-filter="frontend">Frontend</button>
+                <button class="filter-btn" data-filter="ai">AI / ML</button>
+            </div>
+
+
+            <!-- Cards -->
+
+            <div class="projects-grid">
+                <!-- FocusoraHQ -->
+
+                <div class="project-card" data-category="fullstack">
+
+                    <div class="project-inner">
+
+                        <div class="project-front">
+
+                            <img src="assets/images/Focusora.png" alt="FocusoraHQ" class="project-image">
+
+                            <div class="overlay"></div>
+
+                            <div class="front-content">
+
+                                <div class="project-info">
+
+                                    <div>
+                                        <h2>FocusoraHQ</h2>
+                                        <p>Productivity Platform</p>
+
+                                        <div class="tech-tags">
+                                            <span>React</span>
+                                            <span>Node</span>
+                                            <span>Socket.io</span>
+                                        </div>
+                                    </div>
+
+                                </div>
+
+                            </div>
+
+                        </div>
+
+                        <div class="project-back">
+
+                            <h2>FocusoraHQ</h2>
+
+                            <p>
+
+                                Collaborative productivity workspace with
+                                study rooms, Pomodoro timer and notes.
+
+                            </p>
+
+                            <ul>
+
+                                <li>📚 Study Rooms</li>
+
+                                <li>⏱ Pomodoro</li>
+
+                                <li>💬 Real Time Chat</li>
+
+                                <li>🏆 Leaderboard</li>
+
+                            </ul>
+
+                            <div class="project-buttons">
+
+                                <a href="https://focusora-hq.vercel.app/" target="_blank">🌐 Live Demo</a>
+
+                                <a href="https://github.com/Chet07-R/FocusoraHQ" target="_blank">💻 GitHub</a>
+
+                            </div>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+
+                <!-- FinPulse AI -->
+
+                <div class="project-card" data-category="ai">
+
+                    <div class="project-inner">
+
+                        <div class="project-front">
+
+                            <img src="assets/images/finpulseAI.png" alt="FinPulse AI" class="project-image">
+
+                            <div class="overlay"></div>
+
+                            <div class="front-content">
+
+                                <div class="project-info">
+
+                                    <div>
+                                        <h2>FinPulse AI</h2>
+                                        <p>AI Finance Assistant</p>
+
+                                        <div class="tech-tags">
+                                            <span>React</span>
+                                            <span>FastAPI</span>
+                                            <span>Gemini</span>
+                                        </div>
+                                    </div>
+
+                                </div>
+
+                            </div>
+                        </div>
+                        <div class="project-back">
+
+                            <h2>FinPulse AI</h2>
+
+                            <p>
+
+                                Smart financial dashboard with AI powered
+                                insights and analytics.
+
+                            </p>
+
+                            <ul>
+
+                                <li>📈 Analytics</li>
+
+                                <li>🤖 AI Insights</li>
+
+                                <li>💹 Stock Dashboard</li>
+
+                                <li>☁ Cloud Ready</li>
+
+                            </ul>
+
+                            <div class="project-buttons">
+
+                                <a href="#">🌐 Live Demo</a>
+
+                                <a href="https://github.com/Vans30m/FinPulse-AI" target="_blank">💻 GitHub</a>
+
+                            </div>
+
+                        </div>
+
+                    </div>
+
+                </div>
+                <div class="project-card" data-category="frontend">
+
+                    <div class="project-inner">
+
+                        <!-- FRONT -->
+                        <div class="project-front">
+
+                            <img src="assets/images/fitness-planet.png" alt="Fitness Planet" class="project-image">
+
+                            <div class="overlay"></div>
+
+                            <div class="front-content">
+
+                                <div class="project-info">
+
+                                    <div>
+                                        <h2>Fitness Planet</h2>
+                                        <p>Fitness & Wellness Platform</p>
+
+                                        <div class="tech-tags">
+                                            <span>HTML</span>
+                                            <span>CSS</span>
+                                            <span>JavaScript</span>
+                                        </div>
+                                    </div>
+
+                                </div>
+
+                            </div>
+                        </div>
+
+                        <!-- BACK -->
+
+                        <div class="project-back">
+
+                            <h2>Fitness Planet</h2>
+
+                            <p>
+
+                                A responsive fitness website featuring BMI calculation,
+                                workout plans, healthy lifestyle resources, and an
+                                integrated shopping section.
+
+                            </p>
+
+                            <ul>
+
+                                <li>🏋 BMI Calculator</li>
+
+                                <li>🛒 Fitness Store</li>
+
+                                <li>📧 EmailJS Integration</li>
+
+                                <li>📱 Responsive Design</li>
+
+                            </ul>
+
+                            <div class="project-buttons">
+
+                                <a href="https://new-project-delta-orcin.vercel.app/" target="_blank">
+                                    🌐 Live Demo
+                                </a>
+
+                                <a href="https://github.com/Vans30m/Fitness-Planet" target="_blank">
+                                    💻 GitHub
+                                </a>
+
+                            </div>
+
+                        </div>
+
+                    </div>
+
+                </div>
+                <!-- QuizoraAI -->
+
+                <div class="project-card" data-category="ai">
+
+                    <div class="project-inner">
+
+                        <!-- FRONT -->
+                        <div class="project-front">
+
+                            <img src="assets/images/QuizoraAI.png" alt="QuizoraAI" class="project-image">
+
+                            <div class="overlay"></div>
+
+                            <div class="front-content">
+
+                                <div class="project-info">
+
+                                    <div>
+                                        <h2>QuizoraAI</h2>
+                                        <p>AI Quiz Generator</p>
+
+                                        <div class="tech-tags">
+                                            <span>Python</span>
+                                            <span>Gemini</span>
+                                            <span>Streamlit</span>
+                                        </div>
+                                    </div>
+
+                                </div>
+
+                            </div>
+                        </div>
+
+                        <!-- BACK -->
+
+                        <div class="project-back">
+
+                            <h2>QuizoraAI</h2>
+
+                            <p>
+
+                                AI powered application that converts PDFs into
+                                interactive quizzes using Gemini AI.
+
+                            </p>
+
+                            <ul>
+
+                                <li>📄 PDF Upload</li>
+
+                                <li>🤖 AI Generated Questions</li>
+
+                                <li>💡 Explanations</li>
+
+                                <li>⚡ Multiple Difficulty Levels</li>
+
+                            </ul>
+
+                            <div class="project-buttons">
+
+                                <a href="https://quizoraai.streamlit.app/" target="_blank">🌐 Live Demo</a>
+
+                                <a href="https://github.com/TanishMehta23/QuizoraAI" target="_blank">💻 GitHub</a>
+
+                            </div>
+
+                        </div>
+
+                    </div>
+
+                </div>
+                <!-- Nexus AI -->
+
+                <div class="project-card" data-category="ai">
+
+                    <div class="project-inner">
+
+                        <!-- FRONT -->
+                        <div class="project-front">
+
+                            <img src="assets/images/nexusai.png?v=3" alt="Nexus AI" class="project-image">
+
+                            <div class="overlay"></div>
+
+                            <div class="front-content">
+
+                                <div class="project-info">
+
+                                    <div>
+                                        <h2>Nexus AI</h2>
+                                        <p>Desktop AI Agent</p>
+
+                                        <div class="tech-tags">
+                                            <span>Python</span>
+                                            <span>Gemini</span>
+                                            <span>PostgreSQL</span>
+                                        </div>
+                                    </div>
+
+                                </div>
+
+                            </div>
+                        </div>
+
+                        <!-- BACK -->
+
+                        <div class="project-back">
+
+                            <h2>Nexus AI</h2>
+
+                            <p>
+
+                                A modular desktop AI agent built from first principles. Features native Gemini function
+                                calling, long-term memory, and OS automation.
+
+                            </p>
+
+                            <ul>
+
+                                <li>🤖 Gemini 2.5 Flash</li>
+
+                                <li>🛠️ Native Tool Calling</li>
+
+                                <li>🗄️ PostgreSQL Memory</li>
+
+                                <li>💻 Windows OS Automation</li>
+
+                            </ul>
+
+                            <div class="project-buttons">
+
+                                <a href="https://github.com/TanishMehta23/NexusAI" target="_blank">💻 GitHub</a>
+
+                            </div>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </section>
+
+    <section id="skills" class="py-12">
+
+        <div class="max-w-7xl mx-auto">
 
             <!-- Heading -->
 
-            <div class="max-w-7xl mx-auto px-6">
+            <div class="flex items-center gap-5 mb-16">
 
-                <div class="flex items-center gap-5 mb-16">
+                <h2 class="uppercase tracking-[6px] text-zinc-400">
+                    Tech Stack
+                </h2>
 
-                    <h2 class="uppercase tracking-[6px] text-zinc-400">
-                        Projects
-                    </h2>
-
-                    <div class="flex-1 h-px bg-[#24324D]"></div>
-
-                </div>
-
-                <h1 class="text-5xl font-bold mb-3">
-                    Things I've Built
-                </h1>
-
-                <p class="text-[#94A3B8] text-lg mb-16 max-w-3xl">
-                    A collection of projects combining Full Stack Development,
-                    Artificial Intelligence and modern software engineering.
-                </p>
-
-
-                <!-- Cards -->
-
-                <div class="projects-grid">
-                    <!-- FocusoraHQ -->
-
-                    <div class="project-card">
-
-                        <div class="project-inner">
-
-                            <div class="project-front">
-
-                                <img src="assets/images/Focusora.png" alt="FocusoraHQ" class="project-image">
-
-                                <div class="overlay"></div>
-
-                                <div class="front-content">
-
-                                    <div class="project-info">
-
-                                        <div>
-                                            <h2>FocusoraHQ</h2>
-                                            <p>Productivity Platform</p>
-
-                                            <div class="tech-tags">
-                                                <span>React</span>
-                                                <span>Node</span>
-                                                <span>Socket.io</span>
-                                            </div>
-                                        </div>
-
-                                    </div>
-
-                                </div>
-
-                            </div>
-
-                            <div class="project-back">
-
-                                <h2>FocusoraHQ</h2>
-
-                                <p>
-
-                                    Collaborative productivity workspace with
-                                    study rooms, Pomodoro timer and notes.
-
-                                </p>
-
-                                <ul>
-
-                                    <li>📚 Study Rooms</li>
-
-                                    <li>⏱ Pomodoro</li>
-
-                                    <li>💬 Real Time Chat</li>
-
-                                    <li>🏆 Leaderboard</li>
-
-                                </ul>
-
-                                <div class="project-buttons">
-
-                                    <a href="https://focusora-hq.vercel.app/" target="_blank">🌐 Live Demo</a>
-
-                                    <a href="https://github.com/Chet07-R/FocusoraHQ" target="_blank">💻 GitHub</a>
-
-                                </div>
-
-                            </div>
-
-                        </div>
-
-                    </div>
-
-
-                    <!-- FinPulse AI -->
-
-                    <div class="project-card">
-
-                        <div class="project-inner">
-
-                            <div class="project-front">
-
-                                <img src="assets/images/finpulseAI.png" alt="FinPulse AI" class="project-image">
-
-                                <div class="overlay"></div>
-
-                                <div class="front-content">
-
-                                    <div class="project-info">
-
-                                        <div>
-                                            <h2>FinPulse AI</h2>
-                                            <p>AI Finance Assistant</p>
-
-                                            <div class="tech-tags">
-                                                <span>React</span>
-                                                <span>FastAPI</span>
-                                                <span>Gemini</span>
-                                            </div>
-                                        </div>
-
-                                    </div>
-
-                                </div>
-                            </div>
-                            <div class="project-back">
-
-                                <h2>FinPulse AI</h2>
-
-                                <p>
-
-                                    Smart financial dashboard with AI powered
-                                    insights and analytics.
-
-                                </p>
-
-                                <ul>
-
-                                    <li>📈 Analytics</li>
-
-                                    <li>🤖 AI Insights</li>
-
-                                    <li>💹 Stock Dashboard</li>
-
-                                    <li>☁ Cloud Ready</li>
-
-                                </ul>
-
-                                <div class="project-buttons">
-
-                                    <a href="#">🌐 Live Demo</a>
-
-                                    <a href="https://github.com/Vans30m/FinPulse-AI" target="_blank">💻 GitHub</a>
-
-                                </div>
-
-                            </div>
-
-                        </div>
-
-                    </div>
-                    <div class="project-card">
-
-                        <div class="project-inner">
-
-                            <!-- FRONT -->
-                            <div class="project-front">
-
-                                <img src="assets/images/fitness-planet.png" alt="Fitness Planet" class="project-image">
-
-                                <div class="overlay"></div>
-
-                                <div class="front-content">
-
-                                    <div class="project-info">
-
-                                        <div>
-                                            <h2>Fitness Planet</h2>
-                                            <p>Fitness & Wellness Platform</p>
-
-                                            <div class="tech-tags">
-                                                <span>HTML</span>
-                                                <span>CSS</span>
-                                                <span>JavaScript</span>
-                                            </div>
-                                        </div>
-
-                                    </div>
-
-                                </div>
-                            </div>
-
-                            <!-- BACK -->
-
-                            <div class="project-back">
-
-                                <h2>Fitness Planet</h2>
-
-                                <p>
-
-                                    A responsive fitness website featuring BMI calculation,
-                                    workout plans, healthy lifestyle resources, and an
-                                    integrated shopping section.
-
-                                </p>
-
-                                <ul>
-
-                                    <li>🏋 BMI Calculator</li>
-
-                                    <li>🛒 Fitness Store</li>
-
-                                    <li>📧 EmailJS Integration</li>
-
-                                    <li>📱 Responsive Design</li>
-
-                                </ul>
-
-                                <div class="project-buttons">
-
-                                    <a href="https://new-project-delta-orcin.vercel.app/" target="_blank">
-                                        🌐 Live Demo
-                                    </a>
-
-                                    <a href="https://github.com/Vans30m/Fitness-Planet" target="_blank">
-                                        💻 GitHub
-                                    </a>
-
-                                </div>
-
-                            </div>
-
-                        </div>
-
-                    </div>
-                    <!-- QuizoraAI -->
-
-                    <div class="project-card">
-
-                        <div class="project-inner">
-
-                            <!-- FRONT -->
-                            <div class="project-front">
-
-                                <img src="assets/images/QuizoraAI.png" alt="QuizoraAI" class="project-image">
-
-                                <div class="overlay"></div>
-
-                                <div class="front-content">
-
-                                    <div class="project-info">
-
-                                        <div>
-                                            <h2>QuizoraAI</h2>
-                                            <p>AI Quiz Generator</p>
-
-                                            <div class="tech-tags">
-                                                <span>Python</span>
-                                                <span>Gemini</span>
-                                                <span>Streamlit</span>
-                                            </div>
-                                        </div>
-
-                                    </div>
-
-                                </div>
-                            </div>
-
-                            <!-- BACK -->
-
-                            <div class="project-back">
-
-                                <h2>QuizoraAI</h2>
-
-                                <p>
-
-                                    AI powered application that converts PDFs into
-                                    interactive quizzes using Gemini AI.
-
-                                </p>
-
-                                <ul>
-
-                                    <li>📄 PDF Upload</li>
-
-                                    <li>🤖 AI Generated Questions</li>
-
-                                    <li>💡 Explanations</li>
-
-                                    <li>⚡ Multiple Difficulty Levels</li>
-
-                                </ul>
-
-                                <div class="project-buttons">
-
-                                    <a href="https://quizoraai.streamlit.app/" target="_blank">🌐 Live Demo</a>
-
-                                    <a href="https://github.com/TanishMehta23/QuizoraAI" target="_blank">💻 GitHub</a>
-
-                                </div>
-
-                            </div>
-
-                        </div>
-
-                    </div>
-
-                </div>
+                <div class="flex-1 h-px bg-[#24324D]"></div>
 
             </div>
 
-        </section>
+            <div class="tech-layout">
 
-        <section id="skills" class="py-12">
+                <!-- LEFT -->
 
-            <div class="max-w-7xl mx-auto">
+                <div class="tech-cards">
+                    <div class="tech-card" data-category="programming">
 
-                <!-- Heading -->
+                        <h3 class="skill-title programming-title">💻 Programming Skills</h3>
 
-                <div class="flex items-center gap-5 mb-16">
+                        <div class="tech-list">
 
-                    <h2 class="uppercase tracking-[6px] text-zinc-400">
-                        Tech Stack
-                    </h2>
+                            <span>Java</span>
+                            <span>JavaScript</span>
+                            <span>TypeScript</span>
+                            <span>Python</span>
+                            <span>C++</span>
+                            <span>C</span>
 
-                    <div class="flex-1 h-px bg-[#24324D]"></div>
+                        </div>
+
+                    </div>
+
+                    <!-- Frontend -->
+
+                    <div class="tech-card" data-category="frontend">
+
+                        <h3 class="skill-title frontend-title">⚛ Frontend</h3>
+
+                        <div class="tech-list">
+
+                            <span>HTML5</span>
+                            <span>CSS3</span>
+                            <span>JavaScript</span>
+                            <span>React</span>
+                            <span>Next.js</span>
+                            <span>Tailwind CSS</span>
+
+                        </div>
+
+                    </div>
+
+                    <!-- Backend -->
+
+                    <div class="tech-card" data-category="backend">
+
+                        <h3 class="skill-title backend-title">⚡ Backend</h3>
+
+                        <div class="tech-list">
+
+                            <span>Node.js</span>
+                            <span>Express.js</span>
+                            <span>FastAPI</span>
+                            <span>Streamlit</span>
+
+                        </div>
+
+                    </div>
+
+                    <!-- AI -->
+
+                    <div class="tech-card" data-category="ai">
+
+                        <h3 class="skill-title ai-title">🤖 AI</h3>
+
+                        <div class="tech-list">
+
+                            <span>Gemini API</span>
+                            <span>LangChain</span>
+
+                        </div>
+
+                    </div>
+
+                    <!-- Database -->
+
+                    <div class="tech-card" data-category="database">
+
+                        <h3 class="skill-title database-title">🗄 Database & Tools</h3>
+
+                        <div class="tech-list">
+
+                            <span>MongoDB</span>
+                            <span>PostgreSQL</span>
+                            <span>MySQL</span>
+                            <span>Firebase</span>
+
+                        </div>
+
+                    </div>
+                    <div class="tech-card" data-category="platform">
+
+                        <h3 class="skill-title platform-title">🛠 Platforms and Tools</h3>
+
+                        <div class="tech-list">
+
+                            <span>Git</span>
+                            <span>GitHub</span>
+                            <span>Vercel</span>
+                            <span>VS Code</span>
+                            <span>IntelliJ IDEA</span>
+                            <span>Canva</span>
+
+                        </div>
+
+                    </div>
 
                 </div>
 
-                <div class="tech-layout">
+                <!-- RIGHT -->
+                <div class="galaxy-section">
 
-                    <!-- LEFT -->
+                    <div class="galaxy-header">
+                        <h2>✨ Interactive Tech Galaxy</h2>
+                        <p>Move your cursor through the galaxy and hover over the planets to explore my technology
+                            ecosystem.</p>
+                    </div>
 
-                    <div class="tech-cards">
-                        <div class="tech-card">
+                    <div class="galaxy-container" id="galaxy">
 
-                            <h3 class="skill-title programming-title">💻 Programming Skills</h3>
 
-                            <div class="tech-list">
-
-                                <span>Java</span>
-                                <span>JavaScript</span>
-                                <span>Python</span>
-                                <span>C++</span>
-                                <span>C</span>
-
-                            </div>
-
-                        </div>
+                        <!-- Programming -->
+                        <div class="planet programming large">Java</div>
+                        <div class="planet programming medium">Python</div>
+                        <div class="planet programming large">JavaScript</div>
+                        <div class="planet programming medium">TypeScript</div>
 
                         <!-- Frontend -->
-
-                        <div class="tech-card">
-
-                            <h3 class="skill-title frontend-title">⚛ Frontend</h3>
-
-                            <div class="tech-list">
-
-                                <span>HTML5</span>
-                                <span>CSS3</span>
-                                <span>JavaScript</span>
-                                <span>React</span>
-                                <span>Tailwind CSS</span>
-
-                            </div>
-
-                        </div>
+                        <div class="planet frontend large">React</div>
+                        <div class="planet frontend medium">Next.js</div>
+                        <div class="planet frontend small">HTML5</div>
+                        <div class="planet frontend small">CSS3</div>
+                        <div class="planet frontend medium">Tailwind</div>
+                        <div class="planet frontend medium">Bootstrap</div>
 
                         <!-- Backend -->
-
-                        <div class="tech-card">
-
-                            <h3 class="skill-title backend-title">⚡ Backend</h3>
-
-                            <div class="tech-list">
-
-                                <span>Node.js</span>
-                                <span>Express.js</span>
-                                <span>FastAPI</span>
-                                <span>Streamlit</span>
-
-                            </div>
-
-                        </div>
+                        <div class="planet backend large">Node.js</div>
+                        <div class="planet backend small">Express</div>
+                        <div class="planet backend medium">FastAPI</div>
+                        <div class="planet backend small">Socket.io</div>
 
                         <!-- AI -->
-
-                        <div class="tech-card">
-
-                            <h3 class="skill-title ai-title">🤖 AI</h3>
-
-                            <div class="tech-list">
-
-                                <span>Gemini API</span>
-                                <span>LangChain</span>
-
-                            </div>
-
-                        </div>
+                        <div class="planet ai medium">Gemini</div>
+                        <div class="planet ai small">LangChain</div>
 
                         <!-- Database -->
+                        <div class="planet database medium">MongoDB</div>
+                        <div class="planet database medium">PostgreSQL</div>
+                        <div class="planet database small">MySQL</div>
+                        <div class="planet database small">Firebase</div>
 
-                        <div class="tech-card">
+                        <!-- Platforms -->
+                        <div class="planet platform large">Git</div>
+                        <div class="planet platform small">GitHub</div>
+                        <div class="planet platform small">VS Code</div>
+                        <div class="planet platform small">Postman</div>
+                        <div class="planet platform small">Vercel</div>
 
-                            <h3 class="skill-title database-title">🗄 Database & Tools</h3>
-
-                            <div class="tech-list">
-
-                                <span>MongoDB</span>
-                                <span>MySQL</span>
-                                <span>Firebase</span>
-
-                            </div>
-
-                        </div>
-                        <div class="tech-card">
-
-                            <h3 class="skill-title platform-title">🛠 Platforms and Tools</h3>
-
-                            <div class="tech-list">
-
-                                <span>Git</span>
-                                <span>GitHub</span>
-                                <span>Vercel</span>
-                                <span>VS Code</span>
-                                <span>IntelliJ IDEA</span>
-                                <span>Canva</span>
-
-                            </div>
-
-                        </div>
-
-                    </div>
-
-                    <!-- RIGHT -->
-                    <div class="galaxy-section">
-
-                        <div class="galaxy-header">
-                            <h2>✨ Interactive Tech Galaxy</h2>
-                            <p>Move your cursor through the galaxy and hover over the planets to explore my technology
-                                ecosystem.</p>
-                        </div>
-
-                        <div class="galaxy-container" id="galaxy">
-
-
-                            <!-- Programming -->
-                            <div class="planet programming large">Java</div>
-                            <div class="planet programming medium">Python</div>
-                            <div class="planet programming large">JavaScript</div>
-
-                            <!-- Frontend -->
-                            <div class="planet frontend large">React</div>
-                            <div class="planet frontend small">HTML5</div>
-                            <div class="planet frontend small">CSS3</div>
-                            <div class="planet frontend medium">Tailwind</div>
-                            <div class="planet frontend medium">Bootstrap</div>
-
-                            <!-- Backend -->
-                            <div class="planet backend large">Node.js</div>
-                            <div class="planet backend small">Express</div>
-                            <div class="planet backend medium">FastAPI</div>
-                            <div class="planet backend small">Socket.io</div>
-
-                            <!-- AI -->
-                            <div class="planet ai medium">Gemini</div>
-                            <div class="planet ai small">LangChain</div>
-
-                            <!-- Database -->
-                            <div class="planet database medium">MongoDB</div>
-                            <div class="planet database small">MySQL</div>
-                            <div class="planet database small">Firebase</div>
-
-                            <!-- Platforms -->
-                            <div class="planet platform large">Git</div>
-                            <div class="planet platform small">GitHub</div>
-                            <div class="planet platform small">VS Code</div>
-                            <div class="planet platform small">Postman</div>
-                            <div class="planet platform small">Vercel</div>
-
-
-                        </div>
 
                     </div>
 
                 </div>
 
-        </section>
-
-        <!-- ========================= -->
-        <!-- ACHIEVEMENTS -->
-        <!-- ========================= -->
-
-        <section id="achievements" class="py-8">
-
-            <div class="max-w-7xl mx-auto">
-
-                <!-- Heading -->
-
-                <div class="flex items-center gap-5 mb-16">
-
-                    <h2 class="uppercase tracking-[6px] text-zinc-400">
-                        Achievements
-                    </h2>
-
-                    <div class="flex-1 h-px bg-[#24324D]"></div>
-
-                </div>
-
-                <!-- Grid -->
-
-                <div class="achievement-grid">
-
-                    <!-- DSA -->
-
-                    <div class="achievement-card teal">
-
-                        <div class="achievement-icon">
-                            🏆
-                        </div>
-
-                        <span class="achievement-tag">
-                            Featured
-                        </span>
-
-                        <h3 class="achievement-number">
-                            320+
-                        </h3>
-
-                        <h4>DSA Problems Solved</h4>
-
-                        <p>
-                            Solved 320+ coding problems across
-                            <strong>LeetCode</strong> and other competitive
-                            programming platforms, strengthening problem-solving
-                            and algorithmic thinking.
-                        </p>
-
-                        <a href="https://leetcode.com/u/TanishMehta23/" target="_blank">
-                            View LeetCode ↗
-                        </a>
-
-                    </div>
-
-                    <!-- Innovation -->
-
-                    <div class="achievement-card purple">
-
-                        <div class="achievement-icon">
-                            🥉
-                        </div>
-
-                        <span class="achievement-tag">
-                            Competition
-                        </span>
-
-                        <h3 class="achievement-number1">
-                            3rd
-                        </h3>
-
-                        <h4>DICE Innovation Event 2026</h4>
-
-                        <p>
-                            Secured <strong>3rd Position</strong> by building an
-                            <strong>ESP32 Smart Lock</strong> integrated with the
-                            <strong>Blynk IoT Platform</strong> featuring
-                            real-time remote access and security automation.
-                        </p>
-
-                        <a href="#">
-                            View Project ↗
-                        </a>
-
-                    </div>
-
-                </div>
             </div>
 
-        </section>
+    </section>
 
-        <!-- ===========================
+    <!-- ========================= -->
+    <!-- ACHIEVEMENTS -->
+    <!-- ========================= -->
+
+    <section id="achievements" class="py-8">
+
+        <div class="max-w-7xl mx-auto">
+
+            <!-- Heading -->
+
+            <div class="flex items-center gap-5 mb-16">
+
+                <h2 class="uppercase tracking-[6px] text-zinc-400">
+                    Achievements
+                </h2>
+
+                <div class="flex-1 h-px bg-[#24324D]"></div>
+
+            </div>
+
+            <!-- Grid -->
+
+            <div class="achievement-grid">
+
+                <!-- DSA -->
+
+                <div class="achievement-card teal">
+
+                    <div class="achievement-icon">
+                        🏆
+                    </div>
+
+                    <span class="achievement-tag">
+                        Featured
+                    </span>
+
+                    <h3 class="achievement-number leetcode-achievement-count">
+                        320+
+                    </h3>
+
+                    <h4>DSA Problems Solved</h4>
+
+                    <p>
+                        Solved 320+ coding problems across
+                        <strong>LeetCode</strong> and other competitive
+                        programming platforms, strengthening problem-solving
+                        and algorithmic thinking.
+                    </p>
+
+                    <a href="https://leetcode.com/u/TanishMehta23/" target="_blank">
+                        View LeetCode ↗
+                    </a>
+
+                </div>
+
+                <!-- Innovation -->
+
+                <div class="achievement-card purple">
+
+                    <div class="achievement-icon">
+                        🥉
+                    </div>
+
+                    <span class="achievement-tag">
+                        Competition
+                    </span>
+
+                    <h3 class="achievement-number1">
+                        3rd
+                    </h3>
+
+                    <h4>DICE Innovation Event 2026</h4>
+
+                    <p>
+                        Secured <strong>3rd Position</strong> by building an
+                        <strong>ESP32 Smart Lock</strong> integrated with the
+                        <strong>Blynk IoT Platform</strong> featuring
+                        real-time remote access and security automation.
+                    </p>
+
+                    <a href="https://github.com/TanishMehta23" target="_blank">
+                        View Project ↗
+                    </a>
+
+                </div>
+
+            </div>
+        </div>
+
+    </section>
+
+    <!-- ===========================
      DEVELOPER PROFILES
 =========================== -->
 
-        <section id="profiles" class="py-16">
+    <section id="profiles" class="py-16">
 
-            <div class="max-w-7xl mx-auto">
+        <div class="max-w-7xl mx-auto">
 
-                <!-- Heading -->
+            <!-- Heading -->
 
-                <div class="flex items-center gap-5 mb-16">
-
-                    <h2 class="uppercase tracking-[6px] text-zinc-400">
-                        Developer Profiles
-                    </h2>
-
-                    <div class="flex-1 h-px bg-[#24324D]"></div>
-
-                </div>
-
-                <p class="profiles-subtitle">
-                    Explore my coding journey across different platforms.
-                </p>
-
-                <div class="profiles-grid">
-
-                    <!-- LeetCode -->
-                    <a href="https://leetcode.com/u/TanishMehta23/" target="_blank" class="profile-card leetcode">
-
-                        <div class="profile-icon">
-                            <i class="fa-solid fa-code"></i>
-                        </div>
-
-                        <h3>LeetCode</h3>
-
-                    </a>
-
-                    <!-- GitHub -->
-                    <a href="https://github.com/TanishMehta23" target="_blank" class="profile-card github">
-
-                        <div class="profile-icon">
-                            <i class="fa-brands fa-github"></i>
-                        </div>
-
-                        <h3>GitHub</h3>
-
-                        <p>Projects</p>
-
-                    </a>
-
-                    <!-- HackerRank -->
-                    <a href="https://www.hackerrank.com/profile/tanish_mehta23" target="_blank"
-                        class="profile-card hackerrank">
-
-                        <div class="profile-icon">
-                            <i class="fa-brands fa-hackerrank"></i>
-                        </div>
-
-                        <h3>HackerRank</h3>
-
-                    </a>
-                    <!-- CodeChef -->
-                    <a href="https://www.codechef.com/users/tanishmehta" class="profile-card codechef" target="_blank">
-                        <div class="profile-icon">
-                            <i class="fa-solid fa-utensils"></i>
-                        </div>
-                        <h3>CodeChef</h3>
-                    </a>
-
-                    <!-- GeeksforGeeks -->
-                    <a href="https://www.geeksforgeeks.org/profile/tanishmbn75" class="profile-card gfg"
-                        target="_blank">
-                        <div class="profile-icon">
-                            <i class="fa-solid fa-graduation-cap"></i>
-                        </div>
-                        <h3>GeeksforGeeks</h3>
-                    </a>
-
-                    <!-- LinkedIn -->
-                    <a href="https://www.linkedin.com/in/tanish-mehta-43bb102b8/" target="_blank"
-                        class="profile-card linkedin">
-
-                        <div class="profile-icon">
-                            <i class="fa-brands fa-linkedin-in"></i>
-                        </div>
-
-                        <h3>LinkedIn</h3>
-
-                        <p>Let's Connect</p>
-
-                    </a>
-
-                </div>
-
-                <!-- Resume -->
-
-                <div class="resume-box">
-
-                    <a href="assets/resume.pdf" download>
-
-                        <i class="fa-solid fa-file-arrow-down"></i>
-
-                        Download Resume
-
-                    </a>
-
-                </div>
-
-            </div>
-
-        </section>
-        <!-- GitHub Activity Section -->
-         <div class="max-w-7xl mx-auto">
             <div class="flex items-center gap-5 mb-16">
 
-                    <h2 class="uppercase tracking-[6px] text-zinc-400">
-                        GitHub Activity
-                    </h2>
-
-                    <div class="flex-1 h-px bg-[#24324D]"></div>
-
-                </div>
-         </div>
-         
-        <section id="github" class="section-container max-w-[1000px] mx-auto">
-            <div class="bentocard p-6 md:p-8" data-aos="fade-up" data-aos-delay="100">
-                <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-6 mb-6">
-                    <div class="flex items-center gap-4">
-                        <img src="https://github.com/TanishMehta23.png" alt="Tanish Mehta Github Avatar"
-                            class="w-12 h-12 rounded-full border border-borderSpec">
-                        <div>
-                            <h3 class="text-lg font-display font-bold text-white">@TanishMehta23</h3>
-                            <p class="text-xs text-muted">Shipping consistently · building in public</p>
-                        </div>
-                    </div>
-                    <div>
-                        <a href="https://github.com/TanishMehta23" target="_blank"
-                            class="inline-flex items-center gap-1.5 px-4 py-2 rounded-xl bg-surface border border-borderSpec text-xs font-mono text-muted hover:text-textMain transition-colors">
-                            View full activity <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor"
-                                stroke-width="2" viewBox="0 0 24 24">
-                                <path stroke-linecap="round" stroke-linejoin="round" d="M14 5l7 7m0 0l-7 7m7-7H3" />
-                            </svg>
-                        </a>
-                    </div>
-                </div>
-
-                <div class="mb-4">
-                    <span class="text-3xl font-display font-bold text-accent github-total-contributions">342</span>
-                    <span class="text-xs text-muted font-mono ml-2">contributions in the last year</span>
-                </div>
-
-                <!-- GitHub Heatmap Wrapper with labels -->
-                <div class="github-heatmap-wrapper">
-                    <div class="github-months" id="github-months-container"></div>
-                    <div class="flex gap-2 items-start">
-                        <div class="github-days">
-                            <span></span>
-                            <span>Mon</span>
-                            <span></span>
-                            <span>Wed</span>
-                            <span></span>
-                            <span>Fri</span>
-                            <span></span>
-                        </div>
-                        <div class="github-grid-container" id="github-contributions-grid">
-                            <!-- Javascript will dynamically inject tile nodes -->
-                        </div>
-                    </div>
-                </div>
-
-                <div class="flex items-center justify-end gap-2 mt-4 text-[10px] font-mono text-muted">
-                    <span>Less</span>
-                    <span class="w-2.5 h-2.5 rounded-sm bg-[#161b22]"></span>
-                    <span class="w-2.5 h-2.5 rounded-sm bg-[#0e4429]/40"></span>
-                    <span class="w-2.5 h-2.5 rounded-sm bg-[#006d3a]/60"></span>
-                    <span class="w-2.5 h-2.5 rounded-sm bg-[#39d353]/80"></span>
-                    <span class="w-2.5 h-2.5 rounded-sm bg-[#39d353]"></span>
-                    <span>More</span>
-                </div>
-            </div>
-        </section>
-        <section id="contact" class="py-16">
-
-            <div class="max-w-6xl mx-auto">
-
-                <!-- Heading -->
-
-                <div class="flex items-center gap-5 mb-16">
-
-                    <h2 class="uppercase tracking-[6px] text-zinc-400">
-                        Contact
-                    </h2>
-
-                    <div class="flex-1 h-px bg-[#24324D]"></div>
-
-                </div>
-
-                <div class="contact-heading">
-
-                    <h2>Let's Build Something Amazing Together 🚀</h2>
-
-                    <p>
-                        Open to internships, collaborations and exciting software
-                        development opportunities.
-                    </p>
-
-                </div>
-
-                <!-- Contact Card -->
-
-                <div class="contact-card">
-
-                    <!-- Profile -->
-
-                    <div class="contact-profile">
-
-                        <h2>Tanish Mehta</h2>
-
-                        <p>Full Stack Developer • Java Developer • AI Enthusiast</p>
-
-                        <div class="availability">
-
-                            <span class="status-dot"></span>
-
-                            Open to Opportunities
-
-                        </div>
-
-                    </div>
-
-                    <hr>
-
-                    <!-- Contact Info -->
-
-                    <div class="contact-details">
-
-                        <div class="detail">
-
-                            <i class="fa-solid fa-envelope"></i>
-
-                            <span>tanish.mehta23@gmail.com</span>
-
-                        </div>
-
-                        <div class="detail">
-
-                            <i class="fa-solid fa-phone"></i>
-
-                            <span>+91 94780 33421</span>
-
-                        </div>
-
-                        <div class="detail">
-
-                            <i class="fa-solid fa-location-dot"></i>
-
-                            <span>Patiala, Punjab</span>
-
-                        </div>
-
-
-
-                    </div>
-
-                    <hr>
-
-                    <!-- Social -->
-
-                    <div class="social-links">
-
-                        <a href="https://github.com/TanishMehta23" target="_blank">
-
-                            <i class="fa-brands fa-github"></i>
-
-                        </a>
-
-                        <a href="https://www.linkedin.com/in/tanish-mehta-43bb102b8/" target="_blank">
-
-                            <i class="fa-brands fa-linkedin"></i>
-
-                        </a>
-
-                        <a href="https://leetcode.com/TanishMehta23/" target="_blank">
-
-                            <i class="fa-solid fa-code"></i>
-
-                        </a>
-
-                        <a href="https://www.hackerrank.com/tanishmehta23" target="_blank">
-
-                            <i class="fa-brands fa-hackerrank"></i>
-
-                        </a>
-
-                        <a href="https://www.codechef.com/users/tanishmehta23" target="_blank">
-
-                            <i class="fa-solid fa-utensils"></i>
-
-                        </a>
-
-                        <a href="https://www.geeksforgeeks.org/user/tanishmehta23/" target="_blank">
-
-                            <i class="fa-solid fa-graduation-cap"></i>
-
-                        </a>
-
-                    </div>
-
-                </div>
+                <h2 class="uppercase tracking-[6px] text-zinc-400">
+                    Developer Profiles
+                </h2>
+
+                <div class="flex-1 h-px bg-[#24324D]"></div>
 
             </div>
 
-        </section>
-        <!-- ===========================
-        FOOTER
-=========================== -->
+            <p class="profiles-subtitle">
+                Explore my coding journey across different platforms.
+            </p>
 
-        <footer class="footer">
+            <div class="profiles-grid">
 
-            <div class="footer-container">
-                <a href="#home" class="back-top">
+                <!-- LeetCode -->
+                <a href="https://leetcode.com/u/TanishMehta23/" target="_blank" class="profile-card leetcode">
 
-                    <i class="fa-solid fa-arrow-up"></i>
+                    <div class="profile-icon">
+                        <i class="fa-solid fa-code"></i>
+                    </div>
+
+                    <h3>LeetCode</h3>
 
                 </a>
 
-                <div class="footer-bottom">
+                <!-- GitHub -->
+                <a href="https://github.com/TanishMehta23" target="_blank" class="profile-card github">
 
-                    <p>
-                        © 2026 Tanish Mehta.
+                    <div class="profile-icon">
+                        <i class="fa-brands fa-github"></i>
+                    </div>
+
+                    <h3>GitHub</h3>
+
+                    <p>Projects</p>
+
+                </a>
+
+                <!-- HackerRank -->
+                <a href="https://www.hackerrank.com/profile/tanish_mehta23" target="_blank"
+                    class="profile-card hackerrank">
+
+                    <div class="profile-icon">
+                        <i class="fa-brands fa-hackerrank"></i>
+                    </div>
+
+                    <h3>HackerRank</h3>
+
+                </a>
+                <!-- CodeChef -->
+                <a href="https://www.codechef.com/users/tanishmehta" class="profile-card codechef" target="_blank">
+                    <div class="profile-icon">
+                        <i class="fa-solid fa-utensils"></i>
+                    </div>
+                    <h3>CodeChef</h3>
+                </a>
+
+                <!-- GeeksforGeeks -->
+                <a href="https://www.geeksforgeeks.org/profile/tanishmbn75" class="profile-card gfg" target="_blank">
+                    <div class="profile-icon">
+                        <i class="fa-solid fa-graduation-cap"></i>
+                    </div>
+                    <h3>GeeksforGeeks</h3>
+                </a>
+
+                <!-- LinkedIn -->
+                <a href="https://www.linkedin.com/in/tanish-mehta-43bb102b8/" target="_blank"
+                    class="profile-card linkedin">
+
+                    <div class="profile-icon">
+                        <i class="fa-brands fa-linkedin-in"></i>
+                    </div>
+
+                    <h3>LinkedIn</h3>
+
+                    <p>Let's Connect</p>
+
+                </a>
+
+            </div>
+
+            <!-- Resume -->
+
+            <div class="resume-box">
+
+                <a href="assets/resume.pdf" download>
+
+                    <i class="fa-solid fa-file-arrow-down"></i>
+
+                    Download Resume
+
+                </a>
+
+            </div>
+
+        </div>
+
+    </section>
+    <!-- GitHub Activity Section -->
+    <div class="max-w-7xl mx-auto">
+        <div class="flex items-center gap-5 mb-16">
+
+            <h2 class="uppercase tracking-[6px] text-zinc-400">
+                GitHub Activity
+            </h2>
+
+            <div class="flex-1 h-px bg-[#24324D]"></div>
+
+        </div>
+    </div>
+
+    <section id="github" class="section-container max-w-[1000px] mx-auto">
+        <div class="bentocard p-6 md:p-8" data-aos="fade-up" data-aos-delay="100">
+            <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-6 mb-6">
+                <div class="flex items-center gap-4">
+                    <img src="https://github.com/TanishMehta23.png" alt="Tanish Mehta Github Avatar"
+                        class="w-12 h-12 rounded-full border border-borderSpec">
+                    <div>
+                        <h3 class="text-lg font-display font-bold text-white">@TanishMehta23</h3>
+                        <p class="text-xs text-muted">Shipping consistently · building in public</p>
+                    </div>
+                </div>
+                <div>
+                    <a href="https://github.com/TanishMehta23" target="_blank"
+                        class="inline-flex items-center gap-1.5 px-4 py-2 rounded-xl bg-surface border border-borderSpec text-xs font-mono text-muted hover:text-textMain transition-colors">
+                        View full activity <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" stroke-width="2"
+                            viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" d="M14 5l7 7m0 0l-7 7m7-7H3" />
+                        </svg>
+                    </a>
+                </div>
+            </div>
+
+            <div class="mb-4">
+                <span class="text-3xl font-display font-bold text-accent github-total-contributions">342</span>
+                <span class="text-xs text-muted font-mono ml-2">contributions in the last year</span>
+            </div>
+
+            <!-- GitHub Heatmap Wrapper with labels -->
+            <div class="github-heatmap-wrapper">
+                <div class="github-months" id="github-months-container"></div>
+                <div class="flex gap-2 items-start">
+                    <div class="github-days">
+                        <span></span>
+                        <span>Mon</span>
+                        <span></span>
+                        <span>Wed</span>
+                        <span></span>
+                        <span>Fri</span>
+                        <span></span>
+                    </div>
+                    <div class="github-grid-container" id="github-contributions-grid">
+                        <!-- Javascript will dynamically inject tile nodes -->
+                    </div>
+                </div>
+            </div>
+
+            <div class="flex items-center justify-end gap-2 mt-4 text-[10px] font-mono text-muted">
+                <span>Less</span>
+                <span class="w-2.5 h-2.5 rounded-sm bg-[#161b22]"></span>
+                <span class="w-2.5 h-2.5 rounded-sm bg-[#0e4429]/40"></span>
+                <span class="w-2.5 h-2.5 rounded-sm bg-[#006d3a]/60"></span>
+                <span class="w-2.5 h-2.5 rounded-sm bg-[#39d353]/80"></span>
+                <span class="w-2.5 h-2.5 rounded-sm bg-[#39d353]"></span>
+                <span>More</span>
+            </div>
+        </div>
+    </section>
+    <section id="contact" class="py-16">
+
+        <div class="max-w-6xl mx-auto">
+
+            <!-- Heading -->
+
+            <div class="flex items-center gap-5 mb-16">
+
+                <h2 class="uppercase tracking-[6px] text-zinc-400">
+                    Contact
+                </h2>
+
+                <div class="flex-1 h-px bg-[#24324D]"></div>
+
+            </div>
+
+            <div class="max-w-4xl mx-auto">
+                <div
+                    class="relative overflow-hidden bg-[#101827] border border-[#24324D] rounded-3xl p-12 md:p-16 text-center hover:border-[#14B8A6]/50 transition-all duration-500 shadow-2xl hover:shadow-[0_20px_50px_rgba(20,184,166,0.1)]">
+                    <!-- Top Glow -->
+                    <div
+                        class="absolute -top-24 left-1/2 -translate-x-1/2 w-80 h-80 bg-gradient-to-b from-[#14B8A6]/10 to-transparent rounded-full blur-[60px] pointer-events-none">
+                    </div>
+
+                    <span class="text-xs md:text-sm font-bold tracking-[6px] text-[#14B8A6] uppercase">Let's
+                        Connect</span>
+
+                    <h2 class="mt-6 text-4xl md:text-6xl font-black tracking-tight text-white leading-tight">
+                        Let's build
+                        <span
+                            class="bg-gradient-to-r from-[#14B8A6] via-[#3B82F6] to-[#8B5CF6] bg-clip-text text-transparent italic font-normal"
+                            style="font-family: Georgia, Cambria, serif;">something extraordinary.</span>
+                    </h2>
+
+                    <p class="mt-6 text-zinc-400 text-base md:text-lg max-w-xl mx-auto leading-relaxed">
+                        Open to internships, collaborations, and exciting software development opportunities. Drop me a
+                        line!
                     </p>
+                    <div class="mt-10 flex flex-col sm:flex-row items-center justify-center gap-4">
+                        <a href="mailto:tanish.mehta23@gmail.com?subject=Hi%20Tanish"
+                            class="w-full sm:w-auto px-8 py-4 rounded-full bg-gradient-to-r from-[#14B8A6] to-[#3B82F6] text-[#070B14] font-bold shadow-lg hover:shadow-[0_0_20px_rgba(20,184,166,0.4)] hover:scale-105 transition-all duration-300 flex items-center justify-center gap-2">
+                            <i class="fa-solid fa-envelope"></i>
+                            tanish.mehta23@gmail.com
+                        </a>
+                    </div>
+                </div>
+            </div>
 
+        </div>
+
+    </section>
+
+    <!-- ===========================
+        FOOTER
+    =========================== -->
+    <footer class="relative mt-24 border-t border-[#24324D] bg-[#070B14] py-16 overflow-hidden">
+        <!-- Background Glow -->
+        <div
+            class="absolute -bottom-24 -left-24 w-72 h-72 bg-[#14B8A6]/5 rounded-full blur-[100px] pointer-events-none">
+        </div>
+        <div class="absolute -top-24 -right-24 w-72 h-72 bg-[#8B5CF6]/5 rounded-full blur-[100px] pointer-events-none">
+        </div>
+
+        <div class="max-w-7xl mx-auto px-6 lg:px-8">
+            <div class="grid grid-cols-1 md:grid-cols-12 gap-10 pb-12 border-b border-[#24324D]/60">
+
+                <!-- Left: Branding -->
+                <div class="md:col-span-5 space-y-5">
+                    <a href="#home" class="flex items-center gap-3 text-2xl font-extrabold tracking-tight group w-fit">
+                        <img src="assets/icons/logo-transparent.png" alt="Logo"
+                            class="w-10 h-10 rounded-full group-hover:rotate-12 transition-transform duration-300">
+                        <span class="text-white group-hover:text-[#14B8A6] transition-colors">Tanish Mehta</span>
+                    </a>
+                    <p class="text-zinc-400 text-sm max-w-sm leading-relaxed">
+                        Creating scalable web applications, AI-powered solutions, and interactive user experiences with
+                        precision and passion.
+                    </p>
+                    <!-- Socials -->
+                    <div class="flex items-center gap-3 pt-2">
+                        <a href="https://github.com/TanishMehta23" target="_blank"
+                            class="w-10 h-10 rounded-xl bg-[#0B1220] border border-[#24324D] flex items-center justify-center text-zinc-400 hover:text-[#14B8A6] hover:border-[#14B8A6] hover:-translate-y-1 transition-all duration-300">
+                            <i class="fa-brands fa-github text-lg"></i>
+                        </a>
+                        <a href="https://www.linkedin.com/in/tanish-mehta-43bb102b8/" target="_blank"
+                            class="w-10 h-10 rounded-xl bg-[#0B1220] border border-[#24324D] flex items-center justify-center text-zinc-400 hover:text-[#14B8A6] hover:border-[#14B8A6] hover:-translate-y-1 transition-all duration-300">
+                            <i class="fa-brands fa-linkedin text-lg"></i>
+                        </a>
+                        <a href="https://leetcode.com/TanishMehta23/" target="_blank"
+                            class="w-10 h-10 rounded-xl bg-[#0B1220] border border-[#24324D] flex items-center justify-center text-zinc-400 hover:text-[#14B8A6] hover:border-[#14B8A6] hover:-translate-y-1 transition-all duration-300">
+                            <i class="fa-solid fa-code text-lg"></i>
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Middle: Quick Links -->
+                <div class="md:col-span-3 space-y-4">
+                    <h4 class="text-sm font-bold uppercase tracking-wider text-white">Navigation</h4>
+                    <ul class="space-y-2.5">
+                        <li><a href="#about"
+                                class="text-zinc-400 hover:text-[#14B8A6] text-sm transition-colors">About</a></li>
+                        <li><a href="#projects"
+                                class="text-zinc-400 hover:text-[#14B8A6] text-sm transition-colors">Projects</a></li>
+                        <li><a href="#skills" class="text-zinc-400 hover:text-[#14B8A6] text-sm transition-colors">Tech
+                                Stack</a></li>
+                        <li><a href="#achievements"
+                                class="text-zinc-400 hover:text-[#14B8A6] text-sm transition-colors">Achievements</a>
+                        </li>
+                        <li><a href="#contact"
+                                class="text-zinc-400 hover:text-[#14B8A6] text-sm transition-colors">Contact</a></li>
+                    </ul>
+                </div>
+
+                <!-- Right: Live Status / Info -->
+                <div class="md:col-span-4 space-y-4">
+                    <h4 class="text-sm font-bold uppercase tracking-wider text-white">Current Status</h4>
+                    <div class="p-4 rounded-2xl bg-[#0B1220]/50 border border-[#24324D] space-y-3">
+                        <div class="flex items-center gap-2 text-sm text-[#14B8A6] font-semibold">
+                            <span class="relative flex h-2 w-2">
+                                <span
+                                    class="animate-ping absolute inline-flex h-full w-full rounded-full bg-[#22C55E] opacity-75"></span>
+                                <span class="relative inline-flex rounded-full h-2 w-2 bg-[#22C55E]"></span>
+                            </span>
+                            Available for Opportunities
+                        </div>
+                        <p class="text-zinc-400 text-xs leading-relaxed">
+                            Looking for opportunities and collaboration. Based in Patiala, Punjab.
+                        </p>
+                    </div>
                 </div>
 
             </div>
 
-        </footer>
+            <!-- Bottom Bar -->
+            <div class="flex flex-col sm:flex-row items-center justify-between pt-8 gap-4">
+                <p class="text-zinc-500 text-xs">
+                    &copy; 2026 Tanish Mehta. Built with ❤️.
+                </p>
+                <a href="#home"
+                    class="group flex items-center gap-2 px-4 py-2 rounded-full border border-[#24324D] bg-[#0B1220] text-zinc-400 hover:text-[#14B8A6] hover:border-[#14B8A6] transition-all duration-300 text-xs font-semibold">
+                    Back to Top
+                    <i class="fa-solid fa-arrow-up group-hover:-translate-y-1 transition-transform duration-300"></i>
+                </a>
+            </div>
+        </div>
+    </footer>
 
-        <script src="script.js"></script>
+    <script src="script.js"></script>
 
 </body>
 
