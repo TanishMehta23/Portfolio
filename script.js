@@ -753,6 +753,6 @@ window.addEventListener("load", () => {
     if (preloader) {
         setTimeout(() => {
             preloader.classList.add("fade-out");
-        }, 700); // Fades out after 0.7 seconds
+        }, 100);
     }
 });
