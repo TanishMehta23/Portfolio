@@ -744,6 +744,20 @@ bentoCards.forEach(card => {
         card.style.setProperty("--y", `${y}px`);
     });
 });
+/* ====================================================
+   PROJECT CARD FLIP SUPPORT (MOBILE & DESKTOP)
+   ==================================================== */
+document.querySelectorAll(".project-card").forEach(card => {
+    card.addEventListener("click", function(e) {
+        if (e.target.closest("a, button")) {
+            return;
+        }
+        this.classList.toggle("flipped");
+    });
+    card.addEventListener("mouseleave", function() {
+        this.classList.remove("flipped");
+    });
+});
 
 /* ====================================================
    PRELOADER INITIALIZATION
