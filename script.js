@@ -33,6 +33,7 @@ const commands = [
 ];
 
 let index = 0;
+let terminalInstanceId = 0;
 
 function sleep(ms){
     return new Promise(resolve => setTimeout(resolve, ms));
@@ -53,8 +54,11 @@ async function typeText(element,text,speed=40){
 }
 
 async function runTerminal(){
+    const myInstanceId = ++terminalInstanceId;
+    window.terminalInstance = myInstanceId;
 
     while(true){
+        if (window.terminalInstance !== myInstanceId) return;
 
         terminal.innerHTML="";
 
@@ -79,8 +83,10 @@ async function runTerminal(){
         prompt.appendChild(cursor);
 
         await typeText(typing,current.cmd,50);
+        if (window.terminalInstance !== myInstanceId) return;
 
         await sleep(250);
+        if (window.terminalInstance !== myInstanceId) return;
         cursor.remove();
 
         const output=document.createElement("div");
@@ -89,6 +95,7 @@ async function runTerminal(){
         terminal.appendChild(output);
 
         await sleep(1800);
+        if (window.terminalInstance !== myInstanceId) return;
 
         // clear command
 
@@ -102,16 +109,19 @@ async function runTerminal(){
         `;
 
         await sleep(900);
+        if (window.terminalInstance !== myInstanceId) return;
 
         terminal.style.opacity="0";
 
         await sleep(300); // wait for fade out
+        if (window.terminalInstance !== myInstanceId) return;
 
         terminal.innerHTML="";
 
         terminal.style.opacity="1";
 
         await sleep(100); // short pause before next command starts typing
+        if (window.terminalInstance !== myInstanceId) return;
 
         index=(index+1)%commands.length;
 
@@ -119,10 +129,7 @@ async function runTerminal(){
 
 }
 
-if (!window.terminalRunning) {
-    window.terminalRunning = true;
-    runTerminal();
-}
+runTerminal();
 
 window.addEventListener("scroll", () => {
 
