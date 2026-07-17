@@ -4,7 +4,7 @@ A modern, responsive, and interactive developer portfolio showcasing my projects
 
 ## 🌐 Live Demo
 
-👉 **Portfolio:** https://tanish-mehta-23-portfolio.vercel.app/
+👉 **Portfolio:** https://www.tanishmehta.me/
 
 ---
 
