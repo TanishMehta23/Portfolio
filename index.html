@@ -174,7 +174,7 @@
 
     <!-- ================= HERO ================= -->
 
-    <section id="home" class="relative overflow-hidden pt-32 pb-24">
+    <section id="home" class="relative overflow-hidden pt-24 md:pt-32 pb-24">
 
         <!-- Background Glow -->
 
@@ -193,7 +193,7 @@
 
                     <!-- Heading -->
 
-                    <h1 class="mt-8 text-5xl md:text-7xl font-black leading-tight">
+                    <h1 class="mt-4 md:mt-8 text-3xl sm:text-5xl md:text-7xl font-black leading-tight">
 
                         Hi,
 
@@ -201,17 +201,13 @@
 
                         <br>
 
-                        <span class="gradient-text">
-
-                            Tanish Mehta
-
-                        </span>
+                        <span class="gradient-text" id="hero-typing">Tanish Mehta</span><span class="hero-cursor text-[#14B8A6]">|</span>
 
                     </h1>
 
                     <!-- Subtitle -->
 
-                    <h2 class="mt-8 text-2xl md:text-3xl font-semibold">
+                    <h2 class="mt-8 text-xl sm:text-2xl md:text-3xl font-semibold">
 
                         MERN Stack Developer
 
@@ -280,68 +276,71 @@
 
                     <div class="grid grid-cols-1 md:grid-cols-12 gap-5">
 
-                        <!-- ================= GitHub ================= -->
+                        <!-- ================= SOCIAL CARDS ================= -->
 
-                        <a href="https://github.com/TanishMehta23" target="_blank"
-                            class="bento-card social-card col-span-12 md:col-span-4 floating">
+                        <div class="col-span-12 grid grid-cols-3 gap-3 md:gap-5">
 
-                            <div class="flex justify-between items-center">
+                            <!-- GitHub -->
+                            <a href="https://github.com/TanishMehta23" target="_blank"
+                                class="bento-card social-card floating">
 
-                                <i class="fab fa-github text-4xl text-[#14B8A6]"></i>
+                                <div class="flex justify-between items-center">
 
-                                <i class="fa-solid fa-arrow-up-right-from-square arrow"></i>
+                                    <i class="fab fa-github text-3xl md:text-4xl text-[#14B8A6]"></i>
 
-                            </div>
+                                    <i class="fa-solid fa-arrow-up-right-from-square arrow hidden sm:inline-block"></i>
 
-                            <h3>GitHub</h3>
+                                </div>
 
-                            <p>
-                                Explore repositories and open-source work.
-                            </p>
+                                <h3 class="text-base md:text-2xl mt-4 md:mt-5 font-bold">GitHub</h3>
 
-                        </a>
+                                <p class="hidden md:block text-sm text-zinc-400 mt-2">
+                                    Explore repositories and open-source work.
+                                </p>
 
-                        <!-- ================= LinkedIn ================= -->
+                            </a>
 
-                        <a href="https://www.linkedin.com/in/tanish-mehta-43bb102b8/" target="_blank"
-                            class="bento-card social-card col-span-12 md:col-span-4 floating delay1">
+                            <!-- LinkedIn -->
+                            <a href="https://www.linkedin.com/in/tanish-mehta-43bb102b8/" target="_blank"
+                                class="bento-card social-card floating delay1">
 
-                            <div class="flex justify-between items-center">
+                                <div class="flex justify-between items-center">
 
-                                <i class="fab fa-linkedin text-4xl text-[#0A66C2]"></i>
+                                    <i class="fab fa-linkedin text-3xl md:text-4xl text-[#0A66C2]"></i>
 
-                                <i class="fa-solid fa-arrow-up-right-from-square arrow"></i>
+                                    <i class="fa-solid fa-arrow-up-right-from-square arrow hidden sm:inline-block"></i>
 
-                            </div>
+                                </div>
 
-                            <h3>LinkedIn</h3>
+                                <h3 class="text-base md:text-2xl mt-4 md:mt-5 font-bold">LinkedIn</h3>
 
-                            <p>
-                                Connect and follow my professional journey.
-                            </p>
+                                <p class="hidden md:block text-sm text-zinc-400 mt-2">
+                                    Connect and follow my professional journey.
+                                </p>
 
-                        </a>
+                            </a>
 
-                        <!-- ================= LeetCode ================= -->
+                            <!-- LeetCode -->
+                            <a href="https://leetcode.com/u/TanishMehta23/" target="_blank"
+                                class="bento-card social-card floating delay2 group">
 
-                        <a href="https://leetcode.com/u/TanishMehta23/" target="_blank"
-                            class="bento-card social-card col-span-12 md:col-span-4 floating delay2 group">
+                                <div class="flex justify-between items-center">
 
-                            <div class="flex justify-between items-center">
+                                    <img src="https://cdn.simpleicons.org/leetcode/FFA116" class="w-8 h-8 md:w-10 md:h-10">
 
-                                <img src="https://cdn.simpleicons.org/leetcode/FFA116" class="w-10 h-10">
+                                    <i class="fa-solid fa-arrow-up-right-from-square arrow hidden sm:inline-block"></i>
 
-                                <i class="fa-solid fa-arrow-up-right-from-square arrow"></i>
+                                </div>
 
-                            </div>
+                                <h3 class="text-base md:text-2xl mt-4 md:mt-5 font-bold">LeetCode</h3>
 
-                            <h3>LeetCode</h3>
+                                <p class="hidden md:block text-sm text-zinc-400 mt-2">
+                                    Solving DSA problems every day.
+                                </p>
 
-                            <p>
-                                Solving DSA problems every day.
-                            </p>
+                            </a>
 
-                        </a>
+                        </div>
 
 
                         <!-- ================= TERMINAL ================= -->
@@ -394,38 +393,38 @@
 
                             </div>
 
-                            <div class="mt-8 space-y-5">
+                            <div class="mt-5 md:mt-8 space-y-3 md:space-y-5">
 
-                                <div class="flex items-center justify-between border-b border-[#24324D] pb-4">
+                                <div class="flex items-center justify-between border-b border-[#24324D] pb-3 md:pb-4">
 
                                     <div class="flex items-center gap-3">
                                         <span class="text-xl">⚡</span>
-                                        <span class="font-semibold text-white">Full Stack</span>
+                                        <span class="font-semibold text-white text-sm md:text-base">Full Stack</span>
                                     </div>
 
-                                    <span class="text-sm text-[#94A3B8]">Building Web Apps</span>
+                                    <span class="text-xs md:text-sm text-[#94A3B8]">Building Web Apps</span>
 
                                 </div>
 
-                                <div class="flex items-center justify-between border-b border-[#24324D] pb-4">
+                                <div class="flex items-center justify-between border-b border-[#24324D] pb-3 md:pb-4">
 
                                     <div class="flex items-center gap-3">
                                         <span class="text-xl">🤖</span>
-                                        <span class="font-semibold text-white">Artificial Intelligence</span>
+                                        <span class="font-semibold text-white text-sm md:text-base">Artificial Intelligence</span>
                                     </div>
 
-                                    <span class="text-sm text-[#94A3B8]">LLMs & Agents</span>
+                                    <span class="text-xs md:text-sm text-[#94A3B8]">LLMs & Agents</span>
 
                                 </div>
 
-                                <div class="flex items-center justify-between border-b border-[#24324D] pb-4">
+                                <div class="flex items-center justify-between border-b border-[#24324D] pb-3 md:pb-4">
 
                                     <div class="flex items-center gap-3">
                                         <span class="text-xl">📚</span>
-                                        <span class="font-semibold text-white">System Design</span>
+                                        <span class="font-semibold text-white text-sm md:text-base">System Design</span>
                                     </div>
 
-                                    <span class="text-sm text-[#94A3B8]">Scalable Systems</span>
+                                    <span class="text-xs md:text-sm text-[#94A3B8]">Scalable Systems</span>
 
                                 </div>
 
@@ -433,10 +432,10 @@
 
                                     <div class="flex items-center gap-3">
                                         <span class="text-xl">💻</span>
-                                        <span class="font-semibold text-white">DSA</span>
+                                        <span class="font-semibold text-white text-sm md:text-base">DSA</span>
                                     </div>
 
-                                    <span class="text-sm text-[#94A3B8]">Daily Practice</span>
+                                    <span class="text-xs md:text-sm text-[#94A3B8]">Daily Practice</span>
 
                                 </div>
 
@@ -472,7 +471,7 @@
 
             <!-- About Intro -->
 
-            <div class="grid lg:grid-cols-2 gap-16 items-center">
+            <div class="grid lg:grid-cols-2 gap-6 lg:gap-16 items-center">
 
                 <!-- Left -->
 
@@ -484,7 +483,7 @@
 
                     </p>
 
-                    <h2 class="text-5xl font-black leading-tight">
+                    <h2 class="text-3xl sm:text-5xl font-black leading-tight">
 
                         Building
 
@@ -504,7 +503,7 @@
 
                 <div>
 
-                    <p class="text-zinc-400 text-lg leading-9">
+                    <p class="text-zinc-400 text-base sm:text-lg leading-7 sm:leading-9">
 
                         I'm a Computer Science undergraduate passionate about
                         MERN Stack Development, Artificial Intelligence and
@@ -656,7 +655,7 @@
         </div>
         <!--================ DEVELOPER DASHBOARD =================-->
 
-        <div class="dashboard-section">
+        <div class="dashboard-section max-w-7xl mx-auto px-6 lg:px-8">
 
             <div class="flex items-center gap-5 mb-14">
 
@@ -674,13 +673,13 @@
 
                 <div class="stat-card">
                     <i class="fa-solid fa-folder-open"></i>
-                    <h3 class="projects-count">6+</h3>
+                    <h3>7+</h3>
                     <span>Projects</span>
                 </div>
 
                 <div class="stat-card">
                     <i class="fa-solid fa-code"></i>
-                    <h3 class="leetcode-count">320+</h3>
+                    <h3>300+</h3>
                     <span>LeetCode</span>
                 </div>
 
@@ -704,7 +703,7 @@
 
 
         </div>
-        <div class="pipeline-wrapper">
+        <div class="pipeline-wrapper max-w-7xl mx-auto px-6 lg:px-8">
 
             <div class="flex items-center gap-5 mb-14">
 
@@ -808,11 +807,11 @@
 
             </div>
 
-            <h1 class="text-5xl font-bold mb-3">
+            <h1 class="text-3xl sm:text-5xl font-bold mb-3">
                 Things I've Built
             </h1>
 
-            <p class="text-[#94A3B8] text-lg mb-16 max-w-3xl">
+            <p class="text-[#94A3B8] text-base sm:text-lg mb-8 sm:mb-16 max-w-3xl">
                 A collection of projects combining Full Stack Development,
                 Artificial Intelligence and modern software engineering.
             </p>
@@ -1261,7 +1260,7 @@
 
     <section id="skills" class="py-12">
 
-        <div class="max-w-7xl mx-auto">
+        <div class="max-w-7xl mx-auto px-6 lg:px-8">
 
             <!-- Heading -->
 
@@ -1451,7 +1450,7 @@
 
     <section id="achievements" class="py-8">
 
-        <div class="max-w-7xl mx-auto">
+        <div class="max-w-7xl mx-auto px-6 lg:px-8">
 
             <!-- Heading -->
 
@@ -1482,13 +1481,13 @@
                     </span>
 
                     <h3 class="achievement-number leetcode-achievement-count">
-                        320+
+                        300+
                     </h3>
 
                     <h4>DSA Problems Solved</h4>
 
                     <p>
-                        Solved 320+ coding problems across
+                        Solved 300+ coding problems across
                         <strong>LeetCode</strong> and other competitive
                         programming platforms, strengthening problem-solving
                         and algorithmic thinking.
@@ -1542,7 +1541,7 @@
 
     <section id="profiles" class="py-16">
 
-        <div class="max-w-7xl mx-auto">
+        <div class="max-w-7xl mx-auto px-6 lg:px-8">
 
             <!-- Heading -->
 
@@ -1647,7 +1646,9 @@
 
     </section>
     <!-- GitHub Activity Section -->
-    <div class="max-w-7xl mx-auto">
+    <section id="github" class="section-container max-w-7xl mx-auto px-6 lg:px-8 py-16">
+        
+        <!-- Heading -->
         <div class="flex items-center gap-5 mb-16">
 
             <h2 class="uppercase tracking-[6px] text-zinc-400">
@@ -1657,9 +1658,7 @@
             <div class="flex-1 h-px bg-[#24324D]"></div>
 
         </div>
-    </div>
 
-    <section id="github" class="section-container max-w-[1000px] mx-auto">
         <div class="bentocard p-6 md:p-8" data-aos="fade-up" data-aos-delay="100">
             <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-6 mb-6">
                 <div class="flex items-center gap-4">
@@ -1688,8 +1687,8 @@
 
             <!-- GitHub Heatmap Wrapper with labels -->
             <div class="github-heatmap-wrapper">
-                <div class="github-months" id="github-months-container"></div>
-                <div class="flex gap-2 items-start">
+                <div class="github-months min-w-[850px]" id="github-months-container"></div>
+                <div class="flex gap-2 items-start min-w-[850px]">
                     <div class="github-days">
                         <span></span>
                         <span>Mon</span>
@@ -1718,7 +1717,7 @@
     </section>
     <section id="contact" class="py-16">
 
-        <div class="max-w-6xl mx-auto">
+        <div class="max-w-6xl mx-auto px-6 lg:px-8">
 
             <!-- Heading -->
 
@@ -1771,7 +1770,7 @@
     <!-- ===========================
         FOOTER
     =========================== -->
-    <footer class="relative mt-24 border-t border-[#24324D] bg-[#070B14] py-16 overflow-hidden">
+    <footer class="relative mt-12 md:mt-24 border-t border-[#24324D] bg-[#070B14] py-12 md:py-16 overflow-hidden">
         <!-- Background Glow -->
         <div
             class="absolute -bottom-24 -left-24 w-72 h-72 bg-[#14B8A6]/5 rounded-full blur-[100px] pointer-events-none">

@@ -151,62 +151,7 @@ function animateCountUp(element, targetValue) {
     }, stepTime);
 }
 
-// Fetch dynamic stats from GitHub and LeetCode APIs
-async function fetchDynamicStats() {
-    // 1. Fetch LeetCode
-    try {
-        const res = await fetch("https://alfa-leetcode-api.onrender.com/TanishMehta23/solved");
-        if (res.ok) {
-            const data = await res.json();
-            if (data && data.solvedProblem) {
-                const solvedCount = data.solvedProblem;
-                const leetcodeUIElements = document.querySelectorAll(".leetcode-count, .leetcode-achievement-count");
-                leetcodeUIElements.forEach(el => {
-                    el.textContent = solvedCount + "+";
-                });
-            }
-        }
-    } catch (err) {
-        console.error("Error fetching LeetCode stats:", err);
-    }
 
-    // 2. Fetch GitHub Repos
-    try {
-        const res = await fetch("https://api.github.com/users/TanishMehta23");
-        if (res.ok) {
-            const data = await res.json();
-            if (data && data.public_repos !== undefined) {
-                const repoCount = data.public_repos;
-                const projectsUI = document.querySelector(".projects-count");
-                if (projectsUI) {
-                    projectsUI.textContent = repoCount + "+";
-                }
-            }
-        }
-    } catch (err) {
-        console.error("Error fetching GitHub repos:", err);
-    }
-}
-
-// Trigger stats fetching
-fetchDynamicStats();
-
-// Observer for dashboard stats counters
-const statsCounters = document.querySelectorAll(".projects-count, .leetcode-count");
-const statsObserver = new IntersectionObserver((entries) => {
-    entries.forEach(entry => {
-        if (entry.isIntersecting) {
-            const counterEl = entry.target;
-            const target = parseInt(counterEl.textContent) || 0;
-            animateCountUp(counterEl, target);
-            statsObserver.unobserve(counterEl);
-        }
-    });
-}, { threshold: 0.1 });
-
-statsCounters.forEach(counterEl => {
-    statsObserver.observe(counterEl);
-});
 
 const galaxy = document.getElementById("galaxy");
 const planets = [...document.querySelectorAll(".planet")];
@@ -224,8 +169,9 @@ updateGalaxySize();
 
 window.addEventListener("resize", () => {
     updateGalaxySize();
-    // Keep planets in bounds immediately on resize
+    // Keep planets in bounds and update radius immediately on resize
     objects.forEach(p => {
+        p.r = p.el.offsetWidth / 2;
         if (p.x < p.r) p.x = p.r;
         if (p.x > W - p.r) p.x = W - p.r;
         if (p.y < p.r) p.y = p.r;
@@ -345,6 +291,14 @@ function animateGalaxy() {
         // Slow down naturally
         p.vx *= 0.985;
         p.vy *= 0.985;
+
+        // Maintain a gentle continuous drift (especially on mobile/no hover)
+        const currentSpeed = Math.sqrt(p.vx * p.vx + p.vy * p.vy);
+        if (currentSpeed < 0.25) {
+            const angle = Math.random() * Math.PI * 2;
+            p.vx += Math.cos(angle) * 0.08;
+            p.vy += Math.sin(angle) * 0.08;
+        }
 
         p.x += p.vx;
         p.y += p.vy;
@@ -760,8 +714,46 @@ document.querySelectorAll(".project-card").forEach(card => {
 });
 
 /* ====================================================
-   PRELOADER INITIALIZATION
+   PRELOADER INITIALIZATION & HERO TYPING
    ==================================================== */
+async function runHeroTyping() {
+    const heroTyping = document.getElementById("hero-typing");
+    if (!heroTyping) return;
+    
+    const phrases = [
+        "Tanish Mehta"
+    ];
+    
+    let phraseIndex = 0;
+    
+    // Clear initial text to start clean
+    heroTyping.textContent = "";
+    
+    while (true) {
+        const phrase = phrases[phraseIndex];
+        
+        // Type out the phrase
+        for (let i = 0; i <= phrase.length; i++) {
+            heroTyping.textContent = phrase.slice(0, i);
+            await sleep(100);
+        }
+        
+        // Wait before deleting
+        await sleep(2200);
+        
+        // Delete the phrase
+        for (let i = phrase.length; i >= 0; i--) {
+            heroTyping.textContent = phrase.slice(0, i);
+            await sleep(50);
+        }
+        
+        // Wait before typing the next one
+        await sleep(600);
+        
+        phraseIndex = (phraseIndex + 1) % phrases.length;
+    }
+}
+
 window.addEventListener("load", () => {
     const preloader = document.getElementById("preloader");
     if (preloader) {
@@ -769,4 +761,7 @@ window.addEventListener("load", () => {
             preloader.classList.add("fade-out");
         }, 100);
     }
+    
+    // Start hero typing animation
+    runHeroTyping();
 });
