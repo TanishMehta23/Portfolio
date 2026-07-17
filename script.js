@@ -105,11 +105,13 @@ async function runTerminal(){
 
         terminal.style.opacity="0";
 
-        await sleep(250);
+        await sleep(300); // wait for fade out
 
         terminal.innerHTML="";
 
         terminal.style.opacity="1";
+
+        await sleep(100); // short pause before next command starts typing
 
         index=(index+1)%commands.length;
 
@@ -117,7 +119,10 @@ async function runTerminal(){
 
 }
 
-runTerminal();
+if (!window.terminalRunning) {
+    window.terminalRunning = true;
+    runTerminal();
+}
 
 window.addEventListener("scroll", () => {
 

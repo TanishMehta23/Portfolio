@@ -550,11 +550,10 @@ nav ul li a:hover::after {
     font-size: 13px;
 }
 
-#terminal {
-    padding: 18px 22px;
+#terminal-content {
     color: #E2E8F0;
     font-size: 15px;
-    line-height: 1.45;
+    line-height: 1.5;
     font-family: "JetBrains Mono", Consolas, monospace;
     white-space: pre-wrap;
     margin: 0;
@@ -3622,6 +3621,9 @@ body {
         padding: 16px !important;
         height: calc(100% - 41px) !important;
     }
+    #terminal-content {
+        font-size: 13px !important;
+    }
     
     /* Scale down galaxy planets on mobile */
     .planet.large {
@@ -3645,5 +3647,24 @@ body {
     .achievement-card {
         min-height: auto !important;
         padding: 24px !important;
+    }
+}
+
+.mail-btn {
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    gap: 8px !important;
+    text-align: center !important;
+    font-size: 16px !important;
+}
+
+@media (max-width: 640px) {
+    .mail-btn {
+        font-size: 13px !important;
+        padding-left: 1.5rem !important;
+        padding-right: 1.5rem !important;
+        padding-top: 0.8rem !important;
+        padding-bottom: 0.8rem !important;
     }
 }
