@@ -201,7 +201,8 @@
 
                         <br>
 
-                        <span class="gradient-text" id="hero-typing">Tanish Mehta</span><span class="hero-cursor text-[#14B8A6]">|</span>
+                        <span class="gradient-text" id="hero-typing">Tanish Mehta</span><span
+                            class="hero-cursor text-[#14B8A6]">|</span>
 
                     </h1>
 
@@ -326,7 +327,8 @@
 
                                 <div class="flex justify-between items-center">
 
-                                    <img src="https://cdn.simpleicons.org/leetcode/FFA116" class="w-8 h-8 md:w-10 md:h-10">
+                                    <img src="https://cdn.simpleicons.org/leetcode/FFA116"
+                                        class="w-8 h-8 md:w-10 md:h-10">
 
                                     <i class="fa-solid fa-arrow-up-right-from-square arrow hidden sm:inline-block"></i>
 
@@ -410,7 +412,8 @@
 
                                     <div class="flex items-center gap-3">
                                         <span class="text-xl">🤖</span>
-                                        <span class="font-semibold text-white text-sm md:text-base">Artificial Intelligence</span>
+                                        <span class="font-semibold text-white text-sm md:text-base">Artificial
+                                            Intelligence</span>
                                     </div>
 
                                     <span class="text-xs md:text-sm text-[#94A3B8]">LLMs & Agents</span>
@@ -669,35 +672,105 @@
 
             </div>
 
-            <div class="stats-grid">
-
-                <div class="stat-card">
-                    <i class="fa-solid fa-folder-open"></i>
-                    <h3>7+</h3>
-                    <span>Projects</span>
+            <div
+                class="hud-strip flex flex-wrap md:flex-nowrap items-center justify-between gap-6 py-8 px-8 bg-[#0B0F19]/40 border border-[#1E293B]/70 rounded-2xl backdrop-blur-md relative overflow-hidden">
+                <!-- Glowing background accent behind the strip -->
+                <div
+                    class="absolute -left-10 top-1/2 -translate-y-1/2 w-40 h-40 bg-teal-500/10 rounded-full blur-[80px] pointer-events-none">
+                </div>
+                <div
+                    class="absolute -right-10 top-1/2 -translate-y-1/2 w-40 h-40 bg-blue-500/10 rounded-full blur-[80px] pointer-events-none">
                 </div>
 
-                <div class="stat-card">
-                    <i class="fa-solid fa-code"></i>
-                    <h3>300+</h3>
-                    <span>LeetCode</span>
+                <!-- Station 1: Projects -->
+                <div class="hud-station flex-1 min-w-[120px] text-center md:text-left py-2 relative z-10">
+                    <div class="flex items-center justify-center md:justify-start gap-3 mb-1">
+                        <i class="fa-solid fa-folder-open text-[#10B981] text-lg"></i>
+                        <span class="text-[12px] font-semibold tracking-wider text-zinc-400 uppercase">Projects</span>
+                    </div>
+                    <div class="flex items-baseline justify-center md:justify-start gap-1">
+                        <h3 class="stat-num text-4xl font-extrabold tracking-tight bg-gradient-to-r from-emerald-400 to-teal-400 bg-clip-text text-transparent"
+                            data-target="7">0</h3>
+                    </div>
+                    <div class="text-[11px] text-zinc-500 mt-1 font-mono">Active Dev & Live</div>
                 </div>
 
-                <div class="stat-card">
-                    <i class="fa-solid fa-layer-group"></i>
-                    <h3>15+</h3>
-                    <span>Tech Stack</span>
+                <!-- Divider 1 -->
+                <div
+                    class="hud-divider hidden md:block w-px h-16 bg-gradient-to-b from-transparent via-[#24324D] to-transparent">
                 </div>
 
-                <div class="stat-card">
-                    <i class="fa-solid fa-book-open"></i>
-                    <h3>AI</h3>
-                    <span>Learning</span>
+                <!-- Station 2: LeetCode -->
+                <div class="hud-station flex-1 min-w-[120px] text-center md:text-left py-2 relative z-10">
+                    <div class="flex items-center justify-center md:justify-start gap-3 mb-1">
+                        <i class="fa-solid fa-code text-[#F59E0B] text-lg"></i>
+                        <span class="text-[12px] font-semibold tracking-wider text-zinc-400 uppercase">LeetCode</span>
+                    </div>
+                    <div class="flex items-baseline justify-center md:justify-start gap-1">
+                        <h3 class="stat-num text-4xl font-extrabold tracking-tight bg-gradient-to-r from-amber-400 to-orange-400 bg-clip-text text-transparent"
+                            data-target="300">0</h3>
+                    </div>
+                    <div class="text-[11px] text-zinc-500 mt-1 font-mono">Solved & Contesting</div>
                 </div>
-                <div class="stat-card">
-                    <i class="fa-solid fa-laptop"></i>
-                    <h3>2+</h3>
-                    <span>Years Coding</span>
+
+                <!-- Divider 2 -->
+                <div
+                    class="hud-divider hidden md:block w-px h-16 bg-gradient-to-b from-transparent via-[#24324D] to-transparent">
+                </div>
+
+                <!-- Station 3: Tech Stack -->
+                <div class="hud-station flex-1 min-w-[120px] text-center md:text-left py-2 relative z-10">
+                    <div class="flex items-center justify-center md:justify-start gap-3 mb-1">
+                        <i class="fa-solid fa-layer-group text-[#3B82F6] text-lg"></i>
+                        <span class="text-[12px] font-semibold tracking-wider text-zinc-400 uppercase">Tech Stack</span>
+                    </div>
+                    <div class="flex items-baseline justify-center md:justify-start gap-1">
+                        <h3 class="stat-num text-4xl font-extrabold tracking-tight bg-gradient-to-r from-blue-400 to-indigo-400 bg-clip-text text-transparent"
+                            data-target="15">0</h3>
+                    </div>
+                    <div class="text-[11px] text-zinc-500 mt-1 font-mono">Technologies & Tools</div>
+                </div>
+
+                <!-- Divider 3 -->
+                <div
+                    class="hud-divider hidden md:block w-px h-16 bg-gradient-to-b from-transparent via-[#24324D] to-transparent">
+                </div>
+
+                <!-- Station 4: Learning -->
+                <div class="hud-station flex-1 min-w-[120px] text-center md:text-left py-2 relative z-10">
+                    <div class="flex items-center justify-center md:justify-start gap-3 mb-1">
+                        <i class="fa-solid fa-book-open text-[#8B5CF6] text-lg"></i>
+                        <span class="text-[12px] font-semibold tracking-wider text-zinc-400 uppercase">Learning</span>
+                    </div>
+                    <div class="flex items-baseline justify-center md:justify-start gap-2">
+                        <h3
+                            class="text-4xl font-extrabold tracking-tight bg-gradient-to-r from-violet-400 to-purple-400 bg-clip-text text-transparent">
+                            AI</h3>
+                        <span class="relative flex h-2 w-2 mb-1">
+                            <span
+                                class="animate-ping absolute inline-flex h-full w-full rounded-full bg-violet-400 opacity-75"></span>
+                            <span class="relative inline-flex rounded-full h-2 w-2 bg-violet-500"></span>
+                        </span>
+                    </div>
+                    <div class="text-[11px] text-zinc-500 mt-1 font-mono">System Design & ML</div>
+                </div>
+
+                <!-- Divider 4 -->
+                <div
+                    class="hud-divider hidden md:block w-px h-16 bg-gradient-to-b from-transparent via-[#24324D] to-transparent">
+                </div>
+
+                <!-- Station 5: Years Coding -->
+                <div class="hud-station flex-1 min-w-[120px] text-center md:text-left py-2 relative z-10">
+                    <div class="flex items-center justify-center md:justify-start gap-3 mb-1">
+                        <i class="fa-solid fa-laptop text-[#06B6D4] text-lg"></i>
+                        <span class="text-[12px] font-semibold tracking-wider text-zinc-400 uppercase">Coding</span>
+                    </div>
+                    <div class="flex items-baseline justify-center md:justify-start gap-1">
+                        <h3 class="stat-num text-4xl font-extrabold tracking-tight bg-gradient-to-r from-cyan-400 to-sky-400 bg-clip-text text-transparent"
+                            data-target="2">0</h3>
+                    </div>
+                    <div class="text-[11px] text-zinc-500 mt-1 font-mono">Years Continuous Dev</div>
                 </div>
             </div>
 
@@ -1081,7 +1154,8 @@
 
                             <p>
 
-                                A lightweight Flask web app that detects spam messages using a trained machine learning model. Paste snippets to get predictions and confidence scores.
+                                A lightweight Flask web app that detects spam messages using a trained machine learning
+                                model. Paste snippets to get predictions and confidence scores.
 
                             </p>
 
@@ -1647,7 +1721,7 @@
     </section>
     <!-- GitHub Activity Section -->
     <section id="github" class="section-container max-w-7xl mx-auto px-6 lg:px-8 py-16">
-        
+
         <!-- Heading -->
         <div class="flex items-center gap-5 mb-16">
 
@@ -1686,7 +1760,7 @@
             </div>
 
             <!-- GitHub Heatmap Wrapper with labels -->
-            <div class="github-heatmap-wrapper">
+            <div class="github-heatmap-wrapper max-w-[890px] mx-auto">
                 <div class="github-months min-w-[850px]" id="github-months-container"></div>
                 <div class="flex gap-2 items-start min-w-[850px]">
                     <div class="github-days">
@@ -1715,6 +1789,91 @@
             </div>
         </div>
     </section>
+
+
+    <!-- <section id="play-zone" class="section-container max-w-7xl mx-auto px-6 lg:px-8 py-16">
+
+        <div class="flex items-center gap-5 mb-16">
+            <h2 class="uppercase tracking-[6px] text-zinc-400">
+                Play Zone
+            </h2>
+            <div class="flex-1 h-px bg-[#24324D]"></div>
+        </div>
+
+        <div class="snake-arcade-container bentocard p-6 md:p-8 relative overflow-hidden" data-aos="fade-up" data-aos-delay="100">
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-6 items-center">
+                
+
+                <div class="md:col-span-2 relative w-full aspect-[4/3] max-w-[680px] bg-[#05070D] border border-[#1E293B]/70 rounded-xl overflow-hidden shadow-inner flex items-center justify-center mx-auto">
+                    <canvas id="snake-canvas" width="500" height="380" class="w-full h-full block"></canvas>
+                    
+         
+                    <div id="snake-overlay" class="absolute inset-0 bg-[#05070D]/95 flex flex-col items-center justify-center p-6 text-center z-20 font-mono transition-opacity duration-300">
+                        <i class="fa-solid fa-bug text-[#14B8A6] text-4xl mb-3 animate-pulse"></i>
+                        <h4 class="text-lg font-bold text-white mb-2" id="snake-overlay-title">Dev Bug Hunt</h4>
+                        <p class="text-[11px] text-zinc-400 max-w-[280px] mb-4" id="snake-overlay-desc">
+                            Guide the glowing Code Snake to eat green features and squash bugs. Don't hit the walls or yourself!
+                        </p>
+                        <button id="snake-start-btn" class="px-5 py-2 rounded-lg bg-gradient-to-r from-teal-500 to-cyan-500 hover:from-teal-600 hover:to-cyan-600 text-white text-xs font-semibold tracking-wider uppercase transition-all shadow-[0_0_15px_rgba(20,184,166,0.3)]">
+                            Start Game
+                        </button>
+                    </div>
+                </div>
+
+              
+                <div class="md:col-span-1 flex flex-col justify-between h-full py-2 font-mono">
+                    <div class="border-b border-[#1E293B]/60 pb-4 mb-4">
+                        <span class="text-xs font-bold tracking-widest text-[#14B8A6] flex items-center gap-2 mb-3">
+                            <i class="fa-solid fa-gamepad text-sm"></i>
+                            DEV_SNAKE.EXE
+                        </span>
+                        <div class="flex flex-col gap-2 text-sm text-zinc-300">
+                            <div class="flex justify-between">
+                                <span>Score:</span>
+                                <span class="text-teal-400 font-bold" id="snake-score">0</span>
+                            </div>
+                            <div class="flex justify-between">
+                                <span>High Score:</span>
+                                <span class="text-purple-400 font-bold" id="snake-high">0</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    
+                    <div class="bg-[#070A13]/80 border border-[#1E293B]/70 p-4 rounded-xl mb-4 text-xs text-zinc-400 space-y-2 leading-relaxed">
+                        <div class="text-[#14B8A6] font-semibold uppercase tracking-wider mb-1 text-[10px]">Controls</div>
+                        <div class="flex items-center gap-2">
+                            <span class="px-1.5 py-0.5 bg-[#1E293B] rounded text-[10px] text-white border border-[#24324D]">↑ ↓ ← →</span>
+                            <span>or</span>
+                            <span class="px-1.5 py-0.5 bg-[#1E293B] rounded text-[10px] text-white border border-[#24324D]">W A S D</span>
+                        </div>
+                        <div class="pt-2 border-t border-[#1E293B]/60 text-[10px] space-y-1">
+                            <div class="flex items-center gap-1.5"><span class="w-1.5 h-1.5 rounded-full bg-[#10B981]"></span> Feature: +15 pts</div>
+                            <div class="flex items-center gap-1.5"><span class="w-1.5 h-1.5 rounded-full bg-[#EF4444]"></span> Code Bug: +10 pts</div>
+                        </div>
+                    </div>
+
+                   
+                    <div class="d-pad flex flex-col items-center gap-1 md:hidden mt-2">
+                        <button class="d-btn w-10 h-10 rounded-lg bg-[#141B2E] border border-[#1E293B] flex items-center justify-center text-zinc-400 active:bg-teal-500/20 active:text-teal-400 transition-colors" id="ctrl-up" title="Move Up">
+                            <i class="fa-solid fa-chevron-up text-xs"></i>
+                        </button>
+                        <div class="flex gap-6">
+                            <button class="d-btn w-10 h-10 rounded-lg bg-[#141B2E] border border-[#1E293B] flex items-center justify-center text-zinc-400 active:bg-teal-500/20 active:text-teal-400 transition-colors" id="ctrl-left" title="Move Left">
+                                <i class="fa-solid fa-chevron-left text-xs"></i>
+                            </button>
+                            <button class="d-btn w-10 h-10 rounded-lg bg-[#141B2E] border border-[#1E293B] flex items-center justify-center text-zinc-400 active:bg-teal-500/20 active:text-teal-400 transition-colors" id="ctrl-right" title="Move Right">
+                                <i class="fa-solid fa-chevron-right text-xs"></i>
+                            </button>
+                        </div>
+                        <button class="d-btn w-10 h-10 rounded-lg bg-[#141B2E] border border-[#1E293B] flex items-center justify-center text-zinc-400 active:bg-teal-500/20 active:text-teal-400 transition-colors" id="ctrl-down" title="Move Down">
+                            <i class="fa-solid fa-chevron-down text-xs"></i>
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section> -->
     <section id="contact" class="py-16">
 
         <div class="max-w-6xl mx-auto px-6 lg:px-8">
@@ -1840,7 +1999,7 @@
                             Available for Opportunities
                         </div>
                         <p class="text-zinc-400 text-xs leading-relaxed">
-                            Looking for opportunities and collaboration. Based in Patiala, Punjab.
+                            Looking for opportunities and collaboration.
                         </p>
                     </div>
                 </div>
@@ -1862,6 +2021,12 @@
     </footer>
 
     <script src="script.js"></script>
+
+</body>
+
+</html>
+
+<script src="script.js"></script>
 
 </body>
 

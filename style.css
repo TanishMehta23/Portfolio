@@ -1285,74 +1285,36 @@ nav ul li a:hover::after {
     margin: 70px auto;
 }
 
-.stats-grid {
-
-    display: grid;
-
-    grid-template-columns: repeat(5, 1fr);
-
-    gap: 20px;
-
+/* ================= TELEMETRY HUD STRIP ================= */
+.hud-strip {
+    background: radial-gradient(400px circle at var(--mouse-x, 50%) var(--mouse-y, 50%), rgba(20, 184, 166, 0.08), transparent 80%), linear-gradient(135deg, rgba(11, 15, 25, 0.65) 0%, rgba(13, 21, 37, 0.45) 100%);
+    backdrop-filter: blur(16px);
+    -webkit-backdrop-filter: blur(16px);
+    box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.5), inset 0 1px 1px 0 rgba(255, 255, 255, 0.05);
 }
 
-.stat-card {
-
-    background: #101827;
-
-    border: 1px solid #24324D;
-
-    border-radius: 18px;
-
-    padding: 22px;
-
-    text-align: center;
-
-    transition: .35s;
-
+.hud-station {
+    transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1);
 }
 
-.stat-card:hover {
-
-    transform: translateY(-6px);
-
-    border-color: #14B8A6;
-
-    box-shadow: 0 15px 35px rgba(20, 184, 166, .12);
-
+.hud-station:hover {
+    transform: translateY(-4px);
 }
 
-.stat-card i {
-
-    font-size: 28px;
-
-    color: #14B8A6;
-
-    margin-bottom: 18px;
-
+.hud-station i {
+    transition: transform 0.4s cubic-bezier(0.34, 1.56, 0.64, 1);
 }
 
-.stat-card h3 {
-
-    font-size: 34px;
-
-    font-weight: 800;
-
-    margin-bottom: 8px;
-
-    background: linear-gradient(90deg, #14B8A6, #60A5FA);
-
-    -webkit-background-clip: text;
-
-    color: transparent;
-
+.hud-station:hover i {
+    transform: scale(1.2) rotate(6deg);
 }
 
-.stat-card span {
+.hud-station h3 {
+    text-shadow: 0 4px 20px rgba(20, 184, 166, 0.15);
+}
 
-    color: #94A3B8;
-
-    font-size: 15px;
-
+.hud-divider {
+    opacity: 0.6;
 }
 
 .pipeline-wrapper {
@@ -3028,17 +2990,17 @@ body {
 
 
 .github-heatmap-wrapper {
-
     background: #0B1220;
-
     border: 1px solid #24324D;
-
     border-radius: 20px;
-
     padding: 20px;
-
     overflow-x: auto;
+    scrollbar-width: none; /* Firefox */
+    -ms-overflow-style: none;  /* IE/Edge */
+}
 
+.github-heatmap-wrapper::-webkit-scrollbar {
+    display: none; /* Safari and Chrome */
 }
 
 
@@ -3544,33 +3506,41 @@ body {
     .pipeline-arrow i {
         font-size: 16px;
     }
+
     .filter-btn {
         padding: 8px 12px;
         font-size: 12px;
     }
+
     .project-image {
         height: 50% !important;
         object-fit: cover;
         background: #101827 !important;
     }
+
     .front-content {
         height: 50% !important;
         border-top: none !important;
     }
+
     .project-back {
         padding: 20px !important;
     }
+
     .project-back h2 {
         font-size: 24px !important;
         margin-bottom: 10px !important;
     }
+
     .project-back p {
         font-size: 14px !important;
         margin-bottom: 12px !important;
     }
+
     .project-back ul {
         margin-bottom: 15px !important;
     }
+
     .project-back li {
         font-size: 14px !important;
         margin-bottom: 6px !important;
@@ -3593,8 +3563,15 @@ body {
 }
 
 @keyframes blink-caret {
-    from, to { color: transparent }
-    50% { color: #14B8A6; }
+
+    from,
+    to {
+        color: transparent
+    }
+
+    50% {
+        color: #14B8A6;
+    }
 }
 
 @media (max-width: 767px) {
@@ -3603,47 +3580,57 @@ body {
         min-height: 90px !important;
         border-radius: 16px !important;
     }
+
     .bento-card h3 {
         font-size: 15px !important;
         margin-top: 10px !important;
     }
+
     .bento-card .arrow {
         display: none !important;
     }
+
     .terminal-card {
         height: 250px !important;
         border-radius: 16px !important;
     }
+
     .terminal-header {
         padding: 10px 16px !important;
     }
+
     .terminal-body {
         padding: 16px !important;
         height: calc(100% - 41px) !important;
     }
+
     #terminal-content {
         font-size: 13px !important;
     }
-    
+
     /* Scale down galaxy planets on mobile */
     .planet.large {
         width: 68px !important;
         height: 68px !important;
         font-size: 11px !important;
     }
+
     .planet.medium {
         width: 52px !important;
         height: 52px !important;
         font-size: 9px !important;
     }
+
     .planet.small {
         width: 40px !important;
         height: 40px !important;
         font-size: 7.5px !important;
     }
+
     .galaxy-container {
         height: 500px !important;
     }
+
     .achievement-card {
         min-height: auto !important;
         padding: 24px !important;
@@ -3667,4 +3654,40 @@ body {
         padding-top: 0.8rem !important;
         padding-bottom: 0.8rem !important;
     }
+}
+
+/* ================= DEV SNAKE ARCADE GAME ================= */
+.snake-arcade-container {
+    background: linear-gradient(135deg, rgba(11, 15, 25, 0.75) 0%, rgba(7, 10, 19, 0.6) 100%);
+    box-shadow: 0 30px 60px -15px rgba(0, 0, 0, 0.7), inset 0 1px 0 rgba(255, 255, 255, 0.05);
+}
+
+#snake-canvas {
+    background-color: #030508;
+    background-image: 
+        linear-gradient(rgba(18, 24, 38, 0.5) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(18, 24, 38, 0.5) 1px, transparent 1px);
+    background-size: 20px 20px;
+}
+
+/* CRT scanlines effect */
+.snake-arcade-container .relative::after {
+    content: " ";
+    display: block;
+    position: absolute;
+    top: 0; left: 0; bottom: 0; right: 0;
+    background: linear-gradient(rgba(18, 16, 16, 0) 50%, rgba(0, 0, 0, 0.2) 50%), linear-gradient(90deg, rgba(20, 184, 166, 0.03), rgba(59, 130, 246, 0.02), rgba(139, 92, 246, 0.03));
+    background-size: 100% 4px, 6px 100%;
+    z-index: 10;
+    pointer-events: none;
+}
+
+.d-pad .d-btn {
+    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.4);
+    cursor: pointer;
+}
+
+.d-pad .d-btn:active {
+    transform: scale(0.95);
+    border-color: rgba(20, 184, 166, 0.4);
 }
