@@ -30,11 +30,19 @@
 
 
     <script>
+        // Force page to scroll to top on reload
+        if ('scrollRestoration' in history) {
+            history.scrollRestoration = 'manual';
+        }
+        window.addEventListener('beforeunload', () => {
+            window.scrollTo(0, 0);
+        });
         window.addEventListener("DOMContentLoaded", () => {
+            window.scrollTo(0, 0);
             AOS.init({
-                duration: 1000,
+                duration: 500,
                 once: true,
-                offset: 100
+                offset: 30
             });
         });
     </script>
@@ -238,33 +246,39 @@
                         <div class="tech-marquee-wrapper flex gap-8 whitespace-nowrap">
                             <!-- Group 1 -->
                             <div class="tech-marquee-items flex gap-8 shrink-0 animate-marquee">
-                                <span class="ticker-item">React</span>
-                                <span class="ticker-item">Next.js</span>
-                                <span class="ticker-item">Node.js</span>
-                                <span class="ticker-item">FastAPI</span>
-                                <span class="ticker-item">PostgreSQL</span>
-                                <span class="ticker-item">MongoDB</span>
                                 <span class="ticker-item">Java</span>
-                                <span class="ticker-item">JavaScript</span>
-                                <span class="ticker-item">TypeScript</span>
                                 <span class="ticker-item">Python</span>
-                                <span class="ticker-item">Gemini API</span>
-                                <span class="ticker-item">LangChain</span>
+                                <span class="ticker-item">C</span>
+                                <span class="ticker-item">C++</span>
+                                <span class="ticker-item">JavaScript</span>
+                                <span class="ticker-item">HTML</span>
+                                <span class="ticker-item">CSS</span>
+                                <span class="ticker-item">Tailwind CSS</span>
+                                <span class="ticker-item">MongoDB</span>
+                                <span class="ticker-item">PostgreSQL</span>
+                                <span class="ticker-item">MySQL</span>
+                                <span class="ticker-item">Firebase</span>
+                                <span class="ticker-item">Git</span>
+                                <span class="ticker-item">Github</span>
+                                <span class="ticker-item">Linux</span>
                             </div>
                             <!-- Group 2 (Duplicate for infinite loop) -->
                             <div class="tech-marquee-items flex gap-8 shrink-0 animate-marquee" aria-hidden="true">
-                                <span class="ticker-item">React</span>
-                                <span class="ticker-item">Next.js</span>
-                                <span class="ticker-item">Node.js</span>
-                                <span class="ticker-item">FastAPI</span>
-                                <span class="ticker-item">PostgreSQL</span>
-                                <span class="ticker-item">MongoDB</span>
                                 <span class="ticker-item">Java</span>
-                                <span class="ticker-item">JavaScript</span>
-                                <span class="ticker-item">TypeScript</span>
                                 <span class="ticker-item">Python</span>
-                                <span class="ticker-item">Gemini API</span>
-                                <span class="ticker-item">LangChain</span>
+                                <span class="ticker-item">C</span>
+                                <span class="ticker-item">C++</span>
+                                <span class="ticker-item">JavaScript</span>
+                                <span class="ticker-item">HTML</span>
+                                <span class="ticker-item">CSS</span>
+                                <span class="ticker-item">Tailwind CSS</span>
+                                <span class="ticker-item">MongoDB</span>
+                                <span class="ticker-item">PostgreSQL</span>
+                                <span class="ticker-item">MySQL</span>
+                                <span class="ticker-item">Firebase</span>
+                                <span class="ticker-item">Git</span>
+                                <span class="ticker-item">Github</span>
+                                <span class="ticker-item">Linux</span>
                             </div>
                         </div>
                     </div>
@@ -283,7 +297,7 @@
 
                             <!-- GitHub -->
                             <a href="https://github.com/TanishMehta23" target="_blank"
-                                class="bento-card social-card floating">
+                                class="bento-card social-card floating" data-aos="fade-up" data-aos-delay="100">
 
                                 <div class="flex justify-between items-center">
 
@@ -303,7 +317,7 @@
 
                             <!-- LinkedIn -->
                             <a href="https://www.linkedin.com/in/tanish-mehta-43bb102b8/" target="_blank"
-                                class="bento-card social-card floating delay1">
+                                class="bento-card social-card floating delay1" data-aos="fade-up" data-aos-delay="200">
 
                                 <div class="flex justify-between items-center">
 
@@ -323,7 +337,7 @@
 
                             <!-- LeetCode -->
                             <a href="https://leetcode.com/u/TanishMehta23/" target="_blank"
-                                class="bento-card social-card floating delay2 group">
+                                class="bento-card social-card floating delay2 group" data-aos="fade-up" data-aos-delay="300">
 
                                 <div class="flex justify-between items-center">
 
@@ -347,7 +361,7 @@
 
                         <!-- ================= TERMINAL ================= -->
 
-                        <div class="terminal-card col-span-12 md:col-span-5 floating delay3">
+                        <div class="terminal-card col-span-12 md:col-span-5 floating delay3" data-aos="fade-up" data-aos-delay="400">
 
                             <div class="terminal-header">
 
@@ -376,7 +390,7 @@
 
                         <!-- ================= CURRENT FOCUS ================= -->
 
-                        <div class="bento-card focus-card col-span-12 md:col-span-7 floating delay4">
+                        <div class="bento-card focus-card col-span-12 md:col-span-7 floating delay4" data-aos="fade-up" data-aos-delay="500">
 
                             <div class="flex items-center gap-3">
 
@@ -673,7 +687,7 @@
             </div>
 
             <div
-                class="hud-strip flex flex-wrap md:flex-nowrap items-center justify-between gap-6 py-8 px-8 bg-[#0B0F19]/40 border border-[#1E293B]/70 rounded-2xl backdrop-blur-md relative overflow-hidden">
+                class="hud-strip flex flex-wrap md:flex-nowrap items-center justify-between gap-6 py-8 px-8 bg-[#0B0F19]/40 border border-[#1E293B]/70 rounded-2xl backdrop-blur-md relative overflow-hidden" data-aos="fade-up" data-aos-delay="100">
                 <!-- Glowing background accent behind the strip -->
                 <div
                     class="absolute -left-10 top-1/2 -translate-y-1/2 w-40 h-40 bg-teal-500/10 rounded-full blur-[80px] pointer-events-none">
@@ -700,17 +714,18 @@
                     class="hud-divider hidden md:block w-px h-16 bg-gradient-to-b from-transparent via-[#24324D] to-transparent">
                 </div>
 
-                <!-- Station 2: LeetCode -->
+                <!-- Station 2: Coding Problems -->
                 <div class="hud-station flex-1 min-w-[120px] text-center md:text-left py-2 relative z-10">
                     <div class="flex items-center justify-center md:justify-start gap-3 mb-1">
                         <i class="fa-solid fa-code text-[#F59E0B] text-lg"></i>
-                        <span class="text-[12px] font-semibold tracking-wider text-zinc-400 uppercase">LeetCode</span>
+                        <span class="text-[12px] font-semibold tracking-wider text-zinc-400 uppercase">Coding
+                            Problems</span>
                     </div>
                     <div class="flex items-baseline justify-center md:justify-start gap-1">
                         <h3 class="stat-num text-4xl font-extrabold tracking-tight bg-gradient-to-r from-amber-400 to-orange-400 bg-clip-text text-transparent"
-                            data-target="300">0</h3>
+                            data-target="600">0</h3>
                     </div>
-                    <div class="text-[11px] text-zinc-500 mt-1 font-mono">Solved & Contesting</div>
+                    <div class="text-[11px] text-zinc-500 mt-1 font-mono">Solved Across Platforms</div>
                 </div>
 
                 <!-- Divider 2 -->
@@ -718,17 +733,19 @@
                     class="hud-divider hidden md:block w-px h-16 bg-gradient-to-b from-transparent via-[#24324D] to-transparent">
                 </div>
 
-                <!-- Station 3: Tech Stack -->
+                <!-- Station 3: GitHub Repos -->
                 <div class="hud-station flex-1 min-w-[120px] text-center md:text-left py-2 relative z-10">
                     <div class="flex items-center justify-center md:justify-start gap-3 mb-1">
-                        <i class="fa-solid fa-layer-group text-[#3B82F6] text-lg"></i>
-                        <span class="text-[12px] font-semibold tracking-wider text-zinc-400 uppercase">Tech Stack</span>
+                        <i class="fa-brands fa-github text-[#3B82F6] text-lg"></i>
+                        <span class="text-[12px] font-semibold tracking-wider text-zinc-400 uppercase">GitHub
+                            Repos</span>
                     </div>
                     <div class="flex items-baseline justify-center md:justify-start gap-1">
-                        <h3 class="stat-num text-4xl font-extrabold tracking-tight bg-gradient-to-r from-blue-400 to-indigo-400 bg-clip-text text-transparent"
+                        <h3 id="github-repo-count"
+                            class="stat-num text-4xl font-extrabold tracking-tight bg-gradient-to-r from-blue-400 to-indigo-400 bg-clip-text text-transparent"
                             data-target="15">0</h3>
                     </div>
-                    <div class="text-[11px] text-zinc-500 mt-1 font-mono">Technologies & Tools</div>
+                    <div class="text-[11px] text-zinc-500 mt-1 font-mono">Public Repositories</div>
                 </div>
 
                 <!-- Divider 3 -->
@@ -755,24 +772,8 @@
                     <div class="text-[11px] text-zinc-500 mt-1 font-mono">System Design & ML</div>
                 </div>
 
-                <!-- Divider 4 -->
-                <div
-                    class="hud-divider hidden md:block w-px h-16 bg-gradient-to-b from-transparent via-[#24324D] to-transparent">
-                </div>
-
-                <!-- Station 5: Years Coding -->
-                <div class="hud-station flex-1 min-w-[120px] text-center md:text-left py-2 relative z-10">
-                    <div class="flex items-center justify-center md:justify-start gap-3 mb-1">
-                        <i class="fa-solid fa-laptop text-[#06B6D4] text-lg"></i>
-                        <span class="text-[12px] font-semibold tracking-wider text-zinc-400 uppercase">Coding</span>
-                    </div>
-                    <div class="flex items-baseline justify-center md:justify-start gap-1">
-                        <h3 class="stat-num text-4xl font-extrabold tracking-tight bg-gradient-to-r from-cyan-400 to-sky-400 bg-clip-text text-transparent"
-                            data-target="2">0</h3>
-                    </div>
-                    <div class="text-[11px] text-zinc-500 mt-1 font-mono">Years Continuous Dev</div>
-                </div>
             </div>
+        </div>
 
 
         </div>
@@ -788,7 +789,7 @@
 
             </div>
 
-            <div class="pipeline-card">
+            <div class="pipeline-card" data-aos="fade-up" data-aos-delay="150">
 
                 <div class="pipeline">
 
@@ -903,7 +904,7 @@
             <div class="projects-grid">
                 <!-- FocusoraHQ -->
 
-                <div class="project-card" data-category="fullstack">
+                <div class="project-card" data-category="fullstack" data-aos="fade-up" data-aos-delay="50">
 
                     <div class="project-inner">
 
@@ -974,7 +975,7 @@
 
                 <!-- FinPulse AI -->
 
-                <div class="project-card" data-category="ai">
+                <div class="project-card" data-category="ai" data-aos="fade-up" data-aos-delay="100">
 
                     <div class="project-inner">
 
@@ -1039,7 +1040,7 @@
                     </div>
 
                 </div>
-                <div class="project-card" data-category="frontend">
+                <div class="project-card" data-category="frontend" data-aos="fade-up" data-aos-delay="150">
 
                     <div class="project-inner">
 
@@ -1115,7 +1116,7 @@
                 </div>
                 <!-- SpamShield -->
 
-                <div class="project-card" data-category="ai">
+                <div class="project-card" data-category="ai" data-aos="fade-up" data-aos-delay="200">
 
                     <div class="project-inner">
 
@@ -1173,7 +1174,7 @@
 
                             <div class="project-buttons">
 
-                                <a href="https://spamshield-piih.onrender.com/" target="_blank">🌐 Live Demo</a>
+                                <a href="https://spam-shield.up.railway.app/" target="_blank">🌐 Live Demo</a>
 
                                 <a href="https://github.com/TanishMehta23/SpamShield" target="_blank">💻 GitHub</a>
 
@@ -1186,7 +1187,7 @@
                 </div>
                 <!-- Nexus AI -->
 
-                <div class="project-card" data-category="ai">
+                <div class="project-card" data-category="ai" data-aos="fade-up" data-aos-delay="250">
 
                     <div class="project-inner">
 
@@ -1256,7 +1257,7 @@
 
                 <!-- QuizoraAI -->
 
-                <div class="project-card" data-category="ai">
+                <div class="project-card" data-category="ai" data-aos="fade-up" data-aos-delay="300">
 
                     <div class="project-inner">
 
@@ -1353,7 +1354,7 @@
                 <!-- LEFT -->
 
                 <div class="tech-cards">
-                    <div class="tech-card" data-category="programming">
+                    <div class="tech-card" data-category="programming" data-aos="fade-up" data-aos-delay="50">
 
                         <h3 class="skill-title programming-title">💻 Programming Skills</h3>
 
@@ -1372,7 +1373,7 @@
 
                     <!-- Frontend -->
 
-                    <div class="tech-card" data-category="frontend">
+                    <div class="tech-card" data-category="frontend" data-aos="fade-up" data-aos-delay="100">
 
                         <h3 class="skill-title frontend-title">⚛ Frontend</h3>
 
@@ -1391,7 +1392,7 @@
 
                     <!-- Backend -->
 
-                    <div class="tech-card" data-category="backend">
+                    <div class="tech-card" data-category="backend" data-aos="fade-up" data-aos-delay="150">
 
                         <h3 class="skill-title backend-title">⚡ Backend</h3>
 
@@ -1409,7 +1410,7 @@
 
                     <!-- AI -->
 
-                    <div class="tech-card" data-category="ai">
+                    <div class="tech-card" data-category="ai" data-aos="fade-up" data-aos-delay="200">
 
                         <h3 class="skill-title ai-title">🤖 AI</h3>
 
@@ -1424,7 +1425,7 @@
 
                     <!-- Database -->
 
-                    <div class="tech-card" data-category="database">
+                    <div class="tech-card" data-category="database" data-aos="fade-up" data-aos-delay="250">
 
                         <h3 class="skill-title database-title">🗄 Database & Tools</h3>
 
@@ -1438,7 +1439,7 @@
                         </div>
 
                     </div>
-                    <div class="tech-card" data-category="platform">
+                    <div class="tech-card" data-category="platform" data-aos="fade-up" data-aos-delay="300">
 
                         <h3 class="skill-title platform-title">🛠 Platforms and Tools</h3>
 
@@ -1459,7 +1460,7 @@
                 </div>
 
                 <!-- RIGHT -->
-                <div class="galaxy-section">
+                <div class="galaxy-section" data-aos="fade-up" data-aos-delay="200">
 
                     <div class="galaxy-header">
                         <h2>✨ Interactive Tech Galaxy</h2>
@@ -1544,7 +1545,7 @@
 
                 <!-- DSA -->
 
-                <div class="achievement-card teal">
+                <div class="achievement-card teal" data-aos="fade-up" data-aos-delay="100">
 
                     <div class="achievement-icon">
                         🏆
@@ -1575,7 +1576,7 @@
 
                 <!-- Innovation -->
 
-                <div class="achievement-card purple">
+                <div class="achievement-card purple" data-aos="fade-up" data-aos-delay="200">
 
                     <div class="achievement-icon">
                         🥉
@@ -1636,7 +1637,7 @@
             <div class="profiles-grid">
 
                 <!-- LeetCode -->
-                <a href="https://leetcode.com/u/TanishMehta23/" target="_blank" class="profile-card leetcode">
+                <a href="https://leetcode.com/u/TanishMehta23/" target="_blank" class="profile-card leetcode" data-aos="fade-up" data-aos-delay="50">
 
                     <div class="profile-icon">
                         <i class="fa-solid fa-code"></i>
@@ -1647,7 +1648,7 @@
                 </a>
 
                 <!-- GitHub -->
-                <a href="https://github.com/TanishMehta23" target="_blank" class="profile-card github">
+                <a href="https://github.com/TanishMehta23" target="_blank" class="profile-card github" data-aos="fade-up" data-aos-delay="100">
 
                     <div class="profile-icon">
                         <i class="fa-brands fa-github"></i>
@@ -1661,7 +1662,7 @@
 
                 <!-- HackerRank -->
                 <a href="https://www.hackerrank.com/profile/tanish_mehta23" target="_blank"
-                    class="profile-card hackerrank">
+                    class="profile-card hackerrank" data-aos="fade-up" data-aos-delay="150">
 
                     <div class="profile-icon">
                         <i class="fa-brands fa-hackerrank"></i>
@@ -1671,7 +1672,7 @@
 
                 </a>
                 <!-- CodeChef -->
-                <a href="https://www.codechef.com/users/tanishmehta" class="profile-card codechef" target="_blank">
+                <a href="https://www.codechef.com/users/tanishmehta" class="profile-card codechef" target="_blank" data-aos="fade-up" data-aos-delay="200">
                     <div class="profile-icon">
                         <i class="fa-solid fa-utensils"></i>
                     </div>
@@ -1679,16 +1680,25 @@
                 </a>
 
                 <!-- GeeksforGeeks -->
-                <a href="https://www.geeksforgeeks.org/profile/tanishmbn75" class="profile-card gfg" target="_blank">
+                <a href="https://www.geeksforgeeks.org/profile/tanishmbn75" class="profile-card gfg" target="_blank" data-aos="fade-up" data-aos-delay="250">
                     <div class="profile-icon">
                         <i class="fa-solid fa-graduation-cap"></i>
                     </div>
                     <h3>GeeksforGeeks</h3>
                 </a>
 
+                <!-- Codolio -->
+                <a href="https://codolio.com/profile/TanishMehta" class="profile-card codolio" target="_blank" data-aos="fade-up" data-aos-delay="300">
+                    <div class="profile-icon">
+                        <i class="fa-solid fa-chart-line"></i>
+                    </div>
+                    <h3>Codolio</h3>
+                    <p>All-in-one Portfolio</p>
+                </a>
+
                 <!-- LinkedIn -->
                 <a href="https://www.linkedin.com/in/tanish-mehta-43bb102b8/" target="_blank"
-                    class="profile-card linkedin">
+                    class="profile-card linkedin" data-aos="fade-up" data-aos-delay="350">
 
                     <div class="profile-icon">
                         <i class="fa-brands fa-linkedin-in"></i>
@@ -1760,7 +1770,7 @@
             </div>
 
             <!-- GitHub Heatmap Wrapper with labels -->
-            <div class="github-heatmap-wrapper max-w-[890px] mx-auto">
+            <div class="github-heatmap-wrapper w-full mx-auto">
                 <div class="github-months min-w-[850px]" id="github-months-container"></div>
                 <div class="flex gap-2 items-start min-w-[850px]">
                     <div class="github-days">
@@ -1890,7 +1900,7 @@
 
             </div>
 
-            <div class="max-w-4xl mx-auto">
+            <div class="max-w-4xl mx-auto" data-aos="fade-up" data-aos-delay="100">
                 <div
                     class="relative overflow-hidden bg-[#101827] border border-[#24324D] rounded-3xl p-12 md:p-16 text-center hover:border-[#14B8A6]/50 transition-all duration-500 shadow-2xl hover:shadow-[0_20px_50px_rgba(20,184,166,0.1)]">
                     <!-- Top Glow -->

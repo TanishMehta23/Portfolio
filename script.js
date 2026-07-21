@@ -1,3 +1,8 @@
+if ('scrollRestoration' in history) {
+    history.scrollRestoration = 'manual';
+}
+window.scrollTo(0, 0);
+
 const menuBtn = document.getElementById("menu-btn");
 const mobileMenu = document.getElementById("mobile-menu");
 
@@ -718,10 +723,26 @@ document.querySelectorAll(".project-card").forEach(card => {
         if (e.target.closest("a, button")) {
             return;
         }
-        this.classList.toggle("flipped");
+        const isHoverDevice = window.matchMedia("(hover: hover)").matches;
+        
+        if (isHoverDevice) {
+            // On desktop hover devices: toggle flipped/unflipped explicitly on click
+            if (this.classList.contains("flipped")) {
+                this.classList.remove("flipped");
+                this.classList.add("unflipped");
+            } else {
+                this.classList.add("flipped");
+                this.classList.remove("unflipped");
+            }
+        } else {
+            // On mobile touch devices: clean toggle
+            this.classList.toggle("flipped");
+        }
     });
+    
     card.addEventListener("mouseleave", function () {
         this.classList.remove("flipped");
+        this.classList.remove("unflipped");
     });
 });
 
@@ -787,6 +808,19 @@ window.addEventListener("load", () => {
             hudStrip.style.setProperty("--mouse-x", `${x}px`);
             hudStrip.style.setProperty("--mouse-y", `${y}px`);
         });
+    }
+
+    // Fetch GitHub Repositories count dynamically
+    const githubRepoEl = document.getElementById("github-repo-count");
+    if (githubRepoEl) {
+        fetch("https://api.github.com/users/TanishMehta23")
+            .then(response => response.json())
+            .then(data => {
+                if (data && typeof data.public_repos === "number") {
+                    githubRepoEl.setAttribute("data-target", data.public_repos);
+                }
+            })
+            .catch(err => console.error("Error fetching GitHub repos count:", err));
     }
 
     // Initialize Dashboard Intersection Observer Count Up

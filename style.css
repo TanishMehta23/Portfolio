@@ -1344,9 +1344,14 @@ nav ul li a:hover::after {
     transition: transform .8s ease;
 }
 
-.project-card:hover .project-inner,
+@media (hover: hover) {
+    .project-card:hover:not(.unflipped) .project-inner {
+        transform: rotateY(180deg);
+    }
+}
+
 .project-card.flipped .project-inner {
-    transform: rotateY(180deg);
+    transform: rotateY(180deg) !important;
 }
 
 /* FRONT & BACK */
@@ -2197,8 +2202,8 @@ nav ul li a:hover::after {
 
 .profiles-grid {
     display: grid;
-    grid-template-columns: repeat(6, 1fr);
-    gap: 18px;
+    grid-template-columns: repeat(7, 1fr);
+    gap: 16px;
 }
 
 /* Card */
@@ -2445,6 +2450,22 @@ nav ul li a:hover::after {
 
 }
 
+/* Codolio */
+
+.codolio:hover {
+
+    border-color: #14B8A6;
+
+    box-shadow: 0 18px 40px rgba(20, 184, 166, .25);
+
+}
+
+.codolio::after {
+
+    background: #14B8A6;
+
+}
+
 /* LinkedIn */
 
 .linkedin:hover {
@@ -2512,13 +2533,23 @@ nav ul li a:hover::after {
 
     .profiles-grid {
 
+        grid-template-columns: repeat(4, 1fr);
+
+    }
+
+}
+
+@media(max-width:900px) {
+
+    .profiles-grid {
+
         grid-template-columns: repeat(3, 1fr);
 
     }
 
 }
 
-@media(max-width:768px) {
+@media(max-width:640px) {
 
     .profiles-grid {
 
@@ -2995,12 +3026,22 @@ body {
     border-radius: 20px;
     padding: 20px;
     overflow-x: auto;
-    scrollbar-width: none; /* Firefox */
-    -ms-overflow-style: none;  /* IE/Edge */
+    scrollbar-width: thin;
+    /* Firefox */
+    scrollbar-color: #24324D transparent;
 }
 
 .github-heatmap-wrapper::-webkit-scrollbar {
-    display: none; /* Safari and Chrome */
+    height: 6px;
+}
+
+.github-heatmap-wrapper::-webkit-scrollbar-track {
+    background: transparent;
+}
+
+.github-heatmap-wrapper::-webkit-scrollbar-thumb {
+    background: #24324D;
+    border-radius: 10px;
 }
 
 
@@ -3664,7 +3705,7 @@ body {
 
 #snake-canvas {
     background-color: #030508;
-    background-image: 
+    background-image:
         linear-gradient(rgba(18, 24, 38, 0.5) 1px, transparent 1px),
         linear-gradient(90deg, rgba(18, 24, 38, 0.5) 1px, transparent 1px);
     background-size: 20px 20px;
@@ -3675,7 +3716,10 @@ body {
     content: " ";
     display: block;
     position: absolute;
-    top: 0; left: 0; bottom: 0; right: 0;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
     background: linear-gradient(rgba(18, 16, 16, 0) 50%, rgba(0, 0, 0, 0.2) 50%), linear-gradient(90deg, rgba(20, 184, 166, 0.03), rgba(59, 130, 246, 0.02), rgba(139, 92, 246, 0.03));
     background-size: 100% 4px, 6px 100%;
     z-index: 10;
