@@ -16,24 +16,24 @@ const terminal = document.getElementById("terminal-content");
 
 const commands = [
     {
-        cmd: "whoami",
-        output: "Tanish Mehta"
+        cmd: "pwd",
+        output: "/home/tanish"
     },
     {
-        cmd: "role",
-        output: "MERN Stack Developer and DSA Enthusiast"
+        cmd: "ls projects/",
+        output: "FocusoraHQ\nFinPulseAI\nFitness Planet\nSpamShield\nNexus AI\nQuizoraAI"
     },
     {
-        cmd: "skills --list",
-        output: "React\nFastAPI\nNode.js\nJava\nGemini AI"
+        cmd: "git status",
+        output: "On branch main\nYour portfolio is up to date."
     },
     {
-        cmd: "status",
-        output: "Open to Internship Opportunities ✨"
+        cmd: "cat mission.txt",
+        output: "Building scalable AI-powered web applications."
     },
     {
-        cmd: "learning",
-        output: "System Design\nCloud Computing"
+        cmd: "echo $GOAL",
+        output: "Software Engineer @ Top Tech Company"
     }
 ];
 
@@ -724,7 +724,7 @@ document.querySelectorAll(".project-card").forEach(card => {
             return;
         }
         const isHoverDevice = window.matchMedia("(hover: hover)").matches;
-        
+
         if (isHoverDevice) {
             // On desktop hover devices: toggle flipped/unflipped explicitly on click
             if (this.classList.contains("flipped")) {
@@ -739,7 +739,7 @@ document.querySelectorAll(".project-card").forEach(card => {
             this.classList.toggle("flipped");
         }
     });
-    
+
     card.addEventListener("mouseleave", function () {
         this.classList.remove("flipped");
         this.classList.remove("unflipped");
@@ -983,7 +983,7 @@ window.addEventListener("load", () => {
             ctx.shadowColor = "#10B981";
             ctx.fillStyle = "#10B981";
             ctx.beginPath();
-            ctx.arc(food.x * gridSize + gridSize/2, food.y * gridSize + gridSize/2, 6, 0, Math.PI * 2);
+            ctx.arc(food.x * gridSize + gridSize / 2, food.y * gridSize + gridSize / 2, 6, 0, Math.PI * 2);
             ctx.fill();
         } else {
             // Bug Food: Glowing Red Circle
@@ -991,7 +991,7 @@ window.addEventListener("load", () => {
             ctx.shadowColor = "#EF4444";
             ctx.fillStyle = "#EF4444";
             ctx.beginPath();
-            ctx.arc(food.x * gridSize + gridSize/2, food.y * gridSize + gridSize/2, 6, 0, Math.PI * 2);
+            ctx.arc(food.x * gridSize + gridSize / 2, food.y * gridSize + gridSize / 2, 6, 0, Math.PI * 2);
             ctx.fill();
         }
         ctx.shadowBlur = 0; // reset shadow
@@ -1006,7 +1006,7 @@ window.addEventListener("load", () => {
             } else {
                 // Gradient tail segments
                 const intensity = Math.max(100 - idx * 6, 40);
-                ctx.fillStyle = `rgb(13, ${intensity + 50}, ${intensity + 80})`; 
+                ctx.fillStyle = `rgb(13, ${intensity + 50}, ${intensity + 80})`;
             }
             ctx.fillRect(segment.x * gridSize + 1, segment.y * gridSize + 1, gridSize - 2, gridSize - 2);
             ctx.shadowBlur = 0;
@@ -1034,7 +1034,7 @@ window.addEventListener("load", () => {
     // Keyboard controls
     window.addEventListener("keydown", (e) => {
         if (!isGameActive) return;
-        
+
         switch (e.key) {
             case "ArrowUp":
             case "w":
