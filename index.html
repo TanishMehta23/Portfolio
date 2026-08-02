@@ -45,6 +45,7 @@
                 offset: 30
             });
         });
+        // Recruiter mode: open popup with R key (handled in main script)
     </script>
 
 </head>
@@ -471,6 +472,78 @@
 
     </section>
 
+    <!-- Recruiter Mode Popup -->
+    <div id="recruiter-modal" class="recruiter-modal" aria-hidden="true" role="dialog" aria-label="Recruiter Summary">
+        <div class="recruiter-modal-card">
+            <div class="rm-header">
+                <div>
+                    <span class="rm-badge">
+                        <i class="fa-solid fa-bolt"></i> Quick Evaluation
+                    </span>
+                    <h2 class="rm-title">Tanish Mehta Summary</h2>
+                </div>
+                <button class="rm-close" id="recruiter-close" aria-label="Close">✕</button>
+            </div>
+
+            <div class="rm-body-grid">
+                <!-- Left Section: Pitch -->
+                <div class="rm-body-left">
+                    <h3 class="rm-section-title">PITCH / 10-SEC SUMMARY</h3>
+                    <p class="rm-pitch-text">
+                        MERN Stack Developer & AI Enthusiast specializing in building scalable web applications,
+                        intelligent AI-powered solutions, and interactive user experiences. Experienced with modern
+                        frontend frameworks, backend APIs, and integrating Generative AI systems.
+                    </p>
+                    <a href="assets/resume.pdf" target="_blank" class="rm-btn-download">
+                        <i class="fa-solid fa-file-pdf"></i> Download Resume (PDF)
+                    </a>
+                </div>
+
+                <!-- Right Section: Metrics & Tech -->
+                <div class="rm-body-right">
+                    <h3 class="rm-section-title">KEY METRICS</h3>
+                    <div class="rm-metrics-grid">
+                        <div class="rm-metric-card">
+                            <span class="rm-metric-val">300+</span>
+                            <span class="rm-metric-lbl">LeetCode</span>
+                        </div>
+                        <div class="rm-metric-card">
+                            <span class="rm-metric-val">50+</span>
+                            <span class="rm-metric-lbl">Commits / Mo</span>
+                        </div>
+                        <div class="rm-metric-card">
+                            <span class="rm-metric-val">7+</span>
+                            <span class="rm-metric-lbl">Projects</span>
+                        </div>
+                        <div class="rm-metric-card">
+                            <span class="rm-metric-val">15+</span>
+                            <span class="rm-metric-lbl">Tech Stack</span>
+                        </div>
+                    </div>
+
+                    <h3 class="rm-section-title" style="margin-top: 24px;">CORE TECH</h3>
+                    <div class="rm-tech-tags">
+                        <span class="rm-tag">React / Next.js</span>
+                        <span class="rm-tag">FastAPI / Python</span>
+                        <span class="rm-tag">Node.js / Express</span>
+                        <span class="rm-tag">MongoDB / PostgreSQL</span>
+                        <span class="rm-tag">Tailwind CSS</span>
+                        <span class="rm-tag">Git / GitHub</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="rm-footer">
+                <span class="rm-footer-hint">Press <kbd class="rm-kbd">R</kbd> again or <kbd class="rm-kbd">Esc</kbd> to
+                    close</span>
+                <a href="mailto:tanish.mehta23@gmail.com?subject=Hi%20Tanish" class="rm-footer-email">
+                    <i class="fa-solid fa-envelope"></i> tanish.mehta23@gmail.com
+                </a>
+            </div>
+        </div>
+    </div>
+
+
     <!--================ ABOUT =================-->
 
     <section id="about" class="py-6">
@@ -517,6 +590,13 @@
 
                     </h2>
 
+                </div>
+
+                <!-- Recruiter Mode hint (click or press R) -->
+                <div id="recruiter-hint" class="recruiter-hint" role="button" aria-label="Open recruiter mode">
+                    <span class="rm-dot" aria-hidden="true"></span>
+                    <span>Recruiter Mode</span>
+                    <span class="rm-key">R</span>
                 </div>
 
                 <!-- Right -->
@@ -1032,7 +1112,7 @@
 
                             <div class="project-buttons">
 
-                                <a href="https://ai-finpulse.vercel.app" target="_blank">🌐 Live Demo</a>
+                                <a href="https://finpulse-frontend-jrsd.onrender.com" target="_blank">🌐 Live Demo</a>
 
                                 <a href="https://github.com/Vans30m/FinPulse-AI" target="_blank">💻 GitHub</a>
 
@@ -1249,6 +1329,79 @@
                             <div class="project-buttons">
 
                                 <a href="https://github.com/TanishMehta23/NexusAI" target="_blank">💻 GitHub</a>
+
+                            </div>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+                <!-- Xplorism -->
+
+                <div class="project-card" data-category="ai" data-aos="fade-up" data-aos-delay="300">
+
+                    <div class="project-inner">
+
+                        <!-- FRONT -->
+                        <div class="project-front">
+
+                            <img src="assets/images/Xplorism.png" alt="Xplorism" class="project-image">
+
+                            <div class="overlay"></div>
+
+                            <div class="front-content">
+
+                                <div class="project-info">
+
+                                    <div>
+                                        <h2>Xplorism</h2>
+                                        <p>Premium Travel Planner</p>
+
+                                        <div class="tech-tags">
+                                            <span>React</span>
+                                            <span>Node.js</span>
+                                            <span>PostgreSQL</span>
+                                            <span>Leaflet</span>
+                                        </div>
+                                    </div>
+
+                                </div>
+
+                            </div>
+                        </div>
+
+                        <!-- BACK -->
+
+                        <div class="project-back">
+
+                            <h2>Xplorism</h2>
+
+                            <p>
+
+                                Premium AI Trip Planner with personalized itineraries, live maps, weather, and smart
+                                travel recommendations.
+
+                            </p>
+
+                            <ul>
+
+                                <li>✨ AI Itinerary Generator</li>
+
+                                <li>🗺️ Interactive Maps</li>
+
+                                <li>🌦️ Live Weather</li>
+
+                                <li>🔐 Secure Authentication</li>
+
+                            </ul>
+
+                            <div class="project-buttons">
+
+                                <a href="#" target="_blank">🌐 Live Demo</a>
+
+                                <a href="https://github.com/TanishMehta23/Xplorism" target="_blank">💻 GitHub</a>
 
                             </div>
 
@@ -2047,4 +2200,4 @@
 
 </body>
 
-</html>
+</html>

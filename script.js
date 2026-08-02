@@ -1078,3 +1078,150 @@ window.addEventListener("load", () => {
         startBtn.addEventListener("click", startGame);
     }
 });
+
+// Highlight navbar and change header color when Projects section is in view
+document.addEventListener("DOMContentLoaded", () => {
+    const header = document.querySelector('header');
+    const navLinks = document.querySelectorAll('a.nav-link');
+    const mobileLinks = document.querySelectorAll('a.mobile-link');
+    const projectsSection = document.getElementById('projects');
+
+    // Header color toggle is optional — observe projects section only if it exists
+    if (header && projectsSection) {
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting && entry.intersectionRatio > 0.4) {
+                    header.classList.add('projects-active');
+                } else {
+                    header.classList.remove('projects-active');
+                }
+            });
+        }, { threshold: [0, 0.25, 0.4, 0.6, 0.9] });
+
+        observer.observe(projectsSection);
+    }
+
+    // (Removed achievements-only observer — generic links observer below handles all sections)
+
+    // Use viewport midpoint scanning to reliably mark the active nav link (works across layouts)
+    const sectionLinks = Array.from(navLinks).filter(a => a.getAttribute('href') && a.getAttribute('href').startsWith('#'));
+
+    const sections = sectionLinks.map(link => {
+        const id = link.getAttribute('href').slice(1);
+        return {
+            id,
+            link,
+            mobileLink: document.querySelector(`a.mobile-link[href="#${id}"]`),
+            el: document.getElementById(id)
+        };
+    }).filter(s => s.el);
+
+    function throttle(fn, wait) {
+        let last = 0;
+        let timeout = null;
+        return function (...args) {
+            const now = Date.now();
+            const remaining = wait - (now - last);
+            clearTimeout(timeout);
+            if (remaining <= 0) {
+                last = now;
+                fn.apply(this, args);
+            } else {
+                timeout = setTimeout(() => {
+                    last = Date.now();
+                    fn.apply(this, args);
+                }, remaining);
+            }
+        };
+    }
+
+    function updateActiveByMidpoint() {
+        const mid = window.innerHeight / 2;
+        let foundActive = false;
+
+        sections.forEach(s => {
+            const rect = s.el.getBoundingClientRect();
+            if (rect.top <= mid && rect.bottom >= mid) {
+                // set this as active
+                sectionLinks.forEach(a => a.classList.remove('active'));
+                mobileLinks.forEach(a => a.classList.remove('active'));
+                s.link.classList.add('active');
+                if (s.mobileLink) s.mobileLink.classList.add('active');
+                foundActive = true;
+
+                // toggle header projects-active when projects section is active
+                if (header && s.id === 'projects') {
+                    header.classList.add('projects-active');
+                } else if (header && s.id !== 'projects') {
+                    header.classList.remove('projects-active');
+                }
+            }
+        });
+
+        if (!foundActive) {
+            sectionLinks.forEach(a => a.classList.remove('active'));
+            mobileLinks.forEach(a => a.classList.remove('active'));
+            if (header) header.classList.remove('projects-active');
+        }
+    }
+
+    const throttledUpdate = throttle(updateActiveByMidpoint, 120);
+    window.addEventListener('scroll', throttledUpdate, { passive: true });
+    window.addEventListener('resize', throttledUpdate);
+    // run once to initialise
+    updateActiveByMidpoint();
+});
+
+// Recruiter mode: toggle popup with `R`, close with `Esc` or close button
+(function () {
+    const modal = document.getElementById('recruiter-modal');
+    const closeBtn = document.getElementById('recruiter-close');
+
+    if (!modal) return;
+
+    function openModal() {
+        modal.classList.add('open');
+        modal.setAttribute('aria-hidden', 'false');
+    }
+
+    function closeModal() {
+        modal.classList.remove('open');
+        modal.setAttribute('aria-hidden', 'true');
+    }
+
+    document.addEventListener('keydown', (e) => {
+        // ignore when typing in inputs or textareas
+        const tag = document.activeElement && document.activeElement.tagName;
+        if (tag === 'INPUT' || tag === 'TEXTAREA' || document.activeElement.isContentEditable) return;
+
+        if (e.key === 'r' || e.key === 'R') {
+            if (modal.classList.contains('open')) closeModal();
+            else openModal();
+        }
+
+        if (e.key === 'Escape') {
+            closeModal();
+        }
+    });
+
+    closeBtn.addEventListener('click', closeModal);
+
+    // allow clicking outside to close
+    document.addEventListener('click', (e) => {
+        if (!modal.classList.contains('open')) return;
+        const card = modal.querySelector('.recruiter-modal-card');
+        if (e.target === modal || (card && !card.contains(e.target) && !e.target.matches('#recruiter-close') && !e.target.closest('#recruiter-hint'))) {
+            closeModal();
+        }
+    });
+
+    // Click on hint opens modal
+    const hint = document.getElementById('recruiter-hint');
+    if (hint) {
+        hint.addEventListener('click', (e) => {
+            e.stopPropagation();
+            if (modal.classList.contains('open')) closeModal();
+            else openModal();
+        });
+    }
+})();
