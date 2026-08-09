@@ -542,43 +542,92 @@ function renderMockContributions() {
             box.classList.add(`level-${level}`);
             grid.appendChild(box);
         }
+
+        // Render mock months aligned to approximate column positions (53 columns total)
+        if (months && months.children.length === 0) {
+            const labels = ["Jul", "Aug", "Sep", "Oct", "Nov", "Dec", "Jan", "Feb", "Mar", "Apr", "May", "Jun"];
+            labels.forEach((month, idx) => {
+                const span = document.createElement("span");
+                span.textContent = month;
+                span.style.gridColumnStart = Math.floor(idx * 4.4) + 1;
+                months.appendChild(span);
+            });
+        }
     }
 }
 renderMockContributions();
 
 async function fetchGithubContributions() {
     try {
-        const response = await fetch("https://github-contributions-api.deno.dev/TanishMehta23.json");
+        const response = await fetch("https://github-contributions-api.jogruber.de/v4/TanishMehta23");
         if (!response.ok) throw new Error("Failed to fetch contributions");
         const data = await response.json();
 
         if (data && data.contributions) {
-            let totalContributions = 0;
-            const weeks = data.contributions;
+            // Filter out future dates
+            const todayStr = new Date().toISOString().split('T')[0];
+            const validContributions = data.contributions.filter(d => d.date <= todayStr);
+
+            // Sort contributions chronologically by date (since the API returns years in reverse order)
+            validContributions.sort((a, b) => new Date(a.date) - new Date(b.date));
+
+            // Filter to last 371 days (53 weeks) to show only the last year
+            const contributions = validContributions.slice(-371);
 
             if (grid) {
                 grid.innerHTML = "";
             }
+            if (months) {
+                months.innerHTML = "";
+            }
 
-            weeks.forEach(week => {
-                week.forEach(day => {
-                    totalContributions += day.contributionCount;
+            // Calculate total contributions (all-time total)
+            let totalContributions = 0;
+            if (data.total) {
+                totalContributions = Object.values(data.total).reduce((sum, val) => sum + val, 0);
+            } else {
+                contributions.forEach(d => totalContributions += d.count);
+            }
 
-                    if (grid) {
-                        const box = document.createElement("span");
-                        box.classList.add("github-box");
+            // Pad grid start to align the first week days
+            const firstDate = new Date(contributions[0].date);
+            const startDay = firstDate.getDay(); // 0 (Sunday) to 6 (Saturday)
 
-                        let level = 0;
-                        if (day.contributionLevel === "FIRST_QUARTILE") level = 1;
-                        else if (day.contributionLevel === "SECOND_QUARTILE") level = 2;
-                        else if (day.contributionLevel === "THIRD_QUARTILE") level = 3;
-                        else if (day.contributionLevel === "FOURTH_QUARTILE") level = 4;
+            if (grid) {
+                for (let i = 0; i < startDay; i++) {
+                    const placeholder = document.createElement("span");
+                    placeholder.classList.add("github-box");
+                    placeholder.style.visibility = "hidden";
+                    grid.appendChild(placeholder);
+                }
+            }
 
-                        box.classList.add(`level-${level}`);
-                        box.setAttribute("title", `${day.contributionCount} contributions on ${day.date}`);
-                        grid.appendChild(box);
+            const monthNames = ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"];
+            let lastMonthNum = -1;
+
+            contributions.forEach((day, index) => {
+                const dateObj = new Date(day.date);
+                const monthNum = dateObj.getMonth();
+                const weekIndex = Math.floor((index + startDay) / 7);
+
+                // Dynamically append month labels at the start of each month
+                if (monthNum !== lastMonthNum) {
+                    if (months) {
+                        const span = document.createElement("span");
+                        span.textContent = monthNames[monthNum];
+                        span.style.gridColumnStart = weekIndex + 1;
+                        months.appendChild(span);
                     }
-                });
+                    lastMonthNum = monthNum;
+                }
+
+                if (grid) {
+                    const box = document.createElement("span");
+                    box.classList.add("github-box");
+                    box.classList.add(`level-${day.level}`);
+                    box.setAttribute("title", `${day.count} contributions on ${day.date}`);
+                    grid.appendChild(box);
+                }
             });
 
             const totalText = document.querySelector(".github-total-contributions");
@@ -592,31 +641,6 @@ async function fetchGithubContributions() {
 }
 
 fetchGithubContributions();
-
-/* Month Labels */
-if (months && months.children.length === 0) {
-    const labels = [
-        "Jul",
-        "Aug",
-        "Sep",
-        "Oct",
-        "Nov",
-        "Dec",
-        "Jan",
-        "Feb",
-        "Mar",
-        "Apr",
-        "May",
-        "Jun"
-    ];
-
-    labels.forEach(month => {
-        const span = document.createElement("span");
-        span.textContent = month;
-        span.style.gridColumn = "span 4";
-        months.appendChild(span);
-    });
-}
 
 /* ====================================================
    INTERACTIVE TECH BRIDGE (Static cards <-> Galaxy)
