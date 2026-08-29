@@ -21,7 +21,7 @@ const commands = [
     },
     {
         cmd: "ls projects/",
-        output: "FocusoraHQ\nFinPulseAI\nFitness Planet\nSpamShield\nNexus AI\nQuizoraAI"
+        output: "Xplorism\nFinPulseAI\nFocusoraHQ\nFitness Planet\nSpamShield\nNexus AI\nQuizoraAI"
     },
     {
         cmd: "git status",

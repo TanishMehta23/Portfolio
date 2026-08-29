@@ -1526,12 +1526,28 @@ nav ul li a:hover::after {
 .project-back ul {
     list-style: none;
     margin-bottom: 25px;
+    padding: 0;
 }
 
 .project-back li {
+    position: relative;
+    padding-left: 18px;
     margin-bottom: 10px;
     color: #E2E8F0;
     font-size: 15px;
+}
+
+.project-back li::before {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 6px;
+    height: 6px;
+    border-radius: 50%;
+    background: #14B8A6;
+    box-shadow: 0 0 8px rgba(20, 184, 166, 0.6);
 }
 
 /* Buttons */
