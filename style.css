@@ -1427,6 +1427,49 @@ nav ul li a:hover::after {
     z-index: 1;
 }
 
+/* Card Flip Hint - Plain Italic in Top Right of Blue Area */
+.card-flip-hint {
+    position: absolute;
+    top: 22px;
+    right: 24px;
+    z-index: 10;
+    font-size: 12px;
+    font-style: italic;
+    color: #64748B;
+    pointer-events: none;
+    user-select: none;
+    transition: color 0.3s ease;
+}
+
+.project-card:hover .card-flip-hint {
+    color: #94A3B8;
+}
+
+.card-flip-hint .hint-desktop {
+    display: inline;
+}
+
+.card-flip-hint .hint-mobile {
+    display: none;
+}
+
+/* Mobile & Touch Devices */
+@media (max-width: 768px), (hover: none), (pointer: coarse) {
+    .card-flip-hint {
+        top: 16px;
+        right: 16px;
+        font-size: 11px;
+    }
+
+    .card-flip-hint .hint-desktop {
+        display: none !important;
+    }
+
+    .card-flip-hint .hint-mobile {
+        display: inline !important;
+    }
+}
+
 /* Footer */
 
 .front-content {
@@ -1474,10 +1517,45 @@ nav ul li a:hover::after {
     transform: translateY(-4px) scale(1.1);
 }
 
-.front-content h2 {
-    font-size: 30px;
+.front-content h2,
+.project-back h2 {
+    font-size: 28px;
     font-weight: 700;
-    margin-bottom: 6px;
+    margin-bottom: 10px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.project-title-icon {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 28px;
+    color: #FFFFFF;
+    flex-shrink: 0;
+    line-height: 1;
+}
+
+.project-title-icon i {
+    color: #FFFFFF;
+}
+
+.project-title-logo-img {
+    width: 36px;
+    height: 36px;
+    object-fit: contain;
+    display: inline-block;
+    vertical-align: middle;
+}
+
+.project-back h2 .project-title-icon {
+    font-size: 26px;
+}
+
+.project-back h2 .project-title-logo-img {
+    width: 32px;
+    height: 32px;
 }
 
 .front-content p {
@@ -1509,11 +1587,6 @@ nav ul li a:hover::after {
     display: flex;
     flex-direction: column;
     justify-content: center;
-}
-
-.project-back h2 {
-    font-size: 28px;
-    margin-bottom: 15px;
 }
 
 .project-back p {

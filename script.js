@@ -33,7 +33,7 @@ const commands = [
     },
     {
         cmd: "echo $GOAL",
-        output: "Software Engineer @ Top Tech Company"
+        output: "Software Engineer"
     }
 ];
 
