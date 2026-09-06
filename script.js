@@ -508,7 +508,7 @@ if (ring) {
 
             ring.style.width = "60px";
             ring.style.height = "60px";
-            ring.style.background = "rgba(20,184,166,.08)";
+            ring.style.background = "rgba(124, 140, 248, 0.12)";
 
         });
 
@@ -698,12 +698,44 @@ planets.forEach(planet => {
 // Form submission logic removed (form replaced by direct mailto link)
 
 /* ====================================================
-   PROJECT FILTERING SYSTEM
+   PROJECT FILTERING SYSTEM (WITH SLIDING TUBE CAPSULE)
    ==================================================== */
 const filterButtons = document.querySelectorAll(".filter-btn");
 const projectCards = document.querySelectorAll(".project-card");
+const filterCapsule = document.querySelector(".filter-active-capsule");
+const filterContainer = document.querySelector(".filter-tube-container");
+
+function updateFilterCapsule(activeButton, animate = true) {
+    if (!filterCapsule || !activeButton || !filterContainer) return;
+    
+    const btnRect = activeButton.getBoundingClientRect();
+    const containerRect = filterContainer.getBoundingClientRect();
+    
+    const leftOffset = btnRect.left - containerRect.left;
+    const width = btnRect.width;
+    
+    if (!animate) {
+        filterCapsule.style.transition = "none";
+    } else {
+        filterCapsule.style.transition = "transform 0.35s cubic-bezier(0.2, 0.9, 0.3, 1.2), width 0.35s cubic-bezier(0.2, 0.9, 0.3, 1.2)";
+    }
+    
+    filterCapsule.style.transform = `translateX(${leftOffset}px)`;
+    filterCapsule.style.width = `${width}px`;
+}
 
 if (filterButtons.length > 0 && projectCards.length > 0) {
+    // Initialize active capsule on load
+    const initialActive = document.querySelector(".filter-btn.active") || filterButtons[0];
+    if (initialActive) {
+        setTimeout(() => updateFilterCapsule(initialActive, false), 50);
+    }
+
+    window.addEventListener("resize", () => {
+        const currentActive = document.querySelector(".filter-btn.active");
+        if (currentActive) updateFilterCapsule(currentActive, false);
+    });
+
     filterButtons.forEach(button => {
         button.addEventListener("click", () => {
             // Remove active class from all buttons
@@ -711,24 +743,37 @@ if (filterButtons.length > 0 && projectCards.length > 0) {
             // Add active class to clicked button
             button.classList.add("active");
 
+            // Slide the capsule across the tube
+            updateFilterCapsule(button, true);
+
             const filterValue = button.getAttribute("data-filter");
 
             projectCards.forEach(card => {
-                const cardCategory = card.getAttribute("data-category");
+                const cardCategory = card.getAttribute("data-category") || "";
+                const categories = cardCategory.split(/\s+/);
 
                 if (filterValue === "all") {
-                    // Exclude hardware projects from 'All Projects' view
-                    if (cardCategory === "hardware") {
+                    // Exclude hardware projects from 'All Projects' view unless hardware is explicitly selected
+                    if (categories.includes("hardware") && categories.length === 1) {
                         card.classList.add("hide-card");
                     } else {
                         card.classList.remove("hide-card");
+                        card.classList.add("aos-animate");
                     }
-                } else if (cardCategory === filterValue) {
+                } else if (categories.includes(filterValue)) {
                     card.classList.remove("hide-card");
+                    card.classList.add("aos-animate");
                 } else {
                     card.classList.add("hide-card");
                 }
             });
+
+            // Refresh AOS animations so below sections recalculate positions and don't stay hidden
+            if (typeof AOS !== "undefined") {
+                setTimeout(() => {
+                    AOS.refreshHard();
+                }, 80);
+            }
         });
     });
 }
