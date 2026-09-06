@@ -716,7 +716,14 @@ if (filterButtons.length > 0 && projectCards.length > 0) {
             projectCards.forEach(card => {
                 const cardCategory = card.getAttribute("data-category");
 
-                if (filterValue === "all" || cardCategory === filterValue) {
+                if (filterValue === "all") {
+                    // Exclude hardware projects from 'All Projects' view
+                    if (cardCategory === "hardware") {
+                        card.classList.add("hide-card");
+                    } else {
+                        card.classList.remove("hide-card");
+                    }
+                } else if (cardCategory === filterValue) {
                     card.classList.remove("hide-card");
                 } else {
                     card.classList.add("hide-card");
