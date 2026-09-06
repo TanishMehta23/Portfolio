@@ -476,70 +476,164 @@
     <!-- Recruiter Mode Popup -->
     <div id="recruiter-modal" class="recruiter-modal" aria-hidden="true" role="dialog" aria-label="Recruiter Summary">
         <div class="recruiter-modal-card">
+            <!-- Header -->
             <div class="rm-header">
                 <div>
                     <span class="rm-badge">
                         <i class="fa-solid fa-bolt"></i> Quick Evaluation
                     </span>
-                    <h2 class="rm-title">Tanish Mehta Summary</h2>
+                    <h2 class="rm-title">Tanish Mehta <span class="rm-title-accent">Summary</span></h2>
+                    <div class="rm-roles-bar">
+                        <span>Full-Stack Developer</span>
+                        <span class="rm-dot-sep">•</span>
+                        <span>AI Enthusiast</span>
+                        <span class="rm-dot-sep">•</span>
+                        <span>Problem Solver</span>
+                    </div>
                 </div>
-                <button class="rm-close" id="recruiter-close" aria-label="Close">✕</button>
+                <div class="rm-header-right">
+                    <div class="rm-corner-quote">
+                        <span>Build</span>
+                        <span>Learn</span>
+                        <span>Improve</span>
+                    </div>
+                    <button class="rm-close" id="recruiter-close" aria-label="Close">✕</button>
+                </div>
             </div>
 
             <div class="rm-body-grid">
                 <!-- Left Section: Pitch -->
                 <div class="rm-body-left">
-                    <h3 class="rm-section-title">PITCH / 10-SEC SUMMARY</h3>
+                    <h3 class="rm-section-title">
+                        <span class="rm-title-pipe">|</span> PITCH / 10-SEC SUMMARY
+                    </h3>
                     <p class="rm-pitch-text">
-                        MERN Stack Developer & AI Enthusiast specializing in building scalable web applications,
-                        intelligent AI-powered solutions, and interactive user experiences. Experienced with modern
-                        frontend frameworks, backend APIs, and integrating Generative AI systems.
+                        Full-Stack Software Developer & AI Solutions Engineer specializing in building robust, scalable web architectures, production-ready microservices, and modern AI-driven systems. Experienced across modern frontend frameworks, cloud databases, asynchronous processing, and API ecosystem design.
                     </p>
-                    <a href="assets/resume.pdf" target="_blank" class="rm-btn-download">
-                        <i class="fa-solid fa-file-pdf"></i> Download Resume (PDF)
-                    </a>
+
+                    <!-- Mini Value Props -->
+                    <div class="rm-mini-props">
+                        <div class="rm-prop-card">
+                            <span class="rm-prop-icon prop-blue"><i class="fa-solid fa-code"></i></span>
+                            <div class="rm-prop-text">
+                                <span class="prop-title">Build</span>
+                                <span class="prop-sub">Products</span>
+                            </div>
+                        </div>
+                        <div class="rm-prop-card">
+                            <span class="rm-prop-icon prop-teal"><i class="fa-regular fa-lightbulb"></i></span>
+                            <div class="rm-prop-text">
+                                <span class="prop-title">Solve</span>
+                                <span class="prop-sub">Problems</span>
+                            </div>
+                        </div>
+                        <div class="rm-prop-card">
+                            <span class="rm-prop-icon prop-purple"><i class="fa-solid fa-arrow-trend-up"></i></span>
+                            <div class="rm-prop-text">
+                                <span class="prop-title">Learn</span>
+                                <span class="prop-sub">Continuously</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Resume CTA -->
+                    <div class="rm-cta-wrap">
+                        <a href="assets/resume.pdf" target="_blank" class="rm-btn-download">
+                            <i class="fa-solid fa-file-pdf"></i>
+                            <span>Resume (PDF)</span>
+                            <i class="fa-solid fa-arrow-right rm-btn-arrow"></i>
+                        </a>
+                    </div>
                 </div>
 
                 <!-- Right Section: Metrics & Tech -->
                 <div class="rm-body-right">
-                    <h3 class="rm-section-title">KEY METRICS</h3>
+                    <h3 class="rm-section-title">
+                        <i class="fa-solid fa-chart-simple"></i> KEY METRICS
+                    </h3>
                     <div class="rm-metrics-grid">
-                        <div class="rm-metric-card">
-                            <span class="rm-metric-val">300+</span>
-                            <span class="rm-metric-lbl">LeetCode</span>
+                        <div class="rm-metric-card metric-teal">
+                            <span class="rm-metric-icon"><i class="fa-solid fa-trophy"></i></span>
+                            <div class="rm-metric-info">
+                                <span class="rm-metric-val">400+</span>
+                                <span class="rm-metric-lbl">LeetCode</span>
+                            </div>
                         </div>
-                        <div class="rm-metric-card">
-                            <span class="rm-metric-val">50+</span>
-                            <span class="rm-metric-lbl">Commits / Mo</span>
+                        <div class="rm-metric-card metric-blue">
+                            <span class="rm-metric-icon"><i class="fa-solid fa-code-fork"></i></span>
+                            <div class="rm-metric-info">
+                                <span class="rm-metric-val">40+</span>
+                                <span class="rm-metric-lbl">Commits / Mo</span>
+                            </div>
                         </div>
-                        <div class="rm-metric-card">
-                            <span class="rm-metric-val">7+</span>
-                            <span class="rm-metric-lbl">Projects</span>
+                        <div class="rm-metric-card metric-purple">
+                            <span class="rm-metric-icon"><i class="fa-solid fa-layer-group"></i></span>
+                            <div class="rm-metric-info">
+                                <span class="rm-metric-val">07+</span>
+                                <span class="rm-metric-lbl">Projects Built</span>
+                            </div>
                         </div>
-                        <div class="rm-metric-card">
-                            <span class="rm-metric-val">15+</span>
-                            <span class="rm-metric-lbl">Tech Stack</span>
+                        <div class="rm-metric-card metric-amber">
+                            <span class="rm-metric-icon"><i class="fa-solid fa-code"></i></span>
+                            <div class="rm-metric-info">
+                                <span class="rm-metric-val">18+</span>
+                                <span class="rm-metric-lbl">Public Repos</span>
+                            </div>
                         </div>
                     </div>
 
-                    <h3 class="rm-section-title" style="margin-top: 24px;">CORE TECH</h3>
-                    <div class="rm-tech-tags">
-                        <span class="rm-tag">React / Next.js</span>
-                        <span class="rm-tag">FastAPI / Python</span>
-                        <span class="rm-tag">Node.js / Express</span>
-                        <span class="rm-tag">MongoDB / PostgreSQL</span>
-                        <span class="rm-tag">JAVA</span>
-                        <span class="rm-tag">Git / GitHub</span>
+                    <h3 class="rm-section-title" style="margin-top: 22px;">
+                        <i class="fa-solid fa-gear"></i> CORE TECH
+                    </h3>
+                    <div class="rm-tech-grid">
+                        <div class="rm-tech-card">
+                            <i class="fa-brands fa-react text-[#38BDF8]"></i>
+                            <span>React / Next.js</span>
+                        </div>
+                        <div class="rm-tech-card">
+                            <i class="fa-solid fa-bolt text-[#60A5FA]"></i>
+                            <span>Python / FastAPI</span>
+                        </div>
+                        <div class="rm-tech-card">
+                            <i class="fa-brands fa-node-js text-[#22C55E]"></i>
+                            <span>Node.js / Express</span>
+                        </div>
+                        <div class="rm-tech-card">
+                            <i class="fa-solid fa-leaf text-[#10B981]"></i>
+                            <span>MongoDB / Postgres</span>
+                        </div>
+                        <div class="rm-tech-card">
+                            <i class="fa-brands fa-java text-[#F97316]"></i>
+                            <span>Java / OOP / DSA</span>
+                        </div>
+                        <div class="rm-tech-card">
+                            <i class="fa-brands fa-git-alt text-[#EF4444]"></i>
+                            <span>Git / GitHub</span>
+                        </div>
                     </div>
                 </div>
             </div>
 
+            <!-- Footer Bar with Quick Actions -->
             <div class="rm-footer">
-                <span class="rm-footer-hint">Press <kbd class="rm-kbd">R</kbd> again or <kbd class="rm-kbd">Esc</kbd> to
-                    close</span>
-                <a href="mailto:tanish.mehta23@gmail.com?subject=Hi%20Tanish" class="rm-footer-email">
-                    <i class="fa-solid fa-envelope"></i> tanish.mehta23@gmail.com
-                </a>
+                <div class="rm-footer-links">
+                    <a href="mailto:tanish.mehta23@gmail.com?subject=Hi%20Tanish" class="rm-footer-link link-email">
+                        <i class="fa-solid fa-envelope"></i> tanish.mehta23@gmail.com
+                    </a>
+                    <span class="rm-footer-sep">|</span>
+                    <a href="https://www.linkedin.com/in/tanish-mehta-43bb102b8/" target="_blank" class="rm-footer-link link-linkedin">
+                        <i class="fa-brands fa-linkedin"></i> LinkedIn
+                    </a>
+                    <a href="https://github.com/TanishMehta23" target="_blank" class="rm-footer-link link-github">
+                        <i class="fa-brands fa-github"></i> GitHub
+                    </a>
+                    <a href="#contact" class="rm-footer-link link-connect" id="rm-close-to-contact">
+                        <i class="fa-solid fa-paper-plane"></i> Let's Connect
+                    </a>
+                </div>
+                <div class="rm-footer-hint">
+                    Press <kbd class="rm-kbd">R</kbd> again or <kbd class="rm-kbd">Esc</kbd> to close
+                </div>
             </div>
         </div>
     </div>
@@ -584,15 +678,45 @@
 
                 <!-- Right Column: Description Paragraph -->
                 <div>
-                    <p class="text-zinc-400 text-base sm:text-lg leading-7 sm:leading-9">
+                    <p class="text-zinc-400 text-base sm:text-lg leading-7 sm:leading-9 mb-6">
                         I'm a Computer Science undergraduate passionate about Full-Stack
                         Development, Artificial Intelligence, and solving real-world problems
                         through technology. I enjoy transforming ideas into practical products
                         while continuously strengthening my skills through hands-on projects,
                         problem-solving, hackathons, and continuous learning.
                     </p>
+
+                    <!-- Recruiter Mode hint -->
+                    <div id="recruiter-hint" class="recruiter-hint" role="button" aria-label="Open recruiter mode">
+                        <span class="rm-dot" aria-hidden="true"></span>
+                        <span>Recruiter Mode</span>
+                        <span class="rm-key">R</span>
+                    </div>
                 </div>
 
+            </div>
+
+            <!-- Developer Analytics Dashboard Panel -->
+            <div class="dev-analytics-panel mt-12 p-6 md:p-8 rounded-2xl bg-[#0D1018] border border-[rgba(255,255,255,0.08)] shadow-xl grid grid-cols-2 lg:grid-cols-4 gap-6 lg:gap-8 items-center"
+                data-aos="fade-up" data-aos-delay="100">
+                <div class="stat-item flex flex-col items-center sm:items-start text-center sm:text-left gap-1 md:border-r border-[rgba(255,255,255,0.06)] md:pr-6">
+                    <span class="stat-num text-3xl sm:text-4xl font-extrabold text-[#7C8CF8] tracking-tight font-mono">07+</span>
+                    <span class="stat-lbl text-xs uppercase tracking-widest font-mono text-[#94A3B8]">Projects Built</span>
+                </div>
+                <div class="stat-item flex flex-col items-center sm:items-start text-center sm:text-left gap-1 lg:border-r border-[rgba(255,255,255,0.06)] lg:pr-6">
+                    <span class="stat-num text-3xl sm:text-4xl font-extrabold text-[#7C8CF8] tracking-tight font-mono">600+</span>
+                    <span class="stat-lbl text-xs uppercase tracking-widest font-mono text-[#94A3B8]">Problems Solved</span>
+                </div>
+                <div class="stat-item flex flex-col items-center sm:items-start text-center sm:text-left gap-1 md:border-r border-[rgba(255,255,255,0.06)] md:pr-6">
+                    <span class="stat-num text-3xl sm:text-4xl font-extrabold text-[#F8FAFC] tracking-tight font-mono">18+</span>
+                    <span class="stat-lbl text-xs uppercase tracking-widest font-mono text-[#94A3B8]">Public Repos</span>
+                </div>
+                <div class="stat-item flex flex-col items-center sm:items-start text-center sm:text-left gap-1">
+                    <span class="stat-num text-3xl sm:text-4xl font-extrabold text-[#F59E0B] tracking-tight font-mono flex items-center gap-2">
+                        AI <span class="w-2.5 h-2.5 rounded-full bg-[#22C55E] shadow-[0_0_8px_#22C55E] animate-pulse"></span>
+                    </span>
+                    <span class="stat-lbl text-xs uppercase tracking-widest font-mono text-[#94A3B8]">Current Focus</span>
+                </div>
             </div>
 
             <!-- Subtle Section Divider -->

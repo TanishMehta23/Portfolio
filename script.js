@@ -1300,4 +1300,11 @@ document.addEventListener("DOMContentLoaded", () => {
             else openModal();
         });
     }
+
+    const connectLink = document.getElementById('rm-close-to-contact');
+    if (connectLink) {
+        connectLink.addEventListener('click', () => {
+            closeModal();
+        });
+    }
 })();
