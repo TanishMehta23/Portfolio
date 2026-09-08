@@ -410,11 +410,15 @@ const achievementObserver = new IntersectionObserver((entries) => {
 
         const counter = entry.target;
 
-        const target = parseInt(counter.innerText);
+        const target = parseInt(counter.getAttribute("data-target")) || parseInt(counter.innerText) || 400;
+
+        counter.innerText = "0+";
 
         let count = 0;
-
-        const increment = target / 60;
+        const duration = 1200; // ms
+        const frameTime = 20; // ms
+        const totalSteps = duration / frameTime;
+        const increment = target / totalSteps;
 
         const timer = setInterval(() => {
 
@@ -432,12 +436,14 @@ const achievementObserver = new IntersectionObserver((entries) => {
 
             }
 
-        }, 20);
+        }, frameTime);
 
         achievementObserver.unobserve(counter);
 
     });
 
+}, {
+    threshold: 0.2
 });
 
 achievementCounters.forEach(counter => {
@@ -631,8 +637,22 @@ async function fetchGithubContributions() {
             });
 
             const totalText = document.querySelector(".github-total-contributions");
-            if (totalText) {
-                totalText.textContent = totalContributions;
+            if (totalText && totalContributions > 0) {
+                let current = 0;
+                const duration = 1200;
+                const frameRate = 1000 / 60;
+                const totalFrames = duration / frameRate;
+                const inc = totalContributions / totalFrames;
+                totalText.textContent = "0";
+                const countTimer = setInterval(() => {
+                    current += inc;
+                    if (current >= totalContributions) {
+                        totalText.textContent = totalContributions;
+                        clearInterval(countTimer);
+                    } else {
+                        totalText.textContent = Math.floor(current);
+                    }
+                }, frameRate);
             }
         }
     } catch (error) {
@@ -752,15 +772,7 @@ if (filterButtons.length > 0 && projectCards.length > 0) {
                 const cardCategory = card.getAttribute("data-category") || "";
                 const categories = cardCategory.split(/\s+/);
 
-                if (filterValue === "all") {
-                    // Exclude hardware projects from 'All Projects' view unless hardware is explicitly selected
-                    if (categories.includes("hardware") && categories.length === 1) {
-                        card.classList.add("hide-card");
-                    } else {
-                        card.classList.remove("hide-card");
-                        card.classList.add("aos-animate");
-                    }
-                } else if (categories.includes(filterValue)) {
+                if (filterValue === "all" || categories.includes(filterValue)) {
                     card.classList.remove("hide-card");
                     card.classList.add("aos-animate");
                 } else {
@@ -905,19 +917,27 @@ window.addEventListener("load", () => {
         const target = parseInt(el.getAttribute("data-target"), 10);
         if (isNaN(target)) return;
 
+        const isPad = el.getAttribute("data-pad") === "true";
         let count = 0;
         const duration = 1200; // total animation time in ms
         const frameRate = 1000 / 60; // 60 fps
         const totalFrames = duration / frameRate;
         const increment = target / totalFrames;
 
+        const formatNumber = (num) => {
+            const intVal = Math.floor(num);
+            return isPad ? (intVal < 10 ? `0${intVal}+` : `${intVal}+`) : `${intVal}+`;
+        };
+
+        el.textContent = formatNumber(0);
+
         const counterInterval = setInterval(() => {
             count += increment;
             if (count >= target) {
-                el.textContent = target + "+";
+                el.textContent = isPad ? (target < 10 ? `0${target}+` : `${target}+`) : `${target}+`;
                 clearInterval(counterInterval);
             } else {
-                el.textContent = Math.floor(count) + "+";
+                el.textContent = formatNumber(count);
             }
         }, frameRate);
     };
