@@ -3876,8 +3876,15 @@ body {
 
 /* Mobile link active */
 .mobile-link.active {
-    color: #7C8CF8;
+    color: #7C8CF8 !important;
+    background: rgba(124, 140, 248, 0.08) !important;
     font-weight: 700;
+}
+
+.mobile-link.active i,
+.mobile-link:hover i {
+    color: #7C8CF8;
+    transform: translateX(2px);
 }
 
 /* Header variant when Projects section is visible */
@@ -4994,44 +5001,98 @@ header.projects-active {
 }
 
 /* 8. SPACING & MOBILE RESPONSIVENESS */
-@media (max-width: 640px) {
+@media (max-width: 768px) {
     .eng-timeline {
-        padding-left: 36px;
-        gap: 32px;
+        padding-left: 28px;
+        gap: 22px;
     }
 
     .eng-timeline-line {
-        left: 11px;
+        left: 7px;
+        top: 18px;
     }
 
     .eng-node-marker {
-        left: -36px;
-        top: 20px;
-        width: 24px;
-        height: 24px;
+        left: -28px;
+        top: 16px;
+        width: 16px;
+        height: 16px;
     }
 
     .eng-node-dot {
+        width: 8px;
+        height: 8px;
+    }
+
+    .eng-node-glow {
         width: 10px;
         height: 10px;
     }
 
+    .node-active .eng-node-ring {
+        width: 11px;
+        height: 11px;
+    }
+
     .eng-card {
-        padding: 20px;
-        border-radius: 16px;
+        padding: 16px 14px;
+        border-radius: 14px;
+    }
+
+    .eng-card-header {
+        gap: 6px;
+        margin-bottom: 8px;
+    }
+
+    .eng-phase-badge {
+        font-size: 9.5px;
+        padding: 2px 6px;
+    }
+
+    .eng-sub-label {
+        font-size: 9.5px;
+        letter-spacing: 0.5px;
+    }
+
+    .milestone-proj-capsule {
+        font-size: 9.5px;
+        padding: 2px 7px;
+        gap: 4px;
     }
 
     .eng-card-title {
-        font-size: 16px;
+        font-size: 15px;
+        margin-bottom: 6px;
     }
 
     .eng-card-desc {
-        font-size: 13px;
-        line-height: 1.55;
+        font-size: 12.5px;
+        line-height: 1.5;
+    }
+
+    .milestone-pill-list {
+        gap: 5px;
+        margin-top: 8px;
+    }
+
+    .milestone-pill {
+        font-size: 10px;
+        padding: 3px 7px;
     }
 
     .eng-status-indicator {
         margin-left: 0;
+        font-size: 9px;
+        padding: 2px 7px;
+    }
+
+    .featured-work-section {
+        margin-top: 14px;
+        padding-top: 10px;
+    }
+
+    .journey-project-item {
+        padding: 8px 10px;
     }
 }
 
@@ -5345,6 +5406,38 @@ footer a[href="#home"]:hover {
     color: #38BDF8;
 }
 
+/* Mobile Responsiveness for Capability Cards & About Elements */
+@media (max-width: 768px) {
+    .about-capability-card {
+        padding: 22px 20px;
+        border-radius: 16px;
+    }
+
+    .about-capability-card::before {
+        opacity: 0.55;
+    }
+
+    .about-capability-card:active {
+        transform: scale(0.99);
+    }
+
+    .card-explore-action {
+        opacity: 0.9;
+    }
+
+    .about-capability-card.card-teal .card-explore-action {
+        color: #2DD4BF;
+    }
+
+    .about-capability-card.card-purple .card-explore-action {
+        color: #919EF9;
+    }
+
+    .about-capability-card.card-cyan .card-explore-action {
+        color: #38BDF8;
+    }
+}
+
 /* Exploring Section Pulse Dot */
 .exploring-header-dot {
     position: relative;
@@ -5419,6 +5512,19 @@ footer a[href="#home"]:hover {
     font-size: 13px;
     letter-spacing: 2px;
     text-transform: uppercase;
+}
+
+@media (max-width: 640px) {
+    .philosophy-banner {
+        font-size: 11px;
+        letter-spacing: 1px;
+        gap: 8px;
+    }
+
+    .exploring-pill {
+        padding: 7px 14px;
+        font-size: 12px;
+    }
 }
 
 /* Subtle Gradient Dividers */

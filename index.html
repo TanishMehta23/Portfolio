@@ -140,7 +140,9 @@
 
                 <!-- Mobile -->
 
-                <button id="menu-btn" class="text-2xl md:hidden text-[#14B8A6]">
+                <button id="menu-btn"
+                    class="text-2xl md:hidden text-[#14B8A6] p-2 focus:outline-none transition-transform active:scale-95"
+                    aria-label="Toggle Navigation">
 
                     <i class="fa-solid fa-bars"></i>
 
@@ -152,32 +154,82 @@
 
         <!-- Mobile Menu -->
 
-        <div id="mobile-menu" class="hidden md:hidden bg-[#101827] border-t border-[#24324D]">
+        <div id="mobile-menu"
+            class="hidden md:hidden backdrop-blur-2xl bg-[#070B14]/95 border-t border-[#1E293B] shadow-[0_20px_40px_rgba(0,0,0,0.8)] transition-all duration-300">
 
-            <ul class="flex flex-col p-6 gap-6">
+            <div class="px-6 py-6 space-y-5 max-w-md mx-auto">
 
-                <li><a href="#about" class="mobile-link">About</a></li>
+                <ul class="flex flex-col space-y-1.5 text-sm font-medium">
 
-                <li><a href="#projects" class="mobile-link">Projects</a></li>
+                    <li>
+                        <a href="#about"
+                            class="mobile-link flex items-center justify-between px-4 py-3 rounded-xl hover:bg-white/[0.05] text-zinc-300 hover:text-white transition-all">
+                            <span class="flex items-center gap-3">
+                                <span class="text-xs font-mono text-[#7C8CF8]/70 font-semibold">01</span>
+                                <span>About</span>
+                            </span>
+                            <i class="fa-solid fa-chevron-right text-[10px] text-zinc-600 transition-transform"></i>
+                        </a>
+                    </li>
 
-                <li><a href="#skills" class="mobile-link">Tech Stack</a></li>
+                    <li>
+                        <a href="#projects"
+                            class="mobile-link flex items-center justify-between px-4 py-3 rounded-xl hover:bg-white/[0.05] text-zinc-300 hover:text-white transition-all">
+                            <span class="flex items-center gap-3">
+                                <span class="text-xs font-mono text-[#7C8CF8]/70 font-semibold">02</span>
+                                <span>Projects</span>
+                            </span>
+                            <i class="fa-solid fa-chevron-right text-[10px] text-zinc-600 transition-transform"></i>
+                        </a>
+                    </li>
 
-                <li><a href="#achievements" class="mobile-link">Achievements</a></li>
+                    <li>
+                        <a href="#skills"
+                            class="mobile-link flex items-center justify-between px-4 py-3 rounded-xl hover:bg-white/[0.05] text-zinc-300 hover:text-white transition-all">
+                            <span class="flex items-center gap-3">
+                                <span class="text-xs font-mono text-[#7C8CF8]/70 font-semibold">03</span>
+                                <span>Tech Stack</span>
+                            </span>
+                            <i class="fa-solid fa-chevron-right text-[10px] text-zinc-600 transition-transform"></i>
+                        </a>
+                    </li>
 
-                <li><a href="#contact" class="mobile-link">Contact</a></li>
+                    <li>
+                        <a href="#achievements"
+                            class="mobile-link flex items-center justify-between px-4 py-3 rounded-xl hover:bg-white/[0.05] text-zinc-300 hover:text-white transition-all">
+                            <span class="flex items-center gap-3">
+                                <span class="text-xs font-mono text-[#7C8CF8]/70 font-semibold">04</span>
+                                <span>Achievements</span>
+                            </span>
+                            <i class="fa-solid fa-chevron-right text-[10px] text-zinc-600 transition-transform"></i>
+                        </a>
+                    </li>
 
-                <li>
+                    <li>
+                        <a href="#contact"
+                            class="mobile-link flex items-center justify-between px-4 py-3 rounded-xl hover:bg-white/[0.05] text-zinc-300 hover:text-white transition-all">
+                            <span class="flex items-center gap-3">
+                                <span class="text-xs font-mono text-[#7C8CF8]/70 font-semibold">05</span>
+                                <span>Contact</span>
+                            </span>
+                            <i class="fa-solid fa-chevron-right text-[10px] text-zinc-600 transition-transform"></i>
+                        </a>
+                    </li>
 
-                    <a href="assets/resume.pdf"
-                        class="inline-block mt-2 px-5 py-3 rounded-full bg-[#14B8A6] text-black font-semibold">
+                </ul>
 
-                        Resume
+                <div class="pt-3 border-t border-[rgba(255,255,255,0.08)]">
 
+                    <a href="assets/resume.pdf" target="_blank"
+                        class="nav-resume-btn group inline-flex items-center justify-center gap-2 w-full py-3 rounded-xl border border-[rgba(255,255,255,0.12)] bg-[#101522]/90 text-[#F8FAFC] text-xs font-mono font-semibold tracking-wider uppercase transition-all duration-300 hover:border-[#7C8CF8] hover:bg-[#7C8CF8] hover:text-[#08090D] hover:shadow-[0_0_20px_rgba(124,140,248,0.4)]">
+                        <span>Resume</span>
+                        <i
+                            class="fa-solid fa-arrow-up-right-from-square text-[10px] opacity-70 group-hover:opacity-100 group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-transform duration-200"></i>
                     </a>
 
-                </li>
+                </div>
 
-            </ul>
+            </div>
 
         </div>
 
@@ -233,14 +285,16 @@
                     </p>
 
                     <!-- Hero Action Buttons -->
-                    <div class="flex items-center gap-4 mt-8">
+                    <div class="flex flex-wrap items-center gap-3 sm:gap-4 mt-8">
                         <a href="#projects"
-                            class="inline-flex items-center gap-2 px-6 py-3 rounded-full bg-[#7C8CF8] text-[#08090D] font-bold text-sm hover:bg-[#919EF9] hover:shadow-[0_0_20px_rgba(124,140,248,0.35)] hover:-translate-y-0.5 transition-all duration-250">
-                            View Work <i class="fa-solid fa-arrow-down text-xs"></i>
+                            class="inline-flex items-center justify-center gap-2 px-5 py-3 sm:px-6 rounded-full bg-[#7C8CF8] text-[#08090D] font-bold text-sm whitespace-nowrap shrink-0 hover:bg-[#919EF9] hover:shadow-[0_0_20px_rgba(124,140,248,0.35)] hover:-translate-y-0.5 transition-all duration-250">
+                            <span>View Work</span>
+                            <i class="fa-solid fa-arrow-down text-xs"></i>
                         </a>
                         <a href="#contact"
-                            class="inline-flex items-center gap-2 px-6 py-3 rounded-full bg-[#101522] border border-[rgba(255,255,255,0.1)] text-[#F8FAFC] font-medium text-sm hover:border-[#7C8CF8] hover:text-[#7C8CF8] hover:-translate-y-0.5 transition-all duration-250">
-                            Let's Connect →
+                            class="inline-flex items-center justify-center gap-2 px-5 py-3 sm:px-6 rounded-full bg-[#101522] border border-[rgba(255,255,255,0.1)] text-[#F8FAFC] font-medium text-sm whitespace-nowrap shrink-0 hover:border-[#7C8CF8] hover:text-[#7C8CF8] hover:-translate-y-0.5 transition-all duration-250">
+                            <span>Let's Connect</span>
+                            <i class="fa-solid fa-arrow-right text-xs"></i>
                         </a>
                     </div>
 
@@ -757,33 +811,34 @@
                 </div>
 
                 <!-- 3 Capability Cards (Staggered Scroll Reveals) -->
-                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-6">
 
                     <!-- CARD 01: Full-Stack -->
                     <div class="about-capability-card card-teal flex flex-col justify-between group" data-aos="fade-up"
                         data-aos-delay="50">
                         <div>
-                            <div class="flex items-center justify-between mb-6">
+                            <div class="flex items-center justify-between mb-4 sm:mb-6">
                                 <span
-                                    class="card-icon-box w-9 h-9 rounded-xl bg-[#14B8A6]/10 border border-[#14B8A6]/20 flex items-center justify-center text-[#2DD4BF] text-sm">
+                                    class="card-icon-box w-8 h-8 sm:w-9 sm:h-9 rounded-xl bg-[#14B8A6]/10 border border-[#14B8A6]/20 flex items-center justify-center text-[#2DD4BF] text-xs sm:text-sm">
                                     <i class="fa-solid fa-layer-group"></i>
                                 </span>
-                                <span class="font-mono text-xs text-[#2DD4BF] tracking-wider uppercase font-semibold">01
+                                <span
+                                    class="font-mono text-[11px] sm:text-xs text-[#2DD4BF] tracking-wider uppercase font-semibold">01
                                     / Full-Stack</span>
                             </div>
 
-                            <h3 class="text-xl font-bold text-white mb-3 tracking-tight">
+                            <h3 class="text-lg sm:text-xl font-bold text-white mb-2 sm:mb-3 tracking-tight">
                                 Full-Stack Development
                             </h3>
 
-                            <p class="text-zinc-400 text-sm leading-relaxed">
+                            <p class="text-zinc-400 text-[13px] sm:text-sm leading-relaxed">
                                 Building responsive and scalable applications by connecting modern user interfaces with
                                 robust backend systems, APIs, and databases.
                             </p>
                         </div>
 
                         <div
-                            class="pt-6 mt-6 border-t border-[rgba(255,255,255,0.06)] flex items-center justify-between">
+                            class="pt-4 mt-4 sm:pt-6 sm:mt-6 border-t border-[rgba(255,255,255,0.06)] flex items-center justify-between">
                             <a href="#projects" class="card-explore-action text-zinc-400">
                                 Explore <i class="fa-solid fa-arrow-right text-[10px]"></i>
                             </a>
@@ -794,27 +849,28 @@
                     <div class="about-capability-card card-purple flex flex-col justify-between group"
                         data-aos="fade-up" data-aos-delay="120">
                         <div>
-                            <div class="flex items-center justify-between mb-6">
+                            <div class="flex items-center justify-between mb-4 sm:mb-6">
                                 <span
-                                    class="card-icon-box w-9 h-9 rounded-xl bg-[#7C8CF8]/10 border border-[#7C8CF8]/20 flex items-center justify-center text-[#919EF9] text-sm">
+                                    class="card-icon-box w-8 h-8 sm:w-9 sm:h-9 rounded-xl bg-[#7C8CF8]/10 border border-[#7C8CF8]/20 flex items-center justify-center text-[#919EF9] text-xs sm:text-sm">
                                     <i class="fa-solid fa-brain"></i>
                                 </span>
-                                <span class="font-mono text-xs text-[#919EF9] tracking-wider uppercase font-semibold">02
+                                <span
+                                    class="font-mono text-[11px] sm:text-xs text-[#919EF9] tracking-wider uppercase font-semibold">02
                                     / AI</span>
                             </div>
 
-                            <h3 class="text-xl font-bold text-white mb-3 tracking-tight">
+                            <h3 class="text-lg sm:text-xl font-bold text-white mb-2 sm:mb-3 tracking-tight">
                                 Artificial Intelligence
                             </h3>
 
-                            <p class="text-zinc-400 text-sm leading-relaxed">
+                            <p class="text-zinc-400 text-[13px] sm:text-sm leading-relaxed">
                                 Exploring how Artificial Intelligence and Large Language Models can be integrated into
                                 practical products to create more intelligent user experiences.
                             </p>
                         </div>
 
                         <div
-                            class="pt-6 mt-6 border-t border-[rgba(255,255,255,0.06)] flex items-center justify-between">
+                            class="pt-4 mt-4 sm:pt-6 sm:mt-6 border-t border-[rgba(255,255,255,0.06)] flex items-center justify-between">
                             <a href="#projects" class="card-explore-action text-zinc-400">
                                 Explore <i class="fa-solid fa-arrow-right text-[10px]"></i>
                             </a>
@@ -825,27 +881,28 @@
                     <div class="about-capability-card card-cyan flex flex-col justify-between group" data-aos="fade-up"
                         data-aos-delay="190">
                         <div>
-                            <div class="flex items-center justify-between mb-6">
+                            <div class="flex items-center justify-between mb-4 sm:mb-6">
                                 <span
-                                    class="card-icon-box w-9 h-9 rounded-xl bg-[#38BDF8]/10 border border-[#38BDF8]/20 flex items-center justify-center text-[#38BDF8] text-sm">
+                                    class="card-icon-box w-8 h-8 sm:w-9 sm:h-9 rounded-xl bg-[#38BDF8]/10 border border-[#38BDF8]/20 flex items-center justify-center text-[#38BDF8] text-xs sm:text-sm">
                                     <i class="fa-solid fa-code"></i>
                                 </span>
-                                <span class="font-mono text-xs text-[#38BDF8] tracking-wider uppercase font-semibold">03
+                                <span
+                                    class="font-mono text-[11px] sm:text-xs text-[#38BDF8] tracking-wider uppercase font-semibold">03
                                     / Algorithms</span>
                             </div>
 
-                            <h3 class="text-xl font-bold text-white mb-3 tracking-tight">
+                            <h3 class="text-lg sm:text-xl font-bold text-white mb-2 sm:mb-3 tracking-tight">
                                 Problem Solving
                             </h3>
 
-                            <p class="text-zinc-400 text-sm leading-relaxed">
+                            <p class="text-zinc-400 text-[13px] sm:text-sm leading-relaxed">
                                 Strengthening logical and algorithmic thinking through Data Structures, Algorithms,
                                 competitive programming, and consistent practice.
                             </p>
                         </div>
 
                         <div
-                            class="pt-6 mt-6 border-t border-[rgba(255,255,255,0.06)] flex items-center justify-between">
+                            class="pt-4 mt-4 sm:pt-6 sm:mt-6 border-t border-[rgba(255,255,255,0.06)] flex items-center justify-between">
                             <a href="#projects" class="card-explore-action text-zinc-400">
                                 Explore <i class="fa-solid fa-arrow-right text-[10px]"></i>
                             </a>
@@ -918,18 +975,14 @@
 
         <div class="max-w-7xl mx-auto px-6">
 
-            <div class="flex items-center gap-5 mb-16">
+            <div class="flex items-center gap-5 mb-6">
                 <h2 class="uppercase tracking-[6px] text-zinc-400">
                     Projects
                 </h2>
                 <div class="flex-1 h-px bg-[#24324D]"></div>
             </div>
 
-            <h1 class="text-3xl sm:text-5xl font-bold mb-3 tracking-tight">
-                Featured Projects
-            </h1>
-
-            <p class="text-[#94A3B8] text-base sm:text-lg mb-8 sm:mb-16 max-w-3xl">
+            <p class="text-[#94A3B8] text-sm sm:text-base mb-8 sm:mb-12 max-w-3xl">
                 A collection of projects combining Full Stack Development,
                 Artificial Intelligence and modern software engineering.
             </p>
@@ -1924,7 +1977,9 @@
                         <h4>LeetCode Problems Solved</h4>
 
                         <p>
-                            Solved <strong>400+ algorithmic challenges</strong> across Data Structures & Algorithms on <strong>LeetCode</strong>, cultivating deep problem-solving skills and performance-tuned patterns.
+                            Solved <strong>400+ algorithmic challenges</strong> across Data Structures & Algorithms on
+                            <strong>LeetCode</strong>, cultivating deep problem-solving skills and performance-tuned
+                            patterns.
                         </p>
                     </div>
 
@@ -1958,12 +2013,15 @@
                         <h4>DICE Innovation Event 2026</h4>
 
                         <p>
-                            Secured <strong>3rd Position</strong> by engineering an <strong>ESP32 Smart Lock System</strong> with the <strong>Blynk IoT Platform</strong>, delivering real-time telemetry, remote unlock, and fail-safe automation.
+                            Secured <strong>3rd Position</strong> by engineering an <strong>ESP32 Smart Lock
+                                System</strong> with the <strong>Blynk IoT Platform</strong>, delivering real-time
+                            telemetry, remote unlock, and fail-safe automation.
                         </p>
                     </div>
 
                     <div class="achievement-card-footer">
-                        <a href="https://github.com/TanishMehta23/Smart-Locker-System-IoT" target="_blank" class="achievement-btn">
+                        <a href="https://github.com/TanishMehta23/Smart-Locker-System-IoT" target="_blank"
+                            class="achievement-btn">
                             <span>View Project Architecture</span>
                             <i class="fa-solid fa-arrow-up-right-from-square"></i>
                         </a>
@@ -2049,9 +2107,31 @@
                     </div>
                 </a>
 
-                <!-- 03: HackerRank -->
+                <!-- 03: LinkedIn -->
+                <a href="https://www.linkedin.com/in/tanish-mehta-43bb102b8/" target="_blank"
+                    class="profile-card linkedin group" data-aos="fade-up" data-aos-delay="150">
+                    <div class="profile-card-corner"></div>
+
+                    <div class="profile-category-tag">
+                        <span class="profile-status-dot dot-linkedin"></span>
+                        <span>Professional Network</span>
+                    </div>
+
+                    <div class="profile-icon">
+                        <i class="fa-brands fa-linkedin-in"></i>
+                    </div>
+
+                    <h3>LinkedIn</h3>
+
+                    <div class="profile-visit-action">
+                        <span>Visit Profile</span>
+                        <i class="fa-solid fa-arrow-right text-[10px]"></i>
+                    </div>
+                </a>
+
+                <!-- 04: HackerRank -->
                 <a href="https://www.hackerrank.com/profile/tanish_mehta23" target="_blank"
-                    class="profile-card hackerrank group" data-aos="fade-up" data-aos-delay="150">
+                    class="profile-card hackerrank group" data-aos="fade-up" data-aos-delay="200">
                     <div class="profile-card-corner"></div>
 
                     <div class="profile-category-tag">
@@ -2071,9 +2151,9 @@
                     </div>
                 </a>
 
-                <!-- 04: CodeChef -->
+                <!-- 05: CodeChef -->
                 <a href="https://www.codechef.com/users/tanishmehta" class="profile-card codechef group" target="_blank"
-                    data-aos="fade-up" data-aos-delay="200">
+                    data-aos="fade-up" data-aos-delay="250">
                     <div class="profile-card-corner"></div>
 
                     <div class="profile-category-tag">
@@ -2093,9 +2173,9 @@
                     </div>
                 </a>
 
-                <!-- 05: GeeksforGeeks -->
+                <!-- 06: GeeksforGeeks -->
                 <a href="https://www.geeksforgeeks.org/profile/tanishmbn75" class="profile-card gfg group"
-                    target="_blank" data-aos="fade-up" data-aos-delay="250">
+                    target="_blank" data-aos="fade-up" data-aos-delay="300">
                     <div class="profile-card-corner"></div>
 
                     <div class="profile-category-tag">
@@ -2115,9 +2195,9 @@
                     </div>
                 </a>
 
-                <!-- 06: Codolio -->
+                <!-- 07: Codolio -->
                 <a href="https://codolio.com/profile/TanishMehta" class="profile-card codolio group" target="_blank"
-                    data-aos="fade-up" data-aos-delay="300">
+                    data-aos="fade-up" data-aos-delay="350">
                     <div class="profile-card-corner"></div>
 
                     <div class="profile-category-tag">
@@ -2130,28 +2210,6 @@
                     </div>
 
                     <h3>Codolio</h3>
-
-                    <div class="profile-visit-action">
-                        <span>Visit Profile</span>
-                        <i class="fa-solid fa-arrow-right text-[10px]"></i>
-                    </div>
-                </a>
-
-                <!-- 07: LinkedIn -->
-                <a href="https://www.linkedin.com/in/tanish-mehta-43bb102b8/" target="_blank"
-                    class="profile-card linkedin group" data-aos="fade-up" data-aos-delay="350">
-                    <div class="profile-card-corner"></div>
-
-                    <div class="profile-category-tag">
-                        <span class="profile-status-dot dot-linkedin"></span>
-                        <span>Professional Network</span>
-                    </div>
-
-                    <div class="profile-icon">
-                        <i class="fa-brands fa-linkedin-in"></i>
-                    </div>
-
-                    <h3>LinkedIn</h3>
 
                     <div class="profile-visit-action">
                         <span>Visit Profile</span>
@@ -2184,10 +2242,10 @@
         </div>
 
         <!--================ ENGINEERING JOURNEY PIPELINE =================-->
-        <div class="journey-section max-w-7xl mx-auto px-6 lg:px-8 mt-24">
+        <div class="journey-section max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 mt-14 sm:mt-24">
 
             <!-- Section Heading -->
-            <div class="flex items-center gap-5 mb-16">
+            <div class="flex items-center gap-5 mb-10 sm:mb-16">
                 <h2 class="uppercase tracking-[6px] text-zinc-400">
                     Journey
                 </h2>
@@ -2574,12 +2632,17 @@
                     Open to internships, collaborations, and exciting software development opportunities. Drop me a
                     line!
                 </p>
-                <div class="mt-10 flex flex-col sm:flex-row items-center justify-center gap-4">
+                <div class="mt-10 flex items-center justify-center gap-3">
                     <a href="mailto:tanish.mehta23@gmail.com?subject=Hi%20Tanish"
-                        class="mail-btn w-full sm:w-auto px-8 py-4 rounded-full bg-gradient-to-r from-[#14B8A6] to-[#3B82F6] text-[#070B14] font-bold shadow-lg hover:shadow-[0_0_20px_rgba(20,184,166,0.4)] hover:scale-105 transition-all duration-300 flex items-center justify-center gap-2">
+                        class="mail-btn px-6 sm:px-8 py-3.5 sm:py-4 rounded-full bg-gradient-to-r from-[#14B8A6] to-[#3B82F6] text-[#070B14] font-bold text-sm sm:text-base shadow-lg hover:shadow-[0_0_20px_rgba(20,184,166,0.4)] hover:scale-105 transition-all duration-300 flex items-center justify-center gap-2.5">
                         <i class="fa-solid fa-envelope"></i>
-                        tanish.mehta23@gmail.com
+                        <span>tanish.mehta23@gmail.com</span>
                     </a>
+                    <button id="copy-email-btn"
+                        class="copy-email-btn w-9 h-9 sm:w-10 sm:h-10 rounded-full bg-[#101522] text-zinc-400 hover:text-white hover:bg-[#161D2E] hover:shadow-[0_0_12px_rgba(20,184,166,0.3)] flex items-center justify-center shrink-0 transition-all duration-300 active:scale-90"
+                        title="Copy email to clipboard" aria-label="Copy email address">
+                        <i class="fa-regular fa-copy text-sm sm:text-base"></i>
+                    </button>
                 </div>
             </div>
         </div>
@@ -2598,10 +2661,11 @@
         </div>
 
         <div class="max-w-7xl mx-auto px-6 lg:px-8">
-            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-12 gap-8 pb-12 border-b border-[#24324D]/60">
+            <div
+                class="grid grid-cols-2 md:grid-cols-2 lg:grid-cols-12 gap-x-6 gap-y-8 pb-12 border-b border-[#24324D]/60">
 
                 <!-- Left: Branding -->
-                <div class="lg:col-span-4 space-y-5">
+                <div class="col-span-2 md:col-span-2 lg:col-span-4 space-y-5">
                     <a href="#home" class="flex items-center gap-3 text-2xl font-extrabold tracking-tight group w-fit">
                         <span class="text-white group-hover:text-[#7C8CF8] transition-colors">Tanish Mehta</span>
                     </a>
@@ -2627,7 +2691,7 @@
                 </div>
 
                 <!-- Middle Left: Navigation Links -->
-                <div class="lg:col-span-2 space-y-4">
+                <div class="col-span-1 md:col-span-1 lg:col-span-2 space-y-4">
                     <h4 class="text-xs font-mono font-bold uppercase tracking-[2px] text-[#14B8A6]">Navigate</h4>
                     <ul class="space-y-2.5">
                         <li><a href="#home" class="text-zinc-400 hover:text-white text-sm transition-colors">Home</a>
@@ -2646,7 +2710,7 @@
                 </div>
 
                 <!-- Middle Right: Featured Systems -->
-                <div class="lg:col-span-3 space-y-4">
+                <div class="col-span-1 md:col-span-1 lg:col-span-3 space-y-4">
                     <h4 class="text-xs font-mono font-bold uppercase tracking-[2px] text-[#14B8A6]">Featured Systems
                     </h4>
                     <ul class="space-y-2.5">
@@ -2702,7 +2766,7 @@
                 </div>
 
                 <!-- Right: Current Status (Original Box Card) -->
-                <div class="lg:col-span-3 space-y-4">
+                <div class="col-span-2 md:col-span-2 lg:col-span-3 space-y-4">
                     <h4 class="text-xs font-mono font-bold uppercase tracking-[2px] text-[#14B8A6]">Current Status</h4>
                     <div class="p-4 rounded-2xl bg-[#0B1220]/50 border border-[#24324D] space-y-3">
                         <div class="flex items-center gap-2 text-sm text-[#7C8CF8] font-semibold">
