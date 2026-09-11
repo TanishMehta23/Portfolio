@@ -45,7 +45,7 @@ const commands = [
     },
     {
         cmd: "cat mission.txt",
-        output: "Building scalable AI-powered web applications."
+        output: "Building modern web applications and exploring AI."
     },
     {
         cmd: "echo $GOAL",
@@ -60,94 +60,127 @@ function sleep(ms) {
     return new Promise(resolve => setTimeout(resolve, ms));
 }
 
-async function typeText(element, text, speed = 40) {
-
-    element.innerHTML = "";
-
+async function typeText(element, text, minSpeed = 38, maxSpeed = 65) {
+    element.textContent = "";
     for (let i = 0; i < text.length; i++) {
-
-        element.innerHTML += text[i];
-
-        await sleep(speed);
-
+        element.textContent += text[i];
+        const delay = Math.floor(Math.random() * (maxSpeed - minSpeed + 1)) + minSpeed;
+        await sleep(delay);
     }
-
 }
 
 async function runTerminal() {
+    if (!terminal) return;
     const myInstanceId = ++terminalInstanceId;
     window.terminalInstance = myInstanceId;
 
     while (true) {
         if (window.terminalInstance !== myInstanceId) return;
 
+        const prefersReducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
         terminal.innerHTML = "";
 
         const current = commands[index];
 
-        // prompt
-        const prompt = document.createElement("div");
-        prompt.className = "terminal-line";
-        terminal.appendChild(prompt);
+        // Terminal Prompt Line
+        const promptLine = document.createElement("div");
+        promptLine.className = "terminal-line";
 
         const dollar = document.createElement("span");
         dollar.className = "prompt";
         dollar.textContent = "$";
 
         const typing = document.createElement("span");
+        typing.className = "command";
 
         const cursor = document.createElement("span");
         cursor.className = "cursor";
 
-        prompt.appendChild(dollar);
-        prompt.appendChild(typing);
-        prompt.appendChild(cursor);
+        promptLine.appendChild(dollar);
+        promptLine.appendChild(typing);
+        if (!prefersReducedMotion) {
+            promptLine.appendChild(cursor);
+        }
+        terminal.appendChild(promptLine);
 
-        await typeText(typing, current.cmd, 50);
+        if (prefersReducedMotion) {
+            typing.textContent = current.cmd;
+            await sleep(200);
+        } else {
+            await typeText(typing, current.cmd);
+            if (window.terminalInstance !== myInstanceId) return;
+            await sleep(280);
+            if (window.terminalInstance !== myInstanceId) return;
+            cursor.remove();
+        }
+
+        // Output Container
+        const outputWrap = document.createElement("div");
+        outputWrap.className = "output";
+        terminal.appendChild(outputWrap);
+
+        const lines = current.output.split("\n");
+        if (prefersReducedMotion || lines.length === 1) {
+            outputWrap.innerHTML = current.output.replace(/\n/g, "<br>");
+        } else {
+            for (let l = 0; l < lines.length; l++) {
+                if (window.terminalInstance !== myInstanceId) return;
+                const lineSpan = document.createElement("div");
+                lineSpan.textContent = lines[l];
+                outputWrap.appendChild(lineSpan);
+                await sleep(75);
+            }
+        }
+
         if (window.terminalInstance !== myInstanceId) return;
 
-        await sleep(250);
-        if (window.terminalInstance !== myInstanceId) return;
-        cursor.remove();
-
-        const output = document.createElement("div");
-        output.className = "output";
-        output.innerHTML = current.output.replace(/\n/g, "<br>");
-        terminal.appendChild(output);
-
-        await sleep(1800);
+        // Reading pause based on length
+        const readingTime = Math.max(2200, 1400 + lines.length * 150);
+        await sleep(readingTime);
         if (window.terminalInstance !== myInstanceId) return;
 
-        // clear command
-
+        // Type clear command
         const clearLine = document.createElement("div");
         clearLine.className = "terminal-line";
+
+        const clearDollar = document.createElement("span");
+        clearDollar.className = "prompt";
+        clearDollar.textContent = "$";
+
+        const clearTyping = document.createElement("span");
+        clearTyping.className = "command";
+
+        const clearCursor = document.createElement("span");
+        clearCursor.className = "cursor";
+
+        clearLine.appendChild(clearDollar);
+        clearLine.appendChild(clearTyping);
+        if (!prefersReducedMotion) clearLine.appendChild(clearCursor);
         terminal.appendChild(clearLine);
 
-        clearLine.innerHTML = `
-            <span class="prompt">$</span>
-            <span class="command">clear</span>
-        `;
+        if (prefersReducedMotion) {
+            clearTyping.textContent = "clear";
+            await sleep(300);
+        } else {
+            await typeText(clearTyping, "clear", 45, 75);
+            if (window.terminalInstance !== myInstanceId) return;
+            await sleep(350);
+            if (window.terminalInstance !== myInstanceId) return;
+            clearCursor.remove();
+        }
 
-        await sleep(900);
-        if (window.terminalInstance !== myInstanceId) return;
-
+        // Clean fade out and loop
         terminal.style.opacity = "0";
-
-        await sleep(300); // wait for fade out
+        await sleep(220);
         if (window.terminalInstance !== myInstanceId) return;
 
         terminal.innerHTML = "";
-
         terminal.style.opacity = "1";
-
-        await sleep(100); // short pause before next command starts typing
+        await sleep(150);
         if (window.terminalInstance !== myInstanceId) return;
 
         index = (index + 1) % commands.length;
-
     }
-
 }
 
 runTerminal();
@@ -856,6 +889,11 @@ document.querySelectorAll(".project-card").forEach(card => {
 async function runHeroTyping() {
     const heroTyping = document.getElementById("hero-typing");
     if (!heroTyping) return;
+
+    if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) {
+        heroTyping.textContent = "Tanish Mehta";
+        return;
+    }
 
     const phrases = [
         "Tanish Mehta"
