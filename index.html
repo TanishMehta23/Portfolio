@@ -22,8 +22,15 @@
     <!-- CSS -->
     <link rel="stylesheet" href="style.css">
 
-    <!-- Vercel Web Analytics -->
-    <script defer src="/_vercel/insights/script.js"></script>
+    <!-- Vercel Web Analytics (Production Only) -->
+    <script>
+        if (location.hostname && location.hostname !== 'localhost' && location.hostname !== '127.0.0.1') {
+            const vScript = document.createElement('script');
+            vScript.defer = true;
+            vScript.src = '/_vercel/insights/script.js';
+            document.head.appendChild(vScript);
+        }
+    </script>
 
     <link href="https://unpkg.com/aos@2.3.4/dist/aos.css" rel="stylesheet">
 
@@ -1749,6 +1756,9 @@
 
     </section>
 
+    <!-- ======================================== -->
+    <!-- TECH STACK (SEAMLESS PORTFOLIO THEME)     -->
+    <!-- ======================================== -->
     <section id="skills" class="py-12">
 
         <div class="max-w-7xl mx-auto px-6 lg:px-8">
@@ -1761,180 +1771,206 @@
                 <div class="flex-1 h-px bg-[#24324D]"></div>
             </div>
 
-            <div class="tech-layout">
+            <!-- SKILL CATEGORY GRID (Accurate to Tanish's Resume & Capabilities) -->
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5 sm:gap-6">
 
-                <!-- LEFT -->
-
-                <div class="tech-cards">
-                    <div class="tech-card" data-category="programming" data-aos="fade-up" data-aos-delay="50">
-
-                        <h3 class="skill-title programming-title">💻 Programming Skills</h3>
-
-                        <div class="tech-list">
-
-                            <span>Java</span>
-                            <span>JavaScript</span>
-                            <span>TypeScript</span>
-                            <span>Python</span>
-                            <span>C++</span>
-                            <span>C</span>
-
+                <!-- 5. Programming Languages -->
+                <div class="skill-category-card group relative rounded-2xl bg-[#0E131F]/90 border border-[#1E293B] p-5 sm:p-6 transition-all duration-300 hover:border-[#F59E0B]/40 hover:shadow-[0_12px_30px_rgba(0,0,0,0.5)] flex flex-col justify-between overflow-hidden" data-aos="fade-up" data-aos-delay="250">
+                    <div class="absolute w-40 h-40 bg-gradient-to-br from-[#F59E0B]/15 via-[#F59E0B]/5 to-transparent pointer-events-none blur-2xl top-0 right-0 rounded-tr-2xl"></div>
+                    <div class="relative z-10">
+                        <div class="flex items-center gap-2.5 mb-5">
+                            <span class="w-8 h-8 rounded-lg bg-[#F59E0B]/10 border border-[#F59E0B]/20 flex items-center justify-center text-[#F59E0B] text-xs">
+                                <i class="fa-solid fa-code"></i>
+                            </span>
+                            <div>
+                                <h3 class="text-sm sm:text-[15px] font-bold tracking-tight text-white">Programming Languages</h3>
+                                <span class="text-[11px] font-mono text-[#F59E0B]/80">Core Programming</span>
+                            </div>
                         </div>
-
-                    </div>
-
-                    <!-- Frontend -->
-
-                    <div class="tech-card" data-category="frontend" data-aos="fade-up" data-aos-delay="100">
-
-                        <h3 class="skill-title frontend-title">⚛ Frontend</h3>
-
-                        <div class="tech-list">
-
-                            <span>HTML5</span>
-                            <span>CSS3</span>
-                            <span>JavaScript</span>
-                            <span>React</span>
-                            <span>Next.js</span>
-                            <span>Tailwind CSS</span>
-
+                        <div class="flex flex-wrap gap-2">
+                            <button class="skill-pill-tag" data-skill="Java"><span class="pill-dot bg-[#F59E0B]"></span><span>Java</span></button>
+                            <button class="skill-pill-tag" data-skill="JavaScript"><span class="pill-dot bg-[#F59E0B]"></span><span>JavaScript</span></button>
+                            <button class="skill-pill-tag" data-skill="TypeScript"><span class="pill-dot bg-[#F59E0B]"></span><span>TypeScript</span></button>
+                            <button class="skill-pill-tag" data-skill="Python"><span class="pill-dot bg-[#F59E0B]"></span><span>Python</span></button>
+                            <button class="skill-pill-tag" data-skill="C"><span class="pill-dot bg-[#F59E0B]"></span><span>C</span></button>
+                            <button class="skill-pill-tag" data-skill="C++"><span class="pill-dot bg-[#F59E0B]"></span><span>C++</span></button>
+                            
+                            <button class="skill-pill-tag" data-skill="SQL"><span class="pill-dot bg-[#F59E0B]"></span><span>SQL</span></button>
                         </div>
-
                     </div>
-
-                    <!-- Backend -->
-
-                    <div class="tech-card" data-category="backend" data-aos="fade-up" data-aos-delay="150">
-
-                        <h3 class="skill-title backend-title">⚡ Backend</h3>
-
-                        <div class="tech-list">
-
-                            <span>Node.js</span>
-                            <span>Express.js</span>
-                            <span>FastAPI</span>
-                            <span>Flask</span>
-                            <span>Streamlit</span>
-
-                        </div>
-
-                    </div>
-
-                    <!-- AI -->
-
-                    <div class="tech-card" data-category="ai" data-aos="fade-up" data-aos-delay="200">
-
-                        <h3 class="skill-title ai-title">🤖 AI</h3>
-
-                        <div class="tech-list">
-
-                            <span>Gemini API</span>
-                            <span>LangChain</span>
-
-                        </div>
-
-                    </div>
-
-                    <!-- Database -->
-
-                    <div class="tech-card" data-category="database" data-aos="fade-up" data-aos-delay="250">
-
-                        <h3 class="skill-title database-title">🗄 Database & Tools</h3>
-
-                        <div class="tech-list">
-
-                            <span>MongoDB</span>
-                            <span>PostgreSQL</span>
-                            <span>MySQL</span>
-                            <span>Firebase</span>
-
-                        </div>
-
-                    </div>
-                    <div class="tech-card" data-category="platform" data-aos="fade-up" data-aos-delay="300">
-
-                        <h3 class="skill-title platform-title">🛠 Platforms and Tools</h3>
-
-                        <div class="tech-list">
-
-                            <span>Git</span>
-                            <span>GitHub</span>
-                            <span>Linux</span>
-                            <span>Vercel</span>
-                            <span>VS Code</span>
-                            <span>IntelliJ IDEA</span>
-                            <span>Canva</span>
-
-                        </div>
-
-                    </div>
-
                 </div>
 
-                <!-- RIGHT -->
-                <div class="galaxy-section" data-aos="fade-up" data-aos-delay="200">
-
-                    <div class="galaxy-header">
-                        <h2>Interactive Tech Galaxy</h2>
-                        <p>Move your cursor through the galaxy and hover over the planets to explore my technology
-                            ecosystem.</p>
+                <!-- 1. Frontend -->
+                <div class="skill-category-card group relative rounded-2xl bg-[#0E131F]/90 border border-[#1E293B] p-5 sm:p-6 transition-all duration-300 hover:border-[#7C8CF8]/40 hover:shadow-[0_12px_30px_rgba(0,0,0,0.5)] flex flex-col justify-between overflow-hidden" data-aos="fade-up" data-aos-delay="50">
+                    <div class="absolute w-40 h-40 bg-gradient-to-br from-[#7C8CF8]/15 via-[#7C8CF8]/5 to-transparent pointer-events-none blur-2xl top-0 right-0 rounded-tr-2xl"></div>
+                    <div class="relative z-10">
+                        <div class="flex items-center gap-2.5 mb-5">
+                            <span class="w-8 h-8 rounded-lg bg-[#7C8CF8]/10 border border-[#7C8CF8]/20 flex items-center justify-center text-[#7C8CF8] text-xs">
+                                <i class="fa-solid fa-layer-group"></i>
+                            </span>
+                            <div>
+                                <h3 class="text-sm sm:text-[15px] font-bold tracking-tight text-white">Frontend</h3>
+                                <span class="text-[11px] font-mono text-[#7C8CF8]/80">UI & Web Apps</span>
+                            </div>
+                        </div>
+                        <div class="flex flex-wrap gap-2">
+                            <button class="skill-pill-tag" data-skill="React.js"><span class="pill-dot bg-[#7C8CF8]"></span><span>React.js</span></button>
+                            <button class="skill-pill-tag" data-skill="Next.js"><span class="pill-dot bg-[#7C8CF8]"></span><span>Next.js</span></button>
+                            <button class="skill-pill-tag" data-skill="Tailwind CSS"><span class="pill-dot bg-[#7C8CF8]"></span><span>Tailwind CSS</span></button>
+                            <button class="skill-pill-tag" data-skill="HTML5"><span class="pill-dot bg-[#7C8CF8]"></span><span>HTML5</span></button>
+                            <button class="skill-pill-tag" data-skill="CSS3"><span class="pill-dot bg-[#7C8CF8]"></span><span>CSS3</span></button>
+                            <button class="skill-pill-tag" data-skill="Bootstrap"><span class="pill-dot bg-[#7C8CF8]"></span><span>Bootstrap</span></button>
+                        </div>
                     </div>
+                </div>
 
-                    <div class="galaxy-container" id="galaxy">
-
-
-                        <!-- Programming -->
-                        <div class="planet programming large" data-name="Java">Java</div>
-                        <div class="planet programming medium" data-name="Python">Python</div>
-                        <div class="planet programming large" data-name="JavaScript">JavaScript</div>
-                        <div class="planet programming medium" data-name="TypeScript">TypeScript</div>
-                        <div class="planet programming small" data-name="C++">C++</div>
-                        <div class="planet programming small" data-name="C">C</div>
-
-                        <!-- Frontend -->
-                        <div class="planet frontend large" data-name="React">React</div>
-                        <div class="planet frontend medium" data-name="Next.js">Next.js</div>
-                        <div class="planet frontend small" data-name="HTML5">HTML5</div>
-                        <div class="planet frontend small" data-name="CSS3">CSS3</div>
-                        <div class="planet frontend medium" data-name="Tailwind">Tailwind</div>
-                        <div class="planet frontend medium" data-name="Bootstrap">Bootstrap</div>
-
-                        <!-- Backend -->
-                        <div class="planet backend large" data-name="Node.js">Node.js</div>
-                        <div class="planet backend small" data-name="Express">Express</div>
-                        <div class="planet backend medium" data-name="FastAPI">FastAPI</div>
-                        <div class="planet backend small" data-name="Flask">Flask</div>
-                        <div class="planet backend small" data-name="Streamlit">Streamlit</div>
-                        <div class="planet backend small" data-name="Socket.io">Socket.io</div>
-
-                        <!-- AI -->
-                        <div class="planet ai medium" data-name="Gemini">Gemini</div>
-                        <div class="planet ai small" data-name="LangChain">LangChain</div>
-
-                        <!-- Database -->
-                        <div class="planet database medium" data-name="MongoDB">MongoDB</div>
-                        <div class="planet database medium" data-name="PostgreSQL">PostgreSQL</div>
-                        <div class="planet database small" data-name="MySQL">MySQL</div>
-                        <div class="planet database small" data-name="Firebase">Firebase</div>
-
-                        <!-- Platforms -->
-                        <div class="planet platform large" data-name="Git">Git</div>
-                        <div class="planet platform small" data-name="GitHub">GitHub</div>
-                        <div class="planet platform small" data-name="VS Code">VS Code</div>
-                        <div class="planet platform small" data-name="IntelliJ IDEA"
-                            style="font-size: 9.5px; line-height: 1.15; white-space: normal;">IntelliJ<br>IDEA</div>
-                        <div class="planet platform small" data-name="Canva">Canva</div>
-                        <div class="planet platform small" data-name="Postman">Postman</div>
-                        <div class="planet platform small" data-name="Vercel">Vercel</div>
-                        <div class="planet platform medium" data-name="Linux">Linux</div>
-
-
+                <!-- 2. Backend -->
+                <div class="skill-category-card group relative rounded-2xl bg-[#0E131F]/90 border border-[#1E293B] p-5 sm:p-6 transition-all duration-300 hover:border-[#10B981]/40 hover:shadow-[0_12px_30px_rgba(0,0,0,0.5)] flex flex-col justify-between overflow-hidden" data-aos="fade-up" data-aos-delay="100">
+                    <div class="absolute w-40 h-40 bg-gradient-to-br from-[#10B981]/15 via-[#10B981]/5 to-transparent pointer-events-none blur-2xl bottom-0 left-0 rounded-bl-2xl"></div>
+                    <div class="relative z-10">
+                        <div class="flex items-center gap-2.5 mb-5">
+                            <span class="w-8 h-8 rounded-lg bg-[#10B981]/10 border border-[#10B981]/20 flex items-center justify-center text-[#10B981] text-xs">
+                                <i class="fa-solid fa-server"></i>
+                            </span>
+                            <div>
+                                <h3 class="text-sm sm:text-[15px] font-bold tracking-tight text-white">Backend</h3>
+                                <span class="text-[11px] font-mono text-[#10B981]/80">APIs & Server-Side Development</span>
+                            </div>
+                        </div>
+                        <div class="flex flex-wrap gap-2">
+                            <button class="skill-pill-tag" data-skill="Node.js"><span class="pill-dot bg-[#10B981]"></span><span>Node.js</span></button>
+                            <button class="skill-pill-tag" data-skill="Express.js"><span class="pill-dot bg-[#10B981]"></span><span>Express.js</span></button>
+                            <button class="skill-pill-tag" data-skill="FastAPI"><span class="pill-dot bg-[#10B981]"></span><span>FastAPI</span></button>
+                            <button class="skill-pill-tag" data-skill="Socket.IO"><span class="pill-dot bg-[#10B981]"></span><span>Socket.IO / WebSockets</span></button>
+                            <button class="skill-pill-tag" data-skill="Flask"><span class="pill-dot bg-[#10B981]"></span><span>Flask</span></button>
+                            <button class="skill-pill-tag" data-skill="REST APIs"><span class="pill-dot bg-[#10B981]"></span><span>REST APIs</span></button>
+                            
+                            <button class="skill-pill-tag" data-skill="JWT Auth"><span class="pill-dot bg-[#10B981]"></span><span>JWT & Google OAuth</span></button>
+                        </div>
                     </div>
+                </div>
 
+                <!-- 3. Databases & ORM -->
+                <div class="skill-category-card group relative rounded-2xl bg-[#0E131F]/90 border border-[#1E293B] p-5 sm:p-6 transition-all duration-300 hover:border-[#14B8A6]/40 hover:shadow-[0_12px_30px_rgba(0,0,0,0.5)] flex flex-col justify-between overflow-hidden" data-aos="fade-up" data-aos-delay="150">
+                    <div class="absolute w-40 h-40 bg-gradient-to-br from-[#14B8A6]/15 via-[#14B8A6]/5 to-transparent pointer-events-none blur-2xl top-0 right-0 rounded-tr-2xl"></div>
+                    <div class="relative z-10">
+                        <div class="flex items-center gap-2.5 mb-5">
+                            <span class="w-8 h-8 rounded-lg bg-[#14B8A6]/10 border border-[#14B8A6]/20 flex items-center justify-center text-[#14B8A6] text-xs">
+                                <i class="fa-solid fa-database"></i>
+                            </span>
+                            <div>
+                                <h3 class="text-sm sm:text-[15px] font-bold tracking-tight text-white">Databases</h3>
+                                <span class="text-[11px] font-mono text-[#14B8A6]/80">Storage & ORM</span>
+                            </div>
+                        </div>
+                        <div class="flex flex-wrap gap-2">
+                            <button class="skill-pill-tag" data-skill="PostgreSQL"><span class="pill-dot bg-[#14B8A6]"></span><span>PostgreSQL</span></button>
+                            <button class="skill-pill-tag" data-skill="MongoDB"><span class="pill-dot bg-[#14B8A6]"></span><span>MongoDB</span></button>
+                            <button class="skill-pill-tag" data-skill="MySQL"><span class="pill-dot bg-[#14B8A6]"></span><span>MySQL</span></button>
+                            <button class="skill-pill-tag" data-skill="Prisma"><span class="pill-dot bg-[#14B8A6]"></span><span>Prisma ORM</span></button>
+                            <button class="skill-pill-tag" data-skill="Firebase"><span class="pill-dot bg-[#14B8A6]"></span><span>Firebase</span></button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 4. AI & Machine Learning -->
+                <div class="skill-category-card group relative rounded-2xl bg-[#0E131F]/90 border border-[#1E293B] p-5 sm:p-6 transition-all duration-300 hover:border-[#A855F7]/40 hover:shadow-[0_12px_30px_rgba(0,0,0,0.5)] flex flex-col justify-between overflow-hidden" data-aos="fade-up" data-aos-delay="200">
+                    <div class="absolute w-40 h-40 bg-gradient-to-br from-[#A855F7]/15 via-[#A855F7]/5 to-transparent pointer-events-none blur-2xl bottom-0 left-0 rounded-bl-2xl"></div>
+                    <div class="relative z-10">
+                        <div class="flex items-center gap-2.5 mb-5">
+                            <span class="w-8 h-8 rounded-lg bg-[#A855F7]/10 border border-[#A855F7]/20 flex items-center justify-center text-[#A855F7] text-xs">
+                                <i class="fa-solid fa-brain"></i>
+                            </span>
+                            <div>
+                                <h3 class="text-sm sm:text-[15px] font-bold tracking-tight text-white">AI & Intelligent Systems</h3>
+                                <span class="text-[11px] font-mono text-[#A855F7]/80">LLMs & AI-Powered Applications</span>
+                            </div>
+                        </div>
+                        <div class="flex flex-wrap gap-2">
+                            <button class="skill-pill-tag" data-skill="Gemini"><span class="pill-dot bg-[#A855F7]"></span><span>Google Gemini API</span></button>
+                            <button class="skill-pill-tag" data-skill="RAG"><span class="pill-dot bg-[#A855F7]"></span><span>RAG Architecture</span></button>
+                            <button class="skill-pill-tag" data-skill="LLM"><span class="pill-dot bg-[#A855F7]"></span><span>LLM Integration</span></button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 6. DevOps & Deployment -->
+                <div class="skill-category-card group relative rounded-2xl bg-[#0E131F]/90 border border-[#1E293B] p-5 sm:p-6 transition-all duration-300 hover:border-[#38BDF8]/40 hover:shadow-[0_12px_30px_rgba(0,0,0,0.5)] flex flex-col justify-between overflow-hidden" data-aos="fade-up" data-aos-delay="300">
+                    <div class="absolute w-40 h-40 bg-gradient-to-br from-[#38BDF8]/15 via-[#38BDF8]/5 to-transparent pointer-events-none blur-2xl bottom-0 left-0 rounded-bl-2xl"></div>
+                    <div class="relative z-10">
+                        <div class="flex items-center gap-2.5 mb-5">
+                            <span class="w-8 h-8 rounded-lg bg-[#38BDF8]/10 border border-[#38BDF8]/20 flex items-center justify-center text-[#38BDF8] text-xs">
+                                <i class="fa-solid fa-cloud"></i>
+                            </span>
+                            <div>
+                                <h3 class="text-sm sm:text-[15px] font-bold tracking-tight text-white">DevOps & Cloud</h3>
+                                <span class="text-[11px] font-mono text-[#38BDF8]/80">Deployment, Hosting & CI/CD</span>
+                            </div>
+                        </div>
+                        <div class="flex flex-wrap gap-2">
+                            <button class="skill-pill-tag" data-skill="Linux"><span class="pill-dot bg-[#38BDF8]"></span><span>Linux</span></button>
+                            <button class="skill-pill-tag" data-skill="Vercel"><span class="pill-dot bg-[#38BDF8]"></span><span>Vercel</span></button>
+                            <button class="skill-pill-tag" data-skill="Render"><span class="pill-dot bg-[#38BDF8]"></span><span>Render</span></button>
+                            <button class="skill-pill-tag" data-skill="Netlify"><span class="pill-dot bg-[#38BDF8]"></span><span>Netlify</span></button>
+                            <button class="skill-pill-tag" data-skill="Cloudflare"><span class="pill-dot bg-[#38BDF8]"></span><span>Cloudflare</span></button>
+                            <button class="skill-pill-tag" data-skill="Github Actions"><span class="pill-dot bg-[#38BDF8]"></span><span>Github Actions</span></button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 7. Developer Tools & APIs -->
+                <div class="skill-category-card group relative rounded-2xl bg-[#0E131F]/90 border border-[#1E293B] p-5 sm:p-6 transition-all duration-300 hover:border-[#EAB308]/40 hover:shadow-[0_12px_30px_rgba(0,0,0,0.5)] flex flex-col justify-between overflow-hidden" data-aos="fade-up" data-aos-delay="350">
+                    <div class="absolute w-40 h-40 bg-gradient-to-br from-[#EAB308]/15 via-[#EAB308]/5 to-transparent pointer-events-none blur-2xl top-0 right-0 rounded-tr-2xl"></div>
+                    <div class="relative z-10">
+                        <div class="flex items-center gap-2.5 mb-5">
+                            <span class="w-8 h-8 rounded-lg bg-[#EAB308]/10 border border-[#EAB308]/20 flex items-center justify-center text-[#EAB308] text-xs">
+                                <i class="fa-solid fa-screwdriver-wrench"></i>
+                            </span>
+                            <div>
+                                <h3 class="text-sm sm:text-[15px] font-bold tracking-tight text-white">Tools & Workflow</h3>
+                                <span class="text-[11px] font-mono text-[#EAB308]/80">Development Workflow & Productivity</span>
+                            </div>
+                        </div>
+                        <div class="flex flex-wrap gap-2">
+                            <button class="skill-pill-tag" data-skill="Git"><span class="pill-dot bg-[#EAB308]"></span><span>Git</span></button>
+                            <button class="skill-pill-tag" data-skill="GitHub"><span class="pill-dot bg-[#EAB308]"></span><span>GitHub</span></button>
+                            <button class="skill-pill-tag" data-skill="VS Code"><span class="pill-dot bg-[#EAB308]"></span><span>VS Code</span></button>
+                            <button class="skill-pill-tag" data-skill="IntelliJ IDEA"><span class="pill-dot bg-[#EAB308]"></span><span>IntelliJ IDEA</span></button>
+                            <button class="skill-pill-tag" data-skill="Leaflet"><span class="pill-dot bg-[#EAB308]"></span><span>Leaflet / Maps APIs</span></button>
+                            <button class="skill-pill-tag" data-skill="NPM"><span class="pill-dot bg-[#EAB308]"></span><span>npm</span></button>
+                            <button class="skill-pill-tag" data-skill="EmailJS"><span class="pill-dot bg-[#EAB308]"></span><span>EmailJS</span></button>
+                            <button class="skill-pill-tag" data-skill="Figma"><span class="pill-dot bg-[#EAB308]"></span><span>Figma</span></button>
+                            <button class="skill-pill-tag" data-skill="Canva"><span class="pill-dot bg-[#EAB308]"></span><span>Canva</span></button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 8. CS Fundamentals & Architecture -->
+                <div class="skill-category-card group relative rounded-2xl bg-[#0E131F]/90 border border-[#1E293B] p-5 sm:p-6 transition-all duration-300 hover:border-[#F43F5E]/40 hover:shadow-[0_12px_30px_rgba(0,0,0,0.5)] flex flex-col justify-between overflow-hidden" data-aos="fade-up" data-aos-delay="400">
+                    <div class="absolute w-40 h-40 bg-gradient-to-br from-[#F43F5E]/15 via-[#F43F5E]/5 to-transparent pointer-events-none blur-2xl bottom-0 left-0 rounded-bl-2xl"></div>
+                    <div class="relative z-10">
+                        <div class="flex items-center gap-2.5 mb-5">
+                            <span class="w-8 h-8 rounded-lg bg-[#F43F5E]/10 border border-[#F43F5E]/20 flex items-center justify-center text-[#F43F5E] text-xs">
+                                <i class="fa-solid fa-cubes-stacked"></i>
+                            </span>
+                            <div>
+                                <h3 class="text-sm sm:text-[15px] font-bold tracking-tight text-white">Computer Science Fundamentals</h3>
+                                <span class="text-[11px] font-mono text-[#F43F5E]/80">Core Computer Science Concepts</span>
+                            </div>
+                        </div>
+                        <div class="flex flex-wrap gap-2">
+                            <button class="skill-pill-tag" data-skill="DSA"><span class="pill-dot bg-[#F43F5E]"></span><span>Data Structures & Algorithms</span></button>
+                            <button class="skill-pill-tag" data-skill="OOP"><span class="pill-dot bg-[#F43F5E]"></span><span>Object-Oriented Programming (OOP)</span></button>
+                            <button class="skill-pill-tag" data-skill="DBMS"><span class="pill-dot bg-[#F43F5E]"></span><span>Database Management System</span></button>
+                            <button class="skill-pill-tag" data-skill="Operating Systems"><span class="pill-dot bg-[#F43F5E]"></span><span>Operating Systems</span></button>
+                            <button class="skill-pill-tag" data-skill="Computer Networks"><span class="pill-dot bg-[#F43F5E]"></span><span>Computer Networks</span></button>
+                            <button class="skill-pill-tag" data-skill="System Design"><span class="pill-dot bg-[#F43F5E]"></span><span>System Design</span></button>
+                        </div>
+                    </div>
                 </div>
 
             </div>
-
+        </div>
     </section>
 
     <!-- ========================= -->

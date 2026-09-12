@@ -222,232 +222,174 @@ function animateCountUp(element, targetValue) {
 const galaxy = document.getElementById("galaxy");
 const planets = [...document.querySelectorAll(".planet")];
 
-let W;
-let H;
+if (galaxy && planets.length > 0) {
+    let W;
+    let H;
 
-function updateGalaxySize() {
-    if (galaxy) {
-        W = galaxy.clientWidth;
-        H = galaxy.clientHeight;
+    function updateGalaxySize() {
+        if (galaxy) {
+            W = galaxy.clientWidth;
+            H = galaxy.clientHeight;
+        }
     }
-}
-updateGalaxySize();
-
-window.addEventListener("resize", () => {
     updateGalaxySize();
-    // Keep planets in bounds and update radius immediately on resize
-    objects.forEach(p => {
-        p.r = p.el.offsetWidth / 2;
-        if (p.x < p.r) p.x = p.r;
-        if (p.x > W - p.r) p.x = W - p.r;
-        if (p.y < p.r) p.y = p.r;
-        if (p.y > H - p.r) p.y = H - p.r;
+
+    window.addEventListener("resize", () => {
+        updateGalaxySize();
+        // Keep planets in bounds and update radius immediately on resize
+        objects.forEach(p => {
+            p.r = p.el.offsetWidth / 2;
+            if (p.x < p.r) p.x = p.r;
+            if (p.x > W - p.r) p.x = W - p.r;
+            if (p.y < p.r) p.y = p.r;
+            if (p.y > H - p.r) p.y = H - p.r;
+        });
     });
-});
 
-const objects = [];
+    const objects = [];
 
-// Generate random position without overlapping
-function randomPosition(radius) {
+    // Generate random position without overlapping
+    function randomPosition(radius) {
+        let x, y, valid = false;
+        let attempts = 0;
 
-    let x, y, valid = false;
-    let attempts = 0;
+        while (!valid && attempts < 150) {
+            attempts++;
+            x = radius + Math.random() * (W - radius * 2);
+            y = radius + Math.random() * (H - radius * 2);
+            valid = true;
 
-    while (!valid && attempts < 150) {
-        attempts++;
+            for (const p of objects) {
+                const dx = x - p.x;
+                const dy = y - p.y;
+                if (Math.sqrt(dx * dx + dy * dy) < radius + p.r + 25) {
+                    valid = false;
+                    break;
+                }
+            }
+        }
 
-        x = radius + Math.random() * (W - radius * 2);
-        y = radius + Math.random() * (H - radius * 2);
+        if (!valid) {
+            x = radius + Math.random() * (W - radius * 2);
+            y = radius + Math.random() * (H - radius * 2);
+        }
 
-        valid = true;
+        return { x, y };
+    }
 
-        for (const p of objects) {
+    // Create objects
+    planets.forEach(el => {
+        let r = el.offsetWidth / 2;
+        const pos = randomPosition(r);
+        objects.push({
+            el,
+            x: pos.x,
+            y: pos.y,
+            r,
+            vx: (Math.random() - .5) * 0.4,
+            vy: (Math.random() - .5) * 0.4
+        });
+    });
 
-            const dx = x - p.x;
-            const dy = y - p.y;
+    const mouse = {
+        x: -9999,
+        y: -9999
+    };
 
-            if (Math.sqrt(dx * dx + dy * dy) < radius + p.r + 25) {
+    // Mouse position
+    galaxy.addEventListener("mousemove", (e) => {
+        const rect = galaxy.getBoundingClientRect();
+        mouse.x = e.clientX - rect.left;
+        mouse.y = e.clientY - rect.top;
+    });
 
-                valid = false;
-                break;
+    // Mouse leaves galaxy
+    galaxy.addEventListener("mouseleave", () => {
+        mouse.x = -9999;
+        mouse.y = -9999;
+    });
 
+    function animateGalaxy() {
+        // MOVE PLANETS
+        objects.forEach(p => {
+            const dx = mouse.x - p.x;
+            const dy = mouse.y - p.y;
+            const dist = Math.sqrt(dx * dx + dy * dy);
+
+            if (dist < 180 && dist > 5) {
+                const force = (180 - dist) / 180;
+                p.vx += (dx / dist) * force * 0.04;
+                p.vy += (dy / dist) * force * 0.04;
             }
 
-        }
+            p.vx *= 0.985;
+            p.vy *= 0.985;
 
-    }
-
-    if (!valid) {
-        // Fallback positioning
-        x = radius + Math.random() * (W - radius * 2);
-        y = radius + Math.random() * (H - radius * 2);
-    }
-
-    return { x, y };
-
-}
-
-// Create objects
-planets.forEach(el => {
-
-    let r = el.offsetWidth / 2;
-
-    const pos = randomPosition(r);
-
-    objects.push({
-
-        el,
-
-        x: pos.x,
-
-        y: pos.y,
-
-        r,
-
-        vx: (Math.random() - .5) * 0.4,
-
-        vy: (Math.random() - .5) * 0.4
-
-    });
-
-});
-
-const mouse = {
-    x: -9999,
-    y: -9999
-};
-
-// Mouse position
-galaxy.addEventListener("mousemove", (e) => {
-    const rect = galaxy.getBoundingClientRect();
-
-    mouse.x = e.clientX - rect.left;
-    mouse.y = e.clientY - rect.top;
-});
-
-// Mouse leaves galaxy
-galaxy.addEventListener("mouseleave", () => {
-    mouse.x = -9999;
-    mouse.y = -9999;
-});
-
-function animateGalaxy() {
-
-    // =============================
-    // MOVE PLANETS
-    // =============================
-
-    objects.forEach(p => {
-
-        // Mouse attraction
-        const dx = mouse.x - p.x;
-        const dy = mouse.y - p.y;
-
-        const dist = Math.sqrt(dx * dx + dy * dy);
-
-        if (dist < 180 && dist > 5) {
-
-            const force = (180 - dist) / 180;
-
-            p.vx += (dx / dist) * force * 0.04;
-            p.vy += (dy / dist) * force * 0.04;
-
-        }
-
-        // Slow down naturally
-        p.vx *= 0.985;
-        p.vy *= 0.985;
-
-        // Maintain a gentle continuous drift (especially on mobile/no hover)
-        const currentSpeed = Math.sqrt(p.vx * p.vx + p.vy * p.vy);
-        if (currentSpeed < 0.25) {
-            const angle = Math.random() * Math.PI * 2;
-            p.vx += Math.cos(angle) * 0.08;
-            p.vy += Math.sin(angle) * 0.08;
-        }
-
-        p.x += p.vx;
-        p.y += p.vy;
-
-        // Bounce from walls
-        if (p.x < p.r) {
-            p.x = p.r;
-            p.vx *= -1;
-        }
-
-        if (p.x > W - p.r) {
-            p.x = W - p.r;
-            p.vx *= -1;
-        }
-
-        if (p.y < p.r) {
-            p.y = p.r;
-            p.vy *= -1;
-        }
-
-        if (p.y > H - p.r) {
-            p.y = H - p.r;
-            p.vy *= -1;
-        }
-
-    });
-
-    // =============================
-    // COLLISION
-    // =============================
-
-    for (let i = 0; i < objects.length; i++) {
-
-        for (let j = i + 1; j < objects.length; j++) {
-
-            let a = objects[i];
-            let b = objects[j];
-
-            let dx = b.x - a.x;
-            let dy = b.y - a.y;
-
-            let dist = Math.sqrt(dx * dx + dy * dy);
-
-            let min = a.r + b.r + 8;
-
-            if (dist < min) {
-
-                let angle = Math.atan2(dy, dx);
-
-                let targetX = a.x + Math.cos(angle) * min;
-                let targetY = a.y + Math.sin(angle) * min;
-
-                let ax = (targetX - b.x) * 0.05;
-                let ay = (targetY - b.y) * 0.05;
-
-                a.vx -= ax;
-                a.vy -= ay;
-
-                b.vx += ax;
-                b.vy += ay;
-
+            const currentSpeed = Math.sqrt(p.vx * p.vx + p.vy * p.vy);
+            if (currentSpeed < 0.25) {
+                const angle = Math.random() * Math.PI * 2;
+                p.vx += Math.cos(angle) * 0.08;
+                p.vy += Math.sin(angle) * 0.08;
             }
 
+            p.x += p.vx;
+            p.y += p.vy;
+
+            if (p.x < p.r) {
+                p.x = p.r;
+                p.vx *= -1;
+            }
+            if (p.x > W - p.r) {
+                p.x = W - p.r;
+                p.vx *= -1;
+            }
+            if (p.y < p.r) {
+                p.y = p.r;
+                p.vy *= -1;
+            }
+            if (p.y > H - p.r) {
+                p.y = H - p.r;
+                p.vy *= -1;
+            }
+        });
+
+        // COLLISION
+        for (let i = 0; i < objects.length; i++) {
+            for (let j = i + 1; j < objects.length; j++) {
+                let a = objects[i];
+                let b = objects[j];
+                let dx = b.x - a.x;
+                let dy = b.y - a.y;
+                let dist = Math.sqrt(dx * dx + dy * dy);
+                let min = a.r + b.r + 8;
+
+                if (dist < min) {
+                    let angle = Math.atan2(dy, dx);
+                    let targetX = a.x + Math.cos(angle) * min;
+                    let targetY = a.y + Math.sin(angle) * min;
+                    let ax = (targetX - b.x) * 0.05;
+                    let ay = (targetY - b.y) * 0.05;
+
+                    a.vx -= ax;
+                    a.vy -= ay;
+                    b.vx += ax;
+                    b.vy += ay;
+                }
+            }
         }
 
+        // DRAW
+        objects.forEach(p => {
+            p.el.style.left = (p.x - p.r) + "px";
+            p.el.style.top = (p.y - p.r) + "px";
+        });
+
+        requestAnimationFrame(animateGalaxy);
     }
 
-    // =============================
-    // DRAW
-    // =============================
-
-    objects.forEach(p => {
-
-        p.el.style.left = (p.x - p.r) + "px";
-        p.el.style.top = (p.y - p.r) + "px";
-
-    });
-
-    requestAnimationFrame(animateGalaxy);
-
+    animateGalaxy();
 }
 
-animateGalaxy();
 
 const achievementCounters = document.querySelectorAll(".achievement-number");
 
@@ -1432,4 +1374,4 @@ document.addEventListener("DOMContentLoaded", () => {
         }
         document.body.removeChild(textArea);
     }
-})();
+})();

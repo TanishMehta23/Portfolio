@@ -1664,78 +1664,179 @@ nav ul li a.active::after {
 
 }
 
-.tech-cards {
-
-    display: grid;
-
-    gap: 18px;
-
+/* ========================================================
+   MODERN SKILLS & TECH STACK SECTION (PREMIUM DARK MINIMAL)
+======================================================== */
+.skills-section {
+    position: relative;
+    background: #090A0F;
+    color: #F8FAFC;
 }
 
-.tech-card {
-
-    background: #101827;
-
-    border: 1px solid #24324D;
-
-    padding: 18px 22px;
-    border-radius: 18px;
-
-    transition: .4s;
-
+.skills-bg-ambience {
+    position: absolute;
+    inset: 0;
+    background: radial-gradient(ellipse 80% 60% at 50% -10%, rgba(124, 140, 248, 0.06), transparent);
+    pointer-events: none;
 }
 
-.tech-card:hover {
-
-    transform: translateY(-8px);
-
-    border-color: #14B8A6;
-
-    box-shadow: 0 15px 40px rgba(20, 184, 166, .12);
-
+.skills-cta-pill {
+    position: relative;
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
-.tech-card h3 {
-    font-size: 22px;
-    margin-bottom: 14px;
-}
-
-.tech-list {
-
-    display: flex;
-
-    flex-wrap: wrap;
-
-    gap: 12px;
-
-}
-
-.tech-list span {
-
-    padding: 6px 12px;
-    font-size: 13px;
-    border-radius: 999px;
-
-    border: 1px solid #24324D;
-
-    background: #0B1220;
-
-    color: #CBD5E1;
-
-    transition: .35s;
-
-}
-
-.tech-list span:hover {
-
-    background: #7C8CF8;
+.skills-cta-pill:hover {
+    transform: translateY(-2px);
     border-color: #7C8CF8;
-    color: #08090D;
-    font-weight: 600;
-    box-shadow: 0 0 14px rgba(124, 140, 248, 0.4);
-
+    box-shadow: 0 0 25px rgba(124, 140, 248, 0.3);
 }
 
+/* Technology Icon Bar */
+.tech-bar-container {
+    position: relative;
+    background: rgba(13, 18, 31, 0.92);
+    border: 1px solid #1E293B;
+    backdrop-filter: blur(16px);
+    -webkit-backdrop-filter: blur(16px);
+}
+
+.tech-bar-ambient-glow {
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(90deg, rgba(124, 140, 248, 0.04), transparent, rgba(20, 184, 166, 0.04));
+    border-radius: inherit;
+    pointer-events: none;
+}
+
+.tech-icon-item {
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.tech-icon-btn {
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 10px;
+    border-radius: 14px;
+    background: transparent;
+    border: 1px solid transparent;
+    cursor: pointer;
+    transition: all 0.25s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.tech-icon-btn:hover {
+    transform: scale(1.14);
+    background: rgba(255, 255, 255, 0.07);
+    border-color: rgba(255, 255, 255, 0.12);
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.5);
+}
+
+.tech-icon-btn.active {
+    background: rgba(124, 140, 248, 0.2);
+    border-color: #7C8CF8;
+    box-shadow: 0 0 18px rgba(124, 140, 248, 0.5);
+    transform: scale(1.14);
+}
+
+/* Tooltips */
+.tech-tooltip {
+    position: absolute;
+    bottom: -32px;
+    left: 50%;
+    transform: translateX(-50%) translateY(4px);
+    padding: 4px 10px;
+    border-radius: 6px;
+    background: #101522;
+    border: 1px solid #24324D;
+    font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
+    font-size: 11px;
+    font-weight: 500;
+    color: #F8FAFC;
+    white-space: nowrap;
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.7);
+    opacity: 0;
+    visibility: hidden;
+    pointer-events: none;
+    z-index: 40;
+    transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.tech-icon-item:hover .tech-tooltip {
+    opacity: 1;
+    visibility: visible;
+    transform: translateX(-50%) translateY(0);
+}
+
+/* Skill Category Cards */
+.skill-category-card {
+    position: relative;
+    background: #0E131F;
+    border: 1px solid #1E293B;
+    border-radius: 16px;
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.skill-category-card:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 16px 36px rgba(0, 0, 0, 0.6);
+}
+
+/* Skill Pill Tags */
+.skill-pill-tag {
+    display: inline-flex;
+    align-items: center;
+    gap: 7px;
+    padding: 6px 13px;
+    border-radius: 9999px;
+    font-size: 12px;
+    font-weight: 500;
+    color: #CBD5E1;
+    background: rgba(255, 255, 255, 0.035);
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    cursor: default;
+    transition: all 0.22s cubic-bezier(0.4, 0, 0.2, 1);
+    user-select: none;
+    line-height: 1.25;
+}
+
+.skill-pill-tag:hover {
+    background: rgba(255, 255, 255, 0.08);
+    color: #FFFFFF;
+    border-color: rgba(255, 255, 255, 0.22);
+    transform: translateY(-1px);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.25);
+}
+
+.pill-dot {
+    width: 6px;
+    height: 6px;
+    border-radius: 50%;
+    display: inline-block;
+    flex-shrink: 0;
+    transition: transform 0.2s ease;
+}
+
+.skill-pill-tag:hover .pill-dot {
+    transform: scale(1.25);
+}
+
+.skill-pill-tag:hover .pill-dot {
+    transform: scale(1.25);
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .skills-cta-pill,
+    .tech-icon-btn,
+    .skill-category-card,
+    .skill-pill-tag {
+        transition: none !important;
+        transform: none !important;
+    }
+}
 /* ==============================
    GALAXY CONTAINER
 ============================== */
