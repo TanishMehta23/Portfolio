@@ -709,121 +709,815 @@ planets.forEach(planet => {
 // Form submission logic removed (form replaced by direct mailto link)
 
 /* ====================================================
-   PROJECT FILTERING SYSTEM (WITH SLIDING TUBE CAPSULE)
+   PROJECTS DATA DICTIONARY FOR MODAL POPUP
    ==================================================== */
-const filterButtons = document.querySelectorAll(".filter-btn");
-const projectCards = document.querySelectorAll(".project-card");
-const filterCapsule = document.querySelector(".filter-active-capsule");
-const filterContainer = document.querySelector(".filter-tube-container");
-
-function updateFilterCapsule(activeButton, animate = true) {
-    if (!filterCapsule || !activeButton || !filterContainer) return;
-    
-    const btnRect = activeButton.getBoundingClientRect();
-    const containerRect = filterContainer.getBoundingClientRect();
-    
-    const leftOffset = btnRect.left - containerRect.left;
-    const width = btnRect.width;
-    
-    if (!animate) {
-        filterCapsule.style.transition = "none";
-    } else {
-        filterCapsule.style.transition = "transform 0.35s cubic-bezier(0.2, 0.9, 0.3, 1.2), width 0.35s cubic-bezier(0.2, 0.9, 0.3, 1.2)";
+const PROJECTS_DATA = {
+    focusora: {
+        title: "FocusoraHQ",
+        category: "Full-Stack",
+        categoryClass: "badge-fullstack",
+        logo: "assets/images/Logo/Focusora-logo.png",
+        image: "assets/images/FocusoraHQ/img-1.png",
+        gallery: [
+            "assets/images/FocusoraHQ/img-1.png",
+            "assets/images/FocusoraHQ/img-2.png",
+            "assets/images/FocusoraHQ/img-3.png",
+            "assets/images/FocusoraHQ/img-4.png",
+            "assets/images/FocusoraHQ/img-5.png",
+            "assets/images/FocusoraHQ/img-6.png",
+            "assets/images/FocusoraHQ/img-7.png",
+            "assets/images/FocusoraHQ/img-8.png",
+            "assets/images/FocusoraHQ/img-9.png",
+            "assets/images/FocusoraHQ/img-10.png",
+            "assets/images/FocusoraHQ/img-11.png",
+            "assets/images/FocusoraHQ/img-12.png",
+            "assets/images/FocusoraHQ/img-13.png",
+            "assets/images/FocusoraHQ/img-14.png",
+            "assets/images/FocusoraHQ/img-15.png",
+            "assets/images/FocusoraHQ/img-16.png",
+            "assets/images/FocusoraHQ/img-17.png",
+            "assets/images/FocusoraHQ/img-18.png",
+            "assets/images/FocusoraHQ/img-19.png",
+            "assets/images/FocusoraHQ/img-20.png"
+        ],
+        desc: "A modern collaborative productivity workspace engineering real-time study rooms, synchronized Pomodoro sessions, shared document notes, and gamified progress tracking to enhance focus and team accountability.",
+        highlights: [
+            "Real-time synchronized study rooms powered by Socket.io",
+            "Gamified leagues, XP leaderboards & focus metrics",
+            "Collaborative live markdown note-taking & task management",
+            "Responsive minimalist UI with dark-mode aesthetic"
+        ],
+        tech: [
+            { name: "React", icon: "fa-brands fa-react text-[#00D8FF]" },
+            { name: "Node.js", icon: "fa-brands fa-node-js text-[#68A063]" },
+            { name: "Socket.io", icon: "fa-solid fa-bolt text-[#F59E0B]" },
+            { name: "MongoDB", icon: "fa-solid fa-database text-[#10B981]" },
+            { name: "Tailwind CSS", icon: "fa-brands fa-css3-alt text-[#38BDF8]" }
+        ],
+        liveUrl: "https://focusora-hq.vercel.app/",
+        githubUrl: "https://github.com/Chet07-R/FocusoraHQ"
+    },
+    finpulse: {
+        title: "FinPulse AI",
+        category: "AI / ML & Full-Stack",
+        categoryClass: "badge-ai",
+        logo: "assets/images/Logo/Finpulse-logo.png",
+        image: "assets/images/FinpulseAI/img-1.png",
+        gallery: [
+            "assets/images/FinpulseAI/img-1.png",
+            "assets/images/FinpulseAI/img-2.jpg",
+            "assets/images/FinpulseAI/img-3.jpg",
+            "assets/images/FinpulseAI/img-4.jpg",
+            "assets/images/FinpulseAI/img-5.jpg",
+            "assets/images/FinpulseAI/img-6.jpg",
+            "assets/images/FinpulseAI/img-7.jpg",
+            "assets/images/FinpulseAI/img-8.jpg",
+            "assets/images/FinpulseAI/img-9.jpg",
+            "assets/images/FinpulseAI/img-10.jpg",
+            "assets/images/FinpulseAI/img-11.jpg",
+            "assets/images/FinpulseAI/img-12.jpg",
+            "assets/images/FinpulseAI/img-13.jpg",
+            "assets/images/FinpulseAI/img-14.jpg",
+            "assets/images/FinpulseAI/img-15.jpg",
+            "assets/images/FinpulseAI/img-16.jpg",
+            "assets/images/FinpulseAI/img-17.jpg"
+        ],
+        desc: "AI-driven financial intelligence and analytics platform delivering real-time stock telemetry, market sentiment synthesis, automated risk assessment, and predictive macro-economic insights.",
+        highlights: [
+            "LLM-powered financial news & earnings transcript analysis with Google Gemini",
+            "High-performance async FastAPI backend with PostgreSQL persistence",
+            "Interactive interactive financial charts & risk rating models",
+            "Automated watchlist alerts and market anomaly notifications"
+        ],
+        tech: [
+            { name: "React", icon: "fa-brands fa-react text-[#00D8FF]" },
+            { name: "FastAPI", icon: "fa-solid fa-bolt text-[#009688]" },
+            { name: "Gemini AI", icon: "fa-solid fa-sparkles text-[#A855F7]" },
+            { name: "PostgreSQL", icon: "fa-solid fa-database text-[#336791]" },
+            { name: "Python", icon: "fa-brands fa-python text-[#3776AB]" }
+        ],
+        liveUrl: "https://finpulse-frontend-jrsd.onrender.com",
+        githubUrl: "https://github.com/Vans30m/FinPulse-AI"
+    },
+    xplorism: {
+        title: "Xplorism",
+        category: "Full-Stack & AI",
+        categoryClass: "badge-fullstack",
+        logo: "assets/images/Logo/Xplorism-logo.png",
+        image: "assets/images/Xplorism/img-1.png",
+        gallery: [
+            "assets/images/Xplorism/img-1.png",
+            "assets/images/Xplorism/img-2.png",
+            "assets/images/Xplorism/img-3.png",
+            "assets/images/Xplorism/img-4.png",
+            "assets/images/Xplorism/img-5.png",
+            "assets/images/Xplorism/img-6.png",
+            "assets/images/Xplorism/img-7.png",
+            "assets/images/Xplorism/img-8.png",
+            "assets/images/Xplorism/img-9.png",
+            "assets/images/Xplorism/img-10.png",
+            "assets/images/Xplorism/img-11.png",
+            "assets/images/Xplorism/img-12.png",
+            "assets/images/Xplorism/img-13.png",
+            "assets/images/Xplorism/img-14.png",
+            "assets/images/Xplorism/img-15.png",
+            "assets/images/Xplorism/img-16.png",
+            "assets/images/Xplorism/img-17.png"
+        ],
+        desc: "Premium AI trip itinerary architect featuring personalized Day-by-Day scheduling, interactive geographic map route rendering, collaborative multi-user trip sync, and OCR expense tracking.",
+        highlights: [
+            "Dual-AI reasoning pipeline (Google Gemini API with Ollama local fallback)",
+            "Dynamic Leaflet map integration with multi-stop waypoint route mapping",
+            "Secure document vault with encrypted cloud backup",
+            "OCR receipt parsing & multi-currency expense ledger"
+        ],
+        tech: [
+            { name: "React 19", icon: "fa-brands fa-react text-[#00D8FF]" },
+            { name: "Tailwind CSS", icon: "fa-brands fa-css3-alt text-[#38BDF8]" },
+            { name: "Node.js", icon: "fa-brands fa-node-js text-[#68A063]" },
+            { name: "Socket.io", icon: "fa-solid fa-bolt text-[#F59E0B]" },
+            { name: "PostgreSQL", icon: "fa-solid fa-database text-[#336791]" },
+            { name: "Leaflet", icon: "fa-solid fa-map-location-dot text-[#10B981]" }
+        ],
+        liveUrl: "https://xplorism.vercel.app/",
+        githubUrl: "https://github.com/TanishMehta23/Xplorism"
+    },
+    fitness: {
+        title: "Fitness Planet",
+        category: "Frontend",
+        categoryClass: "badge-frontend",
+        logo: "assets/images/Logo/Fitness-Planet-logo.png",
+        image: "assets/images/Fitness-Planet/img-1.png",
+        gallery: [
+            "assets/images/Fitness-Planet/img-1.png",
+            "assets/images/Fitness-Planet/img-2.png",
+            "assets/images/Fitness-Planet/img-3.png",
+            "assets/images/Fitness-Planet/img-4.png",
+            "assets/images/Fitness-Planet/img-5.png",
+            "assets/images/Fitness-Planet/img-6.png",
+            "assets/images/Fitness-Planet/img-7.png",
+            "assets/images/Fitness-Planet/img-8.png",
+            "assets/images/Fitness-Planet/img-9.png",
+            "assets/images/Fitness-Planet/img-10.png"
+        ],
+        desc: "High-conversion modern fitness and health hub built with pixel-perfect responsive layouts, real-time BMI calculator tool, workout program catalogs, and automated inquiry dispatch.",
+        highlights: [
+            "Interactive client-side BMI calculator with dynamic fitness tier feedback",
+            "Modular e-commerce fitness store & gear showcase",
+            "Integrated EmailJS automation for direct user consultation bookings",
+            "100% fluid mobile-first responsive architecture"
+        ],
+        tech: [
+            { name: "HTML5", icon: "fa-brands fa-html5 text-[#E34F26]" },
+            { name: "CSS3", icon: "fa-brands fa-css3-alt text-[#1572B6]" },
+            { name: "JavaScript", icon: "fa-brands fa-js text-[#F7DF1E]" },
+            { name: "EmailJS", icon: "fa-solid fa-envelope text-[#7C8CF8]" }
+        ],
+        liveUrl: "https://new-project-delta-orcin.vercel.app/",
+        githubUrl: "https://github.com/Vans30m/Fitness-Planet"
+    },
+    smartlocker: {
+        title: "Smart Locker System IoT",
+        category: "Hardware / IoT",
+        categoryClass: "badge-hardware",
+        icon: "fa-solid fa-lock text-amber-500",
+        isCollage: true,
+        desc: "DICE 3rd prize award-winning biometric security locking mechanism powered by ESP32 microcontrollers, optical fingerprint authentication, and real-time remote cloud control.",
+        highlights: [
+            "Secured 3rd Position at DICE Innovation Event 2026",
+            "Optical fingerprint sensor with sub-second hardware matching",
+            "Blynk IoT Cloud integration for remote authorization & access telemetry",
+            "Fail-safe emergency power override and intrusion alert notifications"
+        ],
+        tech: [
+            { name: "ESP32", icon: "fa-solid fa-microchip text-[#F59E0B]" },
+            { name: "C++", icon: "fa-solid fa-code text-[#00599C]" },
+            { name: "Blynk IoT", icon: "fa-solid fa-cloud text-[#24C270]" },
+            { name: "Biometrics", icon: "fa-solid fa-fingerprint text-[#F59E0B]" }
+        ],
+        liveUrl: "https://github.com/TanishMehta23/Smart-Locker-System-IoT",
+        githubUrl: "https://github.com/TanishMehta23/Smart-Locker-System-IoT"
+    },
+    greenhouse: {
+        title: "Greenhouse Monitoring System",
+        category: "Hardware / IoT",
+        categoryClass: "badge-hardware",
+        icon: "fa-solid fa-seedling text-emerald-400",
+        isGreenhouseCollage: true,
+        desc: "Automated climate regulation and precision agriculture monitoring system with real-time temperature, moisture, and luminosity sensors triggering automated actuators.",
+        highlights: [
+            "Continuous multi-sensor telemetry (soil moisture, DHT11, LDR ambient light)",
+            "Closed-loop automated climate triggers for ventilation fans and irrigation pumps",
+            "LCD display terminal output for on-site diagnostic telemetry",
+            "Energy-efficient embedded firmware architecture"
+        ],
+        tech: [
+            { name: "Embedded C", icon: "fa-solid fa-microchip text-[#10B981]" },
+            { name: "Sensors", icon: "fa-solid fa-temperature-half text-[#F59E0B]" },
+            { name: "IoT", icon: "fa-solid fa-network-wired text-[#38BDF8]" },
+            { name: "Automation", icon: "fa-solid fa-gears text-[#A855F7]" }
+        ],
+        liveUrl: "https://github.com/TanishMehta23/Automated-Greenhouse-Monitoring-System",
+        githubUrl: "https://github.com/TanishMehta23/Automated-Greenhouse-Monitoring-System"
+    },
+    spamshield: {
+        title: "SpamShield AI",
+        category: "AI / ML",
+        categoryClass: "badge-ai",
+        icon: "fa-solid fa-shield-halved text-cyan-400",
+        image: "assets/images/spamshield.png",
+        desc: "Machine learning classifier web application engineered with Python and Scikit-Learn to detect malicious email and SMS spam patterns with high confidence accuracy.",
+        highlights: [
+            "Trained Naive Bayes / Scikit-Learn NLP text classification pipeline",
+            "Real-time probability confidence score computation",
+            "Clean Flask API & responsive web interface for instant text evaluation",
+            "Lightweight serverless deployment"
+        ],
+        tech: [
+            { name: "Python", icon: "fa-brands fa-python text-[#3776AB]" },
+            { name: "Scikit-Learn", icon: "fa-solid fa-brain text-[#F7931E]" },
+            { name: "Flask", icon: "fa-solid fa-server text-[#FFFFFF]" },
+            { name: "HTML/CSS", icon: "fa-brands fa-html5 text-[#E34F26]" }
+        ],
+        liveUrl: "https://spam-shield-web.vercel.app/",
+        githubUrl: "https://github.com/TanishMehta23/SpamShield"
+    },
+    quizora: {
+        title: "QuizoraAI",
+        category: "AI / ML",
+        categoryClass: "badge-ai",
+        emoji: "📚",
+        image: "assets/images/QuizoraAI.png",
+        desc: "Intelligent AI learning platform that ingests raw PDF documents, extracts semantic topics, and dynamically generates interactive multiple-choice tests with answer rationales.",
+        highlights: [
+            "Automated PDF document text extraction and token chunking",
+            "Gemini AI prompt engineering for tiered question difficulty generation",
+            "Interactive Streamlit web interface with instant scoring and explanations",
+            "Customizable question count and topic targeting"
+        ],
+        tech: [
+            { name: "Python", icon: "fa-brands fa-python text-[#3776AB]" },
+            { name: "Gemini AI", icon: "fa-solid fa-sparkles text-[#A855F7]" },
+            { name: "Streamlit", icon: "fa-solid fa-desktop text-[#FF4B4B]" },
+            { name: "PyPDF", icon: "fa-solid fa-file-pdf text-[#EF4444]" }
+        ],
+        liveUrl: "https://quizoraai.streamlit.app/",
+        githubUrl: "https://github.com/TanishMehta23/QuizoraAI"
     }
-    
-    filterCapsule.style.transform = `translateX(${leftOffset}px)`;
-    filterCapsule.style.width = `${width}px`;
-}
+};
 
-if (filterButtons.length > 0 && projectCards.length > 0) {
-    // Initialize active capsule on load
-    const initialActive = document.querySelector(".filter-btn.active") || filterButtons[0];
-    if (initialActive) {
-        setTimeout(() => updateFilterCapsule(initialActive, false), 50);
+/* ====================================================
+   PREMIUM INFINITE LOOP PROJECTS CAROUSEL & MODAL ENGINE
+   ==================================================== */
+function initProjectsCarousel() {
+    const track = document.getElementById("projects-carousel-track");
+    const container = document.getElementById("projects-carousel-container");
+    const filterButtons = document.querySelectorAll(".filter-btn");
+    const filterCapsule = document.querySelector(".filter-active-capsule");
+    const filterContainer = document.querySelector(".filter-tube-container");
+    const pauseBtnBottom = document.getElementById("proj-pause-btn-bottom");
+
+    // Modal elements
+    const modalBackdrop = document.getElementById("project-modal");
+    const modalCloseBtn = document.getElementById("project-modal-close");
+    const modalImgContainer = document.getElementById("modal-img-container");
+    const modalCategoryBadge = document.getElementById("modal-category-badge");
+    const modalTitle = document.getElementById("modal-title");
+    const modalDesc = document.getElementById("modal-desc");
+    const modalFeaturesList = document.getElementById("modal-features-list");
+    const modalTechTags = document.getElementById("modal-tech-tags");
+    const modalActionButtons = document.getElementById("modal-action-buttons");
+
+    if (!track) return;
+
+    let isAutoScrolling = true;
+    let isManuallyPaused = false;
+    let isHoverPaused = false;
+    let isDragPaused = false;
+    let resumeTimeout = null;
+    let scrollSpeed = 38; // Pixels per second
+    let lastTime = null;
+    let animationFrameId = null;
+
+    // Save initial original cards
+    const originalCards = Array.from(track.querySelectorAll(".project-card"));
+    if (originalCards.length === 0) return;
+
+    // --- Infinite Clone Setup ---
+    function setupInfiniteTrack() {
+        // Clear track and re-populate with clones [clonesBefore] [originalCards] [clonesAfter]
+        track.innerHTML = "";
+
+        const currentFilter = document.querySelector(".filter-btn.active")?.getAttribute("data-filter") || "all";
+        const matchedCards = originalCards.filter(card => {
+            const cat = card.getAttribute("data-category") || "";
+            return currentFilter === "all" || cat.split(/\s+/).includes(currentFilter);
+        });
+
+        if (matchedCards.length === 0) return;
+
+        // Clone sets for seamless infinite loop in both directions
+        const clonesBefore = matchedCards.map(c => {
+            const clone = c.cloneNode(true);
+            clone.setAttribute("data-clone", "before");
+            return clone;
+        });
+
+        const mains = matchedCards.map(c => {
+            const node = c.cloneNode(true);
+            node.removeAttribute("data-clone");
+            return node;
+        });
+
+        const clonesAfter = matchedCards.map(c => {
+            const clone = c.cloneNode(true);
+            clone.setAttribute("data-clone", "after");
+            return clone;
+        });
+
+        [...clonesBefore, ...mains, ...clonesAfter].forEach(c => track.appendChild(c));
+
+        // Center scroll position at the beginning of the main cards set
+        requestAnimationFrame(() => {
+            const singleSetWidth = calculateSetWidth(matchedCards.length);
+            track.scrollLeft = singleSetWidth;
+            updateCenterFocus();
+        });
     }
 
-    window.addEventListener("resize", () => {
-        const currentActive = document.querySelector(".filter-btn.active");
-        if (currentActive) updateFilterCapsule(currentActive, false);
-    });
+    function calculateSetWidth(cardCount) {
+        const firstCard = track.querySelector(".project-card");
+        if (!firstCard) return 1000;
+        const cardWidth = firstCard.offsetWidth;
+        const gap = 30; // match CSS gap
+        return cardCount * (cardWidth + gap);
+    }
 
-    filterButtons.forEach(button => {
-        button.addEventListener("click", () => {
-            // Remove active class from all buttons
-            filterButtons.forEach(btn => btn.classList.remove("active"));
-            // Add active class to clicked button
-            button.classList.add("active");
+    setupInfiniteTrack();
 
-            // Slide the capsule across the tube
-            updateFilterCapsule(button, true);
+    // Check boundary wrap-around seamlessly
+    function checkInfiniteBoundaries() {
+        const currentCards = Array.from(track.querySelectorAll(".project-card:not([data-clone])"));
+        const cardCount = currentCards.length;
+        if (cardCount <= 1) return;
 
-            const filterValue = button.getAttribute("data-filter");
+        const setWidth = calculateSetWidth(cardCount);
+        if (setWidth <= 0) return;
 
-            projectCards.forEach(card => {
-                const cardCategory = card.getAttribute("data-category") || "";
-                const categories = cardCategory.split(/\s+/);
+        // If scrolled past right clones set, jump back to main set
+        if (track.scrollLeft >= setWidth * 2) {
+            track.scrollLeft -= setWidth;
+        }
+        // If scrolled before left clones set, jump forward to main set
+        else if (track.scrollLeft <= 5) {
+            track.scrollLeft += setWidth;
+        }
+    }
 
-                if (filterValue === "all" || categories.includes(filterValue)) {
-                    card.classList.remove("hide-card");
-                    card.classList.add("aos-animate");
-                } else {
-                    card.classList.add("hide-card");
+    // --- 1. Continuous Auto-Scroll Engine with Seamless Looping ---
+    function stepAutoScroll(currentTime) {
+        if (!lastTime) lastTime = currentTime;
+        const delta = (currentTime - lastTime) / 1000;
+        lastTime = currentTime;
+
+        const isModalOpen = modalBackdrop && modalBackdrop.classList.contains("open");
+        const canScroll = isAutoScrolling && !isManuallyPaused && !isHoverPaused && !isDragPaused && !isModalOpen;
+
+        if (canScroll) {
+            track.scrollLeft += scrollSpeed * delta;
+            checkInfiniteBoundaries();
+        }
+
+        updateCenterFocus();
+        animationFrameId = requestAnimationFrame(stepAutoScroll);
+    }
+    animationFrameId = requestAnimationFrame(stepAutoScroll);
+
+    // Auto-pause on hover, with 2-second auto-resume
+    if (container) {
+        container.addEventListener("mouseenter", () => {
+            if (resumeTimeout) clearTimeout(resumeTimeout);
+            isHoverPaused = true;
+        });
+        container.addEventListener("mouseleave", () => {
+            if (resumeTimeout) clearTimeout(resumeTimeout);
+            resumeTimeout = setTimeout(() => {
+                if (!isManuallyPaused) {
+                    isHoverPaused = false;
                 }
-            });
+            }, 2000);
+        });
+    }
 
-            // Refresh AOS animations so below sections recalculate positions and don't stay hidden
-            if (typeof AOS !== "undefined") {
-                setTimeout(() => {
-                    AOS.refreshHard();
-                }, 80);
+    // Toggle Auto-Scroll Button
+    function toggleAutoScroll(e) {
+        if (e) e.stopPropagation();
+        isManuallyPaused = !isManuallyPaused;
+        if (!isManuallyPaused) {
+            isHoverPaused = false;
+        }
+
+        if (pauseBtnBottom) {
+            if (!isManuallyPaused) {
+                pauseBtnBottom.innerHTML = `
+                    <span class="w-2.5 h-2.5 rounded-full bg-emerald-400 animate-pulse" id="proj-pause-indicator"></span>
+                    <span id="proj-pause-text">Auto-Scrolling</span>
+                    <i class="fa-solid fa-pause text-[10px] opacity-70 ml-0.5"></i>
+                `;
+            } else {
+                pauseBtnBottom.innerHTML = `
+                    <span class="w-2.5 h-2.5 rounded-full bg-amber-400" id="proj-pause-indicator"></span>
+                    <span id="proj-pause-text">Paused</span>
+                    <i class="fa-solid fa-play text-[10px] opacity-70 ml-0.5"></i>
+                `;
+            }
+        }
+    }
+
+    if (pauseBtnBottom) pauseBtnBottom.addEventListener("click", toggleAutoScroll);
+
+    // --- 2. Category Filter Capsule & Track Rebuilding ---
+    function updateFilterCapsule(activeButton, animate = true) {
+        if (!filterCapsule || !activeButton || !filterContainer) return;
+        const btnRect = activeButton.getBoundingClientRect();
+        const containerRect = filterContainer.getBoundingClientRect();
+        const leftOffset = btnRect.left - containerRect.left;
+        const width = btnRect.width;
+
+        if (!animate) {
+            filterCapsule.style.transition = "none";
+        } else {
+            filterCapsule.style.transition = "transform 0.35s cubic-bezier(0.2, 0.9, 0.3, 1.2), width 0.35s cubic-bezier(0.2, 0.9, 0.3, 1.2)";
+        }
+        filterCapsule.style.transform = `translateX(${leftOffset}px)`;
+        filterCapsule.style.width = `${width}px`;
+    }
+
+    if (filterButtons.length > 0) {
+        const initialActive = document.querySelector(".filter-btn.active") || filterButtons[0];
+        if (initialActive) {
+            setTimeout(() => updateFilterCapsule(initialActive, false), 50);
+        }
+
+        window.addEventListener("resize", () => {
+            const currentActive = document.querySelector(".filter-btn.active");
+            if (currentActive) updateFilterCapsule(currentActive, false);
+            setupInfiniteTrack();
+        });
+
+        filterButtons.forEach(button => {
+            button.addEventListener("click", () => {
+                filterButtons.forEach(btn => btn.classList.remove("active"));
+                button.classList.add("active");
+                updateFilterCapsule(button, true);
+                setupInfiniteTrack();
+            });
+        });
+    }
+
+    // --- 3. Center Card Subtle Focus Effect ---
+    function updateCenterFocus() {
+        const cards = Array.from(track.querySelectorAll(".project-card"));
+        if (cards.length === 0) return;
+
+        const trackCenter = track.getBoundingClientRect().left + track.clientWidth / 2;
+        let closestCard = null;
+        let minDistance = Infinity;
+
+        cards.forEach((card) => {
+            const cardRect = card.getBoundingClientRect();
+            const cardCenter = cardRect.left + cardRect.width / 2;
+            const distance = Math.abs(trackCenter - cardCenter);
+
+            if (distance < minDistance) {
+                minDistance = distance;
+                closestCard = card;
             }
         });
+
+        cards.forEach((card) => {
+            if (card === closestCard) {
+                card.classList.add("is-centered");
+            } else {
+                card.classList.remove("is-centered");
+            }
+        });
+    }
+
+    track.addEventListener("scroll", () => {
+        checkInfiniteBoundaries();
+        updateCenterFocus();
+    }, { passive: true });
+
+    // --- 4. Mouse Wheel to Horizontal Scrolling with Infinite Wrap ---
+    track.addEventListener("wheel", (e) => {
+        if (Math.abs(e.deltaY) > Math.abs(e.deltaX)) {
+            e.preventDefault();
+            track.scrollLeft += e.deltaY;
+            checkInfiniteBoundaries();
+            if (resumeTimeout) clearTimeout(resumeTimeout);
+            isHoverPaused = true;
+            resumeTimeout = setTimeout(() => {
+                if (!isManuallyPaused) isHoverPaused = false;
+            }, 2000);
+        }
+    }, { passive: false });
+
+    // --- 5. Click and Drag-to-Scroll Support with Momentum & Boundary Wrapping ---
+    let isDown = false;
+    let startX = 0;
+    let scrollLeftStart = 0;
+    let hasDragged = false;
+    let prevX = 0;
+    let velocity = 0;
+
+    track.addEventListener("mousedown", (e) => {
+        isDown = true;
+        hasDragged = false;
+        isDragPaused = true;
+        track.classList.add("is-dragging");
+        startX = e.pageX - track.offsetLeft;
+        scrollLeftStart = track.scrollLeft;
+        prevX = e.pageX;
+        velocity = 0;
+    });
+
+    window.addEventListener("mouseup", () => {
+        if (!isDown) return;
+        isDown = false;
+        track.classList.remove("is-dragging");
+
+        // Momentum coasting
+        if (Math.abs(velocity) > 2) {
+            track.scrollBy({
+                left: -velocity * 10,
+                behavior: "smooth"
+            });
+        }
+
+        if (resumeTimeout) clearTimeout(resumeTimeout);
+        resumeTimeout = setTimeout(() => {
+            isDragPaused = false;
+            if (!isManuallyPaused) isHoverPaused = false;
+        }, 1500);
+    });
+
+    track.addEventListener("mousemove", (e) => {
+        if (!isDown) return;
+        e.preventDefault();
+        const x = e.pageX - track.offsetLeft;
+        const walk = (x - startX) * 1.3;
+        velocity = e.pageX - prevX;
+        prevX = e.pageX;
+
+        if (Math.abs(walk) > 6) {
+            hasDragged = true;
+        }
+        track.scrollLeft = scrollLeftStart - walk;
+        checkInfiniteBoundaries();
+    });
+
+    // Touch events for mobile/tablet swipe
+    track.addEventListener("touchstart", () => {
+        isDragPaused = true;
+    }, { passive: true });
+
+    track.addEventListener("touchend", () => {
+        if (resumeTimeout) clearTimeout(resumeTimeout);
+        resumeTimeout = setTimeout(() => {
+            isDragPaused = false;
+        }, 2000);
+    }, { passive: true });
+
+    // --- 6. Project Details Popup Modal Renderer ---
+    function openProjectModal(projectId) {
+        const data = PROJECTS_DATA[projectId];
+        if (!data || !modalBackdrop) return;
+
+        // Render Media
+        if (data.gallery && data.gallery.length >= 3) {
+            const img1 = data.gallery[0];
+            const img2 = data.gallery[1];
+            const img3 = data.gallery[2];
+            const moreCount = data.gallery.length - 2;
+
+            modalImgContainer.innerHTML = `
+                <div class="modal-collage-wrapper">
+                    <div class="modal-collage-grid">
+                        <div class="collage-cell cell-main" data-img-src="${img1}" data-index="0" title="Click to view full image">
+                            <img src="${img1}" alt="${data.title} screenshot 1" loading="lazy">
+                            <span class="collage-zoom-badge"><i class="fa-solid fa-expand"></i> View</span>
+                        </div>
+                        <div class="collage-cell" data-img-src="${img2}" data-index="1" title="Click to view full image">
+                            <img src="${img2}" alt="${data.title} screenshot 2" loading="lazy">
+                            <span class="collage-zoom-badge"><i class="fa-solid fa-expand"></i></span>
+                        </div>
+                        <div class="collage-cell" data-img-src="${img3}" data-index="2" title="Click to view full image">
+                            <img src="${img3}" alt="${data.title} screenshot 3" loading="lazy">
+                            ${moreCount > 0 ? `
+                                <div class="collage-more-overlay">
+                                    <span>+${moreCount} More</span>
+                                    <span class="text-[10px] opacity-80">Click to explore</span>
+                                </div>
+                            ` : `<span class="collage-zoom-badge"><i class="fa-solid fa-expand"></i></span>`}
+                        </div>
+                    </div>
+                </div>
+            `;
+
+            // Lightbox integration on collage click
+            const lightbox = document.getElementById("project-img-lightbox");
+            const lightboxImg = document.getElementById("lightbox-full-img");
+            const lightboxClose = document.getElementById("lightbox-close-btn");
+            const lightboxPrev = document.getElementById("lightbox-prev-btn");
+            const lightboxNext = document.getElementById("lightbox-next-btn");
+            const lightboxCounter = document.getElementById("lightbox-counter");
+
+            let currentLightboxIndex = 0;
+
+            function updateLightboxImage(index) {
+                if (!data.gallery || data.gallery.length === 0) return;
+                if (index < 0) index = data.gallery.length - 1;
+                if (index >= data.gallery.length) index = 0;
+                currentLightboxIndex = index;
+
+                if (lightboxImg) {
+                    lightboxImg.style.opacity = "0.4";
+                    lightboxImg.src = data.gallery[currentLightboxIndex];
+                    lightboxImg.onload = () => {
+                        lightboxImg.style.opacity = "1";
+                    };
+                }
+                if (lightboxCounter) {
+                    lightboxCounter.textContent = `${currentLightboxIndex + 1} / ${data.gallery.length}`;
+                }
+            }
+
+            const cells = modalImgContainer.querySelectorAll(".collage-cell");
+            cells.forEach((cell) => {
+                cell.addEventListener("click", (e) => {
+                    e.stopPropagation();
+                    const idx = parseInt(cell.getAttribute("data-index"), 10);
+                    if (lightbox && lightboxImg) {
+                        updateLightboxImage(idx);
+                        lightbox.classList.add("open");
+                        lightbox.setAttribute("aria-hidden", "false");
+                    }
+                });
+            });
+
+            if (lightboxPrev) {
+                lightboxPrev.onclick = (e) => {
+                    e.stopPropagation();
+                    updateLightboxImage(currentLightboxIndex - 1);
+                };
+            }
+
+            if (lightboxNext) {
+                lightboxNext.onclick = (e) => {
+                    e.stopPropagation();
+                    updateLightboxImage(currentLightboxIndex + 1);
+                };
+            }
+
+            function closeLightbox() {
+                if (lightbox) {
+                    lightbox.classList.remove("open");
+                    lightbox.setAttribute("aria-hidden", "true");
+                }
+            }
+
+            if (lightboxClose) {
+                lightboxClose.onclick = (e) => {
+                    e.stopPropagation();
+                    closeLightbox();
+                };
+            }
+
+            if (lightbox) {
+                lightbox.onclick = (e) => {
+                    if (e.target === lightbox) {
+                        closeLightbox();
+                    }
+                };
+            }
+
+            const handleLightboxKeydown = (e) => {
+                if (!lightbox || !lightbox.classList.contains("open")) return;
+                if (e.key === "ArrowLeft") {
+                    e.preventDefault();
+                    updateLightboxImage(currentLightboxIndex - 1);
+                } else if (e.key === "ArrowRight") {
+                    e.preventDefault();
+                    updateLightboxImage(currentLightboxIndex + 1);
+                } else if (e.key === "Escape") {
+                    e.preventDefault();
+                    closeLightbox();
+                }
+            };
+
+            window.removeEventListener("keydown", window._currentLightboxKeyHandler);
+            window._currentLightboxKeyHandler = handleLightboxKeydown;
+            window.addEventListener("keydown", handleLightboxKeydown);
+
+        } else if (data.isCollage) {
+            modalImgContainer.innerHTML = `
+                <div class="project-collage" style="height: 320px;">
+                    <div class="collage-item"><img src="assets/images/Hardware/Smart Locker IOT/Circuit_Diagram.png" alt="Circuit"><span class="collage-label">Circuit</span></div>
+                    <div class="collage-item"><img src="assets/images/Hardware/Smart Locker IOT/Block_Diagram.png" alt="Block"><span class="collage-label">Block</span></div>
+                    <div class="collage-item"><img src="assets/images/Hardware/Smart Locker FingerPrint/Circuit_Diagram.png" alt="Biometric"><span class="collage-label">Biometric</span></div>
+                    <div class="collage-item"><img src="assets/images/Hardware/Smart Locker IOT/Pin_Diagram.png" alt="Pinout"><span class="collage-label">Pinout</span></div>
+                </div>
+            `;
+        } else if (data.isGreenhouseCollage) {
+            modalImgContainer.innerHTML = `
+                <div class="project-collage" style="height: 320px;">
+                    <div class="collage-item photo-fit"><img src="assets/images/Hardware/Automated GreenHouse Monitoring/greenhouse_setup.jpg" alt="Hardware"><span class="collage-label">Hardware</span></div>
+                    <div class="collage-item"><img src="assets/images/Hardware/Automated GreenHouse Monitoring/circuit_diagram.png" alt="Circuit"><span class="collage-label">Circuit</span></div>
+                    <div class="collage-item photo-fit"><img src="assets/images/Hardware/Automated GreenHouse Monitoring/lcd_display_reading.jpg" alt="Telemetry"><span class="collage-label">Telemetry</span></div>
+                    <div class="collage-item"><img src="assets/images/Hardware/Automated GreenHouse Monitoring/block_diagram.png" alt="Architecture"><span class="collage-label">Architecture</span></div>
+                </div>
+            `;
+        } else {
+            modalImgContainer.innerHTML = `<img src="${data.image}" alt="${data.title}" class="rounded-xl">`;
+        }
+
+        // Title
+        let iconHtml = "";
+        if (data.logo) iconHtml = `<img src="${data.logo}" alt="${data.title}" class="w-7 h-7 object-contain inline-block">`;
+        else if (data.icon) iconHtml = `<i class="${data.icon}"></i>`;
+        else if (data.emoji) iconHtml = `<span>${data.emoji}</span>`;
+        modalTitle.innerHTML = `${iconHtml} <span>${data.title}</span>`;
+
+        // Description
+        modalDesc.textContent = data.desc;
+
+        // Highlights List
+        modalFeaturesList.innerHTML = data.highlights
+            .map(item => `<li>${item}</li>`)
+            .join("");
+
+        // Tech Pills
+        modalTechTags.innerHTML = data.tech
+            .map(t => `<span class="modal-tech-pill"><i class="${t.icon}"></i> ${t.name}</span>`)
+            .join("");
+
+        // Action Buttons
+        modalActionButtons.innerHTML = `
+            <a href="${data.liveUrl}" target="_blank" class="modal-btn-live">
+                <span>Live Demo</span>
+                <i class="fa-solid fa-arrow-up-right-from-square"></i>
+            </a>
+            <a href="${data.githubUrl}" target="_blank" class="modal-btn-gh">
+                <i class="fa-brands fa-github"></i>
+                <span>GitHub</span>
+            </a>
+        `;
+
+        // Open Modal
+        modalBackdrop.classList.add("open");
+        modalBackdrop.setAttribute("aria-hidden", "false");
+        document.body.style.overflow = "hidden";
+    }
+
+    function closeProjectModal() {
+        if (!modalBackdrop) return;
+        modalBackdrop.classList.remove("open");
+        modalBackdrop.setAttribute("aria-hidden", "true");
+        document.body.style.overflow = "";
+    }
+
+    // Attach click listeners to cards to open modal
+    track.addEventListener("click", (e) => {
+        if (hasDragged) return; // Ignore drag clicks
+        const card = e.target.closest(".project-card");
+        if (!card) return;
+        const projectId = card.getAttribute("data-project-id");
+        if (projectId) {
+            openProjectModal(projectId);
+        }
+    });
+
+    if (modalCloseBtn) modalCloseBtn.addEventListener("click", closeProjectModal);
+    if (modalBackdrop) {
+        modalBackdrop.addEventListener("click", (e) => {
+            if (e.target === modalBackdrop) closeProjectModal();
+        });
+    }
+
+    window.addEventListener("keydown", (e) => {
+        if (e.key === "Escape" && modalBackdrop.classList.contains("open")) {
+            closeProjectModal();
+        }
     });
 }
 
-/* ====================================================
-   DYNAMIC GRADIENT HOVER GLOW FOR BENTO CARDS
-   ==================================================== */
-const bentoCards = document.querySelectorAll(".bento-card, .terminal-card, .focus-card");
-bentoCards.forEach(card => {
-    card.addEventListener("mousemove", (e) => {
-        const rect = card.getBoundingClientRect();
-        const x = e.clientX - rect.left;
-        const y = e.clientY - rect.top;
-        card.style.setProperty("--x", `${x}px`);
-        card.style.setProperty("--y", `${y}px`);
-    });
-});
-/* ====================================================
-   PROJECT CARD FLIP SUPPORT (MOBILE & DESKTOP)
-   ==================================================== */
-document.querySelectorAll(".project-card").forEach(card => {
-    card.addEventListener("click", function (e) {
-        if (e.target.closest("a, button")) {
-            return;
-        }
-        const isHoverDevice = window.matchMedia("(hover: hover)").matches;
-
-        if (isHoverDevice) {
-            // On desktop hover devices: toggle flipped/unflipped explicitly on click
-            if (this.classList.contains("flipped")) {
-                this.classList.remove("flipped");
-                this.classList.add("unflipped");
-            } else {
-                this.classList.add("flipped");
-                this.classList.remove("unflipped");
-            }
-        } else {
-            // On mobile touch devices: clean toggle
-            this.classList.toggle("flipped");
-        }
-    });
-
-    card.addEventListener("mouseleave", function () {
-        this.classList.remove("flipped");
-        this.classList.remove("unflipped");
-    });
-});
+// Run Carousel initialization on load
+if (document.readyState === "loading") {
+    document.addEventListener("DOMContentLoaded", initProjectsCarousel);
+} else {
+    initProjectsCarousel();
+}
 
 /* ====================================================
    PRELOADER INITIALIZATION & HERO TYPING
@@ -1374,4 +2068,4 @@ document.addEventListener("DOMContentLoaded", () => {
         }
         document.body.removeChild(textArea);
     }
-})();
+})();
