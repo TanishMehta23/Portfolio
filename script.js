@@ -1041,6 +1041,7 @@ function initProjectsCarousel() {
         requestAnimationFrame(() => {
             const singleSetWidth = calculateSetWidth(matchedCards.length);
             track.scrollLeft = singleSetWidth;
+            currentScrollPos = singleSetWidth;
             updateCenterFocus();
         });
     }
@@ -1067,25 +1068,33 @@ function initProjectsCarousel() {
         // If scrolled past right clones set, jump back to main set
         if (track.scrollLeft >= setWidth * 2) {
             track.scrollLeft -= setWidth;
+            currentScrollPos = track.scrollLeft;
         }
         // If scrolled before left clones set, jump forward to main set
         else if (track.scrollLeft <= 5) {
             track.scrollLeft += setWidth;
+            currentScrollPos = track.scrollLeft;
         }
     }
 
     // --- 1. Continuous Auto-Scroll Engine with Seamless Looping ---
+    let currentScrollPos = track.scrollLeft;
+
     function stepAutoScroll(currentTime) {
         if (!lastTime) lastTime = currentTime;
-        const delta = (currentTime - lastTime) / 1000;
+        const delta = Math.min((currentTime - lastTime) / 1000, 0.1); // Guard against giant delta jumps on tab wake
         lastTime = currentTime;
 
         const isModalOpen = modalBackdrop && modalBackdrop.classList.contains("open");
         const canScroll = isAutoScrolling && !isManuallyPaused && !isHoverPaused && !isDragPaused && !isModalOpen;
 
         if (canScroll) {
-            track.scrollLeft += scrollSpeed * delta;
+            // Keep track of fractional float position so WebKit/iOS subpixels don't get truncated
+            currentScrollPos += scrollSpeed * delta;
+            track.scrollLeft = currentScrollPos;
             checkInfiniteBoundaries();
+        } else {
+            currentScrollPos = track.scrollLeft;
         }
 
         updateCenterFocus();

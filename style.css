@@ -1396,6 +1396,9 @@ nav ul li a.active::after {
     /* Firefox */
     -ms-overflow-style: none;
     /* IE/Edge */
+    -webkit-overflow-scrolling: touch;
+    /* iOS WebKit Momentum Scroll */
+    touch-action: pan-x pan-y;
     cursor: grab;
     user-select: none;
 }
