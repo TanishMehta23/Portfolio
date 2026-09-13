@@ -98,7 +98,7 @@
 
                 <!-- Desktop Menu -->
 
-                <ul class="hidden md:flex items-center gap-4 lg:gap-10 text-sm lg:text-[15px] font-medium">
+                <ul class="hidden md:flex items-center gap-4 lg:gap-8 text-sm lg:text-[15px] font-medium">
 
                     <li>
                         <a href="#about" class="nav-link">
@@ -115,6 +115,12 @@
                     <li>
                         <a href="#skills" class="nav-link">
                             Tech Stack
+                        </a>
+                    </li>
+
+                    <li>
+                        <a href="#journey" class="nav-link">
+                            Journey
                         </a>
                     </li>
 
@@ -202,10 +208,21 @@
                     </li>
 
                     <li>
-                        <a href="#achievements"
+                        <a href="#journey"
                             class="mobile-link flex items-center justify-between px-4 py-3 rounded-xl hover:bg-white/[0.05] text-zinc-300 hover:text-white transition-all">
                             <span class="flex items-center gap-3">
                                 <span class="text-xs font-mono text-[#7C8CF8]/70 font-semibold">04</span>
+                                <span>Journey</span>
+                            </span>
+                            <i class="fa-solid fa-chevron-right text-[10px] text-zinc-600 transition-transform"></i>
+                        </a>
+                    </li>
+
+                    <li>
+                        <a href="#achievements"
+                            class="mobile-link flex items-center justify-between px-4 py-3 rounded-xl hover:bg-white/[0.05] text-zinc-300 hover:text-white transition-all">
+                            <span class="flex items-center gap-3">
+                                <span class="text-xs font-mono text-[#7C8CF8]/70 font-semibold">05</span>
                                 <span>Achievements</span>
                             </span>
                             <i class="fa-solid fa-chevron-right text-[10px] text-zinc-600 transition-transform"></i>
@@ -216,7 +233,7 @@
                         <a href="#contact"
                             class="mobile-link flex items-center justify-between px-4 py-3 rounded-xl hover:bg-white/[0.05] text-zinc-300 hover:text-white transition-all">
                             <span class="flex items-center gap-3">
-                                <span class="text-xs font-mono text-[#7C8CF8]/70 font-semibold">05</span>
+                                <span class="text-xs font-mono text-[#7C8CF8]/70 font-semibold">06</span>
                                 <span>Contact</span>
                             </span>
                             <i class="fa-solid fa-chevron-right text-[10px] text-zinc-600 transition-transform"></i>
@@ -244,7 +261,7 @@
 
     <!-- ================= HERO ================= -->
 
-    <section id="home" class="relative overflow-hidden pt-24 md:pt-32 pb-24">
+    <section id="home" class="relative overflow-hidden pt-24 md:pt-32 pb-6 sm:pb-12 md:pb-16">
 
         <!-- Background Glow -->
 
@@ -252,7 +269,7 @@
 
         <div class="absolute bottom-0 right-0 w-[500px] h-[500px] bg-[#8B5CF6]/20 rounded-full blur-[150px]"></div>
 
-        <div class="max-w-[1450px] mx-auto px-10">
+        <div class="max-w-[1450px] mx-auto px-4 sm:px-8 lg:px-10">
 
             <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 items-start">
 
@@ -478,60 +495,71 @@
 
                             <div class="mt-5 md:mt-8 space-y-3 md:space-y-5">
 
-                                <div class="flex items-center justify-between border-b border-[#24324D] pb-3 md:pb-4">
+                                <div class="flex items-center justify-between gap-2 border-b border-[#24324D] pb-3 md:pb-4">
 
-                                    <div class="flex items-center gap-3">
+                                    <div class="flex items-center gap-3 min-w-0">
                                         <div
                                             class="w-8 h-8 rounded-lg bg-[#38BDF8]/10 border border-[#38BDF8]/25 text-[#38BDF8] flex items-center justify-center text-xs shrink-0">
                                             <i class="fa-solid fa-layer-group"></i>
                                         </div>
-                                        <span class="font-semibold text-white text-sm md:text-base">Full Stack</span>
+                                        <div class="flex flex-col sm:flex-row sm:items-center gap-0.5 sm:gap-3 min-w-0">
+                                            <span class="font-semibold text-white text-sm md:text-base whitespace-nowrap">Full Stack</span>
+                                            <span class="text-[11px] sm:hidden text-[#94A3B8]">Building Web Applications</span>
+                                        </div>
                                     </div>
 
-                                    <span class="text-xs md:text-sm text-[#94A3B8]">Building Web Applications</span>
+                                    <span class="hidden sm:inline-block text-xs md:text-sm text-[#94A3B8] shrink-0 text-right">Building Web Applications</span>
 
                                 </div>
 
-                                <div class="flex items-center justify-between border-b border-[#24324D] pb-3 md:pb-4">
+                                <div class="flex items-center justify-between gap-2 border-b border-[#24324D] pb-3 md:pb-4">
 
-                                    <div class="flex items-center gap-3">
+                                    <div class="flex items-center gap-3 min-w-0">
                                         <div
                                             class="w-8 h-8 rounded-lg bg-[#C084FC]/10 border border-[#C084FC]/25 text-[#C084FC] flex items-center justify-center text-xs shrink-0">
                                             <i class="fa-solid fa-microchip"></i>
                                         </div>
-                                        <span class="font-semibold text-white text-sm md:text-base">Artificial
-                                            Intelligence</span>
+                                        <div class="flex flex-col sm:flex-row sm:items-center gap-0.5 sm:gap-3 min-w-0">
+                                            <span class="font-semibold text-white text-sm md:text-base whitespace-nowrap">Artificial Intelligence</span>
+                                            <span class="text-[11px] sm:hidden text-[#94A3B8]">Exploring LLMs & AI</span>
+                                        </div>
                                     </div>
 
-                                    <span class="text-xs md:text-sm text-[#94A3B8]">Exploring LLMs & AI</span>
+                                    <span class="hidden sm:inline-block text-xs md:text-sm text-[#94A3B8] shrink-0 text-right">Exploring LLMs & AI</span>
 
                                 </div>
 
-                                <div class="flex items-center justify-between border-b border-[#24324D] pb-3 md:pb-4">
+                                <div class="flex items-center justify-between gap-2 border-b border-[#24324D] pb-3 md:pb-4">
 
-                                    <div class="flex items-center gap-3">
+                                    <div class="flex items-center gap-3 min-w-0">
                                         <div
                                             class="w-8 h-8 rounded-lg bg-[#2DD4BF]/10 border border-[#2DD4BF]/25 text-[#2DD4BF] flex items-center justify-center text-xs shrink-0">
                                             <i class="fa-solid fa-diagram-project"></i>
                                         </div>
-                                        <span class="font-semibold text-white text-sm md:text-base">System Design</span>
+                                        <div class="flex flex-col sm:flex-row sm:items-center gap-0.5 sm:gap-3 min-w-0">
+                                            <span class="font-semibold text-white text-sm md:text-base whitespace-nowrap">System Design</span>
+                                            <span class="text-[11px] sm:hidden text-[#94A3B8]">Learning System Design</span>
+                                        </div>
                                     </div>
 
-                                    <span class="text-xs md:text-sm text-[#94A3B8]">Learning System Design</span>
+                                    <span class="hidden sm:inline-block text-xs md:text-sm text-[#94A3B8] shrink-0 text-right">Learning System Design</span>
 
                                 </div>
 
-                                <div class="flex items-center justify-between">
+                                <div class="flex items-center justify-between gap-2">
 
-                                    <div class="flex items-center gap-3">
+                                    <div class="flex items-center gap-3 min-w-0">
                                         <div
                                             class="w-8 h-8 rounded-lg bg-[#FBBF24]/10 border border-[#FBBF24]/25 text-[#FBBF24] flex items-center justify-center text-xs shrink-0">
                                             <i class="fa-solid fa-code"></i>
                                         </div>
-                                        <span class="font-semibold text-white text-sm md:text-base">DSA</span>
+                                        <div class="flex flex-col sm:flex-row sm:items-center gap-0.5 sm:gap-3 min-w-0">
+                                            <span class="font-semibold text-white text-sm md:text-base whitespace-nowrap">DSA</span>
+                                            <span class="text-[11px] sm:hidden text-[#94A3B8]">Problem Solving</span>
+                                        </div>
                                     </div>
 
-                                    <span class="text-xs md:text-sm text-[#94A3B8]">Problem Solving</span>
+                                    <span class="hidden sm:inline-block text-xs md:text-sm text-[#94A3B8] shrink-0 text-right">Problem Solving</span>
 
                                 </div>
 
@@ -717,7 +745,7 @@
 
     <!--================ ABOUT =================-->
 
-    <section id="about" class="py-12 relative overflow-hidden">
+    <section id="about" class="pt-4 pb-12 sm:pt-10 sm:pb-16 relative overflow-hidden">
 
         <!-- Subtle Background Grid Pattern & Radial Glows -->
         <div class="about-grid-pattern"></div>
@@ -730,7 +758,7 @@
         <div class="max-w-7xl mx-auto px-6 lg:px-8 relative z-10">
 
             <!-- Section Header: ABOUT -->
-            <div class="flex items-center gap-5 mb-16">
+            <div class="flex items-center gap-5 mb-8 sm:mb-14">
                 <h2 class="uppercase tracking-[6px] text-zinc-400">
                     About
                 </h2>
@@ -828,34 +856,34 @@
                 </div>
 
                 <!-- 3 Capability Cards (Staggered Scroll Reveals) -->
-                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-6">
+                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-3 sm:gap-6">
 
                     <!-- CARD 01: Full-Stack -->
                     <div class="about-capability-card card-teal flex flex-col justify-between group" data-aos="fade-up"
                         data-aos-delay="50">
                         <div>
-                            <div class="flex items-center justify-between mb-4 sm:mb-6">
+                            <div class="flex items-center justify-between mb-3 sm:mb-6">
                                 <span
-                                    class="card-icon-box w-8 h-8 sm:w-9 sm:h-9 rounded-xl bg-[#14B8A6]/10 border border-[#14B8A6]/20 flex items-center justify-center text-[#2DD4BF] text-xs sm:text-sm">
+                                    class="card-icon-box w-7 h-7 sm:w-9 sm:h-9 rounded-lg sm:rounded-xl bg-[#14B8A6]/10 border border-[#14B8A6]/20 flex items-center justify-center text-[#2DD4BF] text-xs sm:text-sm">
                                     <i class="fa-solid fa-layer-group"></i>
                                 </span>
                                 <span
-                                    class="font-mono text-[11px] sm:text-xs text-[#2DD4BF] tracking-wider uppercase font-semibold">01
+                                    class="font-mono text-[10px] sm:text-xs text-[#2DD4BF] tracking-wider uppercase font-semibold">01
                                     / Full-Stack</span>
                             </div>
 
-                            <h3 class="text-lg sm:text-xl font-bold text-white mb-2 sm:mb-3 tracking-tight">
+                            <h3 class="text-base sm:text-xl font-bold text-white mb-1.5 sm:mb-3 tracking-tight">
                                 Full-Stack Development
                             </h3>
 
-                            <p class="text-zinc-400 text-[13px] sm:text-sm leading-relaxed">
+                            <p class="text-zinc-400 text-xs sm:text-sm leading-relaxed">
                                 Building responsive and scalable applications by connecting modern user interfaces with
                                 robust backend systems, APIs, and databases.
                             </p>
                         </div>
 
                         <div
-                            class="pt-4 mt-4 sm:pt-6 sm:mt-6 border-t border-[rgba(255,255,255,0.06)] flex items-center justify-between">
+                            class="pt-3 mt-3 sm:pt-6 sm:mt-6 border-t border-[rgba(255,255,255,0.06)] flex items-center justify-between">
                             <a href="#projects" class="card-explore-action text-zinc-400">
                                 Explore <i class="fa-solid fa-arrow-right text-[10px]"></i>
                             </a>
@@ -866,28 +894,28 @@
                     <div class="about-capability-card card-purple flex flex-col justify-between group"
                         data-aos="fade-up" data-aos-delay="120">
                         <div>
-                            <div class="flex items-center justify-between mb-4 sm:mb-6">
+                            <div class="flex items-center justify-between mb-3 sm:mb-6">
                                 <span
-                                    class="card-icon-box w-8 h-8 sm:w-9 sm:h-9 rounded-xl bg-[#7C8CF8]/10 border border-[#7C8CF8]/20 flex items-center justify-center text-[#919EF9] text-xs sm:text-sm">
+                                    class="card-icon-box w-7 h-7 sm:w-9 sm:h-9 rounded-lg sm:rounded-xl bg-[#7C8CF8]/10 border border-[#7C8CF8]/20 flex items-center justify-center text-[#919EF9] text-xs sm:text-sm">
                                     <i class="fa-solid fa-brain"></i>
                                 </span>
                                 <span
-                                    class="font-mono text-[11px] sm:text-xs text-[#919EF9] tracking-wider uppercase font-semibold">02
+                                    class="font-mono text-[10px] sm:text-xs text-[#919EF9] tracking-wider uppercase font-semibold">02
                                     / AI</span>
                             </div>
 
-                            <h3 class="text-lg sm:text-xl font-bold text-white mb-2 sm:mb-3 tracking-tight">
+                            <h3 class="text-base sm:text-xl font-bold text-white mb-1.5 sm:mb-3 tracking-tight">
                                 Artificial Intelligence
                             </h3>
 
-                            <p class="text-zinc-400 text-[13px] sm:text-sm leading-relaxed">
+                            <p class="text-zinc-400 text-xs sm:text-sm leading-relaxed">
                                 Exploring how Artificial Intelligence and Large Language Models can be integrated into
                                 practical products to create more intelligent user experiences.
                             </p>
                         </div>
 
                         <div
-                            class="pt-4 mt-4 sm:pt-6 sm:mt-6 border-t border-[rgba(255,255,255,0.06)] flex items-center justify-between">
+                            class="pt-3 mt-3 sm:pt-6 sm:mt-6 border-t border-[rgba(255,255,255,0.06)] flex items-center justify-between">
                             <a href="#projects" class="card-explore-action text-zinc-400">
                                 Explore <i class="fa-solid fa-arrow-right text-[10px]"></i>
                             </a>
@@ -898,28 +926,28 @@
                     <div class="about-capability-card card-cyan flex flex-col justify-between group" data-aos="fade-up"
                         data-aos-delay="190">
                         <div>
-                            <div class="flex items-center justify-between mb-4 sm:mb-6">
+                            <div class="flex items-center justify-between mb-3 sm:mb-6">
                                 <span
-                                    class="card-icon-box w-8 h-8 sm:w-9 sm:h-9 rounded-xl bg-[#38BDF8]/10 border border-[#38BDF8]/20 flex items-center justify-center text-[#38BDF8] text-xs sm:text-sm">
+                                    class="card-icon-box w-7 h-7 sm:w-9 sm:h-9 rounded-lg sm:rounded-xl bg-[#38BDF8]/10 border border-[#38BDF8]/20 flex items-center justify-center text-[#38BDF8] text-xs sm:text-sm">
                                     <i class="fa-solid fa-code"></i>
                                 </span>
                                 <span
-                                    class="font-mono text-[11px] sm:text-xs text-[#38BDF8] tracking-wider uppercase font-semibold">03
+                                    class="font-mono text-[10px] sm:text-xs text-[#38BDF8] tracking-wider uppercase font-semibold">03
                                     / Algorithms</span>
                             </div>
 
-                            <h3 class="text-lg sm:text-xl font-bold text-white mb-2 sm:mb-3 tracking-tight">
+                            <h3 class="text-base sm:text-xl font-bold text-white mb-1.5 sm:mb-3 tracking-tight">
                                 Problem Solving
                             </h3>
 
-                            <p class="text-zinc-400 text-[13px] sm:text-sm leading-relaxed">
+                            <p class="text-zinc-400 text-xs sm:text-sm leading-relaxed">
                                 Strengthening logical and algorithmic thinking through Data Structures, Algorithms,
                                 competitive programming, and consistent practice.
                             </p>
                         </div>
 
                         <div
-                            class="pt-4 mt-4 sm:pt-6 sm:mt-6 border-t border-[rgba(255,255,255,0.06)] flex items-center justify-between">
+                            class="pt-3 mt-3 sm:pt-6 sm:mt-6 border-t border-[rgba(255,255,255,0.06)] flex items-center justify-between">
                             <a href="#projects" class="card-explore-action text-zinc-400">
                                 Explore <i class="fa-solid fa-arrow-right text-[10px]"></i>
                             </a>
@@ -930,27 +958,31 @@
             </div>
 
             <!-- Philosophy Transition Line -->
-            <div class="my-14 philosophy-banner text-zinc-500">
-                <div class="h-px bg-gradient-to-r from-transparent to-[#24324D] flex-1"></div>
-                <div class="flex items-center gap-2 text-xs sm:text-sm tracking-[3px] text-zinc-400">
+            <div class="my-8 sm:my-14 philosophy-banner text-zinc-500">
+                <div class="h-px bg-gradient-to-r from-transparent to-[#24324D] flex-1 min-w-[12px]"></div>
+                <div class="flex flex-wrap items-center justify-center gap-1.5 sm:gap-2 text-[11px] sm:text-xs md:text-sm tracking-[1.5px] sm:tracking-[3px] text-zinc-400 font-mono">
                     <span class="text-[#7C8CF8] font-bold">Build.</span>
                     <span class="text-zinc-400">Understand.</span>
                     <span class="text-[#2DD4BF] font-bold">Improve.</span>
                     <span class="text-zinc-400">Repeat.</span>
                 </div>
-                <div class="h-px bg-gradient-to-l from-transparent to-[#24324D] flex-1"></div>
+                <div class="h-px bg-gradient-to-l from-transparent to-[#24324D] flex-1 min-w-[12px]"></div>
             </div>
 
             <!-- CURRENTLY EXPLORING SECTION -->
-            <div class="space-y-6">
-                <div>
-                    <p class="text-[#7C8CF8] font-mono text-xs uppercase tracking-[3px] font-semibold">
+            <div class="space-y-4 sm:space-y-6">
+                <div class="flex items-center gap-2.5">
+                    <span class="relative flex h-2 w-2">
+                        <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-[#7C8CF8] opacity-75"></span>
+                        <span class="relative inline-flex rounded-full h-2 w-2 bg-[#7C8CF8]"></span>
+                    </span>
+                    <p class="text-[#7C8CF8] font-mono text-[11px] sm:text-xs uppercase tracking-[2px] sm:tracking-[3px] font-semibold">
                         Currently Exploring
                     </p>
                 </div>
 
                 <!-- Topic Pills -->
-                <div class="flex flex-wrap items-center gap-3">
+                <div class="flex flex-wrap items-center gap-2 sm:gap-3">
                     <span class="exploring-pill">
                         <span class="exploring-pill-dot"></span>
                         System Design
@@ -1028,15 +1060,23 @@
                         <!-- Sliding active indicator capsule -->
                         <div class="filter-active-capsule"></div>
 
-                        <button class="filter-btn active" data-filter="all">All Projects <span
-                                class="filter-count">8</span></button>
-                        <button class="filter-btn" data-filter="fullstack">Full-Stack <span
-                                class="filter-count">3</span></button>
-                        <button class="filter-btn" data-filter="frontend">Frontend <span
-                                class="filter-count">1</span></button>
-                        <button class="filter-btn" data-filter="ai">AI / ML <span class="filter-count">4</span></button>
-                        <button class="filter-btn" data-filter="hardware">Hardware / IoT <span
-                                class="filter-count">2</span></button>
+                        <button class="filter-btn active" data-filter="all">
+                            <span class="hidden sm:inline">All Projects</span><span class="sm:hidden">All</span>
+                            <span class="filter-count">8</span>
+                        </button>
+                        <button class="filter-btn" data-filter="fullstack">
+                            Full-Stack <span class="filter-count">3</span>
+                        </button>
+                        <button class="filter-btn" data-filter="frontend">
+                            Frontend <span class="filter-count">1</span>
+                        </button>
+                        <button class="filter-btn" data-filter="ai">
+                            AI / ML <span class="filter-count">4</span>
+                        </button>
+                        <button class="filter-btn" data-filter="hardware">
+                            <span class="hidden sm:inline">Hardware / IoT</span><span class="sm:hidden">Hardware</span>
+                            <span class="filter-count">2</span>
+                        </button>
                     </div>
                 </div>
 
@@ -2061,7 +2101,7 @@
                                 <span class="milestone-pill"><i class="fa-solid fa-code text-[10px] text-[#14B8A6]"></i>
                                     Console Applications</span>
                                 <span class="milestone-pill"><i
-                                        class="fa-solid fa-microchip text-[10px] text-[#14B8A6]"></i> Algorithmic
+                                        class="fa-solid fa-brain text-[10px] text-[#14B8A6]"></i> Algorithmic
                                     Challenges</span>
                             </div>
                         </div>
@@ -2177,9 +2217,6 @@
                                 <span class="milestone-pill"><i
                                         class="fa-solid fa-brain text-[10px] text-[#A78BFA]"></i>
                                     LLMs & Gemini API</span>
-                                <span class="milestone-pill"><i
-                                        class="fa-solid fa-shield-halved text-[10px] text-[#A78BFA]"></i> ML Spam
-                                    Detection</span>
                                 <span class="milestone-pill"><i
                                         class="fa-solid fa-server text-[10px] text-[#A78BFA]"></i>
                                     FastAPI & Python</span>
@@ -2389,7 +2426,7 @@
             </div>
         </div>
     </section> -->
-        <section id="contact" class="py-16 section-container max-w-7xl mx-auto px-6 lg:px-8">
+        <section id="contact" class="pt-16 pb-0 section-container max-w-7xl mx-auto px-6 lg:px-8">
 
             <!-- Heading -->
             <div class="flex items-center gap-5 mb-16">
@@ -2441,7 +2478,7 @@
         <!-- ===========================
         FOOTER
     =========================== -->
-        <footer class="relative mt-12 md:mt-24 border-t border-[#24324D] bg-[#070B14] py-12 md:py-16 overflow-hidden">
+        <footer class="relative mt-0 border-t border-[#24324D] bg-[#09090B] pt-10 md:pt-14 pb-0 overflow-hidden">
             <!-- Background Glow -->
             <div
                 class="absolute -bottom-24 -left-24 w-72 h-72 bg-[#14B8A6]/5 rounded-full blur-[100px] pointer-events-none">
@@ -2452,11 +2489,11 @@
 
             <div class="max-w-7xl mx-auto px-6 lg:px-8">
                 <div
-                    class="grid grid-cols-2 md:grid-cols-2 lg:grid-cols-12 gap-x-6 gap-y-8 pb-12 border-b border-[#24324D]/60">
+                    class="grid grid-cols-2 md:grid-cols-2 lg:grid-cols-12 gap-x-6 gap-y-8 pb-10 border-b border-[#24324D]/60">
 
                     <!-- Left: Branding -->
                     <div class="col-span-2 md:col-span-2 lg:col-span-4 space-y-5">
-                        <a href="#home"
+                        <a href="#"
                             class="flex items-center gap-3 text-2xl font-extrabold tracking-tight group w-fit">
                             <span class="text-white group-hover:text-[#7C8CF8] transition-colors">Tanish Mehta</span>
                         </a>
@@ -2486,20 +2523,14 @@
                     <div class="col-span-1 md:col-span-1 lg:col-span-2 space-y-4">
                         <h4 class="text-xs font-mono font-bold uppercase tracking-[2px] text-[#14B8A6]">Navigate</h4>
                         <ul class="space-y-2.5">
-                            <li><a href="#home"
-                                    class="text-zinc-400 hover:text-white text-sm transition-colors">Home</a>
-                            </li>
-                            <li><a href="#projects"
-                                    class="text-zinc-400 hover:text-white text-sm transition-colors">Projects</a></li>
-                            <li><a href="#skills"
-                                    class="text-zinc-400 hover:text-white text-sm transition-colors">Skills</a></li>
-                            <li><a href="#about"
-                                    class="text-zinc-400 hover:text-white text-sm transition-colors">About</a>
-                            </li>
-                            <li><a href="#journey"
-                                    class="text-zinc-400 hover:text-white text-sm transition-colors">Journey</a></li>
-                            <li><a href="#contact"
-                                    class="text-zinc-400 hover:text-white text-sm transition-colors">Contact</a></li>
+                            <li><a href="#" class="text-zinc-400 hover:text-white text-sm transition-colors">Home</a></li>
+                            <li><a href="#about" class="text-zinc-400 hover:text-white text-sm transition-colors">About</a></li>
+                            <li><a href="#projects" class="text-zinc-400 hover:text-white text-sm transition-colors">Projects</a></li>
+                            <li><a href="#skills" class="text-zinc-400 hover:text-white text-sm transition-colors">Tech Stack</a></li>
+                            <li><a href="#journey" class="text-zinc-400 hover:text-white text-sm transition-colors">Journey</a></li>
+                            <li><a href="#github" class="text-zinc-400 hover:text-white text-sm transition-colors">GitHub Activity</a></li>
+                            <li><a href="#achievements" class="text-zinc-400 hover:text-white text-sm transition-colors">Achievements</a></li>
+                            <li><a href="#contact" class="text-zinc-400 hover:text-white text-sm transition-colors">Contact</a></li>
                         </ul>
                     </div>
 
@@ -2581,7 +2612,7 @@
                 </div>
 
                 <!-- Bottom Bar -->
-                <div class="flex flex-col sm:flex-row items-center justify-between pt-8 gap-4">
+                <div class="flex flex-col sm:flex-row items-center justify-between py-4 gap-4">
                     <p class="text-zinc-500 text-xs">
                         &copy; 2026 Tanish Mehta. Built with ❤️.
                     </p>

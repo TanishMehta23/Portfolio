@@ -43,6 +43,13 @@ body {
     color: var(--text-primary);
     font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
     -webkit-font-smoothing: antialiased;
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+}
+
+footer {
+    margin-top: auto;
 }
 
 ::selection {
@@ -453,67 +460,7 @@ nav ul li a.active::after {
     transform: none;
 }
 
-/*================ TERMINAL ================*/
-
 /*================ TERMINAL =================*/
-
-.terminal-header {
-    display: flex;
-    align-items: center;
-    gap: 10px;
-
-    padding: 16px 22px;
-
-    background: #111827;
-
-    border-bottom: 1px solid #24324D;
-}
-
-.terminal-dot {
-    width: 10px;
-    height: 10px;
-    border-radius: 50%;
-}
-
-.red {
-    background: #FF5F57;
-}
-
-.yellow {
-    background: #FEBC2E;
-}
-
-.green {
-    background: #28C840;
-}
-
-.terminal-title {
-    margin-left: 10px;
-    color: #94A3B8;
-    font-size: 13px;
-}
-
-#terminal-content {
-    color: #E2E8F0;
-    font-size: 15px;
-    line-height: 1.5;
-    font-family: "JetBrains Mono", Consolas, monospace;
-    white-space: pre-wrap;
-    margin: 0;
-}
-
-
-
-.cursor {
-    color: #14B8A6;
-    animation: blink .8s infinite;
-}
-
-@keyframes blink {
-    50% {
-        opacity: 0;
-    }
-}
 
 .terminal-card {
     height: 360px;
@@ -524,6 +471,9 @@ nav ul li a.active::after {
     position: relative;
     box-shadow: 0 10px 30px -10px rgba(0, 0, 0, 0.5);
     transition: transform 0.3s cubic-bezier(0.34, 1.56, 0.64, 1), border-color 0.3s ease, box-shadow 0.3s ease;
+    -webkit-backface-visibility: hidden;
+    backface-visibility: hidden;
+    transform: translateZ(0);
 }
 
 .terminal-card:hover {
@@ -577,12 +527,26 @@ nav ul li a.active::after {
 .terminal-body {
     padding: 22px;
     background: #080D1A;
-    height: calc(100% - 50px);
+    height: calc(100% - 49px);
     overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
 }
 
 .terminal-body::-webkit-scrollbar {
     display: none;
+}
+
+#terminal-content {
+    color: #E2E8F0;
+    font-size: 15px;
+    line-height: 1.5;
+    font-family: "JetBrains Mono", Consolas, monospace;
+    margin: 0;
+    width: 100%;
+    position: relative;
+    word-break: break-word;
 }
 
 .terminal-line {
@@ -590,6 +554,10 @@ nav ul li a.active::after {
     align-items: center;
     gap: 8px;
     margin-top: 8px;
+}
+
+.terminal-line:first-child {
+    margin-top: 0;
 }
 
 .prompt {
@@ -603,8 +571,10 @@ nav ul li a.active::after {
 
 .output {
     color: #94A3B8;
-    margin-left: 24px;
-    margin-bottom: 12px;
+    margin-left: 20px;
+    margin-top: 4px;
+    margin-bottom: 10px;
+    line-height: 1.45;
 }
 
 .cursor {
@@ -613,6 +583,7 @@ nav ul li a.active::after {
     background: #22C55E;
     display: inline-block;
     animation: blink .8s infinite;
+    vertical-align: middle;
 }
 
 /* Focus Card Enhancements */
@@ -640,12 +611,6 @@ nav ul li a.active::after {
     50% {
         opacity: 0;
     }
-}
-
-#terminal-content {
-
-    transition: .25s;
-
 }
 
 
@@ -3992,10 +3957,7 @@ body {
     backdrop-filter: blur(20px);
     -webkit-backdrop-filter: blur(20px);
     box-shadow: 0 8px 32px rgba(0, 0, 0, 0.4), inset 0 1px 0 rgba(255, 255, 255, 0.06);
-    overflow-x: auto;
-    overflow-y: hidden;
-    scrollbar-width: none;
-    -webkit-overflow-scrolling: touch;
+    overflow: visible;
 }
 
 .filter-tube-container::-webkit-scrollbar {
@@ -4005,13 +3967,12 @@ body {
 /* The smooth sliding capsule background */
 .filter-active-capsule {
     position: absolute;
-    top: 5px;
-    bottom: 5px;
+    top: 0;
     left: 0;
     border-radius: 999px;
     background: linear-gradient(135deg, #6366F1 0%, #7C8CF8 50%, #8B5CF6 100%);
     box-shadow: 0 0 18px rgba(124, 140, 248, 0.45), inset 0 1px 1px rgba(255, 255, 255, 0.35);
-    transition: transform 0.35s cubic-bezier(0.2, 0.9, 0.3, 1.2), width 0.35s cubic-bezier(0.2, 0.9, 0.3, 1.2);
+    transition: transform 0.35s cubic-bezier(0.2, 0.9, 0.3, 1.2), width 0.35s cubic-bezier(0.2, 0.9, 0.3, 1.2), height 0.35s cubic-bezier(0.2, 0.9, 0.3, 1.2);
     pointer-events: none;
     z-index: 1;
 }
@@ -4064,6 +4025,30 @@ body {
     background: rgba(255, 255, 255, 0.06);
     color: #94A3B8;
     transition: background 0.25s ease, color 0.25s ease;
+}
+
+@media (max-width: 640px) {
+    .filter-tube-container {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        border-radius: 18px;
+        padding: 4px;
+        gap: 4px;
+        max-width: 100%;
+        overflow: visible;
+    }
+
+    .filter-btn {
+        padding: 6px 11px;
+        font-size: 11.5px;
+        gap: 5px;
+    }
+
+    .filter-count {
+        font-size: 10px;
+        padding: 1px 5px;
+    }
 }
 
 /* Project Card filter animation */
@@ -4489,8 +4474,15 @@ body {
         display: none !important;
     }
 
+    .focus-card .space-y-3>div,
+    .focus-card .space-y-5>div {
+        margin: 0 !important;
+        padding: 6px 4px !important;
+    }
+
     .terminal-card {
-        height: 250px !important;
+        height: 270px !important;
+        min-height: 270px !important;
         border-radius: 16px !important;
     }
 
@@ -4499,12 +4491,31 @@ body {
     }
 
     .terminal-body {
-        padding: 16px !important;
-        height: calc(100% - 41px) !important;
+        padding: 14px 16px !important;
+        height: calc(100% - 39px) !important;
     }
 
     #terminal-content {
-        font-size: 13px !important;
+        font-size: 12.5px !important;
+        line-height: 1.4 !important;
+    }
+
+    .terminal-line {
+        margin-top: 6px !important;
+        gap: 6px !important;
+    }
+
+    .output {
+        margin-left: 16px !important;
+        margin-top: 2px !important;
+        margin-bottom: 6px !important;
+        font-size: 12px !important;
+        line-height: 1.35 !important;
+    }
+
+    .cursor {
+        width: 7px !important;
+        height: 15px !important;
     }
 
     /* Scale down galaxy planets on mobile */
@@ -6061,29 +6072,29 @@ header.projects-active {
     }
 
     .milestone-proj-capsule {
-        font-size: 9.5px;
-        padding: 2px 7px;
-        gap: 4px;
+        font-size: 10px;
+        padding: 3px 8px;
+        gap: 5px;
     }
 
     .eng-card-title {
-        font-size: 15px;
+        font-size: 15.5px;
         margin-bottom: 6px;
     }
 
     .eng-card-desc {
-        font-size: 12.5px;
-        line-height: 1.5;
+        font-size: 12px;
+        line-height: 1.55;
     }
 
     .milestone-pill-list {
-        gap: 5px;
-        margin-top: 8px;
+        gap: 6px;
+        margin-top: 10px;
     }
 
     .milestone-pill {
         font-size: 10px;
-        padding: 3px 7px;
+        padding: 3px 8px;
     }
 
     .eng-status-indicator {
@@ -6416,8 +6427,25 @@ footer a[href="#home"]:hover {
 /* Mobile Responsiveness for Capability Cards & About Elements */
 @media (max-width: 768px) {
     .about-capability-card {
-        padding: 22px 20px;
-        border-radius: 16px;
+        padding: 16px 16px;
+        border-radius: 14px;
+    }
+
+    .about-capability-card h3 {
+        font-size: 15.5px !important;
+        margin-bottom: 5px !important;
+    }
+
+    .about-capability-card p {
+        font-size: 12px !important;
+        line-height: 1.5 !important;
+    }
+
+    .about-capability-card .card-icon-box {
+        width: 28px !important;
+        height: 28px !important;
+        border-radius: 8px !important;
+        font-size: 11px !important;
     }
 
     .about-capability-card::before {
@@ -6429,6 +6457,7 @@ footer a[href="#home"]:hover {
     }
 
     .card-explore-action {
+        font-size: 11px !important;
         opacity: 0.9;
     }
 
@@ -6524,13 +6553,19 @@ footer a[href="#home"]:hover {
 @media (max-width: 640px) {
     .philosophy-banner {
         font-size: 11px;
-        letter-spacing: 1px;
-        gap: 8px;
+        letter-spacing: 1.2px;
+        gap: 6px;
     }
 
     .exploring-pill {
-        padding: 7px 14px;
-        font-size: 12px;
+        padding: 6px 13px;
+        font-size: 11.5px;
+        gap: 6px;
+    }
+
+    .exploring-pill-dot {
+        width: 4px;
+        height: 4px;
     }
 }
 

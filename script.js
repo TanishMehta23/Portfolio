@@ -37,7 +37,7 @@ const commands = [
     },
     {
         cmd: "ls projects/",
-        output: "Xplorism\nFinPulseAI\nFocusoraHQ\nFitness Planet\nSpamShield\nNexus AI\nQuizoraAI"
+        output: "FocusoraHQ   FinPulseAI   SpamShield\nNexus AI     FitnessPlanet QuizoraAI"
     },
     {
         cmd: "git status",
@@ -45,7 +45,7 @@ const commands = [
     },
     {
         cmd: "cat mission.txt",
-        output: "Building modern web applications and exploring AI."
+        output: "Building modern web applications\nand exploring AI."
     },
     {
         cmd: "echo $GOAL",
@@ -54,132 +54,149 @@ const commands = [
 ];
 
 let index = 0;
-let terminalInstanceId = 0;
 
-function sleep(ms) {
-    return new Promise(resolve => setTimeout(resolve, ms));
+// Cancel any previous loop instance strictly across reloads / tab visibility changes
+if (window.__terminalController) {
+    try {
+        window.__terminalController.abort();
+    } catch (e) {
+        // ignore
+    }
+}
+window.__terminalController = new AbortController();
+
+function sleep(ms, signal) {
+    return new Promise((resolve, reject) => {
+        if (signal?.aborted) {
+            return reject(new DOMException("Aborted", "AbortError"));
+        }
+        const timer = setTimeout(() => {
+            if (signal?.aborted) {
+                reject(new DOMException("Aborted", "AbortError"));
+            } else {
+                resolve();
+            }
+        }, ms);
+
+        if (signal) {
+            signal.addEventListener("abort", () => {
+                clearTimeout(timer);
+                reject(new DOMException("Aborted", "AbortError"));
+            }, { once: true });
+        }
+    });
 }
 
-async function typeText(element, text, minSpeed = 38, maxSpeed = 65) {
+async function typeText(element, text, signal, minSpeed = 35, maxSpeed = 60) {
     element.textContent = "";
     for (let i = 0; i < text.length; i++) {
+        if (signal?.aborted) throw new DOMException("Aborted", "AbortError");
         element.textContent += text[i];
         const delay = Math.floor(Math.random() * (maxSpeed - minSpeed + 1)) + minSpeed;
-        await sleep(delay);
+        await sleep(delay, signal);
     }
 }
 
 async function runTerminal() {
     if (!terminal) return;
-    const myInstanceId = ++terminalInstanceId;
-    window.terminalInstance = myInstanceId;
+    const signal = window.__terminalController.signal;
 
-    while (true) {
-        if (window.terminalInstance !== myInstanceId) return;
+    try {
+        while (!signal.aborted) {
+            const prefersReducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+            terminal.innerHTML = "";
 
-        const prefersReducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
-        terminal.innerHTML = "";
+            const current = commands[index];
 
-        const current = commands[index];
+            // Terminal Prompt Line
+            const promptLine = document.createElement("div");
+            promptLine.className = "terminal-line";
 
-        // Terminal Prompt Line
-        const promptLine = document.createElement("div");
-        promptLine.className = "terminal-line";
+            const dollar = document.createElement("span");
+            dollar.className = "prompt";
+            dollar.textContent = "$";
 
-        const dollar = document.createElement("span");
-        dollar.className = "prompt";
-        dollar.textContent = "$";
+            const typing = document.createElement("span");
+            typing.className = "command";
 
-        const typing = document.createElement("span");
-        typing.className = "command";
+            const cursor = document.createElement("span");
+            cursor.className = "cursor";
 
-        const cursor = document.createElement("span");
-        cursor.className = "cursor";
-
-        promptLine.appendChild(dollar);
-        promptLine.appendChild(typing);
-        if (!prefersReducedMotion) {
-            promptLine.appendChild(cursor);
-        }
-        terminal.appendChild(promptLine);
-
-        if (prefersReducedMotion) {
-            typing.textContent = current.cmd;
-            await sleep(200);
-        } else {
-            await typeText(typing, current.cmd);
-            if (window.terminalInstance !== myInstanceId) return;
-            await sleep(280);
-            if (window.terminalInstance !== myInstanceId) return;
-            cursor.remove();
-        }
-
-        // Output Container
-        const outputWrap = document.createElement("div");
-        outputWrap.className = "output";
-        terminal.appendChild(outputWrap);
-
-        const lines = current.output.split("\n");
-        if (prefersReducedMotion || lines.length === 1) {
-            outputWrap.innerHTML = current.output.replace(/\n/g, "<br>");
-        } else {
-            for (let l = 0; l < lines.length; l++) {
-                if (window.terminalInstance !== myInstanceId) return;
-                const lineSpan = document.createElement("div");
-                lineSpan.textContent = lines[l];
-                outputWrap.appendChild(lineSpan);
-                await sleep(75);
+            promptLine.appendChild(dollar);
+            promptLine.appendChild(typing);
+            if (!prefersReducedMotion) {
+                promptLine.appendChild(cursor);
             }
+            terminal.appendChild(promptLine);
+
+            if (prefersReducedMotion) {
+                typing.textContent = current.cmd;
+                await sleep(200, signal);
+            } else {
+                await typeText(typing, current.cmd, signal);
+                await sleep(250, signal);
+                cursor.remove();
+            }
+
+            // Output Container
+            const outputWrap = document.createElement("div");
+            outputWrap.className = "output";
+            terminal.appendChild(outputWrap);
+
+            const lines = current.output.split("\n");
+            if (prefersReducedMotion || lines.length === 1) {
+                outputWrap.innerHTML = current.output.replace(/\n/g, "<br>");
+            } else {
+                for (let l = 0; l < lines.length; l++) {
+                    const lineSpan = document.createElement("div");
+                    lineSpan.textContent = lines[l];
+                    outputWrap.appendChild(lineSpan);
+                    await sleep(65, signal);
+                }
+            }
+
+            // Reading pause based on length
+            const readingTime = Math.max(2200, 1400 + lines.length * 150);
+            await sleep(readingTime, signal);
+
+            // Type clear command
+            const clearLine = document.createElement("div");
+            clearLine.className = "terminal-line";
+
+            const clearDollar = document.createElement("span");
+            clearDollar.className = "prompt";
+            clearDollar.textContent = "$";
+
+            const clearTyping = document.createElement("span");
+            clearTyping.className = "command";
+
+            const clearCursor = document.createElement("span");
+            clearCursor.className = "cursor";
+
+            clearLine.appendChild(clearDollar);
+            clearLine.appendChild(clearTyping);
+            if (!prefersReducedMotion) clearLine.appendChild(clearCursor);
+            terminal.appendChild(clearLine);
+
+            if (prefersReducedMotion) {
+                clearTyping.textContent = "clear";
+                await sleep(250, signal);
+            } else {
+                await typeText(clearTyping, "clear", signal, 40, 70);
+                await sleep(300, signal);
+                clearCursor.remove();
+            }
+
+            // Instant clear with no ghosting / double-draw artifacts
+            terminal.innerHTML = "";
+            await sleep(150, signal);
+
+            index = (index + 1) % commands.length;
         }
-
-        if (window.terminalInstance !== myInstanceId) return;
-
-        // Reading pause based on length
-        const readingTime = Math.max(2200, 1400 + lines.length * 150);
-        await sleep(readingTime);
-        if (window.terminalInstance !== myInstanceId) return;
-
-        // Type clear command
-        const clearLine = document.createElement("div");
-        clearLine.className = "terminal-line";
-
-        const clearDollar = document.createElement("span");
-        clearDollar.className = "prompt";
-        clearDollar.textContent = "$";
-
-        const clearTyping = document.createElement("span");
-        clearTyping.className = "command";
-
-        const clearCursor = document.createElement("span");
-        clearCursor.className = "cursor";
-
-        clearLine.appendChild(clearDollar);
-        clearLine.appendChild(clearTyping);
-        if (!prefersReducedMotion) clearLine.appendChild(clearCursor);
-        terminal.appendChild(clearLine);
-
-        if (prefersReducedMotion) {
-            clearTyping.textContent = "clear";
-            await sleep(300);
-        } else {
-            await typeText(clearTyping, "clear", 45, 75);
-            if (window.terminalInstance !== myInstanceId) return;
-            await sleep(350);
-            if (window.terminalInstance !== myInstanceId) return;
-            clearCursor.remove();
+    } catch (err) {
+        if (err.name !== "AbortError") {
+            console.error("Terminal animation error:", err);
         }
-
-        // Clean fade out and loop
-        terminal.style.opacity = "0";
-        await sleep(220);
-        if (window.terminalInstance !== myInstanceId) return;
-
-        terminal.innerHTML = "";
-        terminal.style.opacity = "1";
-        await sleep(150);
-        if (window.terminalInstance !== myInstanceId) return;
-
-        index = (index + 1) % commands.length;
     }
 }
 
@@ -1151,15 +1168,18 @@ function initProjectsCarousel() {
         const btnRect = activeButton.getBoundingClientRect();
         const containerRect = filterContainer.getBoundingClientRect();
         const leftOffset = btnRect.left - containerRect.left;
+        const topOffset = btnRect.top - containerRect.top;
         const width = btnRect.width;
+        const height = btnRect.height;
 
         if (!animate) {
             filterCapsule.style.transition = "none";
         } else {
-            filterCapsule.style.transition = "transform 0.35s cubic-bezier(0.2, 0.9, 0.3, 1.2), width 0.35s cubic-bezier(0.2, 0.9, 0.3, 1.2)";
+            filterCapsule.style.transition = "transform 0.35s cubic-bezier(0.2, 0.9, 0.3, 1.2), width 0.35s cubic-bezier(0.2, 0.9, 0.3, 1.2), height 0.35s cubic-bezier(0.2, 0.9, 0.3, 1.2)";
         }
-        filterCapsule.style.transform = `translateX(${leftOffset}px)`;
+        filterCapsule.style.transform = `translate(${leftOffset}px, ${topOffset}px)`;
         filterCapsule.style.width = `${width}px`;
+        filterCapsule.style.height = `${height}px`;
     }
 
     if (filterButtons.length > 0) {
