@@ -1514,6 +1514,22 @@ function initProjectsCarousel() {
         modalBackdrop.classList.remove("open");
         modalBackdrop.setAttribute("aria-hidden", "true");
         document.body.style.overflow = "";
+
+        // Reset all pause flags and resync scroll position so auto-scroll
+        // resumes correctly after the modal is dismissed. Without this,
+        // isHoverPaused stays true because mouseleave never fires on the
+        // container while the modal had focus.
+        if (resumeTimeout) clearTimeout(resumeTimeout);
+        isDragPaused = false;
+        resumeTimeout = setTimeout(() => {
+            if (!isManuallyPaused) {
+                isHoverPaused = false;
+            }
+            // Re-sync currentScrollPos so the animation engine doesn't
+            // stutter after a long modal session.
+            currentScrollPos = track.scrollLeft;
+            lastTime = null;
+        }, 200);
     }
 
     // Attach click listeners to cards to open modal
