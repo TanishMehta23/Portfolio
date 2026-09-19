@@ -849,7 +849,7 @@ const PROJECTS_DATA = {
             "OCR receipt parsing & multi-currency expense ledger"
         ],
         tech: [
-            { name: "React 19", icon: "fa-brands fa-react text-[#00D8FF]" },
+            { name: "React", icon: "fa-brands fa-react text-[#00D8FF]" },
             { name: "Tailwind CSS", icon: "fa-brands fa-css3-alt text-[#38BDF8]" },
             { name: "Node.js", icon: "fa-brands fa-node-js text-[#68A063]" },
             { name: "Socket.io", icon: "fa-solid fa-bolt text-[#F59E0B]" },
@@ -858,6 +858,61 @@ const PROJECTS_DATA = {
         ],
         liveUrl: "https://xplorism.vercel.app/",
         githubUrl: "https://github.com/TanishMehta23/Xplorism"
+    },
+    shopsphere: {
+        title: "ShopSphere",
+        category: "Full-Stack",
+        categoryClass: "badge-fullstack",
+        logo: "assets/images/Logo/ShopSphere.png",
+        icon: "fa-solid fa-bag-shopping text-[#7C8CF8]",
+        isInProgress: true,
+        desc: "Full-stack e-commerce marketplace platform currently under active development. Complete architecture, feature release, and live deployment coming soon.",
+        highlights: [
+            "Modern full-stack web architecture in active progress",
+            "Modular product catalog and category management",
+            "Scalable backend API services and secure transactions",
+            "Upcoming deployment and public release"
+        ],
+        tech: [
+            { name: "React", icon: "fa-brands fa-react text-[#00D8FF]" },
+            { name: "MongoDB", icon: "fa-solid fa-database text-[#336791]" },
+            { name: "Node.js", icon: "fa-brands fa-node-js text-[#68A063]" },
+            { name: "Express", icon: "fa-brands fa-server text-[#68A063]" },
+            { name: "In Progress", icon: "fa-solid fa-spinner fa-spin text-[#F59E0B]" }
+        ],
+        liveUrl: "#",
+        githubUrl: "https://github.com/TanishMehta23/ShopSphere"
+    },
+    smartbuy: {
+        title: "Smart Buy",
+        category: "Full-Stack",
+        categoryClass: "badge-fullstack",
+        logo: "assets/images/Logo/SmartBuy-logo.png",
+        image: "assets/images/SmartBuy.png",
+        gallery: [
+            "assets/images/SmartBuy.png"
+        ],
+        desc: "Developed a modern, full-stack store catalog platform featuring dynamic product discovery, category-based browsing, and a secure admin dashboard for managing products and digital assets.",
+        highlights: [
+            "Dynamic product catalog with category-based filtering and search",
+            "Secure admin dashboard with JWT-based authentication",
+            "Product and banner management with Cloudinary media integration",
+            "REST APIs with schema-based request validation",
+            "PostgreSQL database management using Prisma",
+            "Responsive UI with optimized product image delivery"
+        ],
+        tech: [
+            { name: "React.js", icon: "fa-brands fa-react text-[#00D8FF]" },
+            { name: "Tailwind CSS", icon: "fa-brands fa-css3-alt text-[#38BDF8]" },
+            { name: "Node.js", icon: "fa-brands fa-node-js text-[#68A063]" },
+            { name: "Express.js", icon: "fa-brands fa-server text-[#CBD5E1]" },
+            { name: "PostgreSQL", icon: "fa-solid fa-database text-[#336791]" },
+            { name: "Prisma", icon: "fa-solid fa-gem text-[#5A67D8]" },
+            { name: "Cloudinary", icon: "fa-solid fa-cloud-arrow-up text-[#3448C5]" },
+            { name: "JWT", icon: "fa-solid fa-key text-[#F59E0B]" }
+        ],
+        liveUrl: "https://smartbuy-store.vercel.app/",
+        githubUrl: "https://github.com/TanishMehta23/SmartBuy"
     },
     fitness: {
         title: "Fitness Planet",
@@ -1467,13 +1522,26 @@ function initProjectsCarousel() {
                     <div class="collage-item"><img src="assets/images/Hardware/Automated GreenHouse Monitoring/block_diagram.png" alt="Architecture"><span class="collage-label">Architecture</span></div>
                 </div>
             `;
+        } else if (data.isInProgress) {
+            modalImgContainer.innerHTML = `
+                <div class="flex flex-col items-center justify-center p-10 text-center h-[300px] w-full bg-gradient-to-br from-[#0B0F19] to-[#111827] rounded-xl border border-[#1E293B]">
+                    <div class="w-16 h-16 rounded-2xl bg-[#7C8CF8]/10 border border-[#7C8CF8]/25 flex items-center justify-center mb-3.5 text-[#7C8CF8] shadow-lg shadow-[#7C8CF8]/10">
+                        <i class="fa-solid fa-layer-group text-2xl"></i>
+                    </div>
+                    <span class="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-[#7C8CF8]/15 border border-[#7C8CF8]/30 text-[#C7D2FE] text-xs font-semibold">
+                        <span class="w-2 h-2 rounded-full bg-[#7C8CF8] animate-ping"></span>
+                        Project In Progress
+                    </span>
+                    <p class="text-xs text-[#94A3B8] mt-3 max-w-xs">Detailed architecture screenshots and live deployment will be available upon completion.</p>
+                </div>
+            `;
         } else {
             modalImgContainer.innerHTML = `<img src="${data.image}" alt="${data.title}" class="rounded-xl">`;
         }
 
         // Title
         let iconHtml = "";
-        if (data.logo) iconHtml = `<img src="${data.logo}" alt="${data.title}" class="w-7 h-7 object-contain inline-block">`;
+        if (data.logo) iconHtml = `<img src="${data.logo}" alt="${data.title}" class="project-modal-logo object-contain inline-block rounded-md">`;
         else if (data.icon) iconHtml = `<i class="${data.icon}"></i>`;
         else if (data.emoji) iconHtml = `<span>${data.emoji}</span>`;
         modalTitle.innerHTML = `${iconHtml} <span>${data.title}</span>`;

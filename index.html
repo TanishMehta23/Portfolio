@@ -675,7 +675,7 @@
                         <div class="rm-metric-card metric-purple">
                             <span class="rm-metric-icon"><i class="fa-solid fa-layer-group"></i></span>
                             <div class="rm-metric-info">
-                                <span class="rm-metric-val">07+</span>
+                                <span class="rm-metric-val">08+</span>
                                 <span class="rm-metric-lbl">Projects Built</span>
                             </div>
                         </div>
@@ -812,7 +812,7 @@
                 <div
                     class="stat-item flex flex-col items-center sm:items-start text-center sm:text-left gap-1 md:border-r border-[rgba(255,255,255,0.06)] md:pr-6">
                     <span class="stat-num text-3xl sm:text-4xl font-extrabold text-[#7C8CF8] tracking-tight font-mono"
-                        data-target="7" data-pad="true">00+</span>
+                        data-target="8" data-pad="true">00+</span>
                     <span class="stat-lbl text-xs uppercase tracking-widest font-mono text-[#94A3B8]">Projects
                         Built</span>
                 </div>
@@ -970,19 +970,19 @@
             </div>
 
             <!-- CURRENTLY EXPLORING SECTION -->
-            <div class="space-y-4 sm:space-y-6">
-                <div class="flex items-center gap-2.5">
+            <div class="flex flex-wrap items-center gap-3 sm:gap-4">
+                <div class="flex items-center gap-2.5 shrink-0 mr-1 sm:mr-2">
                     <span class="relative flex h-2 w-2">
                         <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-[#7C8CF8] opacity-75"></span>
                         <span class="relative inline-flex rounded-full h-2 w-2 bg-[#7C8CF8]"></span>
                     </span>
-                    <p class="text-[#7C8CF8] font-mono text-[11px] sm:text-xs uppercase tracking-[2px] sm:tracking-[3px] font-semibold">
-                        Currently Exploring
+                    <p class="text-[#7C8CF8] font-mono text-[11px] sm:text-xs uppercase tracking-[2px] sm:tracking-[3px] font-semibold whitespace-nowrap">
+                        Currently Exploring:
                     </p>
                 </div>
 
                 <!-- Topic Pills -->
-                <div class="flex flex-wrap items-center gap-2 sm:gap-3">
+                <div class="flex flex-wrap items-center gap-2 sm:gap-2.5">
                     <span class="exploring-pill">
                         <span class="exploring-pill-dot"></span>
                         System Design
@@ -1062,10 +1062,10 @@
 
                         <button class="filter-btn active" data-filter="all">
                             <span class="hidden sm:inline">All Projects</span><span class="sm:hidden">All</span>
-                            <span class="filter-count">8</span>
+                            <span class="filter-count">10</span>
                         </button>
                         <button class="filter-btn" data-filter="fullstack">
-                            Full-Stack <span class="filter-count">3</span>
+                            Full-Stack <span class="filter-count">5</span>
                         </button>
                         <button class="filter-btn" data-filter="frontend">
                             Frontend <span class="filter-count">1</span>
@@ -1172,7 +1172,68 @@
                             </div>
                         </div>
 
-                        <!-- 4. Fitness Planet (Frontend) -->
+                        <!-- 4. ShopSphere (Full-Stack - In Progress) -->
+                        <div class="project-card" data-category="fullstack" data-project-id="shopsphere">
+                            <div class="project-preview-box flex flex-col items-center justify-center p-6 text-center bg-gradient-to-br from-[#0B0F19] to-[#111827]">
+                                <div class="w-16 h-16 rounded-2xl bg-[#7C8CF8]/10 border border-[#7C8CF8]/25 flex items-center justify-center mb-3.5 text-[#7C8CF8] shadow-lg shadow-[#7C8CF8]/10">
+                                    <i class="fa-solid fa-layer-group text-2xl"></i>
+                                </div>
+                                <div class="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-[#7C8CF8]/15 border border-[#7C8CF8]/30 text-[#C7D2FE] text-xs font-semibold tracking-wide shadow-sm">
+                                    <span class="w-2 h-2 rounded-full bg-[#7C8CF8] animate-ping"></span>
+                                    <span>In Progress</span>
+                                </div>
+                                <div class="project-img-overlay"></div>
+                                <div class="project-click-hint">
+                                    <span>Click to View Details</span>
+                                    <i class="fa-solid fa-arrow-up-right-from-square"></i>
+                                </div>
+                            </div>
+                            <div class="project-card-footer">
+                                <div class="project-card-meta">
+                                    <h3 class="project-card-name">
+                                        <img src="assets/images/Logo/ShopSphere.png" alt="ShopSphere Logo"
+                                            class="project-card-logo" onerror="this.style.display='none'">
+                                        <span>ShopSphere</span>
+                                    </h3>
+                                    <p class="project-card-keywords">Full-Stack Platform • In Progress</p>
+                                </div>
+                                <a href="https://github.com/TanishMehta23/ShopSphere" target="_blank"
+                                    rel="noopener noreferrer" class="project-open-icon" title="Open Repository"
+                                    aria-label="Open ShopSphere Repository" onclick="event.stopPropagation();">
+                                    <i class="fa-solid fa-arrow-up-right-from-square"></i>
+                                </a>
+                            </div>
+                        </div>
+
+                        <!-- 5. Smart Buy (Full-Stack) -->
+                        <div class="project-card" data-category="fullstack" data-project-id="smartbuy">
+                            <div class="project-preview-box">
+                                <img src="assets/images/SmartBuy.png" alt="Smart Buy" class="project-preview-img"
+                                    loading="lazy">
+                                <div class="project-img-overlay"></div>
+                                <div class="project-click-hint">
+                                    <span>Click to View Details</span>
+                                    <i class="fa-solid fa-arrow-up-right-from-square"></i>
+                                </div>
+                            </div>
+                            <div class="project-card-footer">
+                                <div class="project-card-meta">
+                                    <h3 class="project-card-name">
+                                        <img src="assets/images/Logo/SmartBuy-logo.png" alt="Smart Buy Logo"
+                                            class="project-card-logo">
+                                        <span>Smart Buy</span>
+                                    </h3>
+                                    <p class="project-card-keywords">Full-Stack Product Catalog System</p>
+                                </div>
+                                <a href="https://smartbuy-store.vercel.app/" target="_blank" rel="noopener noreferrer"
+                                    class="project-open-icon" title="Open Live Demo"
+                                    aria-label="Open Smart Buy Live Demo" onclick="event.stopPropagation();">
+                                    <i class="fa-solid fa-arrow-up-right-from-square"></i>
+                                </a>
+                            </div>
+                        </div>
+
+                        <!-- 6. Fitness Planet (Frontend) -->
                         <div class="project-card" data-category="frontend" data-project-id="fitness">
                             <div class="project-preview-box">
                                 <img src="assets/images/Fitness-Planet/img-1.png" alt="Fitness Planet"
@@ -1200,7 +1261,7 @@
                             </div>
                         </div>
 
-                        <!-- 5. Smart Locker IoT (Hardware) -->
+                        <!-- 7. Smart Locker IoT (Hardware) -->
                         <div class="project-card" data-category="hardware" data-project-id="smartlocker">
                             <div class="project-preview-box">
                                 <div class="project-collage">
@@ -1249,7 +1310,7 @@
                             </div>
                         </div>
 
-                        <!-- 6. Automated Greenhouse Monitoring (Hardware) -->
+                        <!-- 8. Automated Greenhouse Monitoring (Hardware) -->
                         <div class="project-card" data-category="hardware" data-project-id="greenhouse">
                             <div class="project-preview-box">
                                 <div class="project-collage">
@@ -1299,7 +1360,7 @@
                             </div>
                         </div>
 
-                        <!-- 7. SpamShield (AI / ML) -->
+                        <!-- 9. SpamShield (AI / ML) -->
                         <div class="project-card" data-category="ai" data-project-id="spamshield">
                             <div class="project-preview-box">
                                 <img src="assets/images/spamshield.png" alt="SpamShield" class="project-preview-img"
@@ -1328,7 +1389,7 @@
                             </div>
                         </div>
 
-                        <!-- 8. QuizoraAI (AI / ML) -->
+                        <!-- 10. QuizoraAI (AI / ML) -->
                         <div class="project-card" data-category="ai" data-project-id="quizora">
                             <div class="project-preview-box">
                                 <img src="assets/images/QuizoraAI.png" alt="QuizoraAI" class="project-preview-img"
@@ -2155,11 +2216,18 @@
                             <div class="eng-card-header">
                                 <span class="eng-phase-badge badge-teal">MILESTONE 03</span>
                                 <span class="eng-sub-label">FULL-STACK DEVELOPMENT</span>
-                                <span class="milestone-proj-capsule capsule-teal">
-                                    <img src="assets/images/Logo/Focusora-logo.png" alt="FocusoraHQ"
-                                        class="capsule-logo">
-                                    FocusoraHQ
-                                </span>
+                                <div class="flex items-center gap-2 flex-wrap">
+                                    <span class="milestone-proj-capsule capsule-teal">
+                                        <img src="assets/images/Logo/Focusora-logo.png" alt="FocusoraHQ"
+                                            class="capsule-logo">
+                                        FocusoraHQ
+                                    </span>
+                                    <span class="milestone-proj-capsule capsule-teal">
+                                        <img src="assets/images/Logo/SmartBuy-logo.png" alt="Smart Buy"
+                                            class="capsule-logo">
+                                        Smart Buy
+                                    </span>
+                                </div>
                             </div>
                             <h3 class="eng-card-title">Building Full-Stack Applications</h3>
                             <p class="eng-card-desc">
@@ -2587,10 +2655,18 @@
                                         class="text-xs text-zinc-500 group-hover:text-white group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-transform">↗</span>
                                 </a>
                             </li>
-                             <li>
+                            <li>
+                                <a href="https://github.com/TanishMehta23/ShopSphere" target="_blank"
+                                    class="text-zinc-400 hover:text-white text-sm transition-colors inline-flex items-center gap-1 group">
+                                    <span>ShopSphere</span>
+                                    <span
+                                        class="text-xs text-zinc-500 group-hover:text-white group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-transform">↗</span>
+                                </a>
+                            </li>
+                            <li>
                                 <a href="https://smartbuy-store.vercel.app/" target="_blank"
                                     class="text-zinc-400 hover:text-white text-sm transition-colors inline-flex items-center gap-1 group">
-                                    <span>SmartBuy</span>
+                                    <span>Smart Buy</span>
                                     <span
                                         class="text-xs text-zinc-500 group-hover:text-white group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-transform">↗</span>
                                 </a>

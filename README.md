@@ -79,9 +79,12 @@ Portfolio/
 - **FocusoraHQ** — Collaborative productivity workspace with study rooms, synchronized Pomodoro timer, shared notes, and gamified progress tracking. *(React, Node.js, Socket.io, MongoDB)*
 - **FinPulse AI** — AI-driven financial dashboard with market insights and predictive analytics. *(React, FastAPI, Gemini API, PostgreSQL)*
 - **Xplorism** — Premium AI Trip Planner with personalized itineraries, live interactive maps, expense tracking, and OCR receipt scanner. *(React 19, Tailwind CSS, Node.js, Socket.io, PostgreSQL, Leaflet)*
+- **ShopSphere** — Modern full-stack e-commerce marketplace platform in active development. *(React, Node.js, Tailwind CSS)*
+- **Smart Buy** — Modern full-stack store catalog platform featuring dynamic product discovery, category-based browsing, and a secure admin dashboard. *(React.js, Tailwind CSS, Node.js, Express.js, PostgreSQL, Prisma ORM, Cloudinary, JWT)*
 - **Fitness Planet** — Responsive fitness & wellness platform featuring BMI calculations, workout plans, and health store. *(HTML, CSS, JavaScript, EmailJS)*
-- **SpamShield** — Machine learning web application detecting spam messages with confidence scores. *(Flask, Scikit-Learn, Python)*
-- **Nexus AI** — Desktop AI agent with native Gemini tool calling, PostgreSQL memory, and OS automation. *(Python, Gemini 2.5 Flash, PostgreSQL)*
+- **Smart Locker System IoT** — Biometric security locking mechanism powered by ESP32 microcontrollers, optical fingerprint authentication, and Blynk IoT Cloud. *(ESP32, C++, Blynk IoT)*
+- **Automated Greenhouse Monitoring** — Automated climate regulation and precision agriculture monitoring system with real-time sensor telemetry. *(Embedded C, IoT Sensors, Microcontrollers)*
+- **SpamShield AI** — Machine learning web application detecting spam messages with confidence scores. *(Flask, Scikit-Learn, Python)*
 - **QuizoraAI** — AI application converting documents/PDFs into interactive quizzes. *(Python, Gemini API, Streamlit)*
 
 ---
@@ -148,12 +151,6 @@ Portfolio/
 - **CodeChef:** https://www.codechef.com/users/tanishmehta
 - **GeeksforGeeks:** https://www.geeksforgeeks.org/profile/tanishmbn75
 - **Codolio:** https://codolio.com/profile/TanishMehta
-
----
-
-## Support
-
-If you like this portfolio, consider giving the repository a star on GitHub.
 
 ---
 
