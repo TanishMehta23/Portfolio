@@ -37,7 +37,7 @@ const commands = [
     },
     {
         cmd: "ls projects/",
-        output: "FocusoraHQ   FinPulseAI   SpamShield\nNexus AI     FitnessPlanet QuizoraAI"
+        output: "FocusoraHQ   FinPulseAI   ShopSphere\nXplorism     SmartBuy     FitnessPlanet\nSpamShield   QuizoraAI    SmartLocker\nGreenhouse"
     },
     {
         cmd: "git status",
@@ -767,6 +767,7 @@ const PROJECTS_DATA = {
         tech: [
             { name: "React", icon: "fa-brands fa-react text-[#00D8FF]" },
             { name: "Node.js", icon: "fa-brands fa-node-js text-[#68A063]" },
+            { name: "Express.js", icon: "fa-solid fa-server text-[#CBD5E1]" },
             { name: "Socket.io", icon: "fa-solid fa-bolt text-[#F59E0B]" },
             { name: "MongoDB", icon: "fa-solid fa-database text-[#10B981]" },
             { name: "Tailwind CSS", icon: "fa-brands fa-css3-alt text-[#38BDF8]" }
@@ -808,6 +809,7 @@ const PROJECTS_DATA = {
         ],
         tech: [
             { name: "React", icon: "fa-brands fa-react text-[#00D8FF]" },
+            { name: "Tailwind CSS", icon: "fa-brands fa-css3-alt text-[#38BDF8]" },
             { name: "FastAPI", icon: "fa-solid fa-bolt text-[#009688]" },
             { name: "Gemini AI", icon: "fa-solid fa-sparkles text-[#A855F7]" },
             { name: "PostgreSQL", icon: "fa-solid fa-database text-[#336791]" },
@@ -852,7 +854,9 @@ const PROJECTS_DATA = {
             { name: "React", icon: "fa-brands fa-react text-[#00D8FF]" },
             { name: "Tailwind CSS", icon: "fa-brands fa-css3-alt text-[#38BDF8]" },
             { name: "Node.js", icon: "fa-brands fa-node-js text-[#68A063]" },
+            { name: "Express.js", icon: "fa-solid fa-server text-[#CBD5E1]" },
             { name: "Socket.io", icon: "fa-solid fa-bolt text-[#F59E0B]" },
+            { name: "Gemini AI", icon: "fa-solid fa-sparkles text-[#A855F7]" },
             { name: "PostgreSQL", icon: "fa-solid fa-database text-[#336791]" },
             { name: "Leaflet", icon: "fa-solid fa-map-location-dot text-[#10B981]" }
         ],
@@ -864,23 +868,43 @@ const PROJECTS_DATA = {
         category: "Full-Stack",
         categoryClass: "badge-fullstack",
         logo: "assets/images/Logo/ShopSphere.png",
-        icon: "fa-solid fa-bag-shopping text-[#7C8CF8]",
-        isInProgress: true,
-        desc: "Full-stack e-commerce marketplace platform currently under active development. Complete architecture, feature release, and live deployment coming soon.",
+        image: "assets/images/ShopSphere/img-1.png",
+        gallery: [
+            "assets/images/ShopSphere/img-1.png",
+            "assets/images/ShopSphere/img-2.png",
+            "assets/images/ShopSphere/img-3.png",
+            "assets/images/ShopSphere/img-4.png",
+            "assets/images/ShopSphere/img-5.png",
+            "assets/images/ShopSphere/img-6.png",
+            "assets/images/ShopSphere/img-7.png",
+            "assets/images/ShopSphere/img-8.png",
+            "assets/images/ShopSphere/img-9.png",
+            "assets/images/ShopSphere/img-10.png",
+            "assets/images/ShopSphere/img-11.png",
+            "assets/images/ShopSphere/img-12.png",
+            "assets/images/ShopSphere/img-13.png",
+            "assets/images/ShopSphere/img-14.png",
+            "assets/images/ShopSphere/img-15.png"
+        ],
+        desc: "A modern full-stack e-commerce marketplace featuring a curated product catalog, seamless shopping cart, secure user authentication, and a clean minimalist storefront UI built for fashion and lifestyle brands.",
         highlights: [
-            "Modern full-stack web architecture in active progress",
-            "Modular product catalog and category management",
-            "Scalable backend API services and secure transactions",
-            "Upcoming deployment and public release"
+            "Elegant product catalog with category filtering and dynamic collection pages",
+            "Shopping cart with persistent state and quantity management",
+            "Secure user authentication with JWT and protected routes",
+            "Admin dashboard for product and inventory management",
+            "Cloudinary-powered image storage and optimized media delivery",
+            "Fully responsive mobile-first UI with smooth page transitions"
         ],
         tech: [
             { name: "React", icon: "fa-brands fa-react text-[#00D8FF]" },
-            { name: "MongoDB", icon: "fa-solid fa-database text-[#336791]" },
+            { name: "Tailwind CSS", icon: "fa-brands fa-css3-alt text-[#38BDF8]" },
             { name: "Node.js", icon: "fa-brands fa-node-js text-[#68A063]" },
-            { name: "Express", icon: "fa-brands fa-server text-[#68A063]" },
-            { name: "In Progress", icon: "fa-solid fa-spinner fa-spin text-[#F59E0B]" }
+            { name: "Express.js", icon: "fa-solid fa-server text-[#CBD5E1]" },
+            { name: "MongoDB", icon: "fa-solid fa-leaf text-[#10B981]" },
+            { name: "JWT", icon: "fa-solid fa-key text-[#F59E0B]" },
+            { name: "Cloudinary", icon: "fa-solid fa-cloud-arrow-up text-[#3448C5]" }
         ],
-        liveUrl: "#",
+        liveUrl: "https://shopsphere-store-web.vercel.app/",
         githubUrl: "https://github.com/TanishMehta23/ShopSphere"
     },
     smartbuy: {
@@ -888,9 +912,22 @@ const PROJECTS_DATA = {
         category: "Full-Stack",
         categoryClass: "badge-fullstack",
         logo: "assets/images/Logo/SmartBuy-logo.png",
-        image: "assets/images/SmartBuy.png",
+        image: "assets/images/SmartBuy/img-1.png",
         gallery: [
-            "assets/images/SmartBuy.png"
+            "assets/images/SmartBuy/img-1.png",
+            "assets/images/SmartBuy/img-2.png",
+            "assets/images/SmartBuy/img-3.png",
+            "assets/images/SmartBuy/img-4.png",
+            "assets/images/SmartBuy/img-5.png",
+            "assets/images/SmartBuy/img-6.png",
+            "assets/images/SmartBuy/img-7.png",
+            "assets/images/SmartBuy/img-8.png",
+            "assets/images/SmartBuy/img-9.png",
+            "assets/images/SmartBuy/img-10.png",
+            "assets/images/SmartBuy/img-11.png",
+            "assets/images/SmartBuy/img-12.png",
+            "assets/images/SmartBuy/img-13.png",
+            "assets/images/SmartBuy/img-14.png"
         ],
         desc: "Developed a modern, full-stack store catalog platform featuring dynamic product discovery, category-based browsing, and a secure admin dashboard for managing products and digital assets.",
         highlights: [
@@ -1008,6 +1045,7 @@ const PROJECTS_DATA = {
         tech: [
             { name: "Python", icon: "fa-brands fa-python text-[#3776AB]" },
             { name: "Scikit-Learn", icon: "fa-solid fa-brain text-[#F7931E]" },
+            { name: "NLTK", icon: "fa-solid fa-language text-[#10B981]" },
             { name: "Flask", icon: "fa-solid fa-server text-[#FFFFFF]" },
             { name: "HTML/CSS", icon: "fa-brands fa-html5 text-[#E34F26]" }
         ],
