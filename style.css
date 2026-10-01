@@ -1,4 +1,4 @@
-:root {
+﻿:root {
     --bg-primary: #08090D;
     --bg-secondary: #0D1018;
     --surface: #101522;
@@ -130,8 +130,6 @@ nav ul li a.active::after {
 
     transition: width .15s linear;
 }
-
-/* Chrome / Edge */
 
 ::-webkit-scrollbar {
     width: 10px;
@@ -449,8 +447,6 @@ nav ul li a.active::after {
 .project-btn:hover {
     transform: translateY(-4px);
 }
-
-/* Floating animation disabled */
 .floating,
 .delay1,
 .delay2,
@@ -613,10 +609,6 @@ nav ul li a.active::after {
     }
 }
 
-
-
-
-
 .timeline {
 
     position: relative;
@@ -760,7 +752,6 @@ nav ul li a.active::after {
     transform: translateY(0);
 
 }
-
 
 .dashboard-card {
     background: #101827;
@@ -1086,8 +1077,6 @@ nav ul li a.active::after {
 
 }
 
-/* GRID */
-
 .stats-grid {
 
     display: grid;
@@ -1250,7 +1239,7 @@ nav ul li a.active::after {
 
 .dashboard-section {
     max-width: 1200px;
-    /* same width as Journey */
+  
     margin: 70px auto;
 }
 
@@ -1288,7 +1277,7 @@ nav ul li a.active::after {
 
 .pipeline-wrapper {
     max-width: 1200px;
-    /* Same width as dashboard/journey */
+  
     margin: 70px auto 0;
 }
 
@@ -1358,11 +1347,8 @@ nav ul li a.active::after {
     overflow-y: hidden;
     padding: 12px 6px 20px;
     scrollbar-width: none;
-    /* Firefox */
     -ms-overflow-style: none;
-    /* IE/Edge */
     -webkit-overflow-scrolling: touch;
-    /* iOS WebKit Momentum Scroll */
     touch-action: pan-x pan-y;
     cursor: grab;
     user-select: none;
@@ -1370,7 +1356,6 @@ nav ul li a.active::after {
 
 .projects-carousel-track::-webkit-scrollbar {
     display: none;
-    /* Chrome/Safari */
 }
 
 .projects-carousel-track.is-dragging {
@@ -2200,9 +2185,10 @@ nav ul li a.active::after {
         width: 32px;
         height: 32px;
         font-size: 14px;
-        background: rgba(10, 15, 29, 0.85);
-        border: 1px solid rgba(255, 255, 255, 0.2);
-        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.5);
+        background: rgba(10, 15, 29, 0.92);
+        border: 1px solid rgba(255, 255, 255, 0.25);
+        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.6);
+        z-index: 50;
     }
 
     .project-modal-grid {
@@ -2215,7 +2201,7 @@ nav ul li a.active::after {
     .project-modal-media {
         border-right: none;
         border-bottom: 1px solid rgba(255, 255, 255, 0.08);
-        padding: 10px;
+        padding: 48px 10px 10px;
         flex-shrink: 0;
     }
 
@@ -2271,7 +2257,7 @@ nav ul li a.active::after {
     .project-modal-title {
         font-size: 18px;
         margin-bottom: 2px;
-        padding-right: 28px; /* space so it never overlaps close icon */
+        padding-right: 28px;
         gap: 8px;
     }
 
@@ -2735,28 +2721,18 @@ nav ul li a.active::after {
     margin-bottom: 30px;
     transition: .35s;
 }
-
-/* Programming */
 .programming-title {
     color: #22C55E;
 }
-
-/* Frontend */
 .frontend-title {
     color: #14B8A6;
 }
-
-/* Backend */
 .backend-title {
     color: #8B5CF6;
 }
-
-/* AI */
 .ai-title {
     color: #EC4899;
 }
-
-/* Database */
 .database-title {
     color: #F59E0B;
 }
@@ -3116,8 +3092,6 @@ nav ul li a.active::after {
     line-height: 1.7;
 }
 
-/* Grid */
-
 .profiles-grid {
     display: grid;
     grid-template-columns: repeat(7, 1fr);
@@ -3434,8 +3408,6 @@ nav ul li a.active::after {
 
 }
 
-
-
 .contact-heading {
     text-align: center;
     margin-bottom: 45px;
@@ -3687,7 +3659,6 @@ nav ul li a.active::after {
 
 }
 
-
 /*==========================
         FOOTER
 ===========================*/
@@ -3871,7 +3842,6 @@ nav ul li a.active::after {
         border-color .25s,
         background .25s;
 
-
 }
 
 @media (max-width: 768px),
@@ -3893,7 +3863,6 @@ body {
       GITHUB ACTIVITY GRID
 ============================ */
 
-
 .github-heatmap-wrapper {
     background: #0B1220;
     border: 1px solid #24324D;
@@ -3901,7 +3870,6 @@ body {
     padding: 20px;
     overflow-x: auto;
     scrollbar-width: thin;
-    /* Firefox */
     scrollbar-color: #24324D transparent;
 }
 
@@ -3918,7 +3886,6 @@ body {
     border-radius: 10px;
 }
 
-
 .github-chart-shell {
 
     background: #0B1220;
@@ -3933,7 +3900,6 @@ body {
 
 }
 
-
 .github-chart-image {
 
     display: block;
@@ -3945,7 +3911,6 @@ body {
     border-radius: 12px;
 
 }
-
 
 .github-months {
 
@@ -3965,7 +3930,6 @@ body {
 
 }
 
-
 .github-days {
 
     display: grid;
@@ -3979,7 +3943,6 @@ body {
     font-size: 10px;
 
 }
-
 
 .github-grid-container {
 
@@ -3995,7 +3958,6 @@ body {
 
 }
 
-
 .github-box {
 
     width: 12px;
@@ -4008,7 +3970,6 @@ body {
 
 }
 
-
 .github-box:hover {
 
     transform: scale(1.7);
@@ -4016,7 +3977,6 @@ body {
     box-shadow: 0 0 12px #14B8A6;
 
 }
-
 
 /* colors */
 

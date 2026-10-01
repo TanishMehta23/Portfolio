@@ -37,7 +37,7 @@ const commands = [
     },
     {
         cmd: "ls projects/",
-        output: "FocusoraHQ   FinPulseAI   ShopSphere\nXplorism     SmartBuy     FitnessPlanet\nSpamShield   QuizoraAI    SmartLocker\nGreenhouse"
+        output: "FocusoraHQ   FinPulseAI   ShopSphere\nXplorism     SmartBuy     FitnessPlanet\nSpamShield   QuizoraAI    SmartLocker\nGreenhouse   CodePulse"
     },
     {
         cmd: "git status",
@@ -54,13 +54,10 @@ const commands = [
 ];
 
 let index = 0;
-
-// Cancel any previous loop instance strictly across reloads / tab visibility changes
 if (window.__terminalController) {
     try {
         window.__terminalController.abort();
     } catch (e) {
-        // ignore
     }
 }
 window.__terminalController = new AbortController();
@@ -107,8 +104,6 @@ async function runTerminal() {
             terminal.innerHTML = "";
 
             const current = commands[index];
-
-            // Terminal Prompt Line
             const promptLine = document.createElement("div");
             promptLine.className = "terminal-line";
 
@@ -137,8 +132,6 @@ async function runTerminal() {
                 await sleep(250, signal);
                 cursor.remove();
             }
-
-            // Output Container
             const outputWrap = document.createElement("div");
             outputWrap.className = "output";
             terminal.appendChild(outputWrap);
@@ -154,12 +147,8 @@ async function runTerminal() {
                     await sleep(65, signal);
                 }
             }
-
-            // Reading pause based on length
             const readingTime = Math.max(2200, 1400 + lines.length * 150);
             await sleep(readingTime, signal);
-
-            // Type clear command
             const clearLine = document.createElement("div");
             clearLine.className = "terminal-line";
 
@@ -186,8 +175,6 @@ async function runTerminal() {
                 await sleep(300, signal);
                 clearCursor.remove();
             }
-
-            // Instant clear with no ghosting / double-draw artifacts
             terminal.innerHTML = "";
             await sleep(150, signal);
 
@@ -234,8 +221,6 @@ function animateCountUp(element, targetValue) {
     }, stepTime);
 }
 
-
-
 const galaxy = document.getElementById("galaxy");
 const planets = [...document.querySelectorAll(".planet")];
 
@@ -253,7 +238,6 @@ if (galaxy && planets.length > 0) {
 
     window.addEventListener("resize", () => {
         updateGalaxySize();
-        // Keep planets in bounds and update radius immediately on resize
         objects.forEach(p => {
             p.r = p.el.offsetWidth / 2;
             if (p.x < p.r) p.x = p.r;
@@ -264,8 +248,6 @@ if (galaxy && planets.length > 0) {
     });
 
     const objects = [];
-
-    // Generate random position without overlapping
     function randomPosition(radius) {
         let x, y, valid = false;
         let attempts = 0;
@@ -293,8 +275,6 @@ if (galaxy && planets.length > 0) {
 
         return { x, y };
     }
-
-    // Create objects
     planets.forEach(el => {
         let r = el.offsetWidth / 2;
         const pos = randomPosition(r);
@@ -312,22 +292,17 @@ if (galaxy && planets.length > 0) {
         x: -9999,
         y: -9999
     };
-
-    // Mouse position
     galaxy.addEventListener("mousemove", (e) => {
         const rect = galaxy.getBoundingClientRect();
         mouse.x = e.clientX - rect.left;
         mouse.y = e.clientY - rect.top;
     });
-
-    // Mouse leaves galaxy
     galaxy.addEventListener("mouseleave", () => {
         mouse.x = -9999;
         mouse.y = -9999;
     });
 
     function animateGalaxy() {
-        // MOVE PLANETS
         objects.forEach(p => {
             const dx = mouse.x - p.x;
             const dy = mouse.y - p.y;
@@ -369,8 +344,6 @@ if (galaxy && planets.length > 0) {
                 p.vy *= -1;
             }
         });
-
-        // COLLISION
         for (let i = 0; i < objects.length; i++) {
             for (let j = i + 1; j < objects.length; j++) {
                 let a = objects[i];
@@ -394,8 +367,6 @@ if (galaxy && planets.length > 0) {
                 }
             }
         }
-
-        // DRAW
         objects.forEach(p => {
             p.el.style.left = (p.x - p.r) + "px";
             p.el.style.top = (p.y - p.r) + "px";
@@ -406,7 +377,6 @@ if (galaxy && planets.length > 0) {
 
     animateGalaxy();
 }
-
 
 const achievementCounters = document.querySelectorAll(".achievement-number");
 
@@ -544,8 +514,6 @@ if (ring) {
 
 const grid = document.getElementById("github-contributions-grid");
 const months = document.getElementById("github-months-container");
-
-// Render mock grid immediately
 function renderMockContributions() {
     if (grid && grid.children.length === 0) {
         const totalDays = 371;
@@ -556,8 +524,6 @@ function renderMockContributions() {
             box.classList.add(`level-${level}`);
             grid.appendChild(box);
         }
-
-        // Render mock months aligned to approximate column positions (53 columns total)
         if (months && months.children.length === 0) {
             const labels = ["Jul", "Aug", "Sep", "Oct", "Nov", "Dec", "Jan", "Feb", "Mar", "Apr", "May", "Jun"];
             labels.forEach((month, idx) => {
@@ -578,14 +544,9 @@ async function fetchGithubContributions() {
         const data = await response.json();
 
         if (data && data.contributions) {
-            // Filter out future dates
             const todayStr = new Date().toISOString().split('T')[0];
             const validContributions = data.contributions.filter(d => d.date <= todayStr);
-
-            // Sort contributions chronologically by date (since the API returns years in reverse order)
             validContributions.sort((a, b) => new Date(a.date) - new Date(b.date));
-
-            // Filter to last 371 days (53 weeks) to show only the last year
             const contributions = validContributions.slice(-371);
 
             if (grid) {
@@ -594,16 +555,12 @@ async function fetchGithubContributions() {
             if (months) {
                 months.innerHTML = "";
             }
-
-            // Calculate total contributions (all-time total)
             let totalContributions = 0;
             if (data.total) {
                 totalContributions = Object.values(data.total).reduce((sum, val) => sum + val, 0);
             } else {
                 contributions.forEach(d => totalContributions += d.count);
             }
-
-            // Pad grid start to align the first week days
             const firstDate = new Date(contributions[0].date);
             const startDay = firstDate.getDay(); // 0 (Sunday) to 6 (Saturday)
 
@@ -623,8 +580,6 @@ async function fetchGithubContributions() {
                 const dateObj = new Date(day.date);
                 const monthNum = dateObj.getMonth();
                 const weekIndex = Math.floor((index + startDay) / 7);
-
-                // Dynamically append month labels at the start of each month
                 if (monthNum !== lastMonthNum) {
                     if (months) {
                         const span = document.createElement("span");
@@ -674,8 +629,6 @@ fetchGithubContributions();
    INTERACTIVE TECH BRIDGE (Static cards <-> Galaxy)
    ==================================================== */
 const techCards = document.querySelectorAll(".tech-card");
-
-// 1. Static cards hover highlights planets in galaxy
 techCards.forEach(card => {
     const category = card.getAttribute("data-category");
     if (!category) return;
@@ -694,8 +647,6 @@ techCards.forEach(card => {
         });
     });
 });
-
-// 2. Planets hover highlights static cards
 planets.forEach(planet => {
     const categories = ["programming", "frontend", "backend", "ai", "database", "platform"];
     let planetCategory = null;
@@ -723,7 +674,6 @@ planets.forEach(planet => {
 /* ====================================================
    CONTACT FORM SUBMISSION (Web3Forms API)
    ==================================================== */
-// Form submission logic removed (form replaced by direct mailto link)
 
 /* ====================================================
    PROJECTS DATA DICTIONARY FOR MODAL POPUP
@@ -1073,6 +1023,42 @@ const PROJECTS_DATA = {
         ],
         liveUrl: "https://quizoraai.streamlit.app/",
         githubUrl: "https://github.com/TanishMehta23/QuizoraAI"
+    },
+    codepulse: {
+        title: "CodePulse",
+        category: "Full-Stack",
+        categoryClass: "badge-fullstack",
+        logo: "assets/images/Logo/CodePulse.png",
+        image: "assets/images/CodePulse/img-1.png",
+        gallery: [
+            "assets/images/CodePulse/img-1.png",
+            "assets/images/CodePulse/img-2.png",
+            "assets/images/CodePulse/img-3.png",
+            "assets/images/CodePulse/img-4.png",
+            "assets/images/CodePulse/img-5.png",
+            "assets/images/CodePulse/img-6.png",
+            "assets/images/CodePulse/img-7.png",
+            "assets/images/CodePulse/img-8.png"
+        ],
+        desc: "A fast, modern online compiler platform supporting Java, C++, Python, and JavaScript with a Monaco-powered editor. Features JWT auth, run history, favorites, stdin support, and sandboxed Docker execution.",
+        highlights: [
+            "Monaco Editor integration with full syntax highlighting for 4 languages",
+            "Sandboxed Docker execution with 8-second timeout & 2MB output cap",
+            "JWT auth, run history, favorites, stdin support & light/dark/system theme switcher"
+        ],
+        tech: [
+            { name: "React", icon: "fa-brands fa-react text-[#00D8FF]" },
+            { name: "Vite", icon: "fa-solid fa-bolt text-[#646CFF]" },
+            { name: "Tailwind CSS", icon: "fa-brands fa-css3-alt text-[#38BDF8]" },
+            { name: "Node.js", icon: "fa-brands fa-node-js text-[#68A063]" },
+            { name: "Express.js", icon: "fa-solid fa-server text-[#CBD5E1]" },
+            { name: "PostgreSQL", icon: "fa-solid fa-database text-[#336791]" },
+            { name: "Prisma", icon: "fa-solid fa-gem text-[#5A67D8]" },
+            { name: "Docker", icon: "fa-brands fa-docker text-[#2496ED]" },
+            { name: "JWT", icon: "fa-solid fa-key text-[#F59E0B]" }
+        ],
+        liveUrl: "https://code-pulse-compiler.vercel.app/",
+        githubUrl: "https://github.com/TanishMehta23/CodePulse"
     }
 };
 
@@ -1086,8 +1072,6 @@ function initProjectsCarousel() {
     const filterCapsule = document.querySelector(".filter-active-capsule");
     const filterContainer = document.querySelector(".filter-tube-container");
     const pauseBtnBottom = document.getElementById("proj-pause-btn-bottom");
-
-    // Modal elements
     const modalBackdrop = document.getElementById("project-modal");
     const modalCloseBtn = document.getElementById("project-modal-close");
     const modalImgContainer = document.getElementById("modal-img-container");
@@ -1108,14 +1092,11 @@ function initProjectsCarousel() {
     let scrollSpeed = 38; // Pixels per second
     let lastTime = null;
     let animationFrameId = null;
-
-    // Save initial original cards
     const originalCards = Array.from(track.querySelectorAll(".project-card"));
     if (originalCards.length === 0) return;
 
     // --- Infinite Clone Setup ---
     function setupInfiniteTrack() {
-        // Clear track and re-populate with clones [clonesBefore] [originalCards] [clonesAfter]
         track.innerHTML = "";
 
         const currentFilter = document.querySelector(".filter-btn.active")?.getAttribute("data-filter") || "all";
@@ -1125,8 +1106,6 @@ function initProjectsCarousel() {
         });
 
         if (matchedCards.length === 0) return;
-
-        // Clone sets for seamless infinite loop in both directions
         const clonesBefore = matchedCards.map(c => {
             const clone = c.cloneNode(true);
             clone.setAttribute("data-clone", "before");
@@ -1146,8 +1125,6 @@ function initProjectsCarousel() {
         });
 
         [...clonesBefore, ...mains, ...clonesAfter].forEach(c => track.appendChild(c));
-
-        // Center scroll position at the beginning of the main cards set
         requestAnimationFrame(() => {
             const singleSetWidth = calculateSetWidth(matchedCards.length);
             track.scrollLeft = singleSetWidth;
@@ -1165,8 +1142,6 @@ function initProjectsCarousel() {
     }
 
     setupInfiniteTrack();
-
-    // Check boundary wrap-around seamlessly
     function checkInfiniteBoundaries() {
         const currentCards = Array.from(track.querySelectorAll(".project-card:not([data-clone])"));
         const cardCount = currentCards.length;
@@ -1174,13 +1149,10 @@ function initProjectsCarousel() {
 
         const setWidth = calculateSetWidth(cardCount);
         if (setWidth <= 0) return;
-
-        // If scrolled past right clones set, jump back to main set
         if (track.scrollLeft >= setWidth * 2) {
             track.scrollLeft -= setWidth;
             currentScrollPos = track.scrollLeft;
         }
-        // If scrolled before left clones set, jump forward to main set
         else if (track.scrollLeft <= 5) {
             track.scrollLeft += setWidth;
             currentScrollPos = track.scrollLeft;
@@ -1199,7 +1171,6 @@ function initProjectsCarousel() {
         const canScroll = isAutoScrolling && !isManuallyPaused && !isHoverPaused && !isDragPaused && !isModalOpen;
 
         if (canScroll) {
-            // Keep track of fractional float position so WebKit/iOS subpixels don't get truncated
             currentScrollPos += scrollSpeed * delta;
             track.scrollLeft = currentScrollPos;
             checkInfiniteBoundaries();
@@ -1211,8 +1182,6 @@ function initProjectsCarousel() {
         animationFrameId = requestAnimationFrame(stepAutoScroll);
     }
     animationFrameId = requestAnimationFrame(stepAutoScroll);
-
-    // Auto-pause on hover, with 2-second auto-resume
     if (container) {
         container.addEventListener("mouseenter", () => {
             if (resumeTimeout) clearTimeout(resumeTimeout);
@@ -1227,8 +1196,6 @@ function initProjectsCarousel() {
             }, 2000);
         });
     }
-
-    // Toggle Auto-Scroll Button
     function toggleAutoScroll(e) {
         if (e) e.stopPropagation();
         isManuallyPaused = !isManuallyPaused;
@@ -1368,8 +1335,6 @@ function initProjectsCarousel() {
         if (!isDown) return;
         isDown = false;
         track.classList.remove("is-dragging");
-
-        // Momentum coasting
         if (Math.abs(velocity) > 2) {
             track.scrollBy({
                 left: -velocity * 10,
@@ -1398,8 +1363,6 @@ function initProjectsCarousel() {
         track.scrollLeft = scrollLeftStart - walk;
         checkInfiniteBoundaries();
     });
-
-    // Touch events for mobile/tablet swipe
     track.addEventListener("touchstart", () => {
         isDragPaused = true;
     }, { passive: true });
@@ -1415,8 +1378,6 @@ function initProjectsCarousel() {
     function openProjectModal(projectId) {
         const data = PROJECTS_DATA[projectId];
         if (!data || !modalBackdrop) return;
-
-        // Render Media
         if (data.gallery && data.gallery.length >= 3) {
             const img1 = data.gallery[0];
             const img2 = data.gallery[1];
@@ -1446,8 +1407,6 @@ function initProjectsCarousel() {
                     </div>
                 </div>
             `;
-
-            // Lightbox integration on collage click
             const lightbox = document.getElementById("project-img-lightbox");
             const lightboxImg = document.getElementById("lightbox-full-img");
             const lightboxClose = document.getElementById("lightbox-close-btn");
@@ -1576,28 +1535,18 @@ function initProjectsCarousel() {
         } else {
             modalImgContainer.innerHTML = `<img src="${data.image}" alt="${data.title}" class="rounded-xl">`;
         }
-
-        // Title
         let iconHtml = "";
         if (data.logo) iconHtml = `<img src="${data.logo}" alt="${data.title}" class="project-modal-logo object-contain inline-block rounded-md">`;
         else if (data.icon) iconHtml = `<i class="${data.icon}"></i>`;
         else if (data.emoji) iconHtml = `<span>${data.emoji}</span>`;
         modalTitle.innerHTML = `${iconHtml} <span>${data.title}</span>`;
-
-        // Description
         modalDesc.textContent = data.desc;
-
-        // Highlights List
         modalFeaturesList.innerHTML = data.highlights
             .map(item => `<li>${item}</li>`)
             .join("");
-
-        // Tech Pills
         modalTechTags.innerHTML = data.tech
             .map(t => `<span class="modal-tech-pill"><i class="${t.icon}"></i> ${t.name}</span>`)
             .join("");
-
-        // Action Buttons
         modalActionButtons.innerHTML = `
             <a href="${data.liveUrl}" target="_blank" class="modal-btn-live">
                 <span>Live Demo</span>
@@ -1608,8 +1557,6 @@ function initProjectsCarousel() {
                 <span>GitHub</span>
             </a>
         `;
-
-        // Open Modal
         modalBackdrop.classList.add("open");
         modalBackdrop.setAttribute("aria-hidden", "false");
         document.body.style.overflow = "hidden";
@@ -1620,25 +1567,16 @@ function initProjectsCarousel() {
         modalBackdrop.classList.remove("open");
         modalBackdrop.setAttribute("aria-hidden", "true");
         document.body.style.overflow = "";
-
-        // Reset all pause flags and resync scroll position so auto-scroll
-        // resumes correctly after the modal is dismissed. Without this,
-        // isHoverPaused stays true because mouseleave never fires on the
-        // container while the modal had focus.
         if (resumeTimeout) clearTimeout(resumeTimeout);
         isDragPaused = false;
         resumeTimeout = setTimeout(() => {
             if (!isManuallyPaused) {
                 isHoverPaused = false;
             }
-            // Re-sync currentScrollPos so the animation engine doesn't
-            // stutter after a long modal session.
             currentScrollPos = track.scrollLeft;
             lastTime = null;
         }, 200);
     }
-
-    // Attach click listeners to cards to open modal
     track.addEventListener("click", (e) => {
         if (hasDragged) return; // Ignore drag clicks
         const card = e.target.closest(".project-card");
@@ -1662,8 +1600,6 @@ function initProjectsCarousel() {
         }
     });
 }
-
-// Run Carousel initialization on load
 if (document.readyState === "loading") {
     document.addEventListener("DOMContentLoaded", initProjectsCarousel);
 } else {
@@ -1687,29 +1623,19 @@ async function runHeroTyping() {
     ];
 
     let phraseIndex = 0;
-
-    // Clear initial text to start clean
     heroTyping.textContent = "";
 
     while (true) {
         const phrase = phrases[phraseIndex];
-
-        // Type out the phrase
         for (let i = 0; i <= phrase.length; i++) {
             heroTyping.textContent = phrase.slice(0, i);
             await sleep(100);
         }
-
-        // Wait before deleting
         await sleep(2200);
-
-        // Delete the phrase
         for (let i = phrase.length; i >= 0; i--) {
             heroTyping.textContent = phrase.slice(0, i);
             await sleep(50);
         }
-
-        // Wait before typing the next one
         await sleep(600);
 
         phraseIndex = (phraseIndex + 1) % phrases.length;
@@ -1723,11 +1649,7 @@ window.addEventListener("load", () => {
             preloader.classList.add("fade-out");
         }, 100);
     }
-
-    // Start hero typing animation
     runHeroTyping();
-
-    // Initialize Dashboard Spotlight Hover effect on the HUD Strip
     const hudStrip = document.querySelector(".hud-strip");
     if (hudStrip) {
         hudStrip.addEventListener("mousemove", (e) => {
@@ -1738,8 +1660,6 @@ window.addEventListener("load", () => {
             hudStrip.style.setProperty("--mouse-y", `${y}px`);
         });
     }
-
-    // Fetch GitHub Repositories count dynamically
     const githubRepoEl = document.getElementById("github-repo-count");
     if (githubRepoEl) {
         fetch("https://api.github.com/users/TanishMehta23")
@@ -1751,8 +1671,6 @@ window.addEventListener("load", () => {
             })
             .catch(err => console.error("Error fetching GitHub repos count:", err));
     }
-
-    // Initialize Dashboard Intersection Observer Count Up
     const statNums = document.querySelectorAll(".stat-num");
     const startCountUp = (el) => {
         const target = parseInt(el.getAttribute("data-target"), 10);
@@ -1856,49 +1774,33 @@ window.addEventListener("load", () => {
 
     const drawGame = () => {
         if (!ctx) return;
-
-        // Clear canvas
         ctx.fillStyle = "#030508";
         ctx.fillRect(0, 0, canvas.width, canvas.height);
-
-        // Draw Grid Lines (Subtle)
         ctx.strokeStyle = "rgba(20, 184, 166, 0.03)";
         ctx.lineWidth = 1;
-        // Vertical lines
         for (let i = 0; i <= tileCountX; i++) {
             ctx.beginPath();
             ctx.moveTo(i * gridSize, 0);
             ctx.lineTo(i * gridSize, canvas.height);
             ctx.stroke();
         }
-        // Horizontal lines
         for (let i = 0; i <= tileCountY; i++) {
             ctx.beginPath();
             ctx.moveTo(0, i * gridSize);
             ctx.lineTo(canvas.width, i * gridSize);
             ctx.stroke();
         }
-
-        // Move Snake
         direction = nextDirection;
         const head = { x: snake[0].x + direction.x, y: snake[0].y + direction.y };
-
-        // Check Wall Collision
         if (head.x < 0 || head.x >= tileCountX || head.y < 0 || head.y >= tileCountY) {
             endGame();
             return;
         }
-
-        // Check Self Collision
         if (snake.some(segment => segment.x === head.x && segment.y === head.y)) {
             endGame();
             return;
         }
-
-        // Append new head
         snake.unshift(head);
-
-        // Check Food Eating
         if (head.x === food.x && head.y === food.y) {
             score += isFeatureFood ? 15 : 10;
             if (scoreVal) scoreVal.textContent = score;
@@ -1909,13 +1811,9 @@ window.addEventListener("load", () => {
             }
             spawnFood();
         } else {
-            // Remove tail if didn't eat food
             snake.pop();
         }
-
-        // Draw Food
         if (isFeatureFood) {
-            // Feature Food: Glowing Green Circle
             ctx.shadowBlur = 12;
             ctx.shadowColor = "#10B981";
             ctx.fillStyle = "#10B981";
@@ -1923,7 +1821,6 @@ window.addEventListener("load", () => {
             ctx.arc(food.x * gridSize + gridSize / 2, food.y * gridSize + gridSize / 2, 6, 0, Math.PI * 2);
             ctx.fill();
         } else {
-            // Bug Food: Glowing Red Circle
             ctx.shadowBlur = 12;
             ctx.shadowColor = "#EF4444";
             ctx.fillStyle = "#EF4444";
@@ -1932,8 +1829,6 @@ window.addEventListener("load", () => {
             ctx.fill();
         }
         ctx.shadowBlur = 0; // reset shadow
-
-        // Draw Snake
         snake.forEach((segment, idx) => {
             const isHead = idx === 0;
             if (isHead) {
@@ -1941,7 +1836,6 @@ window.addEventListener("load", () => {
                 ctx.shadowBlur = 10;
                 ctx.shadowColor = "#14B8A6";
             } else {
-                // Gradient tail segments
                 const intensity = Math.max(100 - idx * 6, 40);
                 ctx.fillStyle = `rgb(13, ${intensity + 50}, ${intensity + 80})`;
             }
@@ -1967,8 +1861,6 @@ window.addEventListener("load", () => {
             overlay.classList.remove("opacity-0", "pointer-events-none");
         }
     };
-
-    // Keyboard controls
     window.addEventListener("keydown", (e) => {
         if (!isGameActive) return;
 
@@ -1999,8 +1891,6 @@ window.addEventListener("load", () => {
                 break;
         }
     });
-
-    // Touch D-Pad Controls
     const upBtn = document.getElementById("ctrl-up");
     const downBtn = document.getElementById("ctrl-down");
     const leftBtn = document.getElementById("ctrl-left");
@@ -2015,15 +1905,12 @@ window.addEventListener("load", () => {
         startBtn.addEventListener("click", startGame);
     }
 });
-
-// Highlight navbar and change header color when Projects section is in view
 document.addEventListener("DOMContentLoaded", () => {
     const header = document.querySelector('header');
     const navLinks = document.querySelectorAll('a.nav-link');
     const mobileLinks = document.querySelectorAll('a.mobile-link');
     const projectsSection = document.getElementById('projects');
 
-    // Header color toggle is optional — observe projects section only if it exists
     if (header && projectsSection) {
         const observer = new IntersectionObserver((entries) => {
             entries.forEach(entry => {
@@ -2038,9 +1925,6 @@ document.addEventListener("DOMContentLoaded", () => {
         observer.observe(projectsSection);
     }
 
-    // (Removed achievements-only observer — generic links observer below handles all sections)
-
-    // Use viewport midpoint scanning to reliably mark the active nav link (works across layouts)
     const sectionLinks = Array.from(navLinks).filter(a => a.getAttribute('href') && a.getAttribute('href').startsWith('#'));
 
     const sections = sectionLinks.map(link => {
@@ -2079,14 +1963,11 @@ document.addEventListener("DOMContentLoaded", () => {
         sections.forEach(s => {
             const rect = s.el.getBoundingClientRect();
             if (rect.top <= mid && rect.bottom >= mid) {
-                // set this as active
                 sectionLinks.forEach(a => a.classList.remove('active'));
                 mobileLinks.forEach(a => a.classList.remove('active'));
                 s.link.classList.add('active');
                 if (s.mobileLink) s.mobileLink.classList.add('active');
                 foundActive = true;
-
-                // toggle header projects-active when projects section is active
                 if (header && s.id === 'projects') {
                     header.classList.add('projects-active');
                 } else if (header && s.id !== 'projects') {
@@ -2105,7 +1986,6 @@ document.addEventListener("DOMContentLoaded", () => {
     const throttledUpdate = throttle(updateActiveByMidpoint, 120);
     window.addEventListener('scroll', throttledUpdate, { passive: true });
     window.addEventListener('resize', throttledUpdate);
-    // run once to initialise
     updateActiveByMidpoint();
 });
 
@@ -2127,7 +2007,6 @@ document.addEventListener("DOMContentLoaded", () => {
     }
 
     document.addEventListener('keydown', (e) => {
-        // ignore when typing in inputs or textareas
         const tag = document.activeElement && document.activeElement.tagName;
         if (tag === 'INPUT' || tag === 'TEXTAREA' || document.activeElement.isContentEditable) return;
 
@@ -2142,8 +2021,6 @@ document.addEventListener("DOMContentLoaded", () => {
     });
 
     closeBtn.addEventListener('click', closeModal);
-
-    // allow clicking outside to close
     document.addEventListener('click', (e) => {
         if (!modal.classList.contains('open')) return;
         const card = modal.querySelector('.recruiter-modal-card');
@@ -2151,8 +2028,6 @@ document.addEventListener("DOMContentLoaded", () => {
             closeModal();
         }
     });
-
-    // Click on hint opens modal
     const hint = document.getElementById('recruiter-hint');
     if (hint) {
         hint.addEventListener('click', (e) => {

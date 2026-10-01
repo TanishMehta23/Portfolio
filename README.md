@@ -1,6 +1,6 @@
-# Tanish Mehta - Developer Portfolio
+# Tanish Mehta — Developer Portfolio
 
-A modern, responsive, and interactive developer portfolio showcasing my projects, technical skills, achievements, and journey as a Full Stack Developer & AI Enthusiast.
+A modern, responsive, and interactive developer portfolio showcasing projects, technical skills, achievements, and my journey as a Full Stack Developer & AI Enthusiast.
 
 ## Live Demo
 
@@ -10,21 +10,20 @@ A modern, responsive, and interactive developer portfolio showcasing my projects
 
 ## Features
 
-- Modern UI with Dark Theme
-- Fully Responsive Design
-- Animated Hero Section with Typing Effect
-- Recruiter Mode Quick Evaluation Modal (Press `R`)
-- Interactive Live Coding Terminal
-- Developer Dashboard (HUD Strip & Live Metrics)
-- Interactive Journey Timeline
-- Development Pipeline Visualization
-- Filterable Projects Showcase with Image Gallery Modals
-- Interactive Tech Galaxy & Organized Tech Stack
-- Achievements & Competition Spotlights
-- Interactive GitHub Contributions Heatmap
-- Developer Platform Profiles
-- Smooth Animations (AOS) & Hover Effects
-- Dynamic Scroll Progress Indicator & Custom Scrollbar
+- Modern dark-theme UI with glassmorphism accents
+- Fully responsive (mobile-first) design
+- Animated hero section with typing effect
+- Recruiter Mode quick-evaluation modal (Press `R`)
+- Interactive live coding terminal
+- Developer Dashboard — HUD strip & live GitHub metrics
+- Interactive journey timeline & development pipeline
+- Filterable projects carousel (11 projects) with image gallery modals & lightbox
+- Interactive Tech Galaxy & organized tech stack
+- Achievements & competition spotlights
+- Interactive GitHub contributions heatmap
+- Developer platform profile links
+- Smooth AOS animations, hover effects & custom cursor
+- Dynamic scroll progress indicator
 
 ---
 
@@ -47,7 +46,8 @@ Portfolio/
 │
 ├── index.html          # Main HTML structure & sections
 ├── style.css           # Custom styling, animations & theme rules
-├── script.js           # Interactive functionality, terminal simulation & GitHub heatmap
+├── script.js           # Interactive functionality, carousel engine & GitHub heatmap
+├── vercel.json         # Vercel SPA routing config
 ├── assets/
 │   ├── images/         # Project previews & screenshots
 │   │   ├── FocusoraHQ/
@@ -55,90 +55,72 @@ Portfolio/
 │   │   ├── Xplorism/
 │   │   ├── ShopSphere/
 │   │   ├── SmartBuy/
+│   │   ├── CodePulse/
 │   │   ├── Fitness-Planet/
 │   │   ├── Hardware/
-│   │   └── Logo/
-│   ├── icons/          # Logos & favicon assets
+│   │   └── Logo/       # Project logos & favicon
 │   └── resume.pdf      # Resume document
 │
-└── README.md           # Project documentation
+└── README.md
 ```
 
 ---
 
 ## Sections
 
-- Hero (Introduction, Typing Animation, Social Links, Live Terminal & Focus)
-- Recruiter Mode (Quick 10-second summary popup)
-- About & Journey Timeline
-- Developer Dashboard (Live Stats HUD)
-- Development Pipeline
-- Projects (Filterable by Category with full image gallery modals)
-- Tech Stack & Interactive Tech Galaxy
-- Achievements & Competitions
-- Developer Profiles (LeetCode, GitHub, HackerRank, CodeChef, GFG, Codolio, LinkedIn)
-- GitHub Activity & Heatmap
-- Contact & Footer
+- **Hero** — Introduction, typing animation, social links, live terminal & current focus
+- **Recruiter Mode** — Quick 10-second summary popup
+- **About** — Bio, developer dashboard (live stats HUD) & capability cards
+- **Projects** — Filterable carousel (Full-Stack, Frontend, AI/ML, Hardware) with modal gallery
+- **Tech Stack** — Organized skill pills & interactive tech galaxy
+- **Achievements** — Competition wins & recognition spotlights
+- **Journey** — Interactive timeline & development pipeline
+- **Developer Profiles** — LeetCode, GitHub, HackerRank, CodeChef, GFG, Codolio, LinkedIn
+- **GitHub Activity** — Live contributions heatmap
+- **Contact & Footer**
 
 ---
 
 ## Featured Projects
 
-- **FocusoraHQ** — Collaborative productivity workspace with real-time study rooms, synchronized Pomodoro timer, shared markdown notes, and gamified XP progress tracking. *(React, Node.js, Express.js, Socket.io, MongoDB, Tailwind CSS)*
-- **FinPulse AI** — AI-driven financial intelligence platform with real-time stock analytics, market sentiment analysis, and predictive macro-economic insights. *(React, Tailwind CSS, FastAPI, Gemini AI, PostgreSQL, Python)*
-- **Xplorism** — Premium AI Trip Planner with personalized day-by-day itineraries, interactive Leaflet maps, collaborative trip sync, and OCR expense tracking. *(React, Tailwind CSS, Node.js, Express.js, Socket.io, Gemini AI, PostgreSQL, Leaflet)*
-- **ShopSphere** — Modern full-stack e-commerce marketplace featuring a curated product catalog, shopping cart, secure authentication, and admin dashboard. *(React, Tailwind CSS, Node.js, Express.js, MongoDB, JWT, Cloudinary)*
-- **Smart Buy** — Full-stack store catalog platform with dynamic product discovery, category-based browsing, and a secure admin dashboard. *(React.js, Tailwind CSS, Node.js, Express.js, PostgreSQL, Prisma ORM, Cloudinary, JWT)*
-- **Fitness Planet** — Responsive fitness & wellness platform with BMI calculator, workout program catalogs, and EmailJS inquiry automation. *(HTML5, CSS3, JavaScript, EmailJS)*
-- **Smart Locker System IoT** — DICE 3rd prize award-winning biometric security locking system powered by ESP32, optical fingerprint auth, and Blynk IoT Cloud. *(ESP32, C++, Blynk IoT, Biometrics)*
-- **Automated Greenhouse Monitoring** — Automated climate regulation and precision agriculture monitoring system with real-time multi-sensor telemetry. *(Embedded C, IoT Sensors, Microcontrollers, Automation)*
-- **SpamShield AI** — Machine learning classifier detecting email and SMS spam with NLP text processing and confidence scoring. *(Python, Scikit-Learn, NLTK, Flask)*
-- **QuizoraAI** — AI platform that converts PDF documents into tiered interactive multiple-choice quizzes with instant scoring. *(Python, Gemini AI, Streamlit, PyPDF)*
+| # | Project | Description | Tech Stack |
+|---|---------|-------------|------------|
+| 1 | **FocusoraHQ** | Collaborative productivity workspace with real-time study rooms, synchronized Pomodoro timer, shared markdown notes & gamified XP progress | React, Node.js, Express.js, Socket.io, MongoDB, Tailwind CSS |
+| 2 | **FinPulse AI** | AI-driven financial intelligence platform with real-time stock analytics, market sentiment analysis & predictive macro-economic insights | React, FastAPI, Gemini AI, PostgreSQL, Python, Tailwind CSS |
+| 3 | **Xplorism** | Premium AI trip planner with day-by-day itineraries, Leaflet map routing, collaborative trip sync & OCR expense tracking | React, Node.js, Express.js, Socket.io, Gemini AI, PostgreSQL, Leaflet |
+| 4 | **ShopSphere** | Full-stack e-commerce marketplace with curated product catalog, shopping cart, secure auth & admin dashboard | React, Node.js, Express.js, MongoDB, JWT, Cloudinary |
+| 5 | **Smart Buy** | Store catalog platform with dynamic product discovery, category browsing & secure admin dashboard | React, Node.js, Express.js, PostgreSQL, Prisma ORM, Cloudinary, JWT |
+| 6 | **CodePulse** | Fast, modern online compiler supporting Java, C++, Python & JavaScript with Monaco editor, run history, favorites & sandboxed Docker execution | React, Vite, Tailwind CSS, Node.js, Express.js, PostgreSQL, Prisma, Docker, JWT |
+| 7 | **Fitness Planet** | Responsive fitness & wellness platform with BMI calculator, workout program catalogs & EmailJS inquiry automation | HTML5, CSS3, JavaScript, EmailJS |
+| 8 | **Smart Locker System IoT** | DICE 3rd prize award-winning biometric security system powered by ESP32, optical fingerprint auth & Blynk IoT Cloud | ESP32, C++, Blynk IoT, Biometrics |
+| 9 | **Automated Greenhouse Monitoring** | Automated climate regulation & precision agriculture monitoring with real-time multi-sensor telemetry | Embedded C, IoT Sensors, Microcontrollers, Automation |
+| 10 | **SpamShield AI** | ML classifier detecting email & SMS spam with NLP text processing & confidence scoring | Python, Scikit-Learn, NLTK, Flask |
+| 11 | **QuizoraAI** | AI platform that converts PDF documents into tiered interactive multiple-choice quizzes with instant scoring | Python, Gemini AI, Streamlit, PyPDF |
 
 ---
 
 ## Tech Stack
 
-### Languages & Programming
-- Java
-- Python
-- JavaScript (ES6+)
-- TypeScript
-- C++
-- C
+### Languages
+`Java` `Python` `JavaScript (ES6+)` `TypeScript` `C++` `C` `SQL`
 
-### Frontend Development
-- React
-- Next.js
-- Tailwind CSS
-- HTML5
-- CSS3
-- Bootstrap
+### Frontend
+`React` `Next.js` `Vite` `Tailwind CSS` `HTML5` `CSS3` `Bootstrap`
 
-### Backend & Frameworks
-- Node.js
-- Express.js
-- FastAPI
-- Flask
-- Streamlit
-- Socket.io
+### Backend
+`Node.js` `Express.js` `FastAPI` `Flask` `Streamlit` `Socket.io` `REST APIs` `JWT & OAuth`
 
-### Databases & Cloud
-- MongoDB
-- PostgreSQL
-- MySQL
-- Firebase
-- Cloudinary
+### Databases & ORM
+`PostgreSQL` `MongoDB` `MySQL` `Firebase` `Prisma ORM`
 
-### AI & Tools
-- Google Gemini API
-- LangChain
-- NLTK
-- Scikit-Learn
-- Git & GitHub
-- Linux
-- Vercel
-- Postman
+### AI & Machine Learning
+`Google Gemini API` `RAG Architecture` `LLM Integration` `Scikit-Learn` `NLTK`
+
+### DevOps & Cloud
+`Docker` `Vercel` `Render` `Netlify` `Cloudflare` `GitHub Actions` `Linux`
+
+### Tools & Workflow
+`Git` `GitHub` `VS Code` `IntelliJ IDEA` `Postman` `Figma` `npm`
 
 ---
 
