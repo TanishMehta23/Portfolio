@@ -903,7 +903,7 @@ const PROJECTS_DATA = {
     },
     fitness: {
         title: "Fitness Planet",
-        category: "Frontend",
+        category: "Web Application",
         categoryClass: "badge-frontend",
         logo: "assets/images/Logo/Fitness-Planet-logo.png",
         image: "assets/images/Fitness-Planet/img-1.png",
