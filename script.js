@@ -37,7 +37,7 @@ const commands = [
     },
     {
         cmd: "ls projects/",
-        output: "FocusoraHQ   FinPulseAI   ShopSphere\nXplorism     SmartBuy     FitnessPlanet\nSpamShield   QuizoraAI    SmartLocker\nGreenhouse   CodePulse"
+        output: "FocusoraHQ   FinPulseAI   ShopSphere\nXplorism     SmartBuy     FitnessPlanet\nSpamShield   QuizoraAI    SmartLocker\nGreenhouse   CodePulse    FlameFuel"
     },
     {
         cmd: "git status",
@@ -726,7 +726,7 @@ const PROJECTS_DATA = {
         githubUrl: "https://github.com/Chet07-R/FocusoraHQ"
     },
     finpulse: {
-        title: "FinPulse AI",
+        title: "FinPulse.ai",
         category: "AI / ML & Full-Stack",
         categoryClass: "badge-ai",
         logo: "assets/images/Logo/Finpulse-logo.png",
@@ -1059,6 +1059,47 @@ const PROJECTS_DATA = {
         ],
         liveUrl: "https://code-pulse-compiler.vercel.app/",
         githubUrl: "https://github.com/TanishMehta23/CodePulse"
+    },
+    flamefuel: {
+        title: "FLAME & FUEL",
+        category: "Full-Stack & Frontend",
+        categoryClass: "badge-fullstack",
+        logo: "assets/images/Logo/Flame-Fuel.svg",
+        image: "assets/images/Flame-Fuel/img-1.png",
+        gallery: [
+            "assets/images/Flame-Fuel/img-1.png",
+            "assets/images/Flame-Fuel/img-2.png",
+            "assets/images/Flame-Fuel/img-3.png",
+            "assets/images/Flame-Fuel/img-4.png",
+            "assets/images/Flame-Fuel/img-5.png",
+            "assets/images/Flame-Fuel/img-6.png",
+            "assets/images/Flame-Fuel/img-7.png",
+            "assets/images/Flame-Fuel/img-8.png",
+            "assets/images/Flame-Fuel/img-9.png",
+            "assets/images/Flame-Fuel/img-10.png",
+            "assets/images/Flame-Fuel/img-11.png",
+            "assets/images/Flame-Fuel/img-12.png",
+            "assets/images/Flame-Fuel/img-13.png",
+            "assets/images/Flame-Fuel/img-14.png",
+            "assets/images/Flame-Fuel/img-15.png",
+            "assets/images/Flame-Fuel/img-16.png"
+        ],
+        desc: "An editorial, dark-cinematic landing page crafted for a premier burger brand. Built on fire, craft, and motion with GSAP ScrollTrigger timelines, hardware-accelerated Lenis smooth scrolling, and viewport-adaptive 8-layer interactive anatomy breakdown.",
+        highlights: [
+            "Viewport-adaptive 8-layer interactive burger anatomy breakdown pinned on scroll via GSAP ScrollTrigger",
+            "Curated menu experience with category filters (ALL, CHICKEN, VEG), nutritional modals & spiciness indicators",
+            "Editorial dark-cinematic interface with hardware-accelerated Lenis smooth scrolling and sticky glassmorphic navigation"
+        ],
+        tech: [
+            { name: "React 19", icon: "fa-brands fa-react text-[#00D8FF]" },
+            { name: "Vite 6", icon: "fa-solid fa-bolt text-[#646CFF]" },
+            { name: "Tailwind CSS v4", icon: "fa-brands fa-css3-alt text-[#38BDF8]" },
+            { name: "GSAP 3", icon: "fa-solid fa-film text-[#88CE02]" },
+            { name: "Lenis", icon: "fa-solid fa-water text-[#F45B25]" },
+            { name: "Lucide React", icon: "fa-solid fa-icons text-[#CBD5E1]" }
+        ],
+        liveUrl: "https://flame-fuel.vercel.app/",
+        githubUrl: "https://github.com/TanishMehta23/Flame-Fuel"
     }
 };
 
