@@ -37,7 +37,7 @@ const commands = [
     },
     {
         cmd: "ls projects/",
-        output: "FocusoraHQ   FinPulseAI   ShopSphere\nXplorism     SmartBuy     FitnessPlanet\nSpamShield   QuizoraAI    SmartLocker\nGreenhouse   CodePulse    FlameFuel"
+        output: "FocusoraHQ   FinPulseAI   ShopSphere\nXplorism     SmartBuy     FitnessPlanet\nSpamShield   QuizoraAI    SmartLocker\nGreenhouse   CodePulse    FlameFuel\nRaktDal"
     },
     {
         cmd: "git status",
@@ -1100,6 +1100,34 @@ const PROJECTS_DATA = {
         ],
         liveUrl: "https://flame-fuel.vercel.app/",
         githubUrl: "https://github.com/TanishMehta23/Flame-Fuel"
+    },
+    raktdal: {
+        title: "RaktDal",
+        category: "Full-Stack & Systems",
+        categoryClass: "badge-fullstack",
+        logo: "assets/images/Logo/RaktDal-logo.png",
+        image: "assets/images/RaktDal/img-1.png",
+        gallery: [
+            "assets/images/RaktDal/img-1.png"
+        ],
+        desc: "An enterprise-grade voluntary blood donation, blood bank tracking, and emergency coordination platform across India, available as a responsive PWA and Electron desktop app.",
+        highlights: [
+            "Privacy-by-Design with toPublicDiscovery() PII sanitization concealing donor contact and location data in public queries",
+            "14 Mongoose schema models with geospatial 2dsphere indexing for high-precision donor and blood bank discovery",
+            "Custom client-side i18n translation engine supporting 8 Indian languages seamlessly without external API dependencies or page reloads"
+        ],
+        tech: [
+            { name: "Node.js", icon: "fa-brands fa-node text-[#339933]" },
+            { name: "Express.js", icon: "fa-solid fa-server text-[#CBD5E1]" },
+            { name: "MongoDB Atlas", icon: "fa-solid fa-database text-[#47A248]" },
+            { name: "Electron", icon: "fa-solid fa-atom text-[#47848F]" },
+            { name: "JavaScript", icon: "fa-brands fa-js text-[#F7DF1E]" },
+            { name: "Argon2 & JWT", icon: "fa-solid fa-shield-halved text-[#7C8CF8]" },
+            { name: "Google OAuth 2.0", icon: "fa-brands fa-google text-[#4285F4]" },
+            { name: "PWA", icon: "fa-solid fa-mobile-screen text-[#14B8A6]" }
+        ],
+        liveUrl: "https://raktdal.onrender.com/",
+        githubUrl: "https://github.com/Vans30m/RaktDal"
     }
 };
 
